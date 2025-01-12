@@ -7,3 +7,4 @@
 - Make View all button on Composition (title page) more visible
 
 - Add Frieren & Suzume
+
