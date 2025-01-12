@@ -4,10 +4,6 @@
     - ❌ The untouched landscape
     - ❌ The brink of the valley
 
-- Written description of each composition:
-    - ❌ Beyond the shadow
-    - ✅ Dormire        (maybe more needed)
-    - ❌ Somnolence
+- Make View all button on Composition (title page) more visible
 
-
-- ❌ Sort out date for Concerts pages
+- Add Frieren & Suzume
