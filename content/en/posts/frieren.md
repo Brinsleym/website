@@ -3,7 +3,7 @@ _schema: default
 date: 2024-12-18
 title: "Rescoring: Sousou no Frieren"
 description: >- 
-  aaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  Re-writing the music for the televised anime series Sousou no Frieren
 tags:   [film score]
 image: /images/frieren-1.jpg
 ---
