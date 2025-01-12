@@ -1,0 +1,17 @@
+{{ if .Site.IsMultiLingual }}
+            <div class="language-switcher-title">Change Language:</div> <div class="dropdown">
+                {{ range .Site.Languages }}
+                {{ if eq . $.Site.Language }}
+                <button class="dropbtn">{{ .LanguageName }}
+                </button>
+                {{ end }}
+                {{ end }}
+                <div class="dropdown-content">
+                    {{ range $.Translations }}
+                    <a title="{{ .Language.LanguageName }}" href="{{ .Permalink }}">{{
+                        .Language.LanguageName }}</a>
+                    {{ end }}
+                </div>
+            </div>
+     {{ end }}
+     

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="{{ .Language.Lang }}">
+
+  {{ partial "head.html" . }}
+
+  {{ define "header" }}
+  {{ if eq .Site.Language.Lang "ja" }}
+    {{ partial "header.ja.html" . }}
+  {{ else if eq .Site.Language.Lang "zh" }}
+    {{ partial "header.zh.html" . }}
+  {{ else }}
+    {{ partial "header.en.html" . }}
+  {{ end }}
+{{ end }}
+  
+  {{ define "footer" }}
+  {{ if eq .Site.Language.Lang "ja" }}
+    {{ partial "footer.ja.html" . }}
+  {{ else if eq .Site.Language.Lang "zh" }}
+    {{ partial "footer.zh.html" . }}
+  {{ else }}
+    {{ partial "footer.en.html" . }}
+  {{ end }}
+{{ end }}
+
+<body>
+
+  {{ if .Site.Data.general_settings.google_analytics }}
+    {{ partial "google-analytics.html" . }}
+  {{ end }}
+
+  {{ block "header" . }}{{ end }}
+  
+  
+  <!-- Loop through any structures in the front-matter and render them -->
+  {{ partial "bookshop_bindings" `.Params.content_blocks` }}
+  {{ partial "bookshop_partial" (slice "page" .Params.content_blocks) }}
+  <!-- Render any additional page content below the page's content blocks -->
+  {{ block "main" . }}{{ end }}
+
+  <div class="top" title="Top"><i class="ion ion-ios-arrow-up"></i></div>
+
+  {{ block "footer" . }}{{ end }}
+
+  {{ $script := resources.Get "js/scripts.js" }}
+  {{ $commonJs := resources.Get "js/common.js" }}
+
+
+  {{ if .Site.IsServer }}
+  <script src="{{ $script.Permalink }}"></script>
+  <script src="{{ $commonJs.Permalink }}"></script>
+  {{ else }}
+  <script src="{{ ($script | minify | fingerprint).RelPermalink }}"></script>
+  <script src="{{ ($commonJs | minify | fingerprint).RelPermalink }}"></script>
+  {{ end }}
+</body>
+
+</html>

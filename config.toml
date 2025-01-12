@@ -1,0 +1,47 @@
+baseURL = "https://brinsleymorrison.com"
+languageCode = "en"
+title = "Brinsley Morrison"
+_enabled_editors = ["visual", "content"]
+
+defaultContentLanguage = "en"
+[languages]
+  [languages.en]
+    languageName = "English"
+    languageCode = 'en-GB'
+
+    weight = 1
+    title = "Brinsley Morrison"
+    contentDir = "content/en"
+
+  [languages.ja]
+    languageName = "日本語"
+    languageCode = 'ja'
+
+    weight = 2
+    title = "モリソン・ ブリンスリー"
+    contentDir = "content/ja"
+
+  [languages.zh]
+    languageName = "中文"
+    languageCode = 'zh'
+
+    weight = 3
+    title = "布林斯利 莫里森"
+    contentDir = "content/zh"
+
+
+[module]
+replacements = "local/component-library -> ../component-library"
+
+[[module.imports]]
+path = 'local/component-library'
+
+[[module.imports]]
+path = 'github.com/cloudcannon/bookshop/hugo/v3'
+
+[markup.goldmark.renderer]
+hardWraps = true
+
+[permalinks]
+posts = "/compositions/:title/"
+projects = "/concerts/:title/"

@@ -1,0 +1,13 @@
+footer_menu__settings:
+  menu__items:
+    - title: 'Home'
+      url: '/'
+    - title: 'Performances'
+      url: '/concerts/'
+    - title: 'Compositions'
+      url: '/compositions/'
+    - title: 'About me'
+      url: '/about/'
+
+copyright_text_html: >-
+  <p> Copyright &copy; 2024 <a href="/privacypolicy">Brinsley Morrison</a>.com
