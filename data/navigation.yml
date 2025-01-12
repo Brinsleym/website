@@ -1,0 +1,10 @@
+menu__settings:
+  menu__items:
+    - title: 'Home'
+      url: '/'
+    - title: 'Compositions'
+      url: '/compositions/'
+    - title: 'Concerts'
+      url: '/concerts/'
+    - title: 'About me'
+      url: '/about/'

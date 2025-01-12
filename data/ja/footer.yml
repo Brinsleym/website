@@ -1,0 +1,13 @@
+footer_menu__settings:
+  menu__items:
+    - title: 'ホーム'
+      url: '/ja/'
+    - title: 'コンサート'
+      url: '/ja/concerts/'
+    - title: '作曲'
+      url: '/ja/compositions/'
+    - title: '私について'
+      url: '/ja/about/'
+
+copyright_text_html: >-
+  <p> Copyright &copy; 2024 <a href="/privacypolicy">Brinsley Morrison</a>.com

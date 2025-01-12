@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+npm i
+npx "@bookshop/generate"
+npx @pagebreak/cli -s public -o public

@@ -1,0 +1,10 @@
+menu__settings:
+  menu__items:
+    - title: 'ホーム'
+      url: '/ja/'
+    - title: '作曲'
+      url: '/ja/compositions/'
+    - title: 'コンサート'
+      url: '/ja/concerts/'
+    - title: '私について'
+      url: '/ja/about/'

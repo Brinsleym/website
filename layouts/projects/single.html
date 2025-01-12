@@ -1,0 +1,37 @@
+{{ define "main" }}
+
+{{ if (eq .Section "projects") }}
+
+<div class="container">
+
+  {{ partial "bookshop" (slice "page-heading" (dict "title" .Params.title "description" .Params.subtitle)) }}
+
+  {{ partial "bookshop" (slice "page-image" (dict "image" .Params.image "image_alt" .Params.title)) }}
+
+  <div class="post__meta-bottom">
+    <div class="post__author">{{ site.Data.author.author_name }}</div>
+    <time class="post__date" datetime="{{ .Date.Format " 2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "02 Jan 2006" }}</time>
+  </div>
+
+  
+  <div class="page animate">
+    {{ .Content }}
+  </div>
+
+  {{ if .PrevInSection }}
+  <div class="project__navigation">
+    <a class="project__prev" href="{{ .PrevInSection.Permalink }}">
+      <div class="project__box">
+        <span class="project__nav__info">Next Project</span>
+        <h2 class="project__nav__title">{{ .PrevInSection.Title }}<i
+            class="ion ion-md-arrow-round-forward arrow-right"></i></h2>
+      </div>
+    </a>
+  </div>
+  {{ end }}
+
+</div>
+
+{{ end }}
+
+{{ end }}
