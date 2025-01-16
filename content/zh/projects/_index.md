@@ -11,7 +11,7 @@ seo:
 content_blocks:
   - _bookshop_name: page-heading
     title: '最近的音乐会'
-    description: 林泽·莫瑞森参与的部分近期音乐会和演出的简要概述。
+    description: 莫瑞森·林泽参与的部分近期音乐会和演出的简要概述。
   - _bookshop_name: projects-list
     show_projects: true
     _live_render: false

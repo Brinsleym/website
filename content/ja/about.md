@@ -2,7 +2,7 @@
 title: "About"
 content_blocks:
   - _bookshop_name: page-heading
-    title: "ブリンスリー・モリソンについて"
+    title: "モリソン・ブリンスリーについて"
     about_description_html: >
       <p>
         ブリンスリーは<b>多楽器奏者</b>であり、<b>作曲家</b>です。彼は<b>BBCフィルハーモニー管弦楽団</b>のボーカルソリストとして演奏した経験があり、また複数のオーケストラで<b>コンサートマスター</b>としても演奏しました。<br><br>

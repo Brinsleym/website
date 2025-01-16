@@ -1,27 +1,23 @@
 <!-- begin pagination -->
 <nav class="pagination">
-    <div class="container">
-      <div class="pagination__inner">
-  
-        <div class="pagination__list">
-            
-          {{ $prev_text := printf "%s" "Prev" }}
-          
-          <a data-pagebreak-control="prev" href="." class="pagination__prev"><i class='ion ion-ios-arrow-back'></i> {{ $prev_text }}</a>
-          <span data-pagebreak-control="!prev" class="pagination__prev disabled">{{ $prev_text }}</span>
-  
-          <div class="pagination__count">
-            Page <span data-pagebreak-label="current">1</span>
-            of <span data-pagebreak-label="total">1</span>
-          </div>
-  
-          {{ $next_text := printf "%s" "Next"}}
+  <div class="container">
+    <div class="pagination__inner">
 
-          <a data-pagebreak-control="next" href="." class="pagination__next">{{ $next_text }}<i class="ion ion-ios-arrow-forward"></i></a>
-          <span data-pagebreak-control="!next" class="pagination__next disabled">{{ $next_text }}</span>
+      <div class="pagination__list">
+        
+        <a data-pagebreak-control="prev" href="." class="pagination__prev"><i class='ion ion-ios-arrow-back'></i> {{ T "prev_key" "Prev" }}</a>
+        <span data-pagebreak-control="!prev" class="pagination__prev disabled">{{ T "prev_key" "Prev" }}</span>
+
+        <div class="pagination__count">
+          Page <span data-pagebreak-label="current">1</span>
+          of <span data-pagebreak-label="total">1</span>
         </div>
-  
+
+        <a data-pagebreak-control="next" href="." class="pagination__next">{{ T "next_key" "Next" }}</a>
+        <span data-pagebreak-control="!next" class="pagination__next disabled">{{ T "next_key" "Next" }}</span>
       </div>
+
     </div>
-  </nav>
+  </div>
+</nav>
   <!-- end pagination -->
