@@ -8,7 +8,7 @@
         <div class="{{$c}}__form-box">
           <div class="{{$c}}__contact-head">
             <h2 class="{{$c}}__contact-title">{{ .form_title }}</h2>
-            <p class="{{$c}}__contact-description">{{ .form_description }}</p>
+            <p class="{{$c}}__contact-description">{{ T .form_description_key | safeHTML }}</p>
           </div>
           <form class="{{$c}}__form" action="https://formspree.io/f/xpzvnreg" method="POST">
             <input type="hidden" name="_to" value="{{.form_submission_email}}">
