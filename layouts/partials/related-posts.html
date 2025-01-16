@@ -6,9 +6,18 @@
         <div class="container__inner">
           <div class="section__info">
             <div class="section__head">
-              <h2 class="section__title">You may also like</h2>
+              <h2 class="section__title">{{ T "related_posts_title" "You may also like" }}</h2>
               {{ range first 1 ($.GetTerms "tags") }}
-                <a href="{{ .Permalink }}" class="section__link related-tag">See all<span> {{ .LinkTitle }}</span> <i class="ion ion-md-arrow-forward"></i></a>
+              <a href="{{ .Permalink }}" class="section__link related-tag">
+                {{ if eq .Lang "ja" }}
+                  <span>{{ .LinkTitle }}</span> {{ T "see_all" "すべて見る" }}
+                {{ else if eq .Lang "zh" }}
+                  {{ printf (T "see_all_zh" "查看所有 %s") .LinkTitle }}
+                {{ else }}
+                  {{ printf (T "see_all_en" "See all %s Music") .LinkTitle }}
+                {{ end }}
+                <i class="ion ion-md-arrow-forward"></i>
+              </a>
               {{ end }}
             </div>
           </div>

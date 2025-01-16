@@ -15,4 +15,7 @@ content_blocks:
   - _bookshop_name: posts-list
     show_posts: true
     _live_render: false
+
+prevText: prev_key  # Key for "Prev" text
+nextText: next_key  # Key for "Next" text
 ---
