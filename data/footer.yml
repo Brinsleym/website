@@ -10,4 +10,4 @@ footer_menu__settings:
       url: '/about/'
 
 copyright_text_html: >-
-  <p> Copyright &copy; 2024 <a href="/privacypolicy">Brinsley Morrison</a>.com
+  <p> Copyright &copy; <script>document.write( new Date().getFullYear() );</script>  <a href="/privacypolicy">Brinsley Morrison</a>.com
