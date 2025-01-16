@@ -30,7 +30,7 @@ content_blocks:
     show_testimonials: true
   - _bookshop_name: contact-form
     form_title: 联系我
-    form_description: "请通过电子邮件联系我：contact@brinsleymorrison.com，或者使用下方的框框发送消息。"
+    form_description_key: contact_form_description
     form_submission_email: contact@brinsleymorrison.com
     form_button_text: 立即发送
 ---

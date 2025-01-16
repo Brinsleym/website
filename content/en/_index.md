@@ -31,7 +31,7 @@ content_blocks:
     show_testimonials: true
   - _bookshop_name: contact-form
     form_title: Get in touch
-    form_description: "Send me an email me at: contact@brinsleymorrison.com or use the box below to send me a message."
+    form_description_key: contact_form_description
     form_submission_email: contact@brinsleymorrison.com
     form_button_text: Send now
 ---

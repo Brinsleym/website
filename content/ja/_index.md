@@ -31,7 +31,7 @@ content_blocks:
     show_testimonials: true
   - _bookshop_name: contact-form
     form_title: お問い合わせ
-    form_description: "メールでお問い合わせください: contact@brinsleymorrison.com または下のボックスを使ってメッセージを送信できます。"
+    form_description_key: contact_form_description
     form_submission_email: contact@brinsleymorrison.com
     form_button_text: 今すぐ送信
 ---
