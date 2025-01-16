@@ -6,6 +6,7 @@ description: >-
   Re-writing the music for the televised anime series Sousou no Frieren
 tags:   [film score]
 image: /images/frieren-1.jpg
+draft: true
 ---
 
 
