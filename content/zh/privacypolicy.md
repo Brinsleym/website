@@ -5,60 +5,66 @@ content_blocks:
     title: 隐私政策
   - _bookshop_name: content
     content_html: >-
-        <h3>引言</h3>
-        <p>本隐私政策描述了Brinsley Morrison（以下简称“Brinsley”，“我”或“我们”）在您访问并与本网站（<a href="https://brinsleymorrison.com">https://brinsleymorrison.com</a>）互动时如何收集、使用和披露您的个人信息。</p>
+        <p><strong>生效日期：</strong>2025年1月17日</p>
+        <h2>简介</h2>
+        <p>欢迎来到<strong>brinsleymorrison.com</strong>。在本隐私政策中，“我们”，“我们的”和“本网站”指的是<strong>brinsleymorrison.com</strong>。我们重视您的隐私，并致力于保护您的个人数据。本隐私政策概述了当您访问我们的网站时，我们如何收集、使用和保护您的信息。</p>
+        <p>通过使用我们的网站，您同意根据本隐私政策收集和使用信息。如果您对我们如何处理您的个人数据有任何问题或疑虑，请通过<a href="mailto:contact@brinsleymorrison.com">contact@brinsleymorrison.com</a>与我们联系。</p>
 
-        <h3>我们收集的信息</h3>
-
-        <h4>有限数据：</h4>
-        <p>本网站不会通过自动方式收集您的个人信息，例如浏览网站时。</p>
-
-        <h4>联系表单：</h4>
-        <p>本网站提供了一个联系表单，您可以通过该表单向Brinsley发送信息。使用联系表单时，我们会收集您提供的信息，如您的姓名、电子邮件地址和留言（如果您选择填写）。您没有义务使用联系表单，使用该表单完全是自愿的。</p>
-
-        <h4>分析数据：</h4>
-        <p>本网站使用Google Analytics，这是Google公司提供的一项网站分析服务（以下简称“Google”）。Google Analytics使用Cookie（即放置在您的浏览器上的文本文件），帮助分析用户如何与网站互动。Cookie生成的信息（包括匿名的IP地址）将被传输至美国的Google服务器并存储。Google将使用这些信息评估您使用本网站的情况，编制网站活动报告，并提供与网站活动及互联网使用相关的其他服务。Google可能会根据法律要求或为Google代处理该信息的第三方转移该信息。Google不会将您的IP地址与其持有的其他数据关联。您可以通过禁用浏览器中的Cookie来选择退出Google Analytics的追踪。</p>
-
-        <h3>信息的使用</h3>
-
-        <h4>联系表单：</h4>
-        <p>Brinsley仅使用您在联系表单中提供的信息来回复您的留言。除非法律要求，我们绝不会将这些信息出售或分享给任何第三方。</p>
-
-        <h4>分析数据：</h4>
-        <p>Brinsley使用通过Google Analytics收集的有限数据来：</p>
+        <h2>1. 我们收集的信息</h2>
+        <p>我们收集以下类型的信息：</p>
         <ul>
-          <li>了解访客如何与本网站互动；</li>
-          <li>改善网站的用户体验；</li>
-          <li>编制网站流量和活动报告。</li>
+            <li><strong>联系表单：</strong>当您填写我们的联系表单时，我们会收集您提供的以下个人信息：
+                <ul>
+                    <li><strong>姓名：</strong>用于识别您。</li>
+                    <li><strong>电子邮件地址：</strong>用于回复您的查询。</li>
+                    <li><strong>留言：</strong>您通过表单发送的内容。</li>
+                </ul>
+            </li>
         </ul>
+        <p>这些信息通过<strong>Formspree</strong>这一第三方服务处理。Formspree仅会为将您的留言传送给我们并促进沟通的目的保存数据。</p>
 
-        <h3>Formspree 集成</h3>
-        <p>本网站使用Formspree（<a href="https://formspree.io">https://formspree.io</a>）处理表单提交。当您通过联系表单提交信息时，您的数据会通过Formspree的服务器进行转发，然后送达Brinsley的电子邮件地址（<a href="mailto:contact@brinsleymorrison.com">contact@brinsleymorrison.com</a>）。Formspree有自己的隐私政策，您可以在此查阅：<a href="https://formspree.io/legal/privacy-policy/">https://formspree.io/legal/privacy-policy/</a>。Brinsley不对Formspree的隐私实践负责。</p>
-
-        <h3>数据安全</h3>
-        <p>Brinsley采取合理的措施保护您提供的信息，防止未经授权的访问、披露、更改或销毁。然而，任何网站或互联网传输都无法做到完全安全，因此Brinsley无法保证您的信息安全。</p>
-
-        <h3>您的权利</h3>
-        <p>根据英国《通用数据保护条例》（GDPR），您拥有关于个人数据的以下权利：</p>
-
-        <h4>访问权：</h4>
-        <p>您有权要求访问我们持有的关于您的个人数据。</p>
-
-        <h4>更正权：</h4>
-        <p>您有权要求我们更正我们持有的关于您的不准确或不完整的个人数据。</p>
-
-        <h4>删除权（“被遗忘权”）：</h4>
-        <p>在某些情况下，您有权要求我们删除您的个人数据。</p>
-
-        <h3>面向中国大陆用户的补充说明：</h3>
-        <p>在中国大陆访问本网站的用户需要注意，根据中国的个人信息保护法（PIPL）和网络安全法，本网站可能会受到中国的法律和监管要求的约束。Brinsley Morrison将尽合理努力确保符合相关的法律和政策要求，并采取适当的措施保护您的个人信息安全。</p>
-
-        <h3>备注：</h3>
+        <h2>2. 我们如何使用您的信息</h2>
+        <p>我们从联系表单收集的个人信息仅用于：</p>
         <ul>
-          <li><strong>跨境数据传输：</strong>由于网站托管在英国，因此部分数据（包括分析数据）可能会跨境传输至英国或美国的服务器进行处理。</li>
-          <li><strong>Cookie的使用：</strong>本网站使用Google Analytics等工具，这可能涉及到跨境的数据传输。中国用户在使用本网站时应当考虑是否接受Cookie。</li>
+            <li>回复您通过联系表单提交的查询或请求。</li>
         </ul>
+        <p>我们不会将此数据用于营销目的，也不会与第三方共享，除非是通过Formspree处理表单提交。</p>
 
-        <h3>免责声明：</h3>
-        <p>本翻译为参考性质，若在中国大陆或其他地区有任何法律疑问或合规要求，请咨询当地的法律顾问。</p>
+        <h2>3. Cookie和跟踪技术</h2>
+        <p>我们的网站不使用任何跟踪技术（如分析或广告Cookie）。可能设置的唯一Cookie是支持基本功能所需的必要Cookie，如表单提交过程中的会话管理。这些Cookie是必需的，并且不会收集任何个人数据。</p>
+        <p>我们不会存储任何用户偏好，也不会通过其他网站或服务跟踪用户。</p>
+
+        <h2>4. 数据存储和安全</h2>
+        <p>我们的网站托管在由<strong>IONOS</strong>提供的<strong>VPS服务器</strong>上，这是一个第三方托管服务提供商。虽然您的个人数据（通过联系表单提交）由Formspree处理，但我们不会在我们的服务器上存储任何用户数据，除非是联系表单提交。Formspree有其自己的隐私和数据保护政策，您可以通过访问其网站查看相关信息。</p>
+        <p>我们采取合理的预防措施来保护您的信息，包括使用<strong>HTTPS</strong>加密浏览器与我们的服务器之间传输的数据。</p>
+
+        <h2>5. 数据保留</h2>
+        <p>我们仅在完成收集目的所必需的时间内保留您的个人数据。在联系表单的情况下，我们只会在需要回复您的查询并进行进一步沟通的时间内保留数据。沟通完成后，除非法律要求我们保留数据，否则我们将删除系统中的数据。</p>
+
+        <h2>6. 您的权利</h2>
+        <p>作为用户，您根据适用的数据保护法律（如<strong>通用数据保护条例（GDPR）</strong>）拥有以下权利：</p>
+        <ul>
+            <li><strong>访问权：</strong>您可以请求访问我们持有的关于您的个人数据。</li>
+            <li><strong>更正权：</strong>您可以要求我们更正我们持有的任何不准确或不完整的个人数据。</li>
+            <li><strong>删除权：</strong>您有权要求我们删除您的个人数据。</li>
+            <li><strong>撤回同意的权利：</strong>如果您通过联系表单提供了个人数据，您可以随时撤回同意。一旦撤回同意，我们将停止为此目的处理您的个人数据。</li>
+        </ul>
+        <p>要行使这些权利，请通过<a href="mailto:contact@brinsleymorrison.com">contact@brinsleymorrison.com</a>与我们联系。</p>
+
+        <h2>7. 儿童隐私</h2>
+        <p>本网站不适用于13岁以下的儿童。我们不会故意收集儿童的个人数据。如果我们发现我们收集了13岁以下儿童的个人数据，我们将尽快采取措施删除这些信息。</p>
+
+        <h2>8. 第三方服务</h2>
+        <p>我们使用<strong>Formspree</strong>处理联系表单提交。Formspree处理您的表单数据并将其传送给我们。有关Formspree如何处理数据的更多信息，请参阅Formspree的隐私政策。</p>
+        <p>我们的网站由<strong>IONOS</strong>托管，这是一个存储表单提交数据的第三方托管服务提供商。您可以在IONOS的网站上查看其隐私政策。</p>
+        <p>我们没有使用任何其他收集或存储个人数据的第三方服务。</p>
+
+        <h2>9. 本隐私政策的变更</h2>
+        <p>我们可能会不时更新本隐私政策。如果我们进行重要更改，我们将通过在本页面发布更新版本来通知您。“生效日期”栏位显示的是本隐私政策的最新生效日期。</p>
+
+        <h2>10. 联系我们</h2>
+        <p>如果您对本隐私政策或我们如何处理您的个人数据有任何疑问，请通过以下方式与我们联系：</p>
+        <ul>
+            <li><strong>电子邮件：</strong><a href="mailto:contact@brinsleymorrison.com">contact@brinsleymorrison.com</a></li>
+        </ul>
 ---
