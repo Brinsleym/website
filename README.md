@@ -6,3 +6,5 @@
 
 - Screenshots for sousou no frieren project
 - Add page on Suzume
+
+- add cookies banner

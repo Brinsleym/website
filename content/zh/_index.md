@@ -15,7 +15,7 @@ content_blocks:
   - _bookshop_name: compositions-section
     title: 作品
     description_html: >-
-      <p>这是我最近参与的项目合集。详细信息、乐谱和录音可以查看。</p>
+      <p>这是我最近参与的项目合集。以下是详细信息、乐谱和录音。</p>
     link_url: /compositions
     show_posts: true
   - _bookshop_name: projects-section

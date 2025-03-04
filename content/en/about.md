@@ -12,10 +12,18 @@ content_blocks:
     image_alt:
   - _bookshop_name: content
     content_html: >-
+      <p> <!-- callout? -->
+        Brinsley is a <b>multi-instrumentalist</b> and <b>composer</b>. He has performed as a vocal soloist with the <b>BBC Philharmonic Orchestra</b> and played as <b>principal violinist</b> in multiple orchestras. <br><br> Brinsley is an allumni of <b>Chethams School of Music</b>, and is currently at the <b>University of York</b>, studying (BA) Music.
+      </p>
+      <br>
       <h2>Brinsley's CV:</h2>
       <body>
         <iframe src="/doc/cv.pdf#navpanes=0 "frameborder="0" height="500rem" width="100%"></iframe>
       <br>
+      <h1>University of Yorky</h1>
+      <p>
+        During his time at University, Brinsley played with the <a href="york.ac.uk" target="_blank">University Of York Symphony Orchestra</a>, sang with <a href="york.ac.uk" target="_blank">The 24</a>, commisioned music for, and performed with <a href="york.ac.uk" target="_blank">The Chimera Ensemble</a>. Brinsley also sang in a 4-part solo voice ensemble each week at the York Oratory
+      </p>
       <h1>Early career </h1>
       <p>
         Brinsley began his musical career in <b>Hereford Cathedral</b>, where he sang as a chorister for three years, from 2015-2017.
