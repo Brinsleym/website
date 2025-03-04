@@ -3,6 +3,7 @@ date: 2024-01-11
 title: "Location Sound recording"
 subtitle: 
 image: '/images/locationsound1.jpg'
+draft: true
 ---
 
 As part of the Location Sound module for my undergraduate degree, I organised a field recording performance of one of my compositions. I wrote X to explore the relationship between the solo clarinet and the natural enviroment. 
