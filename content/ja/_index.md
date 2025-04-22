@@ -1,14 +1,14 @@
 ---
 content_blocks:
   - _bookshop_name: hero
-    title: "モリソン・<br>ブリンスリー"
+    title: "<p style=font-size:2rem;font-weight:500;line-height:0;>モリザワ&nbsp;&nbsp;&nbsp;リン</p>森沢&nbsp;&nbsp;&nbsp;淋"
     description_html: >-
-      <p>ブリンスリーは<strong>作曲家</strong>、<strong>シンガー</strong>、<strong>ピアニスト</strong>、<strong>ヴァイオリニスト</strong>です。<br>
-
+      <p><strong>作曲家</strong>、<strong>シンガー</strong>、<strong>ピアニスト</strong>、<strong>ヴァイオリニスト</strong>です。
+      <br>
       チータム音楽学校の卒業生で、現在は<strong>ヨーク大学</strong>で音楽を学んでいます。</p>
 
     image: /images/001.jpg
-    image_alt: ブリンスリー・モリソンの写真
+    image_alt: 森沢淋の写真
     cta_button: お問い合わせ
     cta_button_link: '#contact'
     works_button: 私の音楽を見る
