@@ -11,8 +11,6 @@ draft: true
 
 
 
-
-
 I undertook this project, to gain experience scoring to picture for anime. As I did not have any leads into the industry, I decided to rescore an existing anime as a hobbyist project. 
 
 Sousou no Frieren was the choice I landed on because when I first watched it, I was captivated by Evan Call's scoring of the music. The music seemed to perfectly accompany the pensive and warm feeling that the storyline, voice acting and animation created.
@@ -26,6 +24,8 @@ After seperating all the elements I was ready to watch the episode with only its
 {{< frieren_disclaimer >}}
 
 ## View the project files:
-*I am unable to freely provide anything other than my original music. If this has piqued your curiosity, you can *[purchase a copy](https://www.amazon.co.jp/gp/video/detail/B0CJRDF9JB)* of the series if you wish to hear Evan Call's beautiful scoring which inspired me to start this project.*
+*In order not to infringe copyright, I am not providing access to original audio and video.
+You can purchase a copy of Frieren from *[official sources](https://www.amazon.co.jp/gp/video/detail/B0CJRDF9JB)*, and if you wish to hear Evan Call's beautiful scoring which inspired me to start this project I highly recommend viewing the original.*
 
+Below is a link to the project files (music only, no video, no dialogue).
 {{< figure src="/images/frieren-project.jpg" link="https://github.com/Brinsleym/Frieren/blob/main/Frieren.jpg" target="_blank" >}}

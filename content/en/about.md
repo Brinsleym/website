@@ -20,18 +20,13 @@ content_blocks:
       <body>
         <iframe src="/doc/cv.pdf#navpanes=0 "frameborder="0" height="500rem" width="100%"></iframe>
       <br>
-      <h1>University of Yorky</h1>
+      <h1>University of York</h1>
       <p>
-        During his time at University, Brinsley played with the <a href="york.ac.uk" target="_blank">University Of York Symphony Orchestra</a>, sang with <a href="york.ac.uk" target="_blank">The 24</a>, commisioned music for, and performed with <a href="york.ac.uk" target="_blank">The Chimera Ensemble</a>. Brinsley also sang in a 4-part solo voice ensemble each week at the York Oratory
+        Brinsley focused his final year and dissertation on Composition for Film. During his time at university, Brinsley played with the <a href="york.ac.uk" target="_blank">University Of York Symphony Orchestra</a>, sang with <a href="york.ac.uk" target="_blank">The 24</a>, commisioned music for, and performed with <a href="york.ac.uk" target="_blank">The Chimera Ensemble</a>.
       </p>
-      <h1>Early career </h1>
       <p>
-        Brinsley began his musical career in <b>Hereford Cathedral</b>, where he sang as a chorister for three years, from 2015-2017.
-        During that time, he sang Bach's Passions and Oratorio each year amongs many other large musical works. During his time with Hereford Cathedral Choir, he performed in <b>Buckingham Palace</b>, on <b>BBC Radio 3</b>, and spent a week <b>on tour around America</b>. <br>
-        At Hereford Cathedral, he sang 21 hours each week, and performed music in services 6 days a week. Although the workload tiring at such a young age, Brinsley felt incredibly rewarded and his love for music quickly developed as his vocal skills did too.
+        In 2023, Brinsley was a choral scholar at the <a href="https://www.yorkoratory.com/st-wilfrids" target="_blank">York Oratory (Sir Wilfred's)</a> where he sang in a 4 part solo-voice ensemble, singing 2 services per week.
       </p>
-      <img src="/images/hereford-cathedral-choir.jpg" alt="Herford Cathedral Choir | BBC">
-      <p> <i>BBC Live Broadcast - Hereford Cathedral Choir Easter Day Service, 2017</i></p>
       <h1>Chetham's School of Music</h1>
       <p>
        Brinsley went on to study at
@@ -49,6 +44,16 @@ content_blocks:
       </p>
       <img src="/images/bridgewater-1.jpg">
       <i>Haydn's Harmoniemesse - the BBC Philharmonic Orchestra and Chetham's Chamber Choir</i>
+      <br><br>
+      <h1>Early career </h1>
+      <p>
+        Brinsley began his musical career in <b>Hereford Cathedral</b>, where he sang as a chorister for three years, from 2015-2017.
+        During that time, he sang Bach's Passions and Oratorio each year amongs many other large musical works. During his time with Hereford Cathedral Choir, he performed in <b>Buckingham Palace</b>, on <b>BBC Radio 3</b>, and spent a week <b>on tour around America</b>. <br>
+        At Hereford Cathedral, he sang 21 hours each week, and performed music in services 6 days a week. Although the workload tiring at such a young age, Brinsley felt incredibly rewarded and his love for music quickly developed as his vocal skills did too.
+      </p>
+      <img src="/images/hereford-cathedral-choir.jpg" alt="Herford Cathedral Choir | BBC">
+      <p> <i>BBC Live Broadcast - Hereford Cathedral Choir Easter Day Service, 2017</i></p>
+
   - _bookshop_name: contact-form
     form_title: Get in touch
     form_description: "Send me an email me at contact@brinsleymorrison.com or use the box below to send me a message."
