@@ -5,14 +5,14 @@ title: "Re-scoring: Sousou no Frieren"
 description: >- 
   Re-scoring the soundtrack for the televised anime series, Sousou no Frieren (葬送のフリーレン)
 tags:   [film score]
-image: /images/frieren-1.jpg
+image: '/images/frieren-1.jpg'
 draft: false
 ---
 
 
 This project began as a creative exercise to deepen my understanding of scoring music for anime. Without direct industry connections, I chose to rescore an existing anime as a way to practice composing to picture while improving my ability to closely mirror music with the narrative and emotions of the characters. 
 
-## Why "Sousou no Frieren"?
+## Why Sousou no Frieren?
 
 I selected Sousou no Frieren because of its exceptionally beautiful original score by Evan Call. From my first viewing, I was struck by how effectively Call's music accompanied the pensive and warm feeling that the storyline, voice acting and animation crafted.
 
@@ -28,13 +28,14 @@ Once I had a clean version of the episode without its original score, I began co
 
 {{< frieren_disclaimer >}}
 
-
+## Listen to the soundtrack:
+{{< soundcloud-playlist 2034380025 >}}
+<br>
 
 ## View the project files:
 To respect copyright, I am not distributing the original audio or video. If you wish to experience Evan Call’s stunning original score (which I highly recommend), please support the official release.
 
 Below, you’ll find a link to my music-only files (no dialogue or video included):
 
-![](/images/frieren-project-1.jpg)
-
 {{< figure src="/images/frieren-project-1.jpg" link="https://github.com/Brinsleym/Frieren/" target="_blank" >}}
+
