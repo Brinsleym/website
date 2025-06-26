@@ -20,7 +20,7 @@ The project consists of two  works: [Re-scoring a 25 minute episode of the telev
 > **Final Mark 90**
 
 
-> *This is an excellent submission. Not only have you provided the work to be assessed, but also a 5.1 version of Suzume, timecoded versions, the original films, project files and we get to hear you sing in Japanese. This is a very well thought through project.
+> "This is an excellent submission. Not only have you provided the work to be assessed, but also a 5.1 version of Suzume, timecoded versions, the original films, project files and we get to hear you sing in Japanese. This is a very well thought through project.
 >   <br>
 > It’s great to have the 5.1 mix of Suzume as the fantastic lower end of the pitches in this scene resonate in a much more powerful way. The two pedals at the start of the scene are timed really well and it’s good that you allowed the dialogue to play out without music as the music becomes part of the drama rather than part of the mundane every day. The solo violin adds an authentic touch as the active piano music conveys the pace of the cycling and then at 2.33 the arpeggiated piano music is transferred to a more complex web of instruments that provides excitement. There is good rhythmic interplay here and later on in the second part of the scene. The Ligeti/Penderecki swirling is a really interesting addition to the musical variety in the short scene. From 3.58 I am very strongly reminded of Reich’s Variations (not a criticism). The first conventional cadence at the hit point when the key hits the lock is very well timed (your THX moment). 
 >   <br>
@@ -28,4 +28,4 @@ The project consists of two  works: [Re-scoring a 25 minute episode of the telev
 >   <br>
 > The commentary is excellent with lots of technical detail and clear explanations about how you conceived the score. The one thing it could have done with was a synopsis as without looking it up, there are no subtitles to help guide us through.
 >   <br>
-> Excellent work, congratulations!*
+> Excellent work, congratulations!"
