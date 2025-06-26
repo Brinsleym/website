@@ -20,10 +20,10 @@ content_blocks:
     link_url: /compositions
     show_posts: true
   - _bookshop_name: projects-section
-    title: コンサート
+    title: ブログ
     description_html: >-
       <p>最近参加したコンサートやパフォーマンスの簡単な概要をご紹介します。</p>
-    link_url: /concerts
+    link_url: /blog
     show_projects: true
   - _bookshop_name: testimonials-section
     title: フィードバック

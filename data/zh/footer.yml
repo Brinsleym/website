@@ -2,8 +2,8 @@ footer_menu__settings:
   menu__items:
     - title: '主页'
       url: '/zh/'
-    - title: '音乐会'
-      url: '/zh/concerts/'
+    - title: '博客'
+      url: '/zh/blog/'
     - title: '作品'
       url: '/zh/compositions/'
     - title: '关于我'

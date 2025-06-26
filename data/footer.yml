@@ -2,8 +2,8 @@ footer_menu__settings:
   menu__items:
     - title: 'Home'
       url: '/'
-    - title: 'Performances'
-      url: '/concerts/'
+    - title: 'Blog'
+      url: '/blog/'
     - title: 'Compositions'
       url: '/compositions/'
     - title: 'About me'

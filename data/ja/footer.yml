@@ -2,8 +2,8 @@ footer_menu__settings:
   menu__items:
     - title: 'ホーム'
       url: '/ja/'
-    - title: 'コンサート'
-      url: '/ja/concerts/'
+    - title: 'ブログ'
+      url: '/ja/blog/'
     - title: '作曲'
       url: '/ja/compositions/'
     - title: '私について'
