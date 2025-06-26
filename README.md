@@ -1,10 +1,10 @@
 # TO DO:
-
-- Audio recordings of each composition:
-    - ❌ The untouched landscape
-    - ❌ The brink of the valley
-
-- Screenshots for sousou no frieren project
-- Add page on Suzume
-
-- add cookies banner
+- blog description translations
+- diss pdf more height
+- diss page fix profile pic & date
+-     add date on blog page cards
+- diss page better subtitle
+- diss page remove big pic?
+- add reference to diss page in frieren
+- create suzume page
+- finish location sound blog
