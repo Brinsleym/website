@@ -44,4 +44,4 @@ hardWraps = true
 
 [permalinks]
 posts = "/compositions/:title/"
-projects = "/concerts/:title/"
+projects = "/blog/:title/"

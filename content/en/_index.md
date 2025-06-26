@@ -20,10 +20,10 @@ content_blocks:
     link_url: /compositions
     show_posts: true
   - _bookshop_name: projects-section
-    title: Concerts
+    title: Blog
     description_html: >-
       <p>A brief outline of some of the recent concerts and performances I've been involved in.</p>
-    link_url: /concerts
+    link_url: /blog
     show_projects: true
   - _bookshop_name: testimonials-section
     title: Feedback

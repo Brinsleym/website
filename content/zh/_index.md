@@ -19,10 +19,10 @@ content_blocks:
     link_url: /compositions
     show_posts: true
   - _bookshop_name: projects-section
-    title: 音乐会
+    title: 博客
     description_html: >-
       <p>这是我最近参与的音乐会和演出的简要概述。</p>
-    link_url: /concerts
+    link_url: /blog
     show_projects: true
   - _bookshop_name: testimonials-section
     title: 反馈

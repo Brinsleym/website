@@ -1,6 +1,6 @@
 ---
 title: Recent Performances
-url: /concerts/
+url: /blog/
 seo:
   page_description: 
   canonical_url: 

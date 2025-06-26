@@ -1,16 +1,16 @@
 ---
 title: 最近のパフォーマンス
-url: /ja/concerts/
+url: /ja/blog/
 seo:
   page_description: 
-  canonical_url: /ja/concerts/
+  canonical_url: /ja/blog/
   featured_image: 
   author_twitter_handle: 
   open_graph_type:
   no_index: false
 content_blocks:
   - _bookshop_name: page-heading
-    title: '最近のコンサート'
+    title: 'ブログ'
     description: ブリンスリーが関わった最近のコンサートやパフォーマンスの簡単な概要です。
   - _bookshop_name: projects-list
     show_projects: true
