@@ -10,8 +10,8 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: page-heading
-    title: 'ブログ'
-    description: ブリンスリーが関わった最近のコンサートやパフォーマンスの簡単な概要です。
+    title: '私のブログ'
+    description: '携わったプロジェクトのいくつかを紹介する投稿集。'
   - _bookshop_name: projects-list
     show_projects: true
     _live_render: false

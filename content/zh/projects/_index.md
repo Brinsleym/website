@@ -10,8 +10,8 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: page-heading
-    title: '博客'
-    description: 莫瑞森·林泽参与的部分近期音乐会和演出的简要概述。
+    title: '我的博客'
+    description: 我参与的一些项目的帖子集。
   - _bookshop_name: projects-list
     show_projects: true
     _live_render: false

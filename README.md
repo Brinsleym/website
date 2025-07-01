@@ -1,5 +1,4 @@
 # TO DO:
-- blog description translations
 - diss pdf more height
 - diss page fix profile pic & date
 -     add date on blog page cards
