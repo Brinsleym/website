@@ -1,24 +1,24 @@
 ---
 date: 2025-05-22
 title: "Final Year Dissertation Project"
-subtitle: Oct 2024 to May 2025
-image: '/images/suzume_project_1.jpg'
+subtitle: "Oct 2024 to May 2025"
+image: '/images/suzume-project-1.jpg'
 ---
 # Introduction
 
-For my final year of University at York, I took the module 'Extended Composition Folio'. This involved planning, writing, and executing a portfolio of compositions alongside a commentary. This became a perfect opportunity for me to engage more of my time learning the process of scoring music to film, and receive weekly one-to-one tutorials for this project.
+For my final year at the University at York, I took the module 'Extended Composition Folio'. This involved planning, writing, and executing a portfolio of compositions alongside a commentary. This became a perfect opportunity for me to dedicate more of my time to learning the process of scoring music to film, and receive weekly one-to-one tutorials for this project.
 
-The project consists of two  works: [Re-scoring a 25 minute episode of the televised series, 'Sousou no Frieren'](/compositions/re-scoring-sousou-no-frieren/), and [re-scoring a 5 minute scene from 'Suzume no Tojimari'](/compositions/re-scoring-suzume/).  
+The project consists of two works: [Re-scoring a 25-minute episode of the televised series, 'Sousou no Frieren'](/compositions/re-scoring-sousou-no-frieren/), and [re-scoring a 5-minute scene from 'Suzume no Tojimari'](/compositions/re-scoring-suzume/).  
 *(Click to the links above to see more information.)*
 
 ## View the commentary
 {{< diss-paper >}}
 <br><br>
 
-# University awarded feedback
+# University awarded feedback {#feedback}
+
 
 > **Final Mark 90**
-
 
 > "This is an excellent submission. Not only have you provided the work to be assessed, but also a 5.1 version of Suzume, timecoded versions, the original films, project files and we get to hear you sing in Japanese. This is a very well thought through project.
 >   <br>
