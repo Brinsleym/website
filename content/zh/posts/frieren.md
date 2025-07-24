@@ -26,7 +26,7 @@ draft: false
 {{< soundcloud-playlist 2034380025 >}}
 <br>
 
-{{< frieren_disclaimer-zh >}}
+{{< disclaimer-zh "葬送的芙莉莲" >}}
 
 ## 查看项目文件：
 出于版权考虑，我不会分发原始音频或视频。如果你想体验Evan Call令人惊叹的原创配乐（我强烈推荐），请支持官方发行版本。
