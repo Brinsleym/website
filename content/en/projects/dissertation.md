@@ -18,7 +18,7 @@ The project consists of two works: [Re-scoring a 25-minute episode of the televi
 # University awarded feedback {#feedback}
 
 
-> **Final Mark 90**
+> Grade Awarded:  **90**
 
 > "This is an excellent submission. Not only have you provided the work to be assessed, but also a 5.1 version of Suzume, timecoded versions, the original films, project files and we get to hear you sing in Japanese. This is a very well thought through project.
 >   <br>

@@ -14,3 +14,6 @@
 #
 check all links for translated pages go to respective pages
 AI check how to make disclaimer with placeholders
+
+
+jp, cn translation of index page
