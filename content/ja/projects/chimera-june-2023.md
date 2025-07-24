@@ -5,13 +5,13 @@ subtitle: 2023年6月
 image: '/images/chimera-june-2023.jpg'
 ---
 
-2023年6月、サー・ジャック・ライオンズ・コンサートホールで開催されたコンサートで、キメラアンサンブルはブリンスリーの[*The Untouched Landscape*](/compositions/the-untouched-landscape/)の初演を行いました。ブリンスリーはこの作品を指揮し、アンサンブルにも参加し、ヴァイオリン1のパートを演奏しました。
+2023年6月、サー・ジャック・ライオンズ・コンサートホールで開催されたコンサートで、キメラアンサンブルは森沢淋の[*The Untouched Landscape*](/compositions/the-untouched-landscape/)の初演を行いました。森沢はこの作品を指揮し、アンサンブルにも参加し、ヴァイオリン1のパートを演奏しました。
 
 *イギリス最大の学生運営の新しい音楽グループの1つであるキメラアンサンブルは、その革新的なプログラミングで知られており、しばしば国際的な著名作曲家の作品のイギリス初演を行っています。2022/23シーズンの最後のコンサートでは、アートと色に触発された音楽というテーマを探る魅力的なプログラムを披露しました。プログラムには、ティア・マスグレイブ、アンナ・ソルヴァルズドッティル、ヨーク拠点の作曲家ジェームズ・ウィリアムソンの作品が含まれています。*[^1]
 
 [^1]: [YorkConcerts](https://yorkconcerts.co.uk/whats-on/2022-23/the-chimera-ensemble-summer)
 
-**ブリンスリー・モリソン** The Untouched Landscape
+**森沢淋** The Untouched Landscape
 
 **ヘレン・グライム** Three Whistler Miniatures
 **アンナ・ソルヴァルズドッティル** Aura
