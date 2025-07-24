@@ -1,2 +1,17 @@
-<meta http-equiv="Refresh" content="0; url='https://brinsleymorrison.com'" />
-
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    {{ if eq .Lang "ja" }}
+    <meta http-equiv="refresh" content="0; url={{ .Site.BaseURL }}ja/" />
+    {{ else if eq .Lang "zh" }}
+    <meta http-equiv="refresh" content="0; url={{ .Site.BaseURL }}zh/" />
+    {{ else }}
+    <meta http-equiv="refresh" content="0; url={{ .Site.BaseURL }}" />
+    {{ end }}
+</head>
+<body>
+    <p>Redirecting to homepage...</p>
+</body>
+</html>

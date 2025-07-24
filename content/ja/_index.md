@@ -3,10 +3,9 @@ content_blocks:
   - _bookshop_name: hero
     title: "<p style=font-size:2rem;font-weight:500;line-height:0;>モリザワ&nbsp;&nbsp;&nbsp;リン</p>森沢&nbsp;&nbsp;&nbsp;淋"
     description_html: >-
-      <p><strong>作曲家</strong>、<strong>シンガー</strong>、<strong>ピアニスト</strong>、<strong>ヴァイオリニスト</strong>です。
-      <br>
-      チータム音楽学校の卒業生で、現在は<strong>ヨーク大学</strong>で音楽を学んでいます。</p>
-
+      <p><b>作曲家</b>、<b>歌手</b>、<b>ピアニスト</b>、<b>ヴァイオリニスト</b>。<br>
+      英国のヨーク大学音楽科を<b>最優等</b>で卒業、チェタムズ音楽院出身。
+      </p>
     image: /images/001.jpg
     image_alt: 森沢淋の写真
     cta_button: お問い合わせ
