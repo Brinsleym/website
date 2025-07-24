@@ -1,7 +1,7 @@
 ---
 date: 2025-05-22
 title: "Final Year Dissertation Project"
-subtitle: "Oct 2024 to May 2025"
+subtitle: "From Oct 2024 to May 2025"
 image: '/images/suzume-project-1.jpg'
 ---
 # Introduction

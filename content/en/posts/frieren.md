@@ -24,7 +24,7 @@ To isolate the dialogue and sound effects, I initially used the stem separation 
 {{< soundcloud-playlist 2034380025 >}}
 <br>
 
-{{< frieren_disclaimer-en >}}
+{{< disclaimer-en "Sousou no Frieren" >}}
 
 ## View the project files:
 To respect copyright, I am not distributing the original audio or video. If you wish to experience Evan Call’s stunning original score (which I highly recommend), please support the official release.
