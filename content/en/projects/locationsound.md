@@ -1,7 +1,7 @@
 ---
-date: 2024-01-11
+date: 2024-01-17
 title: "Location Sound Project Recording"
-subtitle: 17th Jan 2024
+subtitle: Recorded on 17th Jan 2024
 image: '/images/locationsound1.jpg'
 ---
 
@@ -21,7 +21,3 @@ The layout mockup:
 ![Layout mockup](/images/locationsound2.png)
 # Watch on Youtube:
 {{< youtube OVmmtKGMK30 >}}
-
-
-
-[^1]: [Wikipedia: Soundfield microphone](https://en.wikipedia.org/wiki/Soundfield_microphone)

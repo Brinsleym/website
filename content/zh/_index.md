@@ -3,9 +3,9 @@ content_blocks:
   - _bookshop_name: hero
     title: 林泽
     description_html: >-
-      <p>林泽是一位<strong>作曲家</strong>、<strong>歌手</strong>、<strong>钢琴家</strong>和<strong>小提琴家</strong>。<br>
-
-      他是切塔姆音乐学校的校友，目前正在<strong>约克大学</strong>学习音乐。</p>
+      <p>林泽是<b>作曲家</b>、<b>歌手</b>、<b>钢琴家</b>兼<b>小提琴手</b>。<br>
+      以<b>一等荣誉</b>毕业于约克大学音乐系，切塔姆音乐学校校友。
+      </p>
     image: /images/001.jpg
     image_alt: 林泽的照片
     cta_button: 联系我
