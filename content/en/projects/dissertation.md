@@ -8,7 +8,7 @@ image: '/images/suzume-project-1.jpg'
 
 For my final year at the University at York, I took the module 'Extended Composition Folio'. This involved planning, writing, and executing a portfolio of compositions alongside a commentary. This became a perfect opportunity for me to dedicate more of my time to learning the process of scoring music to film, and receive weekly one-to-one tutorials for this project.
 
-The project consists of two works: [Re-scoring a 25-minute episode of the televised series, 'Sousou no Frieren'](/compositions/re-scoring-sousou-no-frieren/), and [re-scoring a 5-minute scene from 'Suzume no Tojimari'](/compositions/re-scoring-suzume/).  
+The project consists of two works: [Re-scoring a 25-minute episode of the televised series, 'Sousou no Frieren'](/compositions/re-scoring-sousou-no-frieren/), and [re-scoring a 5-minute scene from 'Suzume no Tojimari'](/compositions/re-scoring-scenes-from-suzume-no-tojimari/).  
 *(Click to the links above to see more information.)*
 
 ## View the commentary

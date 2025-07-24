@@ -7,7 +7,7 @@ image: '/images/suzume-project-1.jpg'
 # はじめに
 ヨーク大学の最終学年で、私は「エクステンデッド・コンポジション・フォリオ」というモジュールを履修しました。このモジュールでは、作曲のポートフォリオを計画・作成し、それに関する解説を書きました。このプロジェクトは、映画に音楽をスコアリングするプロセスを学ぶための絶好の機会となり、週に一度のマンツーマン指導を受けながら進めることができました。
 
-プロジェクトは2つの作品から構成されています： [テレビシリーズ『Sousou no Frieren』の25分のエピソードの再スコアリング](/compositions/re-scoring-sousou-no-frieren/) と、 [映画『Suzume no Tojimari』の5分のシーンの再スコアリング](compositions/re-scoring-suzume/) です。
+プロジェクトは2つの作品から構成されています： [テレビシリーズ『Sousou no Frieren』の25分のエピソードの再スコアリング](/compositions/re-scoring-sousou-no-frieren/) と、 [映画『Suzume no Tojimari』の5分のシーンの再スコアリング](/compositions/re-scoring-scenes-from-suzume-no-tojimari/) です。
 (上記のリンクをクリックして詳細をご覧ください。)
 
 ## 解説を見る（英語）
