@@ -18,7 +18,7 @@ defaultContentLanguage = "en"
     languageCode = 'ja'
 
     weight = 2
-    title = "モリソン・ ブリンスリー"
+    title = "森沢淋"
     contentDir = "content/ja"
 
   [languages.zh]
