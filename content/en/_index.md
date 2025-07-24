@@ -3,9 +3,8 @@ content_blocks:
   - _bookshop_name: hero
     title: Brinsley Morrison
     description_html: >-
-      <p>Brinsley is a <strong>composer</strong>, <strong>singer</strong>, <strong>pianist</strong>, and <strong>violinist</strong>.<br>
-
-      Alumni of Chetham's School of Music, and is currently studying Music at the <strong>University of York</strong>.
+      <p>Brinsley is a <b>composer</b>, <b>singer</b>, <b>pianist</b>, and <b>violinist</b>.<br>
+      Grauduate from the <b>University of York</b> with a <i>first-class</i> honours in Music, and is an alumni of <b>Chetham's School of Music</b>.
       </p>
     image: /images/001.jpg
     image_alt: Brinsley Morrison's picture
