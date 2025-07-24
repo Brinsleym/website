@@ -8,7 +8,7 @@ image: '/images/suzume-project-1.jpg'
 
 在约克大学的最后一年，我选修了"扩展作品集"课程。该课程需要规划、创作并完成一系列音乐作品及配套解说。这成为我专注学习影视配乐流程的绝佳机会，同时还能获得该项目的每周一对一指导。
 
-本项目包含两部作品：[为电视动画《葬送的芙莉莲》25分钟剧集重新配乐](/compositions/re-scoring-sousou-no-frieren/)，以及[为新海诚电影《铃芽之旅》5分钟场景重新配乐](/compositions/re-scoring-scenes-from-suzume-no-tojimari/)  
+本项目包含两部作品：[为电视动画《葬送的芙莉莲》25分钟剧集重新配乐](/zh/compositions/重配乐项目葬送的芙莉莲)，以及[为新海诚电影《铃芽之旅》5分钟场景重新配乐](/zh/compositions/为铃芽之旅场景重新配乐)  
 *(点击上方链接查看详情)*
 
 ## 查看论文解说 （英语）
