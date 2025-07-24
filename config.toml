@@ -26,7 +26,7 @@ defaultContentLanguage = "en"
     languageCode = 'zh'
 
     weight = 3
-    title = "布林斯利 莫里森"
+    title = "林泽"
     contentDir = "content/zh"
 
 
