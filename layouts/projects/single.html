@@ -4,16 +4,10 @@
 
 <div class="container">
 
-  {{ partial "bookshop" (slice "page-heading" (dict "title" .Params.title "description" .Params.subtitle)) }}
+  {{ partial "bookshop" (slice "page-heading" (dict "title" .Params.title "description" .Params.subtitle "tags" .Params.tags)) }}
 
   {{ partial "bookshop" (slice "page-image" (dict "image" .Params.image "image_alt" .Params.title)) }}
 
-  <div class="post__meta-bottom">
-    <div class="post__author">{{ site.Data.author.author_name }}</div>
-    <time class="post__date" datetime="{{ .Date.Format " 2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "02 Jan 2006" }}</time>
-  </div>
-
-  
   <div class="page animate">
     {{ .Content }}
   </div>
