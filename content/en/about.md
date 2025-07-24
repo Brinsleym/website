@@ -13,7 +13,7 @@ content_blocks:
   - _bookshop_name: content
     content_html: >-
       <p> <!-- callout? -->
-        Brinsley is a <b>multi-instrumentalist</b> and <b>composer</b>. He has performed as a vocal soloist with the <b>BBC Philharmonic Orchestra</b> and played as <b>principal violinist</b> in multiple orchestras. <br><br> Brinsley is an allumni of <b>Chethams School of Music</b>, and is currently at the <b>University of York</b>, studying (BA) Music.
+        Brinsley is a <b>multi-instrumentalist</b> and <b>composer</b>. He has performed as a vocal soloist with the <b>BBC Philharmonic Orchestra</b> and played as <b>principal violinist</b> in multiple orchestras. <br><br> Brinsley holds a <b>First Class Honours BA in Music</b> from the <b>University of York</b>, where he specialised in Composition for Film in his final year of studies. Brinsley is also an allumni of <b>Chethams School of Music</b>, where he studied composition and singing alongside violin and piano.
       </p>
       <br>
       <h2>Brinsley's CV:</h2>
@@ -22,7 +22,9 @@ content_blocks:
       <br>
       <h1>University of York</h1>
       <p>
-        Brinsley focused his final year and dissertation on Composition for Film. During his time at university, Brinsley played with the <a href="york.ac.uk" target="_blank">University Of York Symphony Orchestra</a>, sang with <a href="york.ac.uk" target="_blank">The 24</a>, commisioned music for, and performed with <a href="york.ac.uk" target="_blank">The Chimera Ensemble</a>.
+        Brinsley graduated in the summer of 2025 with a First Class Honours, at the university, his final year dissertation project involved creating a portfolio of newly written material scored to picture. (<a href="https://brinsleymorrison.com/blog/final-year-dissertation-project/" target="_blank">Further details of this project are available in the blog post</a>).
+        <br><br>
+        During his time at university, Brinsley played with the <a href="york.ac.uk" target="_blank">University Of York Symphony Orchestra</a>, sang with <a href="york.ac.uk" target="_blank">The 24</a>, commisioned music for, and performed with <a href="york.ac.uk" target="_blank">The Chimera Ensemble</a>.
       </p>
       <p>
         In 2023, Brinsley was a choral scholar at the <a href="https://www.yorkoratory.com/st-wilfrids" target="_blank">York Oratory (Sir Wilfred's)</a> where he sang in a 4 part solo-voice ensemble, singing 2 services per week.
