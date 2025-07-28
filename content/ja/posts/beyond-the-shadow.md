@@ -7,7 +7,7 @@ tags: [オーケストラ, ピアノ]
 image: /images/beyond-the-shadow-1.jpg
 ---
 
-{{< soundcloud-track 1815682230 >}}
+{{< soundcloud-player track="https://soundcloud.com/brinsleymorrison/beyond-the-shadow" >}}
 
 この作品を書く際の私の焦点は、ディソナンスとコンソナンスの関係を探ることでした。
 
