@@ -3,7 +3,7 @@ _schema: default
 date: 2024-12-18
 title: "Re-scoring: Sousou no Frieren"
 description: >- 
-  Re-scoring the soundtrack for the televised anime series, Sousou no Frieren (葬送のフリーレン)
+  Re-scoring the soundtrack to the second episode of the series Sousou no Frieren (葬送のフリーレン)
 tags:   [soundtrack, film score, orchestral]
 image: '/images/frieren-1.jpg'
 ---

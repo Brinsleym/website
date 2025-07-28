@@ -7,6 +7,7 @@ description: >-
 tags: [soundtrack, film score, orchestral]
 image: '/images/suzume_cover_1.jpg'
 ---
+{{< disclaimer-en "Suzume no Tojimari" >}}
 
 As part of my final-year undergraduate composition project, involving the [Re-scoring of an episode of Sousou no Frieren](/compositions/re-scoring-sousou-no-frieren/) I wanted to challenge myself by scoring high-intensity scenes, rather than the slow-paced, primarily peaceful scenes which I felt much more comfortable with writing.
 
@@ -24,7 +25,6 @@ As with the other material from [this project](/blog/final-year-dissertation-pro
 
 <br>
 
-{{< disclaimer-en "Suzume no Tojimari" >}}
 
 ## View the project files:
 To respect copyright, I am not distributing the original audio or video. If you wish to experience Jinnouchi and Hoffmann’s stunning original score (which I highly recommend), please support the official release.
@@ -32,3 +32,4 @@ To respect copyright, I am not distributing the original audio or video. If you 
 Below you’ll find a link to my music-only project files (no dialogue or video included):
 
 {{< figure src="/images/suzume-project-1.jpg" link="https://github.com/Brinsleym/Suzume/" target="_blank" >}}
+
