@@ -7,6 +7,7 @@ description: >-
 tags:   [soundtrack, film score, orchestral]
 image: '/images/frieren-1.jpg'
 ---
+{{< disclaimer-en "Sousou no Frieren" >}}
 
 This project began as a creative exercise to deepen my understanding of scoring music for anime, and was written as a part of my final-year undergraduate Composition Portfolio. Without any direct industry connections, I chose to re-score existing material as a way to practice composing to picture, while improving my ability to closely mirror music with the narrative and emotions of the characters. 
 
@@ -24,7 +25,6 @@ To isolate the dialogue and sound effects, I initially used the stem separation 
 {{< soundcloud-playlist 2034380025 >}}
 <br>
 
-{{< disclaimer-en "Sousou no Frieren" >}}
 
 ## View the project files:
 To respect copyright, I am not distributing the original audio or video. If you wish to experience Evan Call’s stunning original score (which I highly recommend), please support the official release.
