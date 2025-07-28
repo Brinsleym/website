@@ -7,7 +7,7 @@ tags: [Orchestral, piano]
 image: /images/beyond-the-shadow-1.jpg
 ---
 
-{{< soundcloud-track 1815682230 >}}
+{{< soundcloud-player track="https://soundcloud.com/brinsleymorrison/beyond-the-shadow" >}}
 
 My focus in writing this piece was exploring the relationship between dissonance and consonance. 
 

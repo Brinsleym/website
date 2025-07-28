@@ -6,7 +6,7 @@ description: Written for the BBC Young Composer programme, premiered in 2020 was
 tags:   [piano, solo]
 ---
 
-{{< soundcloud-track 981384886 >}}
+{{< soundcloud-player track="https://soundcloud.com/brinsleymorrison/somnolence" >}}
 
 I wrote this composition as part of the BBC Young Composer 30 second composition challenge. I wanted to capture the atmosphere of a relaxed, hot summer afternoon which time lazily passes by. The piece was performed by the BBC Musician Elizabeth Burley and was picked as one of the 18 winners of the competition.
 

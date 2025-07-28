@@ -7,7 +7,7 @@ tags: [管弦乐, 钢琴]
 image: /images/beyond-the-shadow-1.jpg
 ---
 
-{{< soundcloud-track 1815682230 >}}
+{{< soundcloud-player track="https://soundcloud.com/brinsleymorrison/beyond-the-shadow" >}}
 
 我创作这首作品的重点是探索不和谐音与和谐音之间的关系。
 
