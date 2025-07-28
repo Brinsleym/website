@@ -3,6 +3,7 @@ date: 2023-06-09
 title: キメラアンサンブル
 subtitle: 2023年6月
 image: '/images/chimera-june-2023.jpg'
+description: "森沢淋の作品『未踏の風景』の初演"
 ---
 
 2023年6月、サー・ジャック・ライオンズ・コンサートホールで開催されたコンサートで、キメラアンサンブルは森沢淋の[*The Untouched Landscape*](/compositions/the-untouched-landscape/)の初演を行いました。森沢はこの作品を指揮し、アンサンブルにも参加し、ヴァイオリン1のパートを演奏しました。
