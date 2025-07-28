@@ -1,0 +1,22 @@
+# SoundCloud Player Component Configuration
+spec:
+  structures:
+    - content_blocks
+  label: "SoundCloud Player"
+  description: "Embeds a SoundCloud track with custom styling"
+  icon: "music_note"
+  tags: []
+
+blueprint:
+  url: ""
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+  url: "https://soundcloud.com/tracks/123456789"
+
+
+_inputs:
+  url:
+    type: url
+    label: "SoundCloud Track URL"
+    comment: "The full SoundCloud track URL"

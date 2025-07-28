@@ -1,0 +1,9 @@
+{{ $track := .Get "track" }}
+{{ $background := .Get "background" }}
+{{ $trackUrl := "" }}
+{{ if hasPrefix $track "https://" }}
+  {{ $trackUrl = $track }}
+{{ else }}
+  {{ $trackUrl = printf "https://api.soundcloud.com/tracks/%s" $track }}
+{{ end }}
+{{ partial "components/soundcloud-player/soundcloud-player.html" (dict "url" $trackUrl "background" $background) }}

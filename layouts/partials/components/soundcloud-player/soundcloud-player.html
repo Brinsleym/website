@@ -1,0 +1,405 @@
+<!-- Custom SoundCloud Audio Player -->
+<div class="custom-soundcloud-player" data-track-url="{{ .url }}" {{ if .background }}data-custom-background="{{ .background }}"{{ end }}>
+  <!-- Artwork and Track Info -->
+  <div class="custom-soundcloud-player__artwork-container"{{ if .background }} style="background-image: url('{{ .background }}');"{{ end }}>
+    <img class="custom-soundcloud-player__artwork" src="" alt="Track artwork" style="display: none;">
+    <div class="custom-soundcloud-player__artwork-overlay">
+      <div class="custom-soundcloud-player__track-info">
+        <div class="custom-soundcloud-player__title">Loading...</div>
+        <div class="custom-soundcloud-player__artist">Please wait</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Player Controls -->
+  <div class="custom-soundcloud-player__controls">
+    <div class="custom-soundcloud-player__main-controls">
+      <!-- Play/Pause Button -->
+      <button class="custom-soundcloud-player__play-button" type="button">
+        <i class="ion ion-ios-play"></i>
+      </button>
+
+      <!-- Time and Progress -->
+      <div class="custom-soundcloud-player__time-info">
+        <div class="custom-soundcloud-player__time-display">0:00</div>
+        <div class="custom-soundcloud-player__progress-container">
+          <div class="custom-soundcloud-player__progress-bar">
+            <div class="custom-soundcloud-player__progress-fill"></div>
+          </div>
+        </div>
+        <div class="custom-soundcloud-player__time-display">0:00</div>
+      </div>
+
+      <!-- Volume Controls (hidden on mobile) -->
+      <div class="custom-soundcloud-player__volume-controls">
+        <i class="custom-soundcloud-player__volume-icon ion ion-ios-volume-high"></i>
+        <div class="custom-soundcloud-player__volume-slider">
+          <div class="volume-handle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Load SoundCloud Widget API -->
+<script src="https://w.soundcloud.com/player/api.js"></script>
+
+<script>
+(function() {
+  const players = document.querySelectorAll('.custom-soundcloud-player');
+  
+  players.forEach((player, index) => {
+    const trackUrl = player.dataset.trackUrl;
+    const customBackground = player.dataset.customBackground;
+    const artworkContainer = player.querySelector('.custom-soundcloud-player__artwork-container');
+    const playButton = player.querySelector('.custom-soundcloud-player__play-button');
+    const playIcon = playButton.querySelector('i');
+    const progressBar = player.querySelector('.custom-soundcloud-player__progress-bar');
+    const progressFill = player.querySelector('.custom-soundcloud-player__progress-fill');
+    const timeDisplays = player.querySelectorAll('.custom-soundcloud-player__time-display');
+    const artwork = player.querySelector('.custom-soundcloud-player__artwork');
+    const title = player.querySelector('.custom-soundcloud-player__title');
+    const artist = player.querySelector('.custom-soundcloud-player__artist');
+    const volumeSlider = player.querySelector('.custom-soundcloud-player__volume-slider');
+    const volumeIcon = player.querySelector('.custom-soundcloud-player__volume-icon');
+
+    let widget = null;
+    let isPlaying = false;
+    let duration = 0;
+    let position = 0;
+    let volume = 0.7;
+
+    // Set custom background class if provided
+    if (customBackground) {
+      artworkContainer.classList.add('has-custom-background');
+    }
+
+    // Create hidden iframe for SoundCloud Widget API
+    const iframeId = `soundcloud-widget-${index}`;
+    const iframe = document.createElement('iframe');
+    iframe.id = iframeId;
+    iframe.src = `https://w.soundcloud.com/player/?url=${encodeURIComponent(trackUrl)}&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&visual=false`;
+    iframe.style.display = 'none';
+    iframe.width = '100%';
+    iframe.height = '0';
+    player.appendChild(iframe);
+
+    // Initialize SoundCloud Widget
+    function initWidget() {
+      widget = SC.Widget(iframe);
+      
+      widget.bind(SC.Widget.Events.READY, function() {
+        widget.getDuration(function(dur) {
+          duration = dur;
+          timeDisplays[1].textContent = formatTime(duration / 1000);
+        });
+
+        widget.getCurrentSound(function(sound) {
+          if (sound) {
+            title.textContent = sound.title || 'SoundCloud Track';
+            artist.textContent = sound.user.username || 'Unknown Artist';
+            
+            // Only update artwork if no custom background
+            if (sound.artwork_url && !customBackground) {
+              const artworkUrl = sound.artwork_url.replace('-large', '-t500x500');
+              artwork.src = artworkUrl;
+              artwork.style.display = 'block';
+            }
+          }
+        });
+
+        widget.setVolume(volume * 100);
+        updateVolumeDisplay();
+      });
+
+      widget.bind(SC.Widget.Events.PLAY, function() {
+        isPlaying = true;
+        updatePlayButton();
+      });
+
+      widget.bind(SC.Widget.Events.PAUSE, function() {
+        isPlaying = false;
+        updatePlayButton();
+      });
+
+      widget.bind(SC.Widget.Events.FINISH, function() {
+        isPlaying = false;
+        position = 0;
+        updatePlayButton();
+        updateProgress();
+      });
+
+      widget.bind(SC.Widget.Events.PLAY_PROGRESS, function(data) {
+        position = data.currentPosition;
+        updateProgress();
+        timeDisplays[0].textContent = formatTime(position / 1000);
+      });
+    }
+
+    function updatePlayButton() {
+      playIcon.className = isPlaying ? 'ion ion-ios-pause' : 'ion ion-ios-play';
+      playButton.classList.toggle('playing', isPlaying);
+    }
+
+    function updateProgress() {
+      if (duration > 0) {
+        const percentage = (position / duration) * 100;
+        progressFill.style.width = `${percentage}%`;
+      }
+    }
+
+    function updateVolumeDisplay() {
+      volumeSlider.style.setProperty('--volume', `${volume * 100}%`);
+      
+      if (volume === 0) {
+        volumeIcon.className = 'custom-soundcloud-player__volume-icon ion ion-ios-volume-off';
+      } else if (volume < 0.5) {
+        volumeIcon.className = 'custom-soundcloud-player__volume-icon ion ion-ios-volume-low';
+      } else {
+        volumeIcon.className = 'custom-soundcloud-player__volume-icon ion ion-ios-volume-high';
+      }
+    }
+
+    function updateVolumeDisplayImmediate() {
+      // Temporarily disable transitions for immediate feedback during drag
+      volumeSlider.style.transition = 'none';
+      const handle = volumeSlider.querySelector('.volume-handle');
+      if (handle) handle.style.transition = 'opacity 0.2s ease';
+      
+      updateVolumeDisplay();
+      
+      // Re-enable transitions after a brief delay
+      requestAnimationFrame(() => {
+        volumeSlider.style.transition = '';
+        if (handle) handle.style.transition = 'opacity 0.2s ease, right 0.1s ease';
+      });
+    }
+
+    function formatTime(seconds) {
+      const mins = Math.floor(seconds / 60);
+      const secs = Math.floor(seconds % 60);
+      return `${mins}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    // Event Listeners
+    playButton.addEventListener('click', function() {
+      if (!widget) return;
+      
+      if (isPlaying) {
+        widget.pause();
+      } else {
+        widget.play();
+      }
+    });
+
+    // Progress Bar Interaction & Dragging
+    let isDraggingProgress = false;
+    const mainControls = player.querySelector('.custom-soundcloud-player__main-controls');
+    
+    function handleProgressInteraction(e) {
+      if (!widget || duration === 0) return;
+      
+      const progressContainer = player.querySelector('.custom-soundcloud-player__progress-container');
+      const rect = progressContainer.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const clickRatio = Math.max(0, Math.min(1, clickX / rect.width));
+      const newPosition = clickRatio * duration;
+      
+      widget.seekTo(newPosition);
+      
+      // Ensure the widget is playing after seeking
+      if (!isPlaying) {
+        widget.play();
+      }
+    }
+
+    // Interactive main-controls area
+    mainControls.addEventListener('mousedown', function(e) {
+      if (e.target.closest('.custom-soundcloud-player__play-button') || 
+          e.target.closest('.custom-soundcloud-player__volume-controls') ||
+          e.target.closest('.custom-soundcloud-player__time-display')) {
+        return;
+      }
+      
+      isDraggingProgress = true;
+      handleProgressInteraction(e);
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', function(e) {
+      if (isDraggingProgress) {
+        handleProgressInteraction(e);
+      }
+    });
+
+    document.addEventListener('mouseup', function() {
+      isDraggingProgress = false;
+    });
+
+    progressBar.addEventListener('click', handleProgressInteraction);
+
+    // Volume Slider Interaction
+    let isDraggingVolume = false;
+    const volumeControls = player.querySelector('.custom-soundcloud-player__volume-controls');
+    
+    function handleVolumeInteraction(e) {
+      if (!widget) return;
+      
+      const rect = volumeSlider.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      volume = Math.max(0, Math.min(1, clickX / rect.width));
+      
+      widget.setVolume(volume * 100);
+      
+      // Use immediate update during dragging for smoother interaction
+      if (isDraggingVolume) {
+        updateVolumeDisplayImmediate();
+      } else {
+        updateVolumeDisplay();
+      }
+    }
+
+    // Interactive Volume Controls Area
+    volumeControls.addEventListener('mousedown', function(e) {
+      if (e.target.closest('.custom-soundcloud-player__volume-icon')) {
+        return;
+      }
+      
+      isDraggingVolume = true;
+      handleVolumeInteraction(e);
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', function(e) {
+      if (isDraggingVolume) {
+        handleVolumeInteraction(e);
+      }
+    });
+
+    document.addEventListener('mouseup', function() {
+      isDraggingVolume = false;
+    });
+
+    volumeSlider.addEventListener('click', handleVolumeInteraction);
+
+    // Mobile touch support 
+    mainControls.addEventListener('touchstart', function(e) {
+      if (e.target.closest('.custom-soundcloud-player__play-button') || 
+          e.target.closest('.custom-soundcloud-player__volume-controls') ||
+          e.target.closest('.custom-soundcloud-player__time-display')) {
+        return;
+      }
+      
+      isDraggingProgress = true;
+      const touch = e.touches[0];
+      const progressContainer = player.querySelector('.custom-soundcloud-player__progress-container');
+      const rect = progressContainer.getBoundingClientRect();
+      const clickX = touch.clientX - rect.left;
+      const clickRatio = Math.max(0, Math.min(1, clickX / rect.width));
+      const newPosition = clickRatio * duration;
+      
+      if (widget && duration > 0) {
+        widget.seekTo(newPosition);
+        
+        // Ensure the widget is playing after seeking
+        if (!isPlaying) {
+          widget.play();
+        }
+      }
+      e.preventDefault();
+    });
+
+    document.addEventListener('touchmove', function(e) {
+      if (isDraggingProgress && e.touches[0]) {
+        const touch = e.touches[0];
+        const progressContainer = player.querySelector('.custom-soundcloud-player__progress-container');
+        const rect = progressContainer.getBoundingClientRect();
+        const clickX = touch.clientX - rect.left;
+        const clickRatio = Math.max(0, Math.min(1, clickX / rect.width));
+        const newPosition = clickRatio * duration;
+        
+        if (widget && duration > 0) {
+          widget.seekTo(newPosition);
+          
+          // Ensure the widget is playing after seeking
+          if (!isPlaying) {
+            widget.play();
+          }
+        }
+      }
+    });
+
+    document.addEventListener('touchend', function() {
+      isDraggingProgress = false;
+      isDraggingVolume = false;
+    });
+
+    volumeSlider.addEventListener('touchstart', function(e) {
+      isDraggingVolume = true;
+      const touch = e.touches[0];
+      const rect = volumeSlider.getBoundingClientRect();
+      const clickX = touch.clientX - rect.left;
+      volume = Math.max(0, Math.min(1, clickX / rect.width));
+      
+      if (widget) {
+        widget.setVolume(volume * 100);
+        updateVolumeDisplay();
+      }
+      e.preventDefault();
+    });
+
+    // vol controls touch support
+    volumeControls.addEventListener('touchstart', function(e) {
+      if (e.target.closest('.custom-soundcloud-player__volume-icon')) {
+        return;
+      }
+      
+      isDraggingVolume = true;
+      const touch = e.touches[0];
+      const rect = volumeSlider.getBoundingClientRect();
+      const clickX = touch.clientX - rect.left;
+      volume = Math.max(0, Math.min(1, clickX / rect.width));
+      
+      if (widget) {
+        widget.setVolume(volume * 100);
+        updateVolumeDisplay();
+      }
+      e.preventDefault();
+    });
+
+    document.addEventListener('touchmove', function(e) {
+      if (isDraggingVolume && e.touches[0]) {
+        const touch = e.touches[0];
+        const rect = volumeSlider.getBoundingClientRect();
+        const clickX = touch.clientX - rect.left;
+        volume = Math.max(0, Math.min(1, clickX / rect.width));
+        
+        if (widget) {
+          widget.setVolume(volume * 100);
+          updateVolumeDisplayImmediate();
+        }
+      }
+    });
+
+    volumeIcon.addEventListener('click', function() {
+      if (!widget) return;
+      
+      if (volume > 0) {
+        widget.setVolume(0);
+        volume = 0;
+      } else {
+        volume = 0.7;
+        widget.setVolume(volume * 100);
+      }
+      updateVolumeDisplay();
+    });
+
+    // Initialize when DOM is ready
+    if (window.SC) {
+      initWidget();
+    } else {
+      window.addEventListener('load', initWidget);
+    }
+  });
+})();
+</script>
