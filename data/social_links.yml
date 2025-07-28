@@ -1,10 +1,10 @@
 #-------------------------------
 # Social Links
-# Example of adding a new link to the footer - {icon: "ion-logo-facebook", link: "https://facebook.com"}
-# Other icons can be found at https://ionicons.com/v4/
+# Example of adding a new link to the footer - {icon: "logo-facebook", link: "https://facebook.com"}
+# Other icons can be found at https://ionicons.com/
 social:
-- {icon: "md-mail", link: "mailto:contact@brinsleymorrison.com"}
-- {icon: "logo-Youtube", link: "https://www.youtube.com/@BrinsleyMorrison"}
-- {icon: "logo-Github", link: "https://github.com/Brinsleym"}
-- {icon: "md-cloud", link: "https://soundcloud.com/brinsleymorrison"}
+- {icon: "mail", link: "mailto:contact@brinsleymorrison.com"}
+- {icon: "logo-youtube", link: "https://www.youtube.com/@BrinsleyMorrison"}
+- {icon: "logo-github", link: "https://github.com/Brinsleym"}
+- {icon: "cloud", link: "https://soundcloud.com/brinsleymorrison"}
 

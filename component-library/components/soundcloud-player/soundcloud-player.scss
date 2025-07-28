@@ -289,6 +289,35 @@
     margin: ($base-spacing-unit * 2);
   }
 
+  &__track-info-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  &__soundcloud-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    i {
+      font-size: 20px;
+    }
+  }
+
   // For a responsive layout
   @media only screen and (max-width: 768px) {
     margin: ($base-spacing-unit * 3) 0;

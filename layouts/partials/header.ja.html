@@ -18,7 +18,7 @@
           <div class="main-nav__box">
 
             <div class="nav__icon-close">
-              <i class="ion ion-md-close"></i>
+              <ion-icon name="close"></ion-icon>
             </div>
 
             <div class="nav__title">メニュー</div>
@@ -32,7 +32,7 @@
 
               {{ if .HasChildren }}
               <li class="nav__item dropdown">
-                <span class="nav__link dropdown-toggle">{{ .title }} <i class="ion ion-ios-arrow-down arrow-down"></i></span>
+                <span class="nav__link dropdown-toggle">{{ .title }} <ion-icon name="chevron-down" class="arrow-down"></ion-icon></span>
                 <div class="dropdown-menu">
                   {{ range .submenu }}
                   {{ $childURL := .url | absLangURL }}
@@ -60,7 +60,7 @@
         </nav>
 
         <div class="nav-button">
-          <i class="nav__icon nav__icon-menu ion ion-md-menu"></i>
+          <ion-icon name="menu" class="nav__icon nav__icon-menu"></ion-icon>
         </div>
 
       </div>
