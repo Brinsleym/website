@@ -1,0 +1,94 @@
+// Disclaimer box styling
+.disclaimer-box {
+  margin: 32px 0;
+  border-radius: $global-radius;
+  background: $background-color-alt;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba($primary-color, 0.15);
+  overflow: hidden;
+  transition: $global-transition;
+
+  .disclaimer-header {
+    background: $text-color;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .disclaimer-icon {
+      font-size: 30px;
+      line-height: 1;
+      color: $white;
+    }
+
+    .disclaimer-title {
+      color: $white;
+      margin: 0;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      padding-left: 8px;
+    }
+  }
+
+  .disclaimer-content {
+    padding: 24px;
+
+    p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.6;
+      color: $text-color;
+    }
+  }
+
+  // Responsive adjustments
+  @media only screen and (max-width: $tablet) {
+    margin: 24px 0;
+    
+    .disclaimer-header {
+      padding: 14px 20px;
+      
+      .disclaimer-icon {
+        font-size: 22px;
+      }
+      
+      .disclaimer-title {
+        font-size: 17px;
+      }
+    }
+    
+    .disclaimer-content {
+      padding: 20px;
+      
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: $mobile) {
+    margin: 46px 0;
+    
+    .disclaimer-header {
+      padding: 16px 16px;
+      
+      .disclaimer-icon {
+        font-size: 20px;
+      }
+      
+      .disclaimer-title {
+        font-size: 16px;
+      }
+    }
+    
+    .disclaimer-content {
+      padding: 12px 16px;
+      
+      p {
+        font-size: 14px;
+        line-height: 1.6;
+      }
+    }
+  }
+}
