@@ -41,7 +41,9 @@
                   {{ $.Site.Data.author.author_name }}  {{/* Default (English) */}}
                 {{ end }}
               </div>
-              <time class="post__date" datetime="{{ .Date.Format " 2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "02 Jan 2006" }}</time>
+              <time class="post__date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                {{ partial "format-date.html" (dict "date" .Date "context" .) }}
+              </time>
             </div>
           </div>
 

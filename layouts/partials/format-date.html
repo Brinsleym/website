@@ -1,0 +1,23 @@
+{{- $date := .date -}}
+{{- $context := .context -}}
+{{- $lang := "" -}}
+{{- if $context -}}
+  {{- if $context.Site -}}
+    {{- $lang = $context.Site.Language.Lang -}}
+  {{- else if $context.Lang -}}
+    {{- $lang = $context.Lang -}}
+  {{- end -}}
+{{- else -}}
+  {{- /* try to access site directly for Bookshop components */ -}}
+  {{- if site.Language -}}
+    {{- $lang = site.Language.Lang -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if eq $lang "ja" -}}
+  {{- printf "%s年%s月%s日" ($date.Format "2006") ($date.Format "1") ($date.Format "2") -}}
+{{- else if eq $lang "zh" -}}
+  {{- printf "%s年%s月%s日" ($date.Format "2006") ($date.Format "1") ($date.Format "2") -}}
+{{- else -}}
+  {{- $date.Format "02 Jan 2006" -}}
+{{- end -}}

@@ -13,6 +13,10 @@ defaultContentLanguage = "en"
     title = "Brinsley Morrison"
     contentDir = "content/en"
 
+    [languages.en.params]
+        date_format = "02 Jan 2006"
+    
+
   [languages.ja]
     languageName = "日本語"
     languageCode = 'ja'
@@ -21,6 +25,9 @@ defaultContentLanguage = "en"
     title = "森沢淋"
     contentDir = "content/ja"
 
+    [languages.ja.params]
+      date_format = "2006年01月02日"
+
   [languages.zh]
     languageName = "中文"
     languageCode = 'zh'
@@ -28,6 +35,9 @@ defaultContentLanguage = "en"
     weight = 3
     title = "林泽"
     contentDir = "content/zh"
+
+    [languages.zh.params]
+      date_format = "2006年01月02日"
 
 
 [module]
