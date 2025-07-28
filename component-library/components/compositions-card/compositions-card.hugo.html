@@ -37,8 +37,7 @@
         <div class="{{$c}}__info">
           <div class="{{$c}}__author-name">
             {{ T "t_author_name" "Author Name" }} </div>
-          <span class="{{$c}}__date"><time datetime="{{ .date }}">{{ .date.Format "02 Jan 2006"
-          }}</time></span>
+          <span class="{{$c}}__date"><time datetime="{{ .date }}">{{ partial "format-date.html" (dict "date" .date) }}</time></span>
         </div>
       </div>
 
