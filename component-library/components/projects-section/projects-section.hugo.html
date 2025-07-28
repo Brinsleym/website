@@ -82,7 +82,13 @@
           {{ if .show_projects }}
           <div class="row">
             {{ range where site.RegularPages "Section" "projects" | first 3 }}
-              {{ partial "bookshop" (slice "project-card" (dict "url" .RelPermalink "image" .Params.image "title" .Params.title "subtitle" .Params.subtitle)) }}
+              {{ partial "bookshop" (slice "project-card" (dict
+                "url" .RelPermalink
+                "image" .Params.image
+                "title" .Params.title
+                "subtitle" .Params.subtitle
+                "description" .Params.description
+              )) }}
             {{ end }}
           </div>
           {{ end }}

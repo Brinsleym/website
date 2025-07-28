@@ -3,6 +3,7 @@ date: 2024-01-17
 title: "Location Sound Project Recording"
 subtitle: Recorded on 17th Jan 2024
 image: '/images/locationsound1.jpg'
+description: "A behind-the-scenes look at my Location Sound module project."
 ---
 
 As part of the Location Sound module for my undergraduate degree, I organized a field recording performance of one of my original compositions. The piece, titled *The Echoes of a Forgotten Breeze*, explores the relationship between a solo clarinet and the natural environment.
