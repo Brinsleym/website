@@ -3,6 +3,7 @@ date: 2023-06-09
 title: Chimera合奏团
 subtitle: 2023年6月
 image: '/images/chimera-june-2023.jpg'
+description: "林泽作品《未触及的风景》首演"
 ---
 
 在2023年6月的音乐会中，Chimera合奏团在Sir Jack Lyons音乐厅上演了林泽（Brinsley Morrison）的作品《未被触碰的景观》的首演。林泽（Brinsley Morrison）指挥了该作品并参与了合奏，演奏了第一小提琴部分。
