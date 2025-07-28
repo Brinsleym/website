@@ -20,7 +20,8 @@ My goal was never to surpass the original composers' work, but rather to engage 
 As with the other material from [this project](/blog/final-year-dissertation-project/), I made use of AI audio seperation tools to isolate the dialogue and sound effects, using the model [Bandit V2](https://github.com/kwatcharasupat/bandit-v2), which is trained on the [Divide and Remaster V3 dataset](https://github.com/kwatcharasupat/divide-and-remaster-v3), a dataset specifically using clips of film, and was multilingual. This model proved significantly better results for my use case, and was able to produce much higher resolution results with significantly less artifacting.  
 
 ## Listen to the soundtrack:
-{{< soundcloud-playlist 2034380025 >}}
+{{< soundcloud-player track="https://soundcloud.com/brinsleymorrison/preview-re-scoring-scenes-from-suzume-clip-1" background="/images/suzume_cover_1.jpg" >}}
+
 <br>
 
 {{< disclaimer-en "Suzume no Tojimari" >}}
