@@ -3,7 +3,7 @@ date: 2025-05-22
 title: "Final Year Dissertation Project"
 subtitle: "From Oct 2024 to May 2025"
 image: '/images/suzume-project-1.jpg'
-description: "THIS IS NOT BEING SHOWN"
+description: "A detailed look into the project of re-scoring music from various anime."
 ---
 # Introduction
 
