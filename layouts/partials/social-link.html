@@ -4,7 +4,7 @@
       {{ range .Site.Data.social_links.social }}
       <li class="social__item">
         <a class="social__link" href="{{ .link }}" target="_blank" rel="noopener"
-          aria-label="{{ .icon }} icon"><i class="ion ion-{{ lower .icon }}"></i></a>
+          aria-label="{{ .icon }} icon"><ion-icon name="{{ lower .icon }}"></ion-icon></a>
       </li>
       {{ end }}
     </ul>

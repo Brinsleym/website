@@ -1,12 +1,21 @@
-<!-- Custom SoundCloud Audio Player -->
+<!-- Custom        <a href="#" class="custom-soundcloud-player__soundcloud-link" target="_blank">
+          <ion-icon name="logo-soundcloud"></ion-icon>
+          <span>Soundcloud</span>
+        </a>ndCloud Audio Player -->
 <div class="custom-soundcloud-player" data-track-url="{{ .url }}" {{ if .background }}data-custom-background="{{ .background }}"{{ end }}>
   <!-- Artwork and Track Info -->
   <div class="custom-soundcloud-player__artwork-container"{{ if .background }} style="background-image: url('{{ .background }}');"{{ end }}>
     <img class="custom-soundcloud-player__artwork" src="" alt="Track artwork" style="display: none;">
     <div class="custom-soundcloud-player__artwork-overlay">
-      <div class="custom-soundcloud-player__track-info">
-        <div class="custom-soundcloud-player__title">Loading...</div>
-        <div class="custom-soundcloud-player__artist">Please wait</div>
+      <div class="custom-soundcloud-player__track-info-wrapper">
+        <div class="custom-soundcloud-player__track-info">
+          <div class="custom-soundcloud-player__title">Loading...</div>
+          <div class="custom-soundcloud-player__artist">Please wait</div>
+        </div>
+        <a href="#" class="custom-soundcloud-player__soundcloud-link" target="_blank">
+          <ion-icon name="logo-soundcloud"></ion-icon>
+          <span>Soundcloud</span>
+        </a>
       </div>
     </div>
   </div>
@@ -16,7 +25,7 @@
     <div class="custom-soundcloud-player__main-controls">
       <!-- Play/Pause Button -->
       <button class="custom-soundcloud-player__play-button" type="button">
-        <i class="ion ion-ios-play"></i>
+        <ion-icon name="play"></ion-icon>
       </button>
 
       <!-- Time and Progress -->
@@ -32,7 +41,7 @@
 
       <!-- Volume Controls (hidden on mobile) -->
       <div class="custom-soundcloud-player__volume-controls">
-        <i class="custom-soundcloud-player__volume-icon ion ion-ios-volume-high"></i>
+        <ion-icon class="custom-soundcloud-player__volume-icon" name="volume-high"></ion-icon>
         <div class="custom-soundcloud-player__volume-slider">
           <div class="volume-handle"></div>
         </div>
@@ -53,7 +62,6 @@
     const customBackground = player.dataset.customBackground;
     const artworkContainer = player.querySelector('.custom-soundcloud-player__artwork-container');
     const playButton = player.querySelector('.custom-soundcloud-player__play-button');
-    const playIcon = playButton.querySelector('i');
     const progressBar = player.querySelector('.custom-soundcloud-player__progress-bar');
     const progressFill = player.querySelector('.custom-soundcloud-player__progress-fill');
     const timeDisplays = player.querySelectorAll('.custom-soundcloud-player__time-display');
@@ -62,6 +70,7 @@
     const artist = player.querySelector('.custom-soundcloud-player__artist');
     const volumeSlider = player.querySelector('.custom-soundcloud-player__volume-slider');
     const volumeIcon = player.querySelector('.custom-soundcloud-player__volume-icon');
+    const soundcloudLink = player.querySelector('.custom-soundcloud-player__soundcloud-link');
 
     let widget = null;
     let isPlaying = false;
@@ -98,6 +107,7 @@
           if (sound) {
             title.textContent = sound.title || 'SoundCloud Track';
             artist.textContent = sound.user.username || 'Unknown Artist';
+            soundcloudLink.href = sound.permalink_url;
             
             // Only update artwork if no custom background
             if (sound.artwork_url && !customBackground) {
@@ -137,7 +147,8 @@
     }
 
     function updatePlayButton() {
-      playIcon.className = isPlaying ? 'ion ion-ios-pause' : 'ion ion-ios-play';
+      const playIcon = playButton.querySelector('ion-icon');
+      playIcon.name = isPlaying ? 'pause' : 'play';
       playButton.classList.toggle('playing', isPlaying);
     }
 
@@ -152,11 +163,11 @@
       volumeSlider.style.setProperty('--volume', `${volume * 100}%`);
       
       if (volume === 0) {
-        volumeIcon.className = 'custom-soundcloud-player__volume-icon ion ion-ios-volume-off';
+        volumeIcon.name = 'volume-off';
       } else if (volume < 0.5) {
-        volumeIcon.className = 'custom-soundcloud-player__volume-icon ion ion-ios-volume-low';
+        volumeIcon.name = 'volume-low';
       } else {
-        volumeIcon.className = 'custom-soundcloud-player__volume-icon ion ion-ios-volume-high';
+        volumeIcon.name = 'volume-high';
       }
     }
 
