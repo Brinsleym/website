@@ -304,21 +304,33 @@
     text-decoration: none;
     background-color: transparent;
     border: none;
+    border-bottom: none !important;
     cursor: pointer;
-    padding: 5px;
+    padding: 12px 12px;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
-
+    transition: color 0.3s ease;
+    font-size: $font-size-h5;
+    font-weight: 700 !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    
+    margin-top: -10px;
+    margin-right: -12px;
+    
     &:hover {
-      background-color: rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.5) !important;    }
+
+    ion-icon {
+      font-size: 20px;
+      margin-right: 2px;
     }
 
-    i {
-      font-size: 20px;
+    span {
+      line-height: 1.2;
+      font-weight: 700 !important;
     }
   }
 
-  // For a responsive layout
+  // responsive layout
   @media only screen and (max-width: 768px) {
     margin: ($base-spacing-unit * 3) 0;
 
