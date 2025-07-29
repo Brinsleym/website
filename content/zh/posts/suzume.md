@@ -21,7 +21,7 @@ image: '/images/suzume_cover_1.jpg'
 与[本项目的其他材料](/zh/blog/毕业设计项目/)一样，我使用AI音频分离工具来隔离对话和音效，使用的是[Bandit V2](https://github.com/kwatcharasupat/bandit-v2)模型，该模型基于专门使用电影片段的多语言[Divide and Remaster V3数据集](https://github.com/kwatcharasupat/divide-and-remaster-v3)训练。这个模型在我的用例中表现明显更好，能够生成分辨率更高、伪影少得多的结果。
 
 ## 收听配乐:
-{{< soundcloud-playlist 2034380025 >}}
+{{< soundcloud-playlist playlist="2057796114" background="/images/suzume_cover_1.jpg" >}}
 
 ## 查看项目文件:
 出于版权考虑，我不分发原始音频或视频。如果您想体验阵内和Hoffmann令人惊叹的原创配乐(我强烈推荐)，请支持官方发布。

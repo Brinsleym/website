@@ -23,8 +23,7 @@ draft: false
 台詞と効果音を分離するために、最初はステム分離ツールの[Ultimate Vocal Remover](https://ultimatevocalremover.com)を使用しました。このツールには音楽を分離するための複数のモデルが用意されています。作業の途中で、[Bandit V2](https://github.com/kwatcharasupat/bandit-v2)というモデルを見つけました。このモデルは、映画のクリップを特に使用した[Divide and Remaster V3データセット](https://github.com/kwatcharasupat/divide-and-remaster-v3)でトレーニングされており、多言語対応でした。このモデルは私のユースケースにおいて大幅に優れた結果を提供し、アーティファクトを大幅に減らしながら高解像度の結果を生成できました。
 
 ## サウンドトラックを聴く：
-{{< soundcloud-playlist 2034380025 >}}
-<br>
+{{< soundcloud-playlist playlist="2034380025" background="/images/frieren-1.jpg" >}}
 
 ## プロジェクトファイルを閲覧：
 著作権を尊重するため、オリジナルの音声や動画は配布していません。Evan Callの素晴らしいオリジナルスコアを体験したい場合は（強くお勧めします）、公式リリースをサポートしてください。

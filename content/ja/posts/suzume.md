@@ -21,8 +21,7 @@ image: '/images/suzume_cover_1.jpg'
 [このプロジェクトの他の作品](/ja/blog/卒業論文プロジェクト/)と同様に、AI音声分離ツールを使用して対話と効果音を分離しました。[Bandit V2](https://github.com/kwatcharasupat/bandit-v2)モデルを使用し、これは特に映画クリップを使用した多言語対応の[Divide and Remaster V3データセット](https://github.com/kwatcharasupat/divide-and-remaster-v3)で訓練されています。このモデルは私の使用ケースで非常に優れた結果を出し、はるかに高解像度でアーティファクトの少ない出力を生成できました。
 
 ## サウンドトラックを聴く:
-{{< soundcloud-playlist 2034380025 >}}
-<br>
+{{< soundcloud-playlist playlist="2057796114" background="/images/suzume_cover_1.jpg" >}}
 
 ## プロジェクトファイルを見る:
 著作権尊重のため、オリジナルの音声や動画は配布しません。陣内とホフマンの素晴らしいオリジナルスコアを体験したい場合は、公式リリースをサポートしてください。
