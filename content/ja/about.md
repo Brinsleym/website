@@ -6,17 +6,27 @@ content_blocks:
     about_description_html: >
       <p>
         森沢は<b>多楽器奏者</b>であり、<b>作曲家</b>です。彼は<b>BBCフィルハーモニー管弦楽団</b>のボーカルソリストとして演奏した経験があり、また複数のオーケストラで<b>コンサートマスター</b>としても演奏しました。<br><br>
-        森沢は<b>チータム音楽学校</b>の卒業生で、現在は<b>ヨーク大学</b>で音楽（BA）を学んでいます。
+        森沢は<b>チータム音楽学校</b>の卒業生で、<b>ヨーク大学</b>で<b>音楽学士号を最優等で</b>取得しました。
       </p>
   - _bookshop_name: page-image
     image: /images/thebrinkofthevalley-2.jpg
     image_alt:
   - _bookshop_name: content
     content_html: >-
+      <p>
+        森沢は<b>多楽器奏者</b>であり、<b>作曲家</b>です。彼は<b>BBCフィルハーモニー管弦楽団</b>のボーカルソリストとして演奏した経験があり、また複数のオーケストラで<b>コンサートマスター</b>としても演奏しました。<br><br>森沢は<b>ヨーク大学</b>で<b>音楽学士号を最優等</b>で取得し、最終学年では映画音楽作曲を専攻しました。森沢は<b>チータム音楽学校</b>の卒業生でもあり、そこで作曲と声楽、そしてヴァイオリンとピアノを学びました。
+      </p>
       <h2>森沢淋の履歴書：</h2>
       <body>
         <iframe src="/doc/cv.pdf#navpanes=0" frameborder="0" height="500rem" width="100%"></iframe>
       <br>
+      <h1>ヨーク大学</h1>
+      <p>
+        森沢は2025年夏に最優等で卒業しました。大学では、最終年度の論文プロジェクトとして映像作品のための新作音楽作品集を制作しました。（<a href="https://brinsleymorrison.com/blog/final-year-dissertation-project/" target="_blank">詳細はこちらをお読みください</a>）。ヨークでの学習期間中、森沢は<a href="york.ac.uk" target="_blank">ヨーク大学交響楽団</a>での演奏、<a href="york.ac.uk" target="_blank">The 24</a>での歌唱、そして<a href="york.ac.uk" target="_blank">The Chimera Ensemble</a>のための音楽委嘱と演奏も行いました。
+      </p>
+      <p>
+        2023年、森沢は<a href="https://www.yorkoratory.com/st-wilfrids" target="_blank">ヨーク・オラトリウム（聖ウィルフリッド）</a>で合唱奨学生として活動し、4声部のソロボイス・アンサンブルで週2回の礼拝で歌唱し、また<a href="https://www.york.ac.uk/arts-creative-technologies/study/funding/choral-scholarship/" target ="_blank">ヨーク大学から合唱奨学金を授与</a>されました。
+      </p>
       <h1>初期のキャリア</h1>
       <p>
         森沢は、音楽キャリアを<b>ヘレフォード大聖堂</b>でスタートさせました。彼は2015年から2017年まで、3年間合唱団員として歌い、その間にバッハの受難曲やオラトリオなどの大規模な音楽作品を毎年演奏しました。ヘレフォード大聖堂合唱団に所属していた間、彼は<b>バッキンガム宮殿</b>での演奏、<b>BBCラジオ3</b>での出演、そして<b>アメリカツアー</b>も経験しました。<br>

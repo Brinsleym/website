@@ -5,17 +5,27 @@ content_blocks:
     title: 关于布 林泽
     about_description_html:
           <p>
-            林泽 是一位 <b>多乐器演奏家</b> 和 <b>作曲家</b>。他曾作为独唱歌手与 <b>BBC交响乐团</b> 合作演出，并在多个管弦乐团担任 <b>首席小提琴</b>。<br><br> 林泽 是 <b>切塔姆音乐学校</b> 的校友，目前在 <b>约克大学</b> 学习音乐（学士学位）。
+            林泽是一位<b>多乐器演奏家</b>和<b>作曲家</b>。他曾作为独唱歌手与<b>BBC交响乐团</b>合作演出，并在多个管弦乐团担任<b>首席小提琴</b>。<br><br>林泽是<b>切塔姆音乐学校</b>的校友，并且以<b>一等荣誉</b>毕业于<b>约克大学</b>音乐系。
           </p>
   - _bookshop_name: page-image
     image: /images/thebrinkofthevalley-2.jpg
     image_alt:
   - _bookshop_name: content
     content_html: >-
+      <p>
+        林泽是一位<b>多乐器演奏家</b>和<b>作曲家</b>。他曾作为独唱歌手与<b>BBC交响乐团</b>合作演出，并在多个管弦乐团担任<b>首席小提琴</b>。<br><br>林泽以<b>音乐学士一等荣誉学位</b>毕业于<b>约克大学</b>，在最后一年专攻电影配乐创作。林泽也是<b>切塔姆音乐学校</b>的校友，在那里他学习作曲和声乐，同时也学习小提琴和钢琴。
+      </p>
       <h2>林泽的简历：</h2>
       <body>
         <iframe src="/doc/cv.pdf#navpanes=0 "frameborder="0" height="500rem" width="100%"></iframe>
       <br>
+      <h1>约克大学</h1>
+      <p>
+        林泽于2025年夏季以一等荣誉学位毕业。在大学期间，他的最终年毕业论文项目涉及创作一组新作品的影视配乐作品集。（<a href="https://brinsleymorrison.com/blog/final-year-dissertation-project/" target="_blank">了解更多详情请点击这里</a>）。在约克学习期间，林泽还与<a href="york.ac.uk" target="_blank">约克大学交响乐团</a>合作演出，与<a href="york.ac.uk" target="_blank">The 24</a>合唱团演唱，以及为<a href="york.ac.uk" target="_blank">The Chimera Ensemble</a>委约音乐并与其合作演出。
+      </p>
+      <p>
+        2023年，林泽在<a href="https://www.yorkoratory.com/st-wilfrids" target="_blank">约克圣殿（圣威尔弗里德）</a>担任合唱学者，在四声部独唱合唱团中演唱，每周演出两场服务，并被<a href="https://www.york.ac.uk/arts-creative-technologies/study/funding/choral-scholarship/" target ="_blank">约克大学授予合唱奖学金</a>。
+      </p>
       <h1>早期职业生涯</h1>
       <p>
         林泽 在 <b>赫里福德大教堂</b> 开始了他的音乐生涯，作为合唱团成员唱了三年（2015-2017）。在那段时间里，他每年都演唱巴赫的《受难曲》和《清唱剧》，以及许多其他大型音乐作品。在赫里福德大教堂合唱团期间，他曾在 <b>白金汉宫</b> 演出，在 <b>BBC第三电台</b> 播出，并且曾与合唱团一起 <b>美国巡演</b> 一周。<br>

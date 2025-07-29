@@ -15,13 +15,13 @@ content_blocks:
   - _bookshop_name: compositions-section
     title: 作品
     description_html: >-
-      <p>这是我最近参与的项目合集。以下是详细信息、乐谱和录音。</p>
+      <p>林泽的音乐作品集，按从最新到最早的顺序排列。</p>
     link_url: /compositions
     show_posts: true
   - _bookshop_name: projects-section
     title: 博客
     description_html: >-
-      <p>这是我最近参与的音乐会和演出的简要概述。</p>
+      <p>关于我参与的一些项目的文章合集。</p>
     link_url: /blog
     show_projects: true
   - _bookshop_name: testimonials-section

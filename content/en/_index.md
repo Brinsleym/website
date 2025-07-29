@@ -15,13 +15,13 @@ content_blocks:
   - _bookshop_name: compositions-section
     title: Compositions
     description_html: >-
-      <p>A collection of some of the recent projects I've worked on. Details, scores, and recordings are available.</p>
+      <p>A collection of Brinsley's music, ordered from most recent to oldest.</p>
     link_url: /compositions
     show_posts: true
   - _bookshop_name: projects-section
     title: Blog
     description_html: >-
-      <p>A brief outline of some of the recent concerts and performances I've been involved in.</p>
+      <p>A collection of posts covering a few of the projects I've been involved with.</p>
     link_url: /blog
     show_projects: true
   - _bookshop_name: testimonials-section
