@@ -415,6 +415,44 @@
     overflow: hidden;
     background: $background-color-alt;
     border: 1px solid rgba($border-color, 0.3);
+    max-height: 290px; // Show 3.5 tracks (83px per track × 3.5 = 290.5px)
+    overflow-y: auto;
+    
+    // Custom scrollbar styling
+    &::-webkit-scrollbar {
+      width: 12px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: rgba($border-color, 0.15);
+      border-radius: 6px;
+      margin: 4px 0; // Add margin for better visual separation
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: rgba($primary-color, 0.4);
+      border-radius: 6px;
+      border: 2px solid $background-color-alt; // Add border for better definition
+      
+      &:hover {
+        background: rgba($primary-color, 0.6);
+        border: 2px solid rgba($background-color-alt, 0.8);
+      }
+      
+      &:active {
+        background: rgba($primary-color, 0.8);
+        border: 1px solid rgba($background-color-alt, 0.9);
+      }
+    }
+    
+    // Enhanced clickable area by adding padding to scrollbar track
+    &::-webkit-scrollbar-corner {
+      background: $background-color-alt;
+    }
+    
+    // Firefox scrollbar
+    scrollbar-width: auto;
+    scrollbar-color: rgba($primary-color, 0.4) rgba($border-color, 0.15);
   }
 
   &__loading {
@@ -544,6 +582,10 @@
   @media only screen and (max-width: 768px) {
     margin: ($base-spacing-unit * 3) 0;
 
+    &__tracks {
+      max-height: 227px; // Show 3.5 tracks (65px per track × 3.5 = 227.5px)
+    }
+
     &__track {
       padding: ($base-spacing-unit * 1.5);
       gap: ($base-spacing-unit * 1.5);
@@ -572,6 +614,10 @@
   }
 
   @media only screen and (max-width: 480px) {
+    &__tracks {
+      max-height: 192px; // Show 3.5 tracks (55px per track × 3.5 = 192.5px)
+    }
+
     &__track {
       padding: ($base-spacing-unit * 1.2);
       gap: ($base-spacing-unit * 1.2);
