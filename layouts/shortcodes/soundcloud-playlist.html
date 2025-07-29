@@ -107,6 +107,17 @@
       artworkContainer.classList.add('has-custom-background');
     }
 
+    // Utility function for safe iframe removal
+    function safeRemoveIframe(iframe, container) {
+      try {
+        if (iframe && iframe.parentNode === container) {
+          container.removeChild(iframe);
+        }
+      } catch (e) {
+        // Silent fail on cleanup
+      }
+    }
+
     // Fetch playlist data from SoundCloud API
     async function loadPlaylist() {
       try {
@@ -121,19 +132,129 @@
         const tempWidget = SC.Widget(tempIframe);
         
         tempWidget.bind(SC.Widget.Events.READY, function() {
-          tempWidget.getSounds(function(sounds) {
-            tracks = sounds;
-            if (tracks.length > 0) {
-              renderPlaylist();
-              loadTrack(0);
+          // Add timeout for getSounds as it might hang on large playlists
+          let soundsRetrieved = false;
+          
+          // Set a timeout to handle cases where getSounds doesn't respond
+          const timeout = setTimeout(() => {
+            if (!soundsRetrieved) {
+              loadingElement.textContent = 'Playlist too large or API timeout';
+              safeRemoveIframe(tempIframe, playlistContainer);
             }
-            // Remove temporary iframe
-            playlistContainer.removeChild(tempIframe);
+          }, 10000); // 10 second timeout
+          
+          // Try to get all sounds
+          tempWidget.getSounds(function(sounds) {
+            soundsRetrieved = true;
+            clearTimeout(timeout);
+            
+            if (sounds && sounds.length > 0) {
+              // Separate complete and incomplete tracks
+              const completeTracks = [];
+              const incompleteTrackIds = [];
+              
+              sounds.forEach((track, index) => {
+                if (track.permalink_url && track.title) {
+                  // Track has complete metadata
+                  completeTracks.push(track);
+                } else if (track.id) {
+                  // Track has ID but missing metadata - we'll fetch it individually
+                  incompleteTrackIds.push(track.id);
+                }
+              });
+              
+              // Start with complete tracks
+              tracks = [...completeTracks];
+              
+              if (incompleteTrackIds.length > 0) {
+                // Fetch incomplete tracks individually
+                fetchIncompleteTracksAndRender(incompleteTrackIds, completeTracks);
+              } else {
+                // Only complete tracks, render immediately
+                if (tracks.length > 0) {
+                  renderPlaylist();
+                  loadTrack(0);
+                } else {
+                  loadingElement.textContent = 'No playable tracks found';
+                }
+              }
+            } else {
+              loadingElement.textContent = 'No tracks found in playlist';
+            }
+            // Remove temporary iframe safely
+            safeRemoveIframe(tempIframe, playlistContainer);
           });
         });
       } catch (error) {
-        console.error('Error loading playlist:', error);
         loadingElement.textContent = 'Error loading playlist';
+      }
+    }
+
+    async function fetchIncompleteTracksAndRender(trackIds, completeTracks) {
+      const additionalTracks = [];
+      let completedRequests = 0;
+      
+      // Fetch each track individually
+      for (const trackId of trackIds) {
+        try {
+          // Create individual iframe for each track to get its data
+          const tempTrackIframe = document.createElement('iframe');
+          const trackUrl = `https://api.soundcloud.com/tracks/${trackId}`;
+          tempTrackIframe.src = `https://w.soundcloud.com/player/?url=${encodeURIComponent(trackUrl)}&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&visual=false`;
+          tempTrackIframe.style.display = 'none';
+          tempTrackIframe.width = '100%';
+          tempTrackIframe.height = '0';
+          playlistContainer.appendChild(tempTrackIframe);
+
+          const trackWidget = SC.Widget(tempTrackIframe);
+          
+          trackWidget.bind(SC.Widget.Events.READY, function() {
+            trackWidget.getCurrentSound(function(trackData) {
+              completedRequests++;
+              
+              if (trackData && trackData.permalink_url) {
+                additionalTracks.push(trackData);
+              }
+              
+              // Clean up iframe
+              safeRemoveIframe(tempTrackIframe, playlistContainer);
+              
+              // Check if all requests completed
+              if (completedRequests >= trackIds.length) {
+                // Combine all tracks and render
+                tracks = [...completeTracks, ...additionalTracks];
+                
+                if (tracks.length > 0) {
+                  renderPlaylist();
+                  loadTrack(0);
+                } else {
+                  loadingElement.textContent = 'Failed to load any tracks';
+                }
+              }
+            });
+          });
+          
+          // Add timeout for individual track fetching
+          setTimeout(() => {
+            if (completedRequests < trackIds.length) {
+              // Clean up on timeout
+              safeRemoveIframe(tempTrackIframe, playlistContainer);
+            }
+          }, 10000); // 10 second timeout per track
+          
+        } catch (error) {
+          completedRequests++;
+          
+          if (completedRequests >= trackIds.length) {
+            tracks = [...completeTracks, ...additionalTracks];
+            if (tracks.length > 0) {
+              renderPlaylist();
+              loadTrack(0);
+            } else {
+              loadingElement.textContent = 'Failed to load tracks';
+            }
+          }
+        }
       }
     }
 
@@ -143,15 +264,15 @@
       const playlistHTML = tracks.map((track, index) => `
         <div class="custom-soundcloud-playlist__track ${index === currentTrackIndex ? 'active' : ''}" data-track-index="${index}">
           <div class="custom-soundcloud-playlist__track-artwork">
-            <img src="${track.artwork_url ? track.artwork_url.replace('-large', '-t67x67') : ''}" alt="${track.title}" onerror="this.style.display='none'">
+            <img src="${track.artwork_url ? track.artwork_url.replace('-large', '-t67x67') : ''}" alt="${track.title || 'Track'}" onerror="this.style.display='none'">
             <div class="custom-soundcloud-playlist__track-play-icon">
               <ion-icon name="${index === currentTrackIndex && isPlaying ? 'pause' : 'play'}"></ion-icon>
             </div>
           </div>
           <div class="custom-soundcloud-playlist__track-info">
-            <div class="custom-soundcloud-playlist__track-title">${track.title}</div>
-            <div class="custom-soundcloud-playlist__track-artist">${track.user.username}</div>
-            <div class="custom-soundcloud-playlist__track-duration">${formatTime(track.duration / 1000)}</div>
+            <div class="custom-soundcloud-playlist__track-title">${track.title || 'Untitled Track'}</div>
+            <div class="custom-soundcloud-playlist__track-artist">${track.user ? track.user.username : 'Unknown Artist'}</div>
+            <div class="custom-soundcloud-playlist__track-duration">${track.duration ? formatTime(track.duration / 1000) : '0:00'}</div>
           </div>
         </div>
       `).join('');
@@ -182,6 +303,13 @@
       currentTrackIndex = index;
       const track = tracks[index];
       
+      // Validate track has required properties
+      if (!track.permalink_url) {
+        title.textContent = 'Track unavailable';
+        artist.textContent = 'Cannot load track';
+        return;
+      }
+      
       // Update active track in playlist
       tracksContainer.querySelectorAll('.custom-soundcloud-playlist__track').forEach((el, i) => {
         el.classList.toggle('active', i === index);
@@ -190,7 +318,7 @@
       // Remove existing widget iframe
       const existingIframe = player.querySelector('iframe');
       if (existingIframe) {
-        player.removeChild(existingIframe);
+        safeRemoveIframe(existingIframe, player);
       }
       
       // Create new iframe for the track
@@ -206,7 +334,19 @@
       // Initialize widget for this track
       currentWidget = SC.Widget(iframe);
       
+      // Add timeout for widget ready event
+      let widgetReady = false;
+      const widgetTimeout = setTimeout(() => {
+        if (!widgetReady) {
+          title.textContent = 'Track load timeout';
+          artist.textContent = 'Try refreshing or selecting another track';
+        }
+      }, 15000); // 15 second timeout
+      
       currentWidget.bind(SC.Widget.Events.READY, function() {
+        widgetReady = true;
+        clearTimeout(widgetTimeout);
+        
         currentWidget.getDuration(function(dur) {
           duration = dur;
           timeDisplays[1].textContent = formatTime(duration / 1000);
@@ -214,8 +354,8 @@
 
         // Update player UI with track info
         title.textContent = track.title || 'SoundCloud Track';
-        artist.textContent = track.user.username || 'Unknown Artist';
-        soundcloudLink.href = track.permalink_url;
+        artist.textContent = track.user ? track.user.username : 'Unknown Artist';
+        soundcloudLink.href = track.permalink_url || '#';
         
         // Only update artwork if no custom background
         if (track.artwork_url && !customBackground) {
@@ -326,6 +466,23 @@
       return `${mins}:${secs.toString().padStart(2, '0')}`;
     }
 
+    // Utility function for progress interaction
+    function handleProgressSeek(clientX) {
+      if (!currentWidget || duration === 0) return;
+      
+      const progressContainer = player.querySelector('.custom-soundcloud-player__progress-container');
+      const rect = progressContainer.getBoundingClientRect();
+      const clickX = clientX - rect.left;
+      const clickRatio = Math.max(0, Math.min(1, clickX / rect.width));
+      const newPosition = clickRatio * duration;
+      
+      currentWidget.seekTo(newPosition);
+      
+      if (!isPlaying) {
+        currentWidget.play();
+      }
+    }
+
     // Event Listeners
     playButton.addEventListener('click', function() {
       if (!currentWidget) return;
@@ -342,19 +499,7 @@
     const mainControls = player.querySelector('.custom-soundcloud-player__main-controls');
     
     function handleProgressInteraction(e) {
-      if (!currentWidget || duration === 0) return;
-      
-      const progressContainer = player.querySelector('.custom-soundcloud-player__progress-container');
-      const rect = progressContainer.getBoundingClientRect();
-      const clickX = e.clientX - rect.left;
-      const clickRatio = Math.max(0, Math.min(1, clickX / rect.width));
-      const newPosition = clickRatio * duration;
-      
-      currentWidget.seekTo(newPosition);
-      
-      if (!isPlaying) {
-        currentWidget.play();
-      }
+      handleProgressSeek(e.clientX);
     }
 
     mainControls.addEventListener('mousedown', function(e) {
@@ -445,39 +590,13 @@
       }
       
       isDraggingProgress = true;
-      const touch = e.touches[0];
-      const progressContainer = player.querySelector('.custom-soundcloud-player__progress-container');
-      const rect = progressContainer.getBoundingClientRect();
-      const clickX = touch.clientX - rect.left;
-      const clickRatio = Math.max(0, Math.min(1, clickX / rect.width));
-      const newPosition = clickRatio * duration;
-      
-      if (currentWidget && duration > 0) {
-        currentWidget.seekTo(newPosition);
-        
-        if (!isPlaying) {
-          currentWidget.play();
-        }
-      }
+      handleProgressSeek(e.touches[0].clientX);
       e.preventDefault();
     });
 
     document.addEventListener('touchmove', function(e) {
       if (isDraggingProgress && e.touches[0]) {
-        const touch = e.touches[0];
-        const progressContainer = player.querySelector('.custom-soundcloud-player__progress-container');
-        const rect = progressContainer.getBoundingClientRect();
-        const clickX = touch.clientX - rect.left;
-        const clickRatio = Math.max(0, Math.min(1, clickX / rect.width));
-        const newPosition = clickRatio * duration;
-        
-        if (currentWidget && duration > 0) {
-          currentWidget.seekTo(newPosition);
-          
-          if (!isPlaying) {
-            currentWidget.play();
-          }
-        }
+        handleProgressSeek(e.touches[0].clientX);
       }
     });
 
