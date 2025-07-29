@@ -15,6 +15,9 @@ Please refer to the original template's licensing terms for usage guidelines.
 ---
 
 ## To Do:
+- sc player fix audio bg rumble on pause
+- Missung date on hero projects cards & messed up cn ja
+- Upload clean suzume project files to github
 - Add smooth animated scroll for 'get in touch' hero button
 - Add local audio file support to music player for CN
 - Implement better support for detecting user default language
