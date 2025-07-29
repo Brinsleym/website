@@ -169,14 +169,14 @@
               currentWidget.play();
             }
           } else {
-            // Load new track
-            loadTrack(index);
+            // Load new track and start playing automatically
+            loadTrack(index, true);
           }
         });
       });
     }
 
-    function loadTrack(index) {
+    function loadTrack(index, autoPlay = false) {
       if (index < 0 || index >= tracks.length) return;
       
       currentTrackIndex = index;
@@ -232,6 +232,11 @@
         position = 0;
         updatePlayButton();
         updateProgress();
+        
+        // Auto-play if requested
+        if (autoPlay) {
+          currentWidget.play();
+        }
       });
 
       currentWidget.bind(SC.Widget.Events.PLAY, function() {
@@ -255,7 +260,7 @@
         
         // Auto-play next track
         if (currentTrackIndex < tracks.length - 1) {
-          setTimeout(() => loadTrack(currentTrackIndex + 1), 1000);
+          setTimeout(() => loadTrack(currentTrackIndex + 1, true), 1000);
         }
       });
 
