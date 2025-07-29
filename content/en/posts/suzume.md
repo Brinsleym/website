@@ -25,6 +25,9 @@ As with the other material from [this project](/blog/final-year-dissertation-pro
 
 <br>
 
+## SoundCloud Playlist Player Test
+
+{{< soundcloud-playlist playlist="2057796114" >}}
 
 ## View the project files:
 To respect copyright, I am not distributing the original audio or video. If you wish to experience Jinnouchi and Hoffmann’s stunning original score (which I highly recommend), please support the official release.
