@@ -6,12 +6,11 @@ description: >-
 tags: [オーケストラ, ピアノ]
 image: /images/beyond-the-shadow-1.jpg
 ---
-
-{{< soundcloud-player track="https://soundcloud.com/brinsleymorrison/beyond-the-shadow" >}}
-
 この作品を書く際の私の焦点は、ディソナンスとコンソナンスの関係を探ることでした。
 
 この作品の作曲における影響の一部は、久石譲のクアタルピアノの和音、開幕の落ちるモチーフ（クルターグのアイデアに似ている）、そしてワーグナーのオーケストラの書法に触発されたクライマックスのジェスチャーでした。その他の顕著なインスピレーションには、ショスタコーヴィチの象徴的な残虐さの使い方や、武満徹の多声音楽もあり、この作品を作曲する際のアイデアの出発点となりました。
+
+{{< soundcloud-player track="https://soundcloud.com/brinsleymorrison/beyond-the-shadow" background="/images/beyond-the-shadow-1.jpg" >}}
 
 ## 楽譜を表示:
 
