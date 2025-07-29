@@ -6,4 +6,4 @@
 {{ else }}
   {{ $trackUrl = printf "https://api.soundcloud.com/tracks/%s" $track }}
 {{ end }}
-{{ partial "components/soundcloud-player.html" (dict "url" $trackUrl "background" $background) }}
+{{ partial "soundcloud-player.html" (dict "url" $trackUrl "background" $background) }}  
