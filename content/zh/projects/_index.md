@@ -11,7 +11,7 @@ seo:
 content_blocks:
   - _bookshop_name: page-heading
     title: '我的博客'
-    description: 我参与的一些项目的帖子集。
+    description: 关于我参与的一些项目的文章合集。
   - _bookshop_name: projects-list
     show_projects: true
     _live_render: false

@@ -11,7 +11,7 @@ seo:
 content_blocks:
   - _bookshop_name: page-heading
     title: 'My Blog'
-    description: A collection of posts covering some of the projects I've been involved with.
+    description: A collection of posts covering a few of the projects I've been involved with.
   - _bookshop_name: projects-list
     show_projects: true
     _live_render: false

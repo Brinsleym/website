@@ -15,13 +15,13 @@ content_blocks:
   - _bookshop_name: compositions-section
     title: 作曲
     description_html: >-
-      <p>最近取り組んだプロジェクトの一部をご紹介します。詳細、楽譜、録音は以下でご覧いただけます。</p>
+      <p>森沢淋の音楽作品集、最新のものから古いものまで順に並んでいます。</p>
     link_url: /compositions
     show_posts: true
   - _bookshop_name: projects-section
     title: ブログ
     description_html: >-
-      <p>最近参加したコンサートやパフォーマンスの簡単な概要をご紹介します。</p>
+      <p>私が関わったいくつかのプロジェクトを扱った投稿のコレクション。</p>
     link_url: /blog
     show_projects: true
   - _bookshop_name: testimonials-section
