@@ -1,7 +1,492 @@
-<iframe width="100%"
-height="50vh" 
-scrolling="no" 
-frameborder="no" 
-allow="autoplay"
-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/{{ index .Params 0 }}&color=%231c1511&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=true">
-</iframe>
+{{ $playlist := .Get "playlist" }}
+{{ $background := .Get "background" }}
+{{ $playlistUrl := "" }}
+{{ if hasPrefix $playlist "https://" }}
+  {{ $playlistUrl = $playlist }}
+{{ else }}
+  {{ $playlistUrl = printf "https://api.soundcloud.com/playlists/%s" $playlist }}
+{{ end }}
+
+<!-- Custom SoundCloud Playlist Player -->
+<div class="custom-soundcloud-playlist" data-playlist-url="{{ $playlistUrl }}" {{ if $background }}data-custom-background="{{ $background }}"{{ end }}>
+  <!-- Main Player -->
+  <div class="custom-soundcloud-player" data-track-url="" {{ if $background }}data-custom-background="{{ $background }}"{{ end }}>
+    <!-- Artwork and Track Info -->
+    <div class="custom-soundcloud-player__artwork-container"{{ if $background }} style="background-image: url('{{ $background }}');"{{ end }}>
+      <img class="custom-soundcloud-player__artwork" src="" alt="Track artwork" style="display: none;">
+      <div class="custom-soundcloud-player__artwork-overlay">
+        <div class="custom-soundcloud-player__track-info-wrapper">
+          <div class="custom-soundcloud-player__track-info">
+            <div class="custom-soundcloud-player__title">Loading playlist...</div>
+            <div class="custom-soundcloud-player__artist">Please wait</div>
+          </div>
+          <a href="#" class="custom-soundcloud-player__soundcloud-link" target="_blank">
+            <ion-icon name="logo-soundcloud"></ion-icon>
+            <span>Soundcloud</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Player Controls -->
+    <div class="custom-soundcloud-player__controls">
+      <div class="custom-soundcloud-player__main-controls">
+        <!-- Play/Pause Button -->
+        <button class="custom-soundcloud-player__play-button" type="button">
+          <ion-icon name="play"></ion-icon>
+        </button>
+
+        <!-- Time and Progress -->
+        <div class="custom-soundcloud-player__time-info">
+          <div class="custom-soundcloud-player__time-display">0:00</div>
+          <div class="custom-soundcloud-player__progress-container">
+            <div class="custom-soundcloud-player__progress-bar">
+              <div class="custom-soundcloud-player__progress-fill"></div>
+            </div>
+          </div>
+          <div class="custom-soundcloud-player__time-display">0:00</div>
+        </div>
+
+        <!-- Volume Controls (hidden on mobile) -->
+        <div class="custom-soundcloud-player__volume-controls">
+          <ion-icon class="custom-soundcloud-player__volume-icon" name="volume-high"></ion-icon>
+          <div class="custom-soundcloud-player__volume-slider">
+            <div class="volume-handle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Playlist -->
+  <div class="custom-soundcloud-playlist__tracks">
+    <div class="custom-soundcloud-playlist__loading">
+      Loading playlist...
+    </div>
+  </div>
+</div>
+
+<!-- Load SoundCloud Widget API -->
+<script src="https://w.soundcloud.com/player/api.js"></script>
+
+<script>
+(function() {
+  const playlists = document.querySelectorAll('.custom-soundcloud-playlist');
+  
+  playlists.forEach((playlistContainer, playlistIndex) => {
+    const playlistUrl = playlistContainer.dataset.playlistUrl;
+    const customBackground = playlistContainer.dataset.customBackground;
+    const player = playlistContainer.querySelector('.custom-soundcloud-player');
+    const tracksContainer = playlistContainer.querySelector('.custom-soundcloud-playlist__tracks');
+    const loadingElement = playlistContainer.querySelector('.custom-soundcloud-playlist__loading');
+    
+    let currentTrackIndex = 0;
+    let tracks = [];
+    let currentWidget = null;
+    
+    // Player elements
+    const artworkContainer = player.querySelector('.custom-soundcloud-player__artwork-container');
+    const playButton = player.querySelector('.custom-soundcloud-player__play-button');
+    const progressBar = player.querySelector('.custom-soundcloud-player__progress-bar');
+    const progressFill = player.querySelector('.custom-soundcloud-player__progress-fill');
+    const timeDisplays = player.querySelectorAll('.custom-soundcloud-player__time-display');
+    const artwork = player.querySelector('.custom-soundcloud-player__artwork');
+    const title = player.querySelector('.custom-soundcloud-player__title');
+    const artist = player.querySelector('.custom-soundcloud-player__artist');
+    const volumeSlider = player.querySelector('.custom-soundcloud-player__volume-slider');
+    const volumeIcon = player.querySelector('.custom-soundcloud-player__volume-icon');
+    const soundcloudLink = player.querySelector('.custom-soundcloud-player__soundcloud-link');
+
+    let isPlaying = false;
+    let duration = 0;
+    let position = 0;
+    let volume = 0.7;
+
+    // Set custom background class if provided
+    if (customBackground) {
+      artworkContainer.classList.add('has-custom-background');
+    }
+
+    // Fetch playlist data from SoundCloud API
+    async function loadPlaylist() {
+      try {
+        // Create a temporary iframe to get playlist data
+        const tempIframe = document.createElement('iframe');
+        tempIframe.src = `https://w.soundcloud.com/player/?url=${encodeURIComponent(playlistUrl)}&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&visual=false`;
+        tempIframe.style.display = 'none';
+        tempIframe.width = '100%';
+        tempIframe.height = '0';
+        playlistContainer.appendChild(tempIframe);
+
+        const tempWidget = SC.Widget(tempIframe);
+        
+        tempWidget.bind(SC.Widget.Events.READY, function() {
+          tempWidget.getSounds(function(sounds) {
+            tracks = sounds;
+            if (tracks.length > 0) {
+              renderPlaylist();
+              loadTrack(0);
+            }
+            // Remove temporary iframe
+            playlistContainer.removeChild(tempIframe);
+          });
+        });
+      } catch (error) {
+        console.error('Error loading playlist:', error);
+        loadingElement.textContent = 'Error loading playlist';
+      }
+    }
+
+    function renderPlaylist() {
+      loadingElement.style.display = 'none';
+      
+      const playlistHTML = tracks.map((track, index) => `
+        <div class="custom-soundcloud-playlist__track ${index === currentTrackIndex ? 'active' : ''}" data-track-index="${index}">
+          <div class="custom-soundcloud-playlist__track-artwork">
+            <img src="${track.artwork_url ? track.artwork_url.replace('-large', '-t67x67') : ''}" alt="${track.title}" onerror="this.style.display='none'">
+            <div class="custom-soundcloud-playlist__track-play-icon">
+              <ion-icon name="${index === currentTrackIndex && isPlaying ? 'pause' : 'play'}"></ion-icon>
+            </div>
+          </div>
+          <div class="custom-soundcloud-playlist__track-info">
+            <div class="custom-soundcloud-playlist__track-title">${track.title}</div>
+            <div class="custom-soundcloud-playlist__track-artist">${track.user.username}</div>
+            <div class="custom-soundcloud-playlist__track-duration">${formatTime(track.duration / 1000)}</div>
+          </div>
+        </div>
+      `).join('');
+      
+      tracksContainer.innerHTML = playlistHTML;
+      
+      // Add click handlers to tracks
+      tracksContainer.querySelectorAll('.custom-soundcloud-playlist__track').forEach((trackElement, index) => {
+        trackElement.addEventListener('click', () => {
+          if (index === currentTrackIndex && currentWidget) {
+            // Toggle play/pause for current track
+            if (isPlaying) {
+              currentWidget.pause();
+            } else {
+              currentWidget.play();
+            }
+          } else {
+            // Load new track
+            loadTrack(index);
+          }
+        });
+      });
+    }
+
+    function loadTrack(index) {
+      if (index < 0 || index >= tracks.length) return;
+      
+      currentTrackIndex = index;
+      const track = tracks[index];
+      
+      // Update active track in playlist
+      tracksContainer.querySelectorAll('.custom-soundcloud-playlist__track').forEach((el, i) => {
+        el.classList.toggle('active', i === index);
+      });
+      
+      // Remove existing widget iframe
+      const existingIframe = player.querySelector('iframe');
+      if (existingIframe) {
+        player.removeChild(existingIframe);
+      }
+      
+      // Create new iframe for the track
+      const iframeId = `soundcloud-widget-${playlistIndex}-${index}`;
+      const iframe = document.createElement('iframe');
+      iframe.id = iframeId;
+      iframe.src = `https://w.soundcloud.com/player/?url=${encodeURIComponent(track.permalink_url)}&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&visual=false`;
+      iframe.style.display = 'none';
+      iframe.width = '100%';
+      iframe.height = '0';
+      player.appendChild(iframe);
+
+      // Initialize widget for this track
+      currentWidget = SC.Widget(iframe);
+      
+      currentWidget.bind(SC.Widget.Events.READY, function() {
+        currentWidget.getDuration(function(dur) {
+          duration = dur;
+          timeDisplays[1].textContent = formatTime(duration / 1000);
+        });
+
+        // Update player UI with track info
+        title.textContent = track.title || 'SoundCloud Track';
+        artist.textContent = track.user.username || 'Unknown Artist';
+        soundcloudLink.href = track.permalink_url;
+        
+        // Only update artwork if no custom background
+        if (track.artwork_url && !customBackground) {
+          const artworkUrl = track.artwork_url.replace('-large', '-t500x500');
+          artwork.src = artworkUrl;
+          artwork.style.display = 'block';
+        }
+
+        currentWidget.setVolume(volume * 100);
+        updateVolumeDisplay();
+        
+        // Reset player state
+        isPlaying = false;
+        position = 0;
+        updatePlayButton();
+        updateProgress();
+      });
+
+      currentWidget.bind(SC.Widget.Events.PLAY, function() {
+        isPlaying = true;
+        updatePlayButton();
+        updatePlaylistTrackIcons();
+      });
+
+      currentWidget.bind(SC.Widget.Events.PAUSE, function() {
+        isPlaying = false;
+        updatePlayButton();
+        updatePlaylistTrackIcons();
+      });
+
+      currentWidget.bind(SC.Widget.Events.FINISH, function() {
+        isPlaying = false;
+        position = 0;
+        updatePlayButton();
+        updateProgress();
+        updatePlaylistTrackIcons();
+        
+        // Auto-play next track
+        if (currentTrackIndex < tracks.length - 1) {
+          setTimeout(() => loadTrack(currentTrackIndex + 1), 1000);
+        }
+      });
+
+      currentWidget.bind(SC.Widget.Events.PLAY_PROGRESS, function(data) {
+        position = data.currentPosition;
+        updateProgress();
+        timeDisplays[0].textContent = formatTime(position / 1000);
+      });
+    }
+
+    function updatePlayButton() {
+      const playIcon = playButton.querySelector('ion-icon');
+      playIcon.name = isPlaying ? 'pause' : 'play';
+      playButton.classList.toggle('playing', isPlaying);
+    }
+
+    function updatePlaylistTrackIcons() {
+      tracksContainer.querySelectorAll('.custom-soundcloud-playlist__track').forEach((el, i) => {
+        const icon = el.querySelector('.custom-soundcloud-playlist__track-play-icon ion-icon');
+        if (i === currentTrackIndex) {
+          icon.name = isPlaying ? 'pause' : 'play';
+        } else {
+          icon.name = 'play';
+        }
+      });
+    }
+
+    function updateProgress() {
+      if (duration > 0) {
+        const percentage = (position / duration) * 100;
+        progressFill.style.width = `${percentage}%`;
+      }
+    }
+
+    function updateVolumeDisplay() {
+      volumeSlider.style.setProperty('--volume', `${volume * 100}%`);
+      
+      if (volume === 0) {
+        volumeIcon.name = 'volume-off';
+      } else if (volume < 0.5) {
+        volumeIcon.name = 'volume-low';
+      } else {
+        volumeIcon.name = 'volume-high';
+      }
+    }
+
+    function updateVolumeDisplayImmediate() {
+      volumeSlider.style.transition = 'none';
+      const handle = volumeSlider.querySelector('.volume-handle');
+      if (handle) handle.style.transition = 'opacity 0.2s ease';
+      
+      updateVolumeDisplay();
+      
+      requestAnimationFrame(() => {
+        volumeSlider.style.transition = '';
+        if (handle) handle.style.transition = 'opacity 0.2s ease, right 0.1s ease';
+      });
+    }
+
+    function formatTime(seconds) {
+      const mins = Math.floor(seconds / 60);
+      const secs = Math.floor(seconds % 60);
+      return `${mins}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    // Event Listeners
+    playButton.addEventListener('click', function() {
+      if (!currentWidget) return;
+      
+      if (isPlaying) {
+        currentWidget.pause();
+      } else {
+        currentWidget.play();
+      }
+    });
+
+    // Progress Bar Interaction
+    let isDraggingProgress = false;
+    const mainControls = player.querySelector('.custom-soundcloud-player__main-controls');
+    
+    function handleProgressInteraction(e) {
+      if (!currentWidget || duration === 0) return;
+      
+      const progressContainer = player.querySelector('.custom-soundcloud-player__progress-container');
+      const rect = progressContainer.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const clickRatio = Math.max(0, Math.min(1, clickX / rect.width));
+      const newPosition = clickRatio * duration;
+      
+      currentWidget.seekTo(newPosition);
+      
+      if (!isPlaying) {
+        currentWidget.play();
+      }
+    }
+
+    mainControls.addEventListener('mousedown', function(e) {
+      if (e.target.closest('.custom-soundcloud-player__play-button') || 
+          e.target.closest('.custom-soundcloud-player__volume-controls') ||
+          e.target.closest('.custom-soundcloud-player__time-display')) {
+        return;
+      }
+      
+      isDraggingProgress = true;
+      handleProgressInteraction(e);
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', function(e) {
+      if (isDraggingProgress) {
+        handleProgressInteraction(e);
+      }
+    });
+
+    document.addEventListener('mouseup', function() {
+      isDraggingProgress = false;
+    });
+
+    progressBar.addEventListener('click', handleProgressInteraction);
+
+    // Volume Controls
+    let isDraggingVolume = false;
+    const volumeControls = player.querySelector('.custom-soundcloud-player__volume-controls');
+    
+    function handleVolumeInteraction(e) {
+      if (!currentWidget) return;
+      
+      const rect = volumeSlider.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      volume = Math.max(0, Math.min(1, clickX / rect.width));
+      
+      currentWidget.setVolume(volume * 100);
+      
+      if (isDraggingVolume) {
+        updateVolumeDisplayImmediate();
+      } else {
+        updateVolumeDisplay();
+      }
+    }
+
+    volumeControls.addEventListener('mousedown', function(e) {
+      if (e.target.closest('.custom-soundcloud-player__volume-icon')) {
+        return;
+      }
+      
+      isDraggingVolume = true;
+      handleVolumeInteraction(e);
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', function(e) {
+      if (isDraggingVolume) {
+        handleVolumeInteraction(e);
+      }
+    });
+
+    document.addEventListener('mouseup', function() {
+      isDraggingVolume = false;
+    });
+
+    volumeSlider.addEventListener('click', handleVolumeInteraction);
+
+    volumeIcon.addEventListener('click', function() {
+      if (!currentWidget) return;
+      
+      if (volume > 0) {
+        currentWidget.setVolume(0);
+        volume = 0;
+      } else {
+        volume = 0.7;
+        currentWidget.setVolume(volume * 100);
+      }
+      updateVolumeDisplay();
+    });
+
+    // Touch support for mobile
+    mainControls.addEventListener('touchstart', function(e) {
+      if (e.target.closest('.custom-soundcloud-player__play-button') || 
+          e.target.closest('.custom-soundcloud-player__volume-controls') ||
+          e.target.closest('.custom-soundcloud-player__time-display')) {
+        return;
+      }
+      
+      isDraggingProgress = true;
+      const touch = e.touches[0];
+      const progressContainer = player.querySelector('.custom-soundcloud-player__progress-container');
+      const rect = progressContainer.getBoundingClientRect();
+      const clickX = touch.clientX - rect.left;
+      const clickRatio = Math.max(0, Math.min(1, clickX / rect.width));
+      const newPosition = clickRatio * duration;
+      
+      if (currentWidget && duration > 0) {
+        currentWidget.seekTo(newPosition);
+        
+        if (!isPlaying) {
+          currentWidget.play();
+        }
+      }
+      e.preventDefault();
+    });
+
+    document.addEventListener('touchmove', function(e) {
+      if (isDraggingProgress && e.touches[0]) {
+        const touch = e.touches[0];
+        const progressContainer = player.querySelector('.custom-soundcloud-player__progress-container');
+        const rect = progressContainer.getBoundingClientRect();
+        const clickX = touch.clientX - rect.left;
+        const clickRatio = Math.max(0, Math.min(1, clickX / rect.width));
+        const newPosition = clickRatio * duration;
+        
+        if (currentWidget && duration > 0) {
+          currentWidget.seekTo(newPosition);
+          
+          if (!isPlaying) {
+            currentWidget.play();
+          }
+        }
+      }
+    });
+
+    document.addEventListener('touchend', function() {
+      isDraggingProgress = false;
+      isDraggingVolume = false;
+    });
+
+    // Initialize playlist loading
+    if (window.SC) {
+      loadPlaylist();
+    } else {
+      window.addEventListener('load', loadPlaylist);
+    }
+  });
+})();
+</script>
