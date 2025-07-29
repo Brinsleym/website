@@ -21,3 +21,4 @@ Please refer to the original template's licensing terms for usage guidelines.
 - Add smooth animated scroll for 'get in touch' hero button
 - Add local audio file support to music player for CN
 - Implement better support for detecting user default language
+- add copy to clipboard js for mail icon
