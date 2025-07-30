@@ -89,6 +89,28 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  /* ============================
+  // Smooth scrolling for CTA button
+  ============================ */
+  document.querySelectorAll(".cta-button").forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
+      
+      // Only apply smooth scrolling if it's an anchor link (starts with #)
+      if (href && href.startsWith("#")) {
+        e.preventDefault();
+        
+        const targetElement = document.querySelector(href);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        }
+      }
+    });
+  });
+
 
   /* ============================
   // Testimonials Slider
@@ -156,5 +178,41 @@ document.addEventListener("DOMContentLoaded", function () {
       })
     }
   });
+
+
+  /* ============================
+  // Contact form entrance animation
+  ============================ */
+  const contactForm = document.querySelector("#contact");
+  
+  if (contactForm) {
+    if (window.IntersectionObserver) {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+      };
+      
+      // Set initial state
+      contactForm.style.opacity = "0";
+      contactForm.style.transform = "translateY(30px)";
+      contactForm.style.transition = "opacity 0.8s ease-out, transform 0.8s ease-out";
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+      
+      observer.observe(contactForm);
+    } else {
+      // Fallback for browsers without IntersectionObserver support
+      contactForm.style.opacity = "1";
+      contactForm.style.transform = "translateY(0)";
+    }
+  }
 
 });
