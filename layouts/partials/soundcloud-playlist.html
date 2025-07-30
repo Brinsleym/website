@@ -57,8 +57,83 @@
   </div>
 </div>
 
-<!-- Load SoundCloud Widget API -->
-<script src="https://w.soundcloud.com/player/api.js"></script>
+<!-- Preload and Load SoundCloud Widget API with caching -->
+<script>
+// Global SoundCloud API management (reuse from single player)
+if (!window.SoundCloudAPIManager) {
+  window.SoundCloudAPIManager = (function() {
+    let apiLoaded = false;
+    let apiPromise = null;
+    
+    function loadAPI() {
+      if (apiPromise) return apiPromise;
+      
+      apiPromise = new Promise((resolve, reject) => {
+        if (window.SC) {
+          apiLoaded = true;
+          resolve();
+          return;
+        }
+        
+        const script = document.createElement('script');
+        script.src = 'https://w.soundcloud.com/player/api.js';
+        script.async = true;
+        script.onload = () => {
+          apiLoaded = true;
+          resolve();
+        };
+        script.onerror = reject;
+        document.head.appendChild(script);
+      });
+      
+      return apiPromise;
+    }
+    
+    return {
+      loadAPI: loadAPI,
+      isLoaded: () => apiLoaded
+    };
+  })();
+}
+
+// Start loading API immediately
+window.SoundCloudAPIManager.loadAPI();
+
+// Playlist cache for performance
+window.SoundCloudPlaylistCache = (function() {
+  const cache = new Map();
+  const CACHE_DURATION = 10 * 60 * 1000; // 10 minutes
+  
+  function getCacheKey(url) {
+    return btoa(url).replace(/[^a-zA-Z0-9]/g, '');
+  }
+  
+  function set(url, data) {
+    const key = getCacheKey(url);
+    cache.set(key, {
+      data: data,
+      timestamp: Date.now()
+    });
+  }
+  
+  function get(url) {
+    const key = getCacheKey(url);
+    const cached = cache.get(key);
+    
+    if (!cached) return null;
+    
+    // Check if cache is still valid
+    if (Date.now() - cached.timestamp > CACHE_DURATION) {
+      cache.delete(key);
+      return null;
+    }
+    
+    return cached.data;
+  }
+  
+  return { set, get };
+})();
+</script>
 
 <script>
 (function() {
@@ -160,9 +235,21 @@
       try {
         this.showLoading('Loading playlist...');
         
-        const tracks = await this.fetchPlaylistTracks();
+        // Check cache first for significant performance boost
+        const cachedTracks = window.SoundCloudPlaylistCache.get(this.playlistUrl);
+        if (cachedTracks) {
+          console.log('Loading playlist from cache');
+          this.tracks = cachedTracks;
+          this.renderPlaylist();
+          await this.loadTrack(0);
+          return;
+        }
+        
+        const tracks = await this.fetchPlaylistTracksOptimized();
         if (tracks && tracks.length > 0) {
           this.tracks = tracks;
+          // Cache the results
+          window.SoundCloudPlaylistCache.set(this.playlistUrl, tracks);
           this.renderPlaylist();
           await this.loadTrack(0);
         } else {
@@ -173,15 +260,19 @@
       }
     }
 
-    async fetchPlaylistTracks() {
+    async fetchPlaylistTracksOptimized() {
+      // Wait for SoundCloud API to be ready
+      await window.SoundCloudAPIManager.loadAPI();
+      
       return new Promise((resolve, reject) => {
-        const tempIframe = this.createTempIframe(this.playlistUrl);
+        const tempIframe = this.createTempIframeOptimized(this.playlistUrl);
         const tempWidget = SC.Widget(tempIframe);
         
+        // Reduced timeout for faster failure detection
         const timeout = setTimeout(() => {
           this.safeRemoveIframe(tempIframe);
           reject(new Error('Playlist loading timeout - playlist may be too large or unavailable'));
-        }, 15000);
+        }, 10000); // Reduced from 15s to 10s
 
         tempWidget.bind(SC.Widget.Events.READY, () => {
           tempWidget.getSounds((sounds) => {
@@ -189,7 +280,7 @@
             this.safeRemoveIframe(tempIframe);
             
             if (sounds && sounds.length > 0) {
-              resolve(this.processTracksList(sounds));
+              resolve(this.processTracksListOptimized(sounds));
             } else {
               resolve([]);
             }
@@ -204,21 +295,28 @@
       });
     }
 
-    processTracksList(sounds) {
-      return sounds.filter(track => 
-        track && 
-        track.permalink_url && 
-        track.title && 
-        track.streamable !== false
-      );
+    processTracksListOptimized(sounds) {
+      // Filter and process tracks more efficiently
+      return sounds
+        .filter(track => track && track.permalink_url && track.title && track.streamable !== false)
+        .map(track => ({
+          id: track.id,
+          title: track.title,
+          user: track.user,
+          permalink_url: track.permalink_url,
+          artwork_url: track.artwork_url,
+          duration: track.duration,
+          streamable: track.streamable
+        }));
     }
 
-    createTempIframe(url) {
+    createTempIframeOptimized(url) {
       const iframe = document.createElement('iframe');
-      iframe.src = `https://w.soundcloud.com/player/?url=${encodeURIComponent(url)}&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&visual=false`;
+      iframe.src = `https://w.soundcloud.com/player/?url=${encodeURIComponent(url)}&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&visual=false&buying=false&download=false&sharing=false`;
       iframe.style.display = 'none';
       iframe.width = '100%';
       iframe.height = '0';
+      iframe.setAttribute('loading', 'eager');
       this.container.appendChild(iframe);
       this.activeIframes.add(iframe);
       return iframe;
@@ -249,12 +347,13 @@
     createTrackHTML(track, index) {
       const isActive = index === this.currentTrackIndex;
       const iconName = isActive && this.isPlaying ? 'pause' : 'play';
-      const artworkUrl = track.artwork_url ? track.artwork_url.replace('-large', '-t67x67') : '';
+      // Use smaller artwork for faster loading
+      const artworkUrl = track.artwork_url ? track.artwork_url.replace('-large', '-t120x120') : '';
       
       return `
         <div class="custom-soundcloud-playlist__track ${isActive ? 'active' : ''}" data-track-index="${index}">
           <div class="custom-soundcloud-playlist__track-artwork">
-            <img src="${artworkUrl}" alt="${this.escapeHtml(track.title)}" onerror="this.style.display='none'">
+            <img src="${artworkUrl}" alt="${this.escapeHtml(track.title)}" onerror="this.style.display='none'" loading="lazy">
             <div class="custom-soundcloud-playlist__track-play-icon">
               <ion-icon name="${iconName}"></ion-icon>
             </div>
@@ -326,18 +425,19 @@
     async initializeTrackWidget(track, autoPlay) {
       return new Promise((resolve, reject) => {
         const iframeId = `soundcloud-widget-${this.playlistIndex}-${this.currentTrackIndex}`;
-        const iframe = this.createTrackIframe(track.permalink_url, iframeId);
+        const iframe = this.createTrackIframeOptimized(track.permalink_url, iframeId);
         
         this.currentWidget = SC.Widget(iframe);
         
+        // Reduced timeout for faster response
         const timeout = setTimeout(() => {
           reject(new Error('Track loading timeout'));
-        }, 20000);
+        }, 12000); // Reduced from 20s to 12s
 
         this.currentWidget.bind(SC.Widget.Events.READY, () => {
           clearTimeout(timeout);
           this.setupWidgetEventListeners();
-          this.initializeTrackData(track, autoPlay);
+          this.initializeTrackDataOptimized(track, autoPlay);
           resolve();
         });
 
@@ -348,16 +448,68 @@
       });
     }
 
-    createTrackIframe(trackUrl, id) {
+    createTrackIframeOptimized(trackUrl, id) {
       const iframe = document.createElement('iframe');
       iframe.id = id;
-      iframe.src = `https://w.soundcloud.com/player/?url=${encodeURIComponent(trackUrl)}&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&visual=false`;
+      iframe.src = `https://w.soundcloud.com/player/?url=${encodeURIComponent(trackUrl)}&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&visual=false&buying=false&download=false&sharing=false`;
       iframe.style.display = 'none';
       iframe.width = '100%';
       iframe.height = '0';
+      iframe.setAttribute('loading', 'eager');
       this.player.appendChild(iframe);
       this.activeIframes.add(iframe);
       return iframe;
+    }
+
+    initializeTrackDataOptimized(track, autoPlay) {
+      // Combine API calls for better performance
+      Promise.all([
+        new Promise(resolve => this.currentWidget.getDuration(resolve)),
+        new Promise(resolve => resolve(track)) // Use cached track data instead of API call
+      ]).then(([dur, trackData]) => {
+        this.duration = dur;
+        this.timeDisplays[1].textContent = this.formatTime(dur / 1000);
+        this.updateTrackInfoOptimized(trackData);
+        this.currentWidget.setVolume(this.volume * 100);
+        this.updateVolumeDisplay();
+        this.resetPlayerState();
+        
+        if (autoPlay) {
+          this.currentWidget.play();
+        }
+      }).catch(error => {
+        console.warn('Failed to initialize track data:', error);
+      });
+    }
+
+    updateTrackInfoOptimized(track) {
+      this.title.textContent = track.title || 'SoundCloud Track';
+      this.artist.textContent = track.user ? track.user.username : 'Unknown Artist';
+      this.soundcloudLink.href = track.permalink_url || '#';
+      
+      if (track.artwork_url && !this.customBackground) {
+        this.loadArtworkOptimized(track.artwork_url);
+      }
+    }
+
+    loadArtworkOptimized(artworkUrl) {
+      // Load smaller artwork for faster display
+      const optimizedArtwork = artworkUrl.replace('-large', '-t300x300');
+      const img = new Image();
+      
+      img.onload = () => {
+        this.artwork.src = optimizedArtwork;
+        this.artwork.style.display = 'block';
+      };
+      
+      img.onerror = () => {
+        // Fallback to even smaller if 300x300 fails
+        const fallbackArtwork = artworkUrl.replace('-large', '-t120x120');
+        this.artwork.src = fallbackArtwork;
+        this.artwork.style.display = 'block';
+      };
+      
+      img.src = optimizedArtwork;
     }
 
     setupWidgetEventListeners() {
@@ -365,34 +517,6 @@
       this.currentWidget.bind(SC.Widget.Events.PAUSE, () => this.handleWidgetPause());
       this.currentWidget.bind(SC.Widget.Events.FINISH, () => this.handleWidgetFinish());
       this.currentWidget.bind(SC.Widget.Events.PLAY_PROGRESS, (data) => this.handleWidgetProgress(data));
-    }
-
-    initializeTrackData(track, autoPlay) {
-      this.currentWidget.getDuration((dur) => {
-        this.duration = dur;
-        this.timeDisplays[1].textContent = this.formatTime(dur / 1000);
-      });
-
-      this.updateTrackInfo(track);
-      this.currentWidget.setVolume(this.volume * 100);
-      this.updateVolumeDisplay();
-      this.resetPlayerState();
-      
-      if (autoPlay) {
-        this.currentWidget.play();
-      }
-    }
-
-    updateTrackInfo(track) {
-      this.title.textContent = track.title || 'SoundCloud Track';
-      this.artist.textContent = track.user ? track.user.username : 'Unknown Artist';
-      this.soundcloudLink.href = track.permalink_url || '#';
-      
-      if (track.artwork_url && !this.customBackground) {
-        const artworkUrl = track.artwork_url.replace('-large', '-t500x500');
-        this.artwork.src = artworkUrl;
-        this.artwork.style.display = 'block';
-      }
     }
 
     resetPlayerState() {

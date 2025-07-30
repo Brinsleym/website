@@ -289,6 +289,54 @@
     }
   }
 
+  &--loading {
+    .custom-soundcloud-player__title,
+    .custom-soundcloud-player__artist {
+      background: linear-gradient(90deg, 
+        rgba($border-color, 0.2) 25%, 
+        rgba($border-color, 0.4) 50%, 
+        rgba($border-color, 0.2) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+      border-radius: 4px;
+      color: transparent;
+    }
+
+    .custom-soundcloud-player__title {
+      width: 60%;
+      height: 20px;
+    }
+
+    .custom-soundcloud-player__artist {
+      width: 40%;
+      height: 16px;
+      margin-top: ($base-spacing-unit * 0.5);
+    }
+
+    .custom-soundcloud-player__play-button {
+      opacity: 0.6;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+
+  // Error state
+  &--error {
+    .custom-soundcloud-player__title {
+      color: #e74c3c;
+    }
+
+    .custom-soundcloud-player__artist {
+      color: rgba(#e74c3c, 0.7);
+    }
+
+    .custom-soundcloud-player__play-button {
+      background: #e74c3c;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+
   &__error {
     padding: ($base-spacing-unit * 3);
     text-align: center;
@@ -412,4 +460,13 @@
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
