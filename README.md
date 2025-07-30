@@ -15,14 +15,14 @@ Please refer to the original template's licensing terms for usage guidelines.
 ---
 
 ## To Do:
-sc player: 
-- fix audio bg rumble on pause
 
+sc player:
 - Missung date on hero projects cards & messed up cn ja
 - Upload clean suzume project files to github
 - Add smooth animated scroll for 'get in touch' hero button
 
 Future:
+
 - Add local audio file support to music player for CN
 - Implement better support for detecting user default language
 - add copy to clipboard js for mail icon
