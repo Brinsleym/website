@@ -106,17 +106,12 @@
 
   @media only screen and (max-width: $mobile) {
     margin-bottom: 48px;
-
     .section__head {
-
-      .section__title {
-        margin-right: 12px;
-        font-size: 28px;
-        padding-right: 100px;
-      }
-
       .section__link {
-        font-size: 14px;
+        &::after {
+          border-radius: 1.5px;
+          transform: none;
+        }
       }
     }
   }

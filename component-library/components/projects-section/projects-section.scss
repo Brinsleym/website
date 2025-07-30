@@ -16,30 +16,39 @@
   }
 
   .section__title {
-    padding-right: 120px; // Give space for the absolutely positioned button
+    padding-right: 120px; // Give space for the absolutely positioned 'View all' button
   }
 
   @media only screen and (max-width: $mobile) {
-    .section__head {
+    .section__info .section__head {
       align-items: center;
-    }
 
-    .section__title {
-      padding-right: 0;
-      margin-right: 12px;
-      font-size: 28px;
-    }
+      .section__title {
+        padding-right: 0;
+        margin-right: 12px;
+        font-size: 28px;
+      }
 
-    .section__link {
-      position: static;
-      transform: none;
-      top: auto;
-      right: auto;
-      font-size: 14px;
-      padding: 0;
-      
-      &::after {
-        display: none;
+      .section__link {
+        position: relative;
+        transform: none;
+        top: auto;
+        right: auto;
+        font-size: 16px;
+        padding: 16px 14px 12px 10px;
+        display: inline-flex;
+        align-items: center;
+        
+        &::after {
+          bottom: 5px;
+          left: 10px;
+          width: calc(100% - 20px);
+        }
+        
+        i, ion-icon {
+          transform: translateX(6px);
+          transition: none;
+        }
       }
     }
   }

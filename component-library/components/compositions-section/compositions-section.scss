@@ -20,8 +20,36 @@
   }
 
   @media only screen and (max-width: $mobile) {
-    .section__title {
-      padding-right: 100px;
+    .section__info .section__head {
+      align-items: center;
+
+      .section__title {
+        padding-right: 0;
+        margin-right: 12px;
+        font-size: 28px;
+      }
+
+      .section__link {
+        position: relative;
+        transform: none;
+        top: auto;
+        right: auto;
+        font-size: 16px;
+        padding: 16px 14px 12px 10px;
+        display: inline-flex;
+        align-items: center;
+        
+        &::after {
+          bottom: 5px;
+          left: 10px;
+          width: calc(100% - 20px);
+        }
+        
+        i, ion-icon {
+          transform: translateX(6px);
+          transition: none;
+        }
+      }
     }
   }
 }
