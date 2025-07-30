@@ -1,0 +1,415 @@
+// ==============================================
+// SOUNDCLOUD PLAYER - Base Styles
+// Shared between single player and playlist
+// ==============================================
+
+.custom-soundcloud-player {
+  max-width: 100%;
+  margin: ($base-spacing-unit * 4) 0;
+  border-radius: $global-radius;
+  overflow: hidden;
+  background: $background-color-alt;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.07);
+  border: 1px solid rgba($border-color, 0.3);
+  transition: $global-transition;
+  font-family: $base-font-family;
+
+  // When inside a playlist, keep normal styling with gap
+  .custom-soundcloud-playlist & {
+    margin: 0;
+  }
+
+  &__artwork-container {
+    position: relative;
+    width: 100%;
+    height: 140px;
+    background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+    overflow: hidden;
+    
+    &.has-custom-background {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__artwork {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: $global-transition;
+  }
+
+  &__artwork-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+    display: flex;
+    align-items: flex-end;
+    padding: ($base-spacing-unit * 2);
+  }
+
+  &__track-info {
+    color: $white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  &__title {
+    font-size: $font-size-h5;
+    font-weight: 700;
+    margin-bottom: ($base-spacing-unit * 0.5);
+    line-height: 1.2;
+  }
+
+  &__artist {
+    font-size: 14px;
+    opacity: 0.9;
+    font-weight: 500;
+  }
+
+  &__controls {
+    padding: ($base-spacing-unit * 2);
+    background: $background-color-alt;
+  }
+
+  &__main-controls {
+    display: flex;
+    align-items: center;
+    gap: ($base-spacing-unit * 2);
+  }
+
+  &__play-button {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+    border: none;
+    color: $white;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: $global-transition;
+    box-shadow: 0 2px 8px rgba($primary-color, 0.3);
+    flex-shrink: 0;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba($primary-color, 0.4);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+
+    &.playing {
+      background: $text-color;
+    }
+  }
+
+  &__time-info {
+    display: flex;
+    align-items: center;
+    gap: ($base-spacing-unit * 1.5);
+    flex-grow: 1;
+    min-width: 0;
+  }
+
+  &__progress-container {
+    flex-grow: 1;
+    position: relative;
+    padding: ($base-spacing-unit * 0.8) 0;
+    cursor: pointer;
+  }
+
+  &__progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba($border-color, 0.3);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+    transition: height 0.2s ease;
+
+    &:hover {
+      height: 8px;
+    }
+  }
+
+  &__progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, $primary-color 0%, $secondary-color 100%);
+    border-radius: 3px;
+    transition: width 0.1s ease;
+    width: 0%;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: -7px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      background: $primary-color;
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  &__progress-container:hover &__progress-fill::after {
+    opacity: 1;
+  }
+
+  &__progress-container:hover &__progress-bar {
+    height: 8px;
+  }
+
+  &__time-display {
+    font-size: 14px;
+    color: $text-color;
+    opacity: 0.7;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    min-width: 45px;
+    text-align: center;
+  }
+
+  &__volume-controls {
+    display: flex;
+    align-items: center;
+    gap: ($base-spacing-unit * 1);
+    margin-left: ($base-spacing-unit * 2);
+    padding: ($base-spacing-unit * 0.5) 0;
+  }
+
+  &__volume-icon {
+    color: $text-color;
+    opacity: 0.6;
+    font-size: 24px;
+    cursor: pointer;
+    transition: $global-transition;
+    padding: ($base-spacing-unit * 0.6);
+    width: 24px;
+    text-align: center;
+    flex-shrink: 0;
+
+    &:hover {
+      opacity: 1;
+      color: $primary-color;
+    }
+  }
+
+  &__volume-slider {
+    width: 90px;
+    height: 24px;
+    background: transparent;
+    border-radius: 12px;
+    position: relative;
+    cursor: pointer;
+    --volume: 70%;
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 4px;
+      width: 100%;
+      background: rgba($border-color, 0.3);
+      border-radius: 2px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 4px;
+      width: var(--volume);
+      background: linear-gradient(90deg, $primary-color 0%, $secondary-color 100%);
+      border-radius: 2px;
+      transition: width 0.1s ease;
+    }
+
+    .volume-handle {
+      position: absolute;
+      right: calc(100% - var(--volume));
+      top: 50%;
+      transform: translate(50%, -50%);
+      width: 14px;
+      height: 14px;
+      background: $primary-color;
+      border-radius: 50%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transition: opacity 0.2s ease, right 0.1s ease;
+      z-index: 2;
+    }
+
+    &:hover .volume-handle {
+      opacity: 1;
+    }
+  }
+
+  &__loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: ($base-spacing-unit * 4);
+    color: $text-color;
+    opacity: 0.6;
+    font-size: 14px;
+    gap: ($base-spacing-unit);
+
+    &::before {
+      content: '';
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba($primary-color, 0.3);
+      border-top: 2px solid $primary-color;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+  }
+
+  &__error {
+    padding: ($base-spacing-unit * 3);
+    text-align: center;
+    color: #e74c3c;
+    font-size: 14px;
+    background: rgba(#e74c3c, 0.1);
+    border-radius: ($global-radius * 0.5);
+    margin: ($base-spacing-unit * 2);
+  }
+
+  &__track-info-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  &__soundcloud-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    border-bottom: none !important;
+    cursor: pointer;
+    padding: 12px 12px;
+    border-radius: 5px;
+    transition: color 0.3s ease;
+    font-size: $font-size-h5;
+    font-weight: 700 !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    
+    margin-top: -10px;
+    margin-right: -12px;
+    
+    &:hover {
+      color: rgba(255, 255, 255, 0.5) !important;
+    }
+
+    ion-icon {
+      font-size: 20px;
+      margin-right: 2px;
+    }
+
+    span {
+      line-height: 1.2;
+      font-weight: 700 !important;
+    }
+  }
+
+  // Mobile responsive styles for player
+  @media only screen and (max-width: 768px) {
+    margin: ($base-spacing-unit * 3) 0;
+
+    &__artwork-container {
+      height: 160px;
+    }
+
+    &__artwork-overlay {
+      padding: ($base-spacing-unit * 2);
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+    }
+
+    &__track-info-wrapper {
+      align-items: flex-end; // Align soundcloud link with artist instead of title
+    }
+
+    &__track-info {
+      width: 100%;
+    }
+
+    &__controls {
+      padding: ($base-spacing-unit * 1.8);
+    }
+
+    &__main-controls {
+      gap: ($base-spacing-unit * 1.5);
+    }
+
+    &__play-button {
+      width: 40px;
+      height: 40px;
+      font-size: 16px;
+    }
+
+    &__volume-controls {
+      display: none; // Hide on mobile
+    }
+
+    &__time-display {
+      font-size: 11px;
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    &__artwork-container {
+      height: 140px;
+    }
+
+    &__artwork-overlay {
+      padding: ($base-spacing-unit * 1.8);
+    }
+
+    &__title {
+      font-size: 16px;
+      margin-bottom: ($base-spacing-unit * 0.5);
+      line-height: 1.2;
+    }
+
+    &__artist {
+      font-size: 13px;
+      line-height: 1.4;
+    }
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
