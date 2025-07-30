@@ -17,7 +17,10 @@
   {{ if .IsHome}}<meta property="og:image" content="{{ .Site.Data.general_settings.social_media_share_image | absURL }}">{{ else }}<meta property="og:image" content="{{ .Params.Image | absURL }}">{{ end }}
 
   <!-- Fonts -->
+  <!-- Primary: Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <!-- Fallback: China-friendly CDN -->
+  <link href="https://fonts.font.im/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
   
   <!-- Ionicons -->
   <script type="module" src="/assets/js/ionicons-7.1.0/ionicons/ionicons.esm.js"></script>

@@ -15,7 +15,7 @@ Please refer to the original template's licensing terms for usage guidelines.
 ---
 
 ## To Do:
-
+- better image caching
 
 Future:
 
