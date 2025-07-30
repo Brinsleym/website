@@ -130,6 +130,16 @@
       widget.bind(SC.Widget.Events.PAUSE, function() {
         isPlaying = false;
         updatePlayButton();
+
+        // volume 0 after timeout to prevent rumble
+        if (widget) {
+          widget.setVolume(0);
+          setTimeout(() => {
+            if (widget && !isPlaying) {
+              widget.setVolume(volume * 100);
+            }
+          }, 100);
+        }
       });
 
       widget.bind(SC.Widget.Events.FINISH, function() {
@@ -137,6 +147,15 @@
         position = 0;
         updatePlayButton();
         updateProgress();
+        
+        if (widget) {
+          widget.setVolume(0);
+          setTimeout(() => {
+            if (widget) {
+              widget.setVolume(volume * 100);
+            }
+          }, 100);
+        }
       });
 
       widget.bind(SC.Widget.Events.PLAY_PROGRESS, function(data) {
@@ -198,6 +217,12 @@
       
       if (isPlaying) {
         widget.pause();
+        // Additional cleanup for pause to prevent rumble
+        setTimeout(() => {
+          if (widget && !isPlaying) {
+            widget.seekTo(position);
+          }
+        }, 50);
       } else {
         widget.play();
       }

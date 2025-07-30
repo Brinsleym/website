@@ -413,6 +413,15 @@
       this.isPlaying = false;
       this.updatePlayButton();
       this.updatePlaylistTrackIcons();
+      
+      if (this.currentWidget) {
+        this.currentWidget.setVolume(0);
+        setTimeout(() => {
+          if (this.currentWidget && !this.isPlaying) {
+            this.currentWidget.setVolume(this.volume * 100);
+          }
+        }, 100);
+      }
     }
 
     handleWidgetFinish() {
@@ -421,6 +430,15 @@
       this.updatePlayButton();
       this.updateProgress();
       this.updatePlaylistTrackIcons();
+
+      if (this.currentWidget) {
+        this.currentWidget.setVolume(0);
+        setTimeout(() => {
+          if (this.currentWidget) {
+            this.currentWidget.setVolume(this.volume * 100);
+          }
+        }, 100);
+      }
       
       // Auto-play next track
       if (this.currentTrackIndex < this.tracks.length - 1) {
@@ -490,6 +508,12 @@
       
       if (this.isPlaying) {
         this.currentWidget.pause();
+        // Additional cleanup for pause to prevent rumble
+        setTimeout(() => {
+          if (this.currentWidget && !this.isPlaying) {
+            this.currentWidget.seekTo(this.position);
+          }
+        }, 50);
       } else {
         this.currentWidget.play();
       }
