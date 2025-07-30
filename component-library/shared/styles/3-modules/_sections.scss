@@ -39,23 +39,40 @@
       white-space: nowrap;
       will-change: transform;
       transition: all 0.3s ease;
-      padding: 8px 12px;
-      border-radius: 6px;
       cursor: pointer;
+      position: relative;
+      padding: 32px 36px 32px 64px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: calc(32px - 6px);
+        left: calc(50% + 14px);
+        width: 0;
+        height: 1.5px;
+        background-color: currentColor;
+        border-radius: 1px;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
 
       &:hover {
         color: $text-color;
-        background-color: rgba(0, 0, 0, 0.05);
-        transform: translateY(-50%) translateX(-4px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+        &::after {
+          width: calc(100% - 100px);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
 
         i, ion-icon {
-          transform: translateX(4px);
+          transform: translateX(6px);
+          transition: transform 0.3s ease;
         }
       }
 
-      &:active {
-        transform: translateY(-50%) translateX(-2px) scale(0.98);
+      i, ion-icon {
+        transition: transform 0.3s ease;
       }      i {
         width: 18px;
         height: 18px;
