@@ -12,3 +12,10 @@
 .screen-reader-text {
   @include screen-reader();
 }
+
+// Ion-icon vertical alignment fix (site built with ionicons v4), 
+// For some reason all icons were 2px higher than they should be.
+ion-icon {
+  position: relative;
+  top: 2px;
+}

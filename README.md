@@ -16,10 +16,6 @@ Please refer to the original template's licensing terms for usage guidelines.
 
 ## To Do:
 
-sc player:
-- Missung date on hero projects cards & messed up cn ja
-- Upload clean suzume project files to github
-- Add smooth animated scroll for 'get in touch' hero button
 
 Future:
 
