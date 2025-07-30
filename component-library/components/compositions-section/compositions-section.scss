@@ -1,0 +1,27 @@
+.compositions {
+  .section__info {
+    position: relative;
+  }
+
+  .section__head {
+    align-items: flex-start;
+    
+    .section__link {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+  }
+
+  .section__title {
+    padding-right: 120px; // Give space for the absolutely positioned button
+  }
+
+  @media only screen and (max-width: $mobile) {
+    .section__title {
+      padding-right: 100px;
+    }
+  }
+}
