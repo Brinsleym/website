@@ -50,8 +50,46 @@
   </div>
 </div>
 
-<!-- Load SoundCloud Widget API -->
-<script src="https://w.soundcloud.com/player/api.js"></script>
+<!-- Preload and Load SoundCloud Widget API with caching -->
+<script>
+// Global SoundCloud API management
+window.SoundCloudAPIManager = (function() {
+  let apiLoaded = false;
+  let apiPromise = null;
+  
+  function loadAPI() {
+    if (apiPromise) return apiPromise;
+    
+    apiPromise = new Promise((resolve, reject) => {
+      if (window.SC) {
+        apiLoaded = true;
+        resolve();
+        return;
+      }
+      
+      const script = document.createElement('script');
+      script.src = 'https://w.soundcloud.com/player/api.js';
+      script.async = true;
+      script.onload = () => {
+        apiLoaded = true;
+        resolve();
+      };
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+    
+    return apiPromise;
+  }
+  
+  return {
+    loadAPI: loadAPI,
+    isLoaded: () => apiLoaded
+  };
+})();
+
+// Start loading API immediately
+window.SoundCloudAPIManager.loadAPI();
+</script>
 
 <script>
 (function() {
@@ -77,51 +115,111 @@
     let duration = 0;
     let position = 0;
     let volume = 0.7;
+    let isInitialized = false;
+
+    // Show player shell immediately
+    function showPlayerShell() {
+      title.textContent = 'Loading track...';
+      artist.textContent = 'Please wait';
+      timeDisplays[1].textContent = '--:--';
+      
+      player.classList.add('custom-soundcloud-player--loading');
+    }
+
+    showPlayerShell();
 
     // Set custom background class if provided
     if (customBackground) {
       artworkContainer.classList.add('has-custom-background');
     }
 
-    // Create hidden iframe for SoundCloud Widget API
+    // Disable play button initially
+    playButton.disabled = true;
+    playButton.style.opacity = '0.6';
+
+    // Create optimized hidden iframe for SoundCloud Widget API
     const iframeId = `soundcloud-widget-${index}`;
     const iframe = document.createElement('iframe');
     iframe.id = iframeId;
-    iframe.src = `https://w.soundcloud.com/player/?url=${encodeURIComponent(trackUrl)}&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&visual=false`;
+    iframe.src = `https://w.soundcloud.com/player/?url=${encodeURIComponent(trackUrl)}&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&visual=false&buying=false&download=false&sharing=false`;
     iframe.style.display = 'none';
     iframe.width = '100%';
     iframe.height = '0';
+    iframe.setAttribute('loading', 'eager'); // Prioritize loading
     player.appendChild(iframe);
 
-    // Initialize SoundCloud Widget
-    function initWidget() {
-      widget = SC.Widget(iframe);
+    // Initialize widget asynchronously
+    initWidget();
+
+    async function initWidget() {
+      try {
+        // Wait for SoundCloud API
+        await window.SoundCloudAPIManager.loadAPI();
+        
+        widget = SC.Widget(iframe);
+        
+        widget.bind(SC.Widget.Events.READY, function() {
+          // Combine API calls
+          Promise.all([
+            new Promise(resolve => widget.getDuration(resolve)),
+            new Promise(resolve => widget.getCurrentSound(resolve))
+          ]).then(([dur, sound]) => {
+            updatePlayerData(dur, sound);
+            finalizeInitialization();
+          }).catch(error => {
+            console.warn('Failed to load track data:', error);
+            showErrorState();
+          });
+
+          widget.setVolume(volume * 100);
+          updateVolumeDisplay();
+        });
+
+        setupWidgetEventListeners();
+        
+      } catch (error) {
+        console.error('Failed to initialize SoundCloud widget:', error);
+        showErrorState();
+      }
+    }
+
+    function updatePlayerData(dur, sound) {
+      duration = dur;
+      timeDisplays[1].textContent = formatTime(duration / 1000);
       
-      widget.bind(SC.Widget.Events.READY, function() {
-        widget.getDuration(function(dur) {
-          duration = dur;
-          timeDisplays[1].textContent = formatTime(duration / 1000);
-        });
+      if (sound) {
+        title.textContent = sound.title || 'SoundCloud Track';
+        artist.textContent = sound.user.username || 'Unknown Artist';
+        soundcloudLink.href = sound.permalink_url;
+        
+        // Load smaller artwork first
+        if (sound.artwork_url && !customBackground) {
+          loadArtworkOptimized(sound.artwork_url);
+        }
+      }
+    }
 
-        widget.getCurrentSound(function(sound) {
-          if (sound) {
-            title.textContent = sound.title || 'SoundCloud Track';
-            artist.textContent = sound.user.username || 'Unknown Artist';
-            soundcloudLink.href = sound.permalink_url;
-            
-            // Only update artwork if no custom background
-            if (sound.artwork_url && !customBackground) {
-              const artworkUrl = sound.artwork_url.replace('-large', '-t500x500');
-              artwork.src = artworkUrl;
-              artwork.style.display = 'block';
-            }
-          }
-        });
+    function loadArtworkOptimized(artworkUrl) {
+      const quickArtwork = artworkUrl.replace('-large', '-t300x300');
+      const img = new Image();
+      
+      img.onload = function() {
+        artwork.src = quickArtwork;
+        artwork.style.display = 'block';
+      };
+      
+      img.onerror = function() {
+        const fallbackArtwork = artworkUrl.replace('-large', '-t120x120');
+        artwork.src = fallbackArtwork;
+        artwork.style.display = 'block';
+      };
+      
+      img.src = quickArtwork;
+    }
 
-        widget.setVolume(volume * 100);
-        updateVolumeDisplay();
-      });
+    function setupWidgetEventListeners() {
 
+    function setupWidgetEventListeners() {
       widget.bind(SC.Widget.Events.PLAY, function() {
         isPlaying = true;
         updatePlayButton();
@@ -163,6 +261,22 @@
         updateProgress();
         timeDisplays[0].textContent = formatTime(position / 1000);
       });
+    }
+
+    function finalizeInitialization() {
+      isInitialized = true;
+      player.classList.remove('custom-soundcloud-player--loading');
+      
+      // Enable controls (after player loaded)
+      playButton.disabled = false;
+      playButton.style.opacity = '1';
+    }
+
+    function showErrorState() {
+      title.textContent = 'Failed to load track';
+      artist.textContent = 'Please check the URL';
+      player.classList.remove('custom-soundcloud-player--loading');
+      player.classList.add('custom-soundcloud-player--error');
     }
 
     function updatePlayButton() {
@@ -211,9 +325,9 @@
       return `${mins}:${secs.toString().padStart(2, '0')}`;
     }
 
-    // Event Listeners
+    // Event Listeners with init. check
     playButton.addEventListener('click', function() {
-      if (!widget) return;
+      if (!widget || !isInitialized) return;
       
       if (isPlaying) {
         widget.pause();
@@ -249,7 +363,7 @@
       }
     }
 
-    // Interactive main-controls area
+    // main-controls area
     mainControls.addEventListener('mousedown', function(e) {
       if (e.target.closest('.custom-soundcloud-player__play-button') || 
           e.target.closest('.custom-soundcloud-player__volume-controls') ||
@@ -418,7 +532,7 @@
     });
 
     volumeIcon.addEventListener('click', function() {
-      if (!widget) return;
+      if (!widget || !isInitialized) return;
       
       if (volume > 0) {
         widget.setVolume(0);
@@ -430,12 +544,7 @@
       updateVolumeDisplay();
     });
 
-    // Initialize when DOM is ready
-    if (window.SC) {
-      initWidget();
-    } else {
-      window.addEventListener('load', initWidget);
-    }
+    // Initialize widget on DOM ready
   });
 })();
 </script>
