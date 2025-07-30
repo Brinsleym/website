@@ -13,34 +13,50 @@
 
 .section__info {
   margin-bottom: 60px;
+  position: relative;
 
   .section__head {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
   
     .section__title {
       margin: 0;
       font-size: 32px;
       line-height: 1;
+      padding-right: 120px;
     }
   
     .section__link {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      z-index: 1;
       font-size: 16px;
       font-weight: 500;
       line-height: 1;
       white-space: nowrap;
       will-change: transform;
-  
+      transition: all 0.3s ease;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+
       &:hover {
         color: $text-color;
+        background-color: rgba(0, 0, 0, 0.05);
+        transform: translateY(-50%) translateX(-4px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
-        i {
-          transform: translateX(2px);
+        i, ion-icon {
+          transform: translateX(4px);
         }
       }
 
-      i {
+      &:active {
+        transform: translateY(-50%) translateX(-2px) scale(0.98);
+      }      i {
         width: 18px;
         height: 18px;
         margin-left: 4px;
@@ -79,6 +95,7 @@
       .section__title {
         margin-right: 12px;
         font-size: 28px;
+        padding-right: 100px;
       }
 
       .section__link {
