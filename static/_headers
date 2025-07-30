@@ -1,0 +1,13 @@
+# Cache static assets
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache HTML for longer since updates are infrequent (30 days)
+/*
+  Cache-Control: public, max-age=2592000
