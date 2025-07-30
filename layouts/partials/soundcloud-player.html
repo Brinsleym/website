@@ -70,11 +70,23 @@ window.SoundCloudAPIManager = (function() {
       const script = document.createElement('script');
       script.src = 'https://w.soundcloud.com/player/api.js';
       script.async = true;
+      
+      // Set a timeout to detect blocking
+      const timeout = setTimeout(() => {
+        reject(new Error('SoundCloud API loading timeout - likely blocked by privacy extension'));
+      }, 10000); // 10 second timeout
+      
       script.onload = () => {
+        clearTimeout(timeout);
         apiLoaded = true;
         resolve();
       };
-      script.onerror = reject;
+      
+      script.onerror = () => {
+        clearTimeout(timeout);
+        reject(new Error('SoundCloud API blocked by privacy extension or network error'));
+      };
+      
       document.head.appendChild(script);
     });
     
@@ -179,7 +191,13 @@ window.SoundCloudAPIManager.loadAPI();
         
       } catch (error) {
         console.error('Failed to initialize SoundCloud widget:', error);
-        showErrorState();
+        if (error.message && (error.message.includes('privacy extension') || 
+                              error.message.includes('blocked') || 
+                              error.message.includes('timeout'))) {
+          showPrivacyExtensionError();
+        } else {
+          showErrorState();
+        }
       }
     }
 
@@ -216,8 +234,6 @@ window.SoundCloudAPIManager.loadAPI();
       
       img.src = quickArtwork;
     }
-
-    function setupWidgetEventListeners() {
 
     function setupWidgetEventListeners() {
       widget.bind(SC.Widget.Events.PLAY, function() {
@@ -277,6 +293,27 @@ window.SoundCloudAPIManager.loadAPI();
       artist.textContent = 'Please check the URL';
       player.classList.remove('custom-soundcloud-player--loading');
       player.classList.add('custom-soundcloud-player--error');
+    }
+
+    function showPrivacyExtensionError() {
+      // Replace the entire player with privacy extension error message
+      player.outerHTML = `
+        <div class="soundcloud-privacy-error">
+          <div class="soundcloud-privacy-error__icon">
+            <ion-icon name="shield-outline"></ion-icon>
+          </div>
+          <div class="soundcloud-privacy-error__content">
+            <h4>SoundCloud Blocked by Privacy Extension</h4>
+            <p>Your browser extension (such as Privacy Badger, uBlock Origin, or similar) is blocking access to <code>w.soundcloud.com</code>.</p>
+            <p><strong>To listen to this track:</strong></p>
+            <ol>
+              <li>Temporarily disable your privacy extension for this site, or</li>
+              <li>Add <code>w.soundcloud.com</code> to your extension's whitelist</li>
+            </ol>
+            <p>Then refresh this page to load the SoundCloud player.</p>
+          </div>
+        </div>
+      `;
     }
 
     function updatePlayButton() {
