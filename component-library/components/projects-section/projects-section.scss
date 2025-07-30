@@ -20,8 +20,27 @@
   }
 
   @media only screen and (max-width: $mobile) {
+    .section__head {
+      align-items: center;
+    }
+
     .section__title {
-      padding-right: 100px;
+      padding-right: 0;
+      margin-right: 12px;
+      font-size: 28px;
+    }
+
+    .section__link {
+      position: static;
+      transform: none;
+      top: auto;
+      right: auto;
+      font-size: 14px;
+      padding: 0;
+      
+      &::after {
+        display: none;
+      }
     }
   }
 }
