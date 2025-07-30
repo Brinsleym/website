@@ -322,14 +322,6 @@
 
   // Error state
   &--error {
-    .custom-soundcloud-player__title {
-      color: #e74c3c;
-    }
-
-    .custom-soundcloud-player__artist {
-      color: rgba(#e74c3c, 0.7);
-    }
-
     .custom-soundcloud-player__play-button {
       background: #e74c3c;
       cursor: not-allowed;
@@ -468,5 +460,98 @@
   }
   100% {
     background-position: 200% 0;
+  }
+}
+
+// ==============================================
+// PRIVACY EXTENSION ERROR STYLES
+// ==============================================
+
+.soundcloud-privacy-error {
+  background: rgba(231, 76, 60, 0.05); // Faint red background
+  border: 1px solid rgba($border-color, 0.3); // Match the player's border style
+  border-radius: $global-radius; // Full radius since it's a standalone element
+  padding: ($base-spacing-unit * 3) ($base-spacing-unit * 3) ($base-spacing-unit * 4) ($base-spacing-unit * 3); // Extra bottom padding
+  margin: ($base-spacing-unit * 4) 0; // Standard margin spacing like a normal player
+  display: flex;
+  align-items: flex-start;
+  gap: ($base-spacing-unit * 2);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.07); // Match the player's shadow
+
+  &__icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #BDBDBD;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    font-size: 24px;
+    box-shadow: 0 2px 8px rgba($primary-color, 0.3);
+  }
+
+  &__content {
+    flex: 1;
+    color: $text-color;
+
+    h4 {
+      margin: 0 0 ($base-spacing-unit) 0;
+      font-size: $font-size-h5;
+      font-weight: 700;
+      color: $primary-color;
+    }
+
+    p {
+      margin: 0 0 ($base-spacing-unit) 0;
+      line-height: 1.5;
+      font-size: 14px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      strong {
+        font-weight: 600;
+        color: $primary-color;
+      }
+    }
+
+    code {
+      background: rgba($primary-color, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+      font-size: 13px;
+      color: $primary-color;
+      border: 1px solid rgba($primary-color, 0.2);
+    }
+
+    ol {
+      margin: ($base-spacing-unit) 0;
+      padding-left: ($base-spacing-unit * 2);
+
+      li {
+        margin-bottom: ($base-spacing-unit * 0.5);
+        font-size: 14px;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  // Responsive adjustments
+  @media only screen and (max-width: $mobile) {
+    flex-direction: column;
+    gap: ($base-spacing-unit);
+    padding: ($base-spacing-unit * 2);
+
+    &__icon {
+      align-self: center;
+    }
+
+    &__content {
+      text-align: center;
+    }
   }
 }
