@@ -350,6 +350,10 @@
       justify-content: flex-start;
     }
 
+    &__track-info-wrapper {
+      align-items: flex-end;
+    }
+
     &__track-info {
       width: 100%;
     }
@@ -583,7 +587,7 @@
     margin: ($base-spacing-unit * 3) 0;
 
     &__tracks {
-      max-height: 227px; // Show 3.5 tracks (65px per track × 3.5 = 227.5px)
+      max-height: 288px; // Show 2.5 tracks (225px for 2 tracks + 63px for 0.5 track = 288px)
     }
 
     &__track {
@@ -615,7 +619,7 @@
 
   @media only screen and (max-width: 480px) {
     &__tracks {
-      max-height: 192px; // Show 3.5 tracks (55px per track × 3.5 = 192.5px)
+      max-height: 218px; // Show 2.5 tracks (187px for 2 tracks + 31px for 0.5 track = 218px)
     }
 
     &__track {
