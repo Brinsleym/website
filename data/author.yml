@@ -1,7 +1,7 @@
 #-------------------------------
 # Author Settings
 author_name: Brinsley Morrison
-author_image: '/images/avatar.jpg'
+author_image: 'https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/static/images/avatar.jpg'
 
 author_ja_name: 森沢淋
 author_zh_name: 林泽

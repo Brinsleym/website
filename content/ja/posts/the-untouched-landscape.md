@@ -5,7 +5,7 @@ title: 未踏の風景
 description: >-
   室内オーケストラのために書かれた作品で、自然界の精緻な美しさを探求しています。
 tags:   [室内オーケストラ, オーケストラ]
-image: /images/the-untouched-landscape-1.jpg
+image: https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/static/images/the-untouched-landscape-1.jpg
 ---
 
 私は『未踏の風景』をソロピアノと弦楽六重奏のために書き、ピアノ協奏曲のような構成の中でピアノと弦楽器の間に対話を生み出す方法を探求することに非常に興味がありましたが、これは室内楽の文脈で行いました。
@@ -16,4 +16,4 @@ image: /images/the-untouched-landscape-1.jpg
 
 ## プロジェクトファイルを見る：
 
-{{< figure src="/images/the-untouched-landscape-score.jpg" link="https://github.com/Brinsleym/The-Untouched-Landscape/blob/main/The-Untouched-Landscape.pdf" target="_blank" >}}
+{{< figure src="https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/static/images/the-untouched-landscape-score.jpg" link="https://github.com/Brinsleym/The-Untouched-Landscape/blob/main/The-Untouched-Landscape.pdf" target="_blank" >}}

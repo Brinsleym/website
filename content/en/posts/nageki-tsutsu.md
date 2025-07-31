@@ -3,7 +3,7 @@ date:   2021-06-15
 title:  Nageki Tsutsu
 description: Nageki Tsutsu explores the feeling of isolation through a lament set to the early poetry attributed to 藤原道綱母.
 tags:   [choral]
-image:  '/images/nageki-tsutsu-1.jpg'
+image:  'https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/static/images/nageki-tsutsu-1.jpg'
 ---
 
 {{< youtube 5I4x6txsa78 >}}
@@ -14,8 +14,8 @@ The words to my composition; ‘Nageki, Tsutsu’ are attributed by the Japanese
 
 The text set to music is as follows:
 
-{{< figure src="/images/nagekitsutsu-text.png" width=600vw >}}
+{{< figure src="https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/static/images/nagekitsutsu-text.png" width=600vw >}}
 
 ## View the score:
 
-{{< figure src="/images/nagekitsutsu-score.jpg" link="https://github.com/Brinsleym/Nageki-Tsutsu/blob/main/Nageki-Tsutsu.pdf" target="_blank" >}}
+{{< figure src="https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/static/images/nagekitsutsu-score.jpg" link="https://github.com/Brinsleym/Nageki-Tsutsu/blob/main/Nageki-Tsutsu.pdf" target="_blank" >}}

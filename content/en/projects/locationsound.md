@@ -2,7 +2,7 @@
 date: 2024-01-17
 title: "Location Sound Project Recording"
 subtitle: Recorded on 17th Jan 2024
-image: '/images/locationsound1.jpg'
+image: 'https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/static/images/locationsound1.jpg'
 description: "A behind-the-scenes look at my Location Sound module project."
 ---
 
@@ -19,6 +19,6 @@ Thanks to its consistent off-axis response, the ST450’s tetrahedral capsule ar
 The ST450 does have a few limitations: its higher noise floor makes it less suited for capturing the clarinet’s quietest nuances. Pairing it with Neumann KM184s addressed this—the KM184s provided a lower-noise, more detailed high-end and sharper transient response, while the ST450 preserved the vast spatiality of the lake’s ambience.
 
 The layout mockup:
-![Layout mockup](/images/locationsound2.png)
+![Layout mockup](https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/static/images/locationsound2.png)
 # Watch on Youtube:
 {{< youtube OVmmtKGMK30 >}}

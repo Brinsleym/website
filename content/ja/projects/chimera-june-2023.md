@@ -2,7 +2,7 @@
 date: 2023-06-09
 title: キメラアンサンブル
 subtitle: 2023年6月
-image: '/images/chimera-june-2023.jpg'
+image: 'https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/static/images/chimera-june-2023.jpg'
 description: "森沢淋の作品『未踏の風景』の初演"
 ---
 

@@ -5,7 +5,7 @@ title: "Re-scoring scenes from Suzume no Tojimari"
 description: >- 
   Re-scoring selected scenes from the movie, Suzume no Tojimari (すずめの戸締まり)
 tags: [soundtrack, film score, orchestral]
-image: '/images/suzume_cover_1.jpg'
+image: 'https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/static/images/suzume_cover_1.jpg'
 ---
 {{< disclaimer-en "Suzume no Tojimari" >}}
 
@@ -21,12 +21,12 @@ My goal was never to surpass the original composers' work, but rather to engage 
 As with the other material from [this project](/blog/final-year-dissertation-project/), I made use of AI audio seperation tools to isolate the dialogue and sound effects, using the model [Bandit V2](https://github.com/kwatcharasupat/bandit-v2), which is trained on the [Divide and Remaster V3 dataset](https://github.com/kwatcharasupat/divide-and-remaster-v3), a dataset specifically using clips of film, and was multilingual. This model proved significantly better results for my use case, and was able to produce much higher resolution results with significantly less artifacting.  
 
 ## Listen to the soundtrack:
-{{< soundcloud-playlist playlist="2057796114" background="/images/suzume_cover_1.jpg" >}}
+{{< soundcloud-playlist playlist="2057796114" background="https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/static/images/suzume_cover_1.jpg" >}}
 
 ## View the project files:
 To respect copyright, I am not distributing the original audio or video. If you wish to experience Jinnouchi and Hoffmann’s stunning original score (which I highly recommend), please support the official release.
 
 Below you’ll find a link to my music-only project files (no dialogue or video included):
 
-{{< figure src="/images/suzume-project-1.jpg" link="https://github.com/Brinsleym/Suzume/" target="_blank" >}}
+{{< figure src="https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/static/images/suzume-project-1.jpg" link="https://github.com/Brinsleym/Suzume/" target="_blank" >}}
 
