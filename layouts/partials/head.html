@@ -16,11 +16,26 @@
   <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Data.general_settings.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
   {{ if .IsHome}}<meta property="og:image" content="{{ .Site.Data.general_settings.social_media_share_image | absURL }}">{{ else }}<meta property="og:image" content="{{ .Params.Image | absURL }}">{{ end }}
 
-  <!-- Fonts -->
-  <!-- Primary: Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-  <!-- Fallback: China-friendly CDN -->
-  <link href="https://fonts.font.im/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <!-- Fonts: Try fonts.googleapis.com, fallback on error to fonts.font.im -->
+  <script>
+    (function() {
+      function loadFont(url) {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = url;
+        document.head.appendChild(link);
+      }
+      
+      var primary = document.createElement('link');
+      primary.rel = 'stylesheet';
+      primary.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap';
+      
+      var timeout = setTimeout(() => loadFont('https://fonts.font.im/css2?family=Inter:wght@400;500;600;700;900&display=swap'), 3000);
+      primary.onload = primary.onerror = () => clearTimeout(timeout);
+      
+      document.head.appendChild(primary);
+    })();
+  </script>
   
   <!-- Ionicons -->
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
