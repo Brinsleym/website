@@ -39,16 +39,12 @@
 
   {{ block "footer" . }}{{ end }}
 
-  {{ $script := resources.Get "js/scripts.js" }}
-  {{ $commonJs := resources.Get "js/common.js" }}
-
-
   {{ if hugo.IsServer }}
-  <script src="{{ $script.Permalink }}"></script>
-  <script src="{{ $commonJs.Permalink }}"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/assets/js/scripts.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/assets/js/common.js"></script>
   {{ else }}
-  <script src="{{ ($script | minify | fingerprint).RelPermalink }}"></script>
-  <script src="{{ ($commonJs | minify | fingerprint).RelPermalink }}"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/assets/js/scripts.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/assets/js/common.js"></script>
   {{ end }}
 </body>
 

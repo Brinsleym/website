@@ -6,7 +6,7 @@ content_blocks:
       <p><b>作曲家</b>、<b>歌手</b>、<b>ピアニスト</b>、<b>ヴァイオリニスト</b>。<br>
       英国のヨーク大学音楽科を<b>最優等</b>で卒業、チェタムズ音楽院出身。
       </p>
-    image: /images/001.jpg
+    image: https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/static/images/001.jpg
     image_alt: 森沢淋の写真
     cta_button: お問い合わせ
     cta_button_link: '#contact'
