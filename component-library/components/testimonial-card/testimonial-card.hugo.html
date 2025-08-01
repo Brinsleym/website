@@ -4,7 +4,7 @@
     <div class="{{$c}}__client-meta">
       {{ if .image }}
         <div class="{{$c}}__image-container">
-          <img class="{{$c}}__client-avatar" src="{{ .image }}" alt="{{ .name }}">
+          <img class="{{$c}}__client-avatar" src="{{ printf "%s%s" site.Params.asset_base_url (strings.TrimPrefix "/" .image) }}" alt="{{ .name }}">
         </div>
       {{ end }}
       <div class="{{$c}}__client-info">

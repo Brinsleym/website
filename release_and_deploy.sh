@@ -17,7 +17,7 @@ if [ -z "$TAG" ] || [ -z "$MESSAGE" ]; then
 fi
 
 CONFIG_FILE="config.prod.toml"
-CDN_URL="https://cdn.jsdelivr.net/gh/Brinsleym/website@$TAG/"
+CDN_URL="https://cdn.jsdelivr.net/gh/Brinsleym/website@$TAG/static/"
 
 # 1. Update the CDN tag in config.prod.toml (assumes [params] asset_base_url exists)
 if grep -q 'asset_base_url' "$CONFIG_FILE"; then

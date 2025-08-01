@@ -5,7 +5,7 @@
     {{ if .image }}
     <div class="{{$c}}__image-wrap">
       <a class="{{$c}}__image" href="{{ .url }}">
-        <img loading="lazy" src="{{ .image }}" alt="{{ .title }}">
+        <img loading="lazy" src="{{ printf "%s%s" site.Params.asset_base_url (strings.TrimPrefix "/" .image) }}" alt="{{ .title }}">
       </a>
     </div>
     {{ end }}
