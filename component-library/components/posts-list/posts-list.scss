@@ -60,6 +60,7 @@
 
 .article-tags__box {
   display: flex;
+  flex-wrap: wrap;
 
   .article__tag {
     position: relative;
@@ -73,6 +74,7 @@
     text-transform: capitalize;
     border-radius: 8px;
     overflow: hidden;
+    white-space: nowrap;
     color: $white;
     background: linear-gradient(90deg, $primary-color 0%, $secondary-color 167%);
 
