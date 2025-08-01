@@ -215,4 +215,53 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  /* ======================================
+  // Pagination Controls
+  ====================================== */
+  function initPagination() {
+    const paginationElements = document.querySelectorAll('[data-pagebreak-control]');
+    
+    if (paginationElements.length === 0) return;
+
+    // Initialize pagination state
+    let currentPage = 1;
+    let totalPages = 1;
+
+    // Function to update pagination visibility
+    function updatePaginationControls() {
+      const hasPrev = currentPage > 1;
+      const hasNext = currentPage < totalPages;
+
+      // Handle prev controls
+      const prevControls = document.querySelectorAll('[data-pagebreak-control="prev"]');
+      const noPrevControls = document.querySelectorAll('[data-pagebreak-control="!prev"]');
+      
+      prevControls.forEach(el => el.style.display = hasPrev ? '' : 'none');
+      noPrevControls.forEach(el => el.style.display = hasPrev ? 'none' : '');
+
+      // Handle next controls
+      const nextControls = document.querySelectorAll('[data-pagebreak-control="next"]');
+      const noNextControls = document.querySelectorAll('[data-pagebreak-control="!next"]');
+      
+      nextControls.forEach(el => el.style.display = hasNext ? '' : 'none');
+      noNextControls.forEach(el => el.style.display = hasNext ? 'none' : '');
+
+      // Update page labels
+      const currentLabels = document.querySelectorAll('[data-pagebreak-label="current"]');
+      const totalLabels = document.querySelectorAll('[data-pagebreak-label="total"]');
+      
+      currentLabels.forEach(el => el.textContent = currentPage);
+      totalLabels.forEach(el => el.textContent = totalPages);
+    }
+
+    // For now, set to single page (you can modify this based on actual content)
+    totalPages = 1;
+    currentPage = 1;
+    
+    updatePaginationControls();
+  }
+
+  // Initialize pagination
+  initPagination();
+
 });

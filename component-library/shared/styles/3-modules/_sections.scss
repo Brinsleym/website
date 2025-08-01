@@ -24,14 +24,12 @@
       margin: 0;
       font-size: 32px;
       line-height: 1;
-      padding-right: 120px;
     }
   
     .section__link {
       position: absolute;
       top: 50%;
       right: 0;
-      transform: translateY(-50%);
       z-index: 1;
       font-size: 16px;
       font-weight: 500;
@@ -40,7 +38,6 @@
       will-change: transform;
       transition: all 0.3s ease;
       cursor: pointer;
-      position: relative;
       padding: 32px 36px 32px 64px;
 
       &::after {

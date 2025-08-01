@@ -64,6 +64,7 @@
 
 .post-tags {
 	display: flex;
+	flex-wrap: wrap;
 
 	.post-tags__tag {
 		position: relative;
@@ -75,8 +76,10 @@
 		line-height: 10px;
 		font-weight: 600;
 		text-transform: capitalize;
+		text-align: center;
 		border-radius: 8px;
 		overflow: hidden;
+		white-space: nowrap;
 		color: $white;
 		background: linear-gradient(90deg, $primary-color 0%, $secondary-color 167%);
 
@@ -399,10 +402,6 @@
 .related-posts {
 	margin-top: 80px;
 
-	.related-tag {
-		text-transform: capitalize;
-	}
-
 	@media only screen and (max-width: $mobile) {
 		 margin-top: 60px;
 
@@ -411,7 +410,6 @@
 		}
 	}
 }
-
 /* Disqus comments */
 .post__comments {
 	max-width: 880px;

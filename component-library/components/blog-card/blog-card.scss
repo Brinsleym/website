@@ -58,6 +58,7 @@
 
   &__tags-box {
     display: flex;
+    flex-wrap: wrap;
   }
 
   &__tag {
@@ -72,6 +73,7 @@
     text-transform: capitalize;
     border-radius: 8px;
     overflow: hidden;
+    white-space: nowrap;
     color: $white;
     background: linear-gradient(90deg, $primary-color 0%, $secondary-color 167%);
 
