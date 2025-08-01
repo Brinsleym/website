@@ -32,7 +32,7 @@
 
       <div class="{{$c}}__meta">
         <div class="{{$c}}__author-image">
-          <img loading="lazy" src="{{ site.Data.author.author_image }}" alt="{{ site.Data.author.author_name }}">
+          <img loading="lazy" src="{{ printf "%s%s" .Site.Params.asset_base_url (strings.TrimPrefix "/" site.Data.author.author_image) }}" alt="{{ site.Data.author.author_name }}">
         </div>
         <div class="{{$c}}__info">
           <div class="{{$c}}__author-name">

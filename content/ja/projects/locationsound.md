@@ -2,7 +2,7 @@
 date: 2024-01-17
 title: "ロケーションサウンド・プロジェクト録音"
 subtitle: 2024年1月17日録音
-image: '/images/locationsound1.jpg'
+image: 'images/locationsound1.jpg'
 description: "ロケーションサウンド・プロジェクトの舞台裏"
 ---
 
@@ -20,6 +20,6 @@ ST450の四面体カプセルアレイは一貫したオフアクシス応答に
 ST450にはいくつか制限もあります：ノイズフロアが高いため、クラリネットの最も静かなニュアンスのキャプチャには適していません。Neumann KM184と組み合わせることでこの問題を解決しました。KM184はノイズが少なく、より詳細な高域と鋭い過渡応答を提供し、ST450は湖の環境音の広大な空間性を保持しました。
 
 レイアウトのモックアップ:
-![レイアウトモックアップ](/images/locationsound2.png)
+![![レイアウトモックアップ](images/locationsound2.png)](images/locationsound2.png)
 # YouTubeで視聴:
 {{< youtube OVmmtKGMK30 >}}

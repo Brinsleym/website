@@ -1,0 +1,9 @@
+{{- $src := .Destination -}}
+{{- if and (not (hasPrefix $src "http")) (not (hasPrefix $src "https://")) (not (hasPrefix $src "//")) -}}
+  {{- if hasPrefix $src "/" -}}
+    {{- $src = printf "%s%s" .Page.Site.Params.asset_base_url (strings.TrimPrefix "/" $src) -}}
+  {{- else -}}
+    {{- $src = printf "%s%s" .Page.Site.Params.asset_base_url $src -}}
+  {{- end -}}
+{{- end -}}
+<img src="{{ $src }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . }}"{{ end }} loading="lazy" />
