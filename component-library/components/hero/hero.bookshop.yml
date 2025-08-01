@@ -27,7 +27,7 @@ blueprint:
 preview:
   title: ""
   description_html: ""
-  image: /images/01.jpg
+  image: images/01.jpg
   image_alt: ""
   cta_button: Get in touch
   cta_button_link: "#contact"

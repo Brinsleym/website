@@ -2,7 +2,7 @@
 date: 2024-01-17
 title: "实地录音项目记录"
 subtitle: 录制于2024年1月17日
-image: '/images/locationsound1.jpg'
+image: 'images/locationsound1.jpg'
 description: "我的实地录音模块项目幕后花絮"
 ---
 
@@ -20,6 +20,6 @@ description: "我的实地录音模块项目幕后花絮"
 ST450确实存在一些限制：较高的本底噪声使其不太适合捕捉单簧管最微妙的细节。搭配Neumann KM184解决了这个问题——KM184提供了更低噪声、更细腻的高频和更尖锐的瞬态响应，而ST450则保留了湖泊环境声的广阔空间感。
 
 布局示意图:
-![布局示意图](/images/locationsound2.png)
+![![布局示意图](images/locationsound2.png)](images/locationsound2.png)
 # YouTube观看:
 {{< youtube OVmmtKGMK30 >}}

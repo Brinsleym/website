@@ -2,7 +2,7 @@
 date: 2025-05-22
 title: "毕业设计项目"
 subtitle: "2024年10月至2025年5月"
-image: '/images/suzume-project-1.jpg'
+image: 'images/suzume-project-1.jpg'
 description: "对多部动画音乐重新配乐项目的详细解析" 
 ---
 # 引言

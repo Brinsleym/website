@@ -15,7 +15,7 @@ blueprint:
 
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:
-  image: /images/author-big.jpg
+  image: images/author-big.jpg
   image_alt: My best photo
 
 # Any extra CloudCannon inputs configuration to apply to the blueprint

@@ -2,6 +2,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="{{ printf "%s%s" .Site.Params.asset_base_url "favicon.ico" }}">
   <title>{{ if not .IsHome }}{{ humanize .Title }} | {{ end }}{{ .Site.Data.general_settings.title }}</title>
   <meta name="description" content="{{if .IsHome}}{{ .Site.Data.general_settings.description }}{{else}}{{ .Description }}{{end}}">
 
@@ -9,12 +10,12 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Data.general_settings.title }}">
   <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary }}{{ else }}{{ with .Site.Data.general_settings.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
-  {{ if .IsHome}}<meta name="twitter:image" content="{{ .Site.Data.general_settings.social_media_share_image | absURL }}">{{ else }}<meta name="twitter:image" content="{{ .Params.Image | absURL }}">{{ end }}
+  {{ if .IsHome}}<meta name="twitter:image" content="{{ printf "%s%s" .Site.Params.asset_base_url (strings.TrimPrefix "/" .Site.Data.general_settings.social_media_share_image) }}">{{ else }}<meta name="twitter:image" content="{{ printf "%s%s" .Site.Params.asset_base_url (strings.TrimPrefix "/" .Params.Image) }}">{{ end }}
 
   <!-- Facebook OpenGraph -->
   <meta property="og:title" content="{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Data.general_settings.title }}">
   <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Data.general_settings.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
-  {{ if .IsHome}}<meta property="og:image" content="{{ .Site.Data.general_settings.social_media_share_image | absURL }}">{{ else }}<meta property="og:image" content="{{ .Params.Image | absURL }}">{{ end }}
+  {{ if .IsHome}}<meta property="og:image" content="{{ printf "%s%s" .Site.Params.asset_base_url (strings.TrimPrefix "/" .Site.Data.general_settings.social_media_share_image) }}">{{ else }}<meta property="og:image" content="{{ printf "%s%s" .Site.Params.asset_base_url (strings.TrimPrefix "/" .Params.Image) }}">{{ end }}
 
   <!-- Fonts: Try fonts.googleapis.com, fallback on error to fonts.font.im -->
   <script>

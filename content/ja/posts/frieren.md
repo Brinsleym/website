@@ -5,7 +5,7 @@ title: "『葬送のフリーレン』 リスコアリングプロジェクト"
 description: >- 
   テレビアニメシリーズ『葬送のフリーレン』のサウンドトラックを再構築
 tags:   [サウンドトラック, 映画音楽, オーケストラ]
-image: '/images/frieren-1.jpg'
+image: 'images/frieren-1.jpg'
 draft: false
 ---
 {{< disclaimer-ja "葬送のフリーレン" >}}
@@ -23,10 +23,10 @@ draft: false
 台詞と効果音を分離するために、最初はステム分離ツールの[Ultimate Vocal Remover](https://ultimatevocalremover.com)を使用しました。このツールには音楽を分離するための複数のモデルが用意されています。作業の途中で、[Bandit V2](https://github.com/kwatcharasupat/bandit-v2)というモデルを見つけました。このモデルは、映画のクリップを特に使用した[Divide and Remaster V3データセット](https://github.com/kwatcharasupat/divide-and-remaster-v3)でトレーニングされており、多言語対応でした。このモデルは私のユースケースにおいて大幅に優れた結果を提供し、アーティファクトを大幅に減らしながら高解像度の結果を生成できました。
 
 ## サウンドトラックを聴く：
-{{< soundcloud-playlist playlist="2034380025" background="/images/frieren-1.jpg" >}}
+{{< soundcloud-playlist playlist="2034380025" background="images/frieren-1.jpg" >}}
 
 ## プロジェクトファイルを閲覧：
 著作権を尊重するため、オリジナルの音声や動画は配布していません。Evan Callの素晴らしいオリジナルスコアを体験したい場合は（強くお勧めします）、公式リリースをサポートしてください。
 
 以下に、音楽のみのプロジェクトファイル（台詞や動画を含まない）へのリンクを掲載します：
-{{< figure src="/images/frieren-project-1.jpg" link="https://github.com/Brinsleym/Frieren/" target="_blank" >}}
+{{< figure src="images/frieren-project-1.jpg" link="https://github.com/Brinsleym/Frieren/" target="_blank" >}}

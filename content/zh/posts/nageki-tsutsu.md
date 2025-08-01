@@ -3,7 +3,7 @@ date:   2021-06-15
 title:  Nageki Tsutsu
 description: 《Nageki Tsutsu》通过一首哀歌探讨了孤独的感觉，诗歌内容源自藤原道綱母的早期作品。
 tags:   [合唱]
-image:  '/images/nageki-tsutsu-1.jpg'
+image:  'images/nageki-tsutsu-1.jpg'
 ---
 
 {{< youtube 5I4x6txsa78 >}}
@@ -13,8 +13,8 @@ image:  '/images/nageki-tsutsu-1.jpg'
 
 歌词如下：
 
-{{< figure src="/images/nagekitsutsu-text.png" width=600vw >}}
+{{< figure src="images/nagekitsutsu-text.png" width=600vw >}}
 
 ## 查看乐谱：
 
-{{< figure src="/images/nagekitsutsu-score.jpg" link="https://github.com/Brinsleym/Nageki-Tsutsu/blob/main/Nageki-Tsutsu.pdf" target="_blank" >}}
+{{< figure src="images/nagekitsutsu-score.jpg" link="https://github.com/Brinsleym/Nageki-Tsutsu/blob/main/Nageki-Tsutsu.pdf" target="_blank" >}}

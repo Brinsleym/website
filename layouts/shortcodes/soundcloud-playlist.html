@@ -1,5 +1,10 @@
 {{ $playlist := .Get "playlist" }}
 {{ $background := .Get "background" }}
+{{ if $background }}
+  {{ if not (hasPrefix $background "http") }}
+    {{ $background = printf "%s%s" .Page.Site.Params.asset_base_url $background }}
+  {{ end }}
+{{ end }}
 {{ $playlistUrl := "" }}
 {{ if hasPrefix $playlist "https://" }}
   {{ $playlistUrl = $playlist }}
