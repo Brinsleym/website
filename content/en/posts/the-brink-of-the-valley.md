@@ -8,7 +8,7 @@ tags:   [orchestral, cello soloist]
 ---
 
 This piece is an aural depiction of the beautiful view from the top of the valley where my parents live in Cornwall.
-The premiering concert took place in The Stoller Hall, was conducted by Brinsley, and performed by the Chethams Symphony Orchestra.
+The premiering concert took place in The Stoller Hall, was conducted by Brinsley, and performed by the Chetham’s Symphony Orchestra.
 
 <br> <br>
 
