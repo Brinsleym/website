@@ -7,7 +7,12 @@ This repository contains the source code for my portfolio website, which is live
 This site is forked from the [Vonge Hugo Bookshop Template](https://github.com/CloudCannon/vonge-hugo-bookshop-template) by CloudCannon. It has been changed significantly including the addition of:
 - Full Multilingual support & language switcher menu for English, Japanese and Chinese (Simplified).
 - A custom audio player with playlist functionality using Soundcloud API
-- Optimized image loading with lazy loading for improved performance
+- Asset provisioning through JSDelivr's CDN,
+- Javascript lazy image loading,
+
+Server-side features:
+- Cloudflare DNS & Proxy with worker support to automatically detect user language and serve the relevant page
+- Snapshot caching at ```archive.org```, to show a recent snapshot of the page in the event of a server faliure.
 
 ## License
 
@@ -24,8 +29,7 @@ hugo server --config config.dev.toml
 ```
 
 ## To Do
-
-- ~~Social media cover image~~ ✅
+- .
 
 ## Future
 
