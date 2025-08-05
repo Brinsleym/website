@@ -4,7 +4,7 @@ This repository contains the source code for my portfolio website, which is live
 
 ## About
 
-This site is forked from the [Vonge Hugo Bookshop Template](https://github.com/CloudCannon/vonge-hugo-bookshop-template) by CloudCannon. It has been changed significantly including the addition of:
+This site is forked from the [Vonge Hugo Bookshop Template](https://github.com/CloudCannon/vonge-hugo-bookshop-template) by CloudCannon. It has been significantly modified including the addition of:
 - Full Multilingual support & language switcher menu for English, Japanese and Chinese (Simplified).
 - A custom audio player with playlist functionality using Soundcloud API
 - Asset provisioning through JSDelivr's CDN,
@@ -14,11 +14,10 @@ Server-side features:
 - Cloudflare DNS & Proxy with worker support to automatically detect user language and serve the relevant page
 - Snapshot caching at ```archive.org```, to show a recent snapshot of the page in the event of a server faliure.
 
-## License
+Other notable changes:
+- Ionicons v7 (upgraded from v4)
+- Many small css improvements (especially for mobile pages)
 
-Please refer to the original template's licensing terms for usage guidelines.
-
----
 
 ## Development
 
@@ -28,11 +27,14 @@ For local development, use the dev configuration which serves assets locally:
 hugo server --config config.dev.toml
 ```
 
-## To Do
-- .
+## Future to-do
 
-## Future
+- Add copy to clipboard js when clicking on the mail icon & email adress text
 
-- Add local audio file support to music player for CN
-- Implement better support for detecting user default language
-- Add copy to clipboard js for mail icon
+[![](https://data.jsdelivr.com/v1/package/gh/Brinsleym/website/badge)](https://www.jsdelivr.com/package/gh/Brinsleym/website)
+
+---
+
+## License
+
+Please refer to the original template's licensing terms for usage guidelines.
