@@ -2,7 +2,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/x-icon" href="{{ printf "%s%s" .Site.Params.asset_base_url "favicon.ico" }}">
+  <link rel="icon" type="image/x-icon" href="{{ partial "jsdelivr-url.html" "/favicon.ico" }}">
   <title>{{ if not .IsHome }}{{ humanize .Title }} | {{ end }}{{ .Site.Data.general_settings.title }}</title>
   <meta name="description" content="{{if .IsHome}}{{ .Site.Data.general_settings.description }}{{else}}{{ .Description }}{{end}}">
 

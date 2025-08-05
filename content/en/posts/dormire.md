@@ -14,7 +14,7 @@ Dormire is an experimnetal piece which depicts the state of the mind’s conscio
 
 I wrote this piece primarily using quarter-tonality, creating an unnerving atmosphere playing with gthe idea of mistaken familiarity which often comes to me in dreams. The opening phrase depicts the act of falling asleep through a series of descending half major/minor 3rds. It foreshadows the nightmare to come and the spell-like nature of being so tired you just can’t help but fall asleep.
 
-Performed by fellow students at Chethams' School of Music:
+Performed by fellow students at Chetham’s School of Music:
 - **Jordan Brooks**: Violin I
 - **Eleanor Mackey**: Violin II
 - **Kassia Ren**: Viola
