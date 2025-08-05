@@ -16,6 +16,15 @@
   <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Data.general_settings.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
   {{ if .IsHome}}<meta property="og:image" content="{{ partial "jsdelivr-url.html" .Site.Data.general_settings.social_media_share_image | absURL }}">{{ else }}<meta property="og:image" content="{{ partial "jsdelivr-url.html" .Params.Image | absURL }}">{{ end }}
 
+  <!-- Preload critical images -->
+  {{ if .IsHome }}
+    {{ with (index .Params.content_blocks 0) }}
+      {{ if eq ._bookshop_name "hero" }}
+        <link rel="preload" as="image" href="{{ partial "jsdelivr-url.html" .image }}">
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
   <!-- Fonts: Try fonts.googleapis.com, fallback on error to fonts.font.im -->
   <script>
     (function() {
