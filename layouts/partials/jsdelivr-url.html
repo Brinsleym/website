@@ -1,3 +1,10 @@
 {{- $path := . -}}
 {{- $baseUrl := site.Params.jsdelivr_base_url -}}
-{{- printf "%s%s" $baseUrl $path -}}
+{{- if eq $baseUrl "" -}}
+  {{- /* Local development: remove /static/ prefix and serve from Hugo's static directory */ -}}
+  {{- $localPath := $path | replaceRE "^/static/" "/" -}}
+  {{- printf "%s" $localPath -}}
+{{- else -}}
+  {{- /* Production: use CDN with full path */ -}}
+  {{- printf "%s%s" $baseUrl $path -}}
+{{- end -}}

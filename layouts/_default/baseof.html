@@ -39,10 +39,14 @@
 
   {{ block "footer" . }}{{ end }}
 
-  {{ if hugo.IsServer }}
-  <script src="{{ site.Params.jsdelivr_base_url }}/assets/js/scripts.js"></script>
-  <script src="{{ site.Params.jsdelivr_base_url }}/assets/js/common.js"></script>
+  {{ if eq site.Params.jsdelivr_base_url "" }}
+  <!-- Local development: process assets through Hugo pipeline -->
+  {{ $scripts := resources.Get "js/scripts.js" | resources.Minify }}
+  {{ $common := resources.Get "js/common.js" | resources.Minify }}
+  <script src="{{ $scripts.RelPermalink }}"></script>
+  <script src="{{ $common.RelPermalink }}"></script>
   {{ else }}
+  <!-- Production: use CDN -->
   <script src="{{ site.Params.jsdelivr_base_url }}/assets/js/scripts.js"></script>
   <script src="{{ site.Params.jsdelivr_base_url }}/assets/js/common.js"></script>
   {{ end }}
