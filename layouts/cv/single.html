@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - {{ .Site.Data.general_settings.title }}</title>
+    <script src="https://documentservices.adobe.com/view-sdk/viewer.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #adobe-dc-view {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="adobe-dc-view"></div>
+    <script type="text/javascript">
+        const previewConfig = {
+            embedMode: "FULL_WINDOW"
+        };
+
+        document.addEventListener("adobe_dc_view_sdk.ready", function(){ 
+            var adobeDCView = new AdobeDC.View({clientId: "08df5171d9244eb09764c0831d32afc2", divId: "adobe-dc-view"});
+            adobeDCView.previewFile({
+                content:{location: {url: "{{ partial "jsdelivr-url.html" "/static/doc/cv.pdf" }}"}},
+                metaData:{fileName: "Brinsley Morrison CV.pdf"}
+            }, previewConfig);
+        });
+    </script>
+</body>
+</html>

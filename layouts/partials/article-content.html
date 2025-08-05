@@ -4,7 +4,7 @@
     {{ if .Params.Image }}
     <div class="image-wrap">
       <a class="article__image" href="{{ .RelPermalink }}">
-        <img loading="lazy" src="{{ .Params.Image | absURL }}" alt="{{ .Title }}">
+        <img loading="lazy" src="{{ partial "jsdelivr-url.html" .Params.Image | absURL }}" alt="{{ .Title }}">
       </a>
     </div>
     {{ end }}
@@ -29,7 +29,7 @@
 
       <div class="article__meta">
         <div class="article__author-image">
-          <img loading="lazy" src="{{ site.Data.author.author_image }}" alt="{{ site.Data.author.author_name }}">
+          <img loading="lazy" src="{{ partial "jsdelivr-url.html" site.Data.author.author_image }}" alt="{{ site.Data.author.author_name }}">
         </div>
         <div class="article-info">
           <div class="article__author-name">

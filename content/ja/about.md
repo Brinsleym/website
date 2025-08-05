@@ -9,7 +9,7 @@ content_blocks:
         森沢は<b>チータム音楽学校</b>の卒業生で、<b>ヨーク大学</b>で<b>音楽学士号を最優等で</b>取得しました。
       </p>
   - _bookshop_name: page-image
-    image: https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/static/images/thebrinkofthevalley-2.jpg
+    image: /static/images/thebrinkofthevalley-2.jpg
     image_alt:
   - _bookshop_name: content
     content_html: >-
@@ -18,7 +18,7 @@ content_blocks:
       </p>
       <h2>森沢淋の履歴書：</h2>
       <body>
-        <iframe src="https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/static/doc/cv.pdf#navpanes=0" frameborder="0" height="500rem" width="100%"></iframe>
+        <iframe src="https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/static/doc/cv.pdf#navpanes=0" frameborder="0" height="500rem" width="100%" title="PDF Viewer"></iframe>
       <br>
       <h1>ヨーク大学</h1>
       <p>

@@ -15,7 +15,9 @@ Please refer to the original template's licensing terms for usage guidelines.
 ---
 
 ## To Do:
-- better image caching
+-  add a <link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/static/images/001.jpg">
+
+other homepage images add lazy-loading `steve crowther)
 
 Future:
 

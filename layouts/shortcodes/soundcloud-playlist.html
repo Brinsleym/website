@@ -1,9 +1,13 @@
 {{ $playlist := .Get "playlist" }}
 {{ $background := .Get "background" }}
+{{ $processedBackground := "" }}
+{{ if $background }}
+  {{ $processedBackground = partial "jsdelivr-url.html" $background }}
+{{ end }}
 {{ $playlistUrl := "" }}
 {{ if hasPrefix $playlist "https://" }}
   {{ $playlistUrl = $playlist }}
 {{ else }}
   {{ $playlistUrl = printf "https://api.soundcloud.com/playlists/%s" $playlist }}
 {{ end }}
-{{ partial "soundcloud-playlist.html" (dict "url" $playlistUrl "background" $background) }}
+{{ partial "soundcloud-playlist.html" (dict "url" $playlistUrl "background" $processedBackground) }}
