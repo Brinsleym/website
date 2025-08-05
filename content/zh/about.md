@@ -1,5 +1,5 @@
 ---
-title: 关于布
+title: 关于布 林泽
 content_blocks:
   - _bookshop_name: page-heading
     title: 关于布 林泽
@@ -8,16 +8,16 @@ content_blocks:
             林泽是一位<b>多乐器演奏家</b>和<b>作曲家</b>。他曾作为独唱歌手与<b>BBC交响乐团</b>合作演出，并在多个管弦乐团担任<b>首席小提琴</b>。<br><br>林泽是<b>切塔姆音乐学校</b>的校友，并且以<b>一等荣誉</b>毕业于<b>约克大学</b>音乐系。
           </p>
   - _bookshop_name: page-image
-    image: https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/static/images/thebrinkofthevalley-2.jpg
+    image: /static/images/thebrinkofthevalley-2.jpg
     image_alt:
   - _bookshop_name: content
     content_html: >-
       <p>
         林泽是一位<b>多乐器演奏家</b>和<b>作曲家</b>。他曾作为独唱歌手与<b>BBC交响乐团</b>合作演出，并在多个管弦乐团担任<b>首席小提琴</b>。<br><br>林泽以<b>音乐学士一等荣誉学位</b>毕业于<b>约克大学</b>，在最后一年专攻电影配乐创作。林泽也是<b>切塔姆音乐学校</b>的校友，在那里他学习作曲和声乐，同时也学习小提琴和钢琴。
       </p>
-      <h2>林泽的简历：</h2>
+      <h2>淋的简历：</h2>
       <body>
-        <iframe src="https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/static/doc/cv.pdf#navpanes=0 "frameborder="0" height="500rem" width="100%"></iframe>
+        <iframe src="https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/static/doc/cv.pdf#navpanes=0" frameborder="0" height="500rem" width="100%" title="PDF Viewer"></iframe>
       <br>
       <h1>约克大学</h1>
       <p>

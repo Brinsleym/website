@@ -5,7 +5,7 @@ title: The Untouched Landscape
 description: >-
   A piece written for chamber orchestra, exploring the intricate beauty of the natural world.
 tags:   [chamber orchestra, orchestral]
-image: https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/static/images/the-untouched-landscape-1.jpg
+image: /static/images/the-untouched-landscape-1.jpg
 ---
 
 I wrote ‘The Untouched Landscape’ for solo piano and string sextet and was very interested in exploring how I could create a dialogue between the piano and the strings in a piano concerto-like composition, but in a chamber ensemble context. 
@@ -16,4 +16,4 @@ The shared prominence of 4ths and 5ths is also noticeable in the voicing of chor
 
 ## View the project files:
 
-{{< figure src="https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/static/images/the-untouched-landscape-score.jpg" link="https://github.com/Brinsleym/The-Untouched-Landscape/blob/main/The-Untouched-Landscape.pdf" target="_blank" >}}
+{{< figure src="/static/images/the-untouched-landscape-score.jpg" link="https://github.com/Brinsleym/The-Untouched-Landscape/blob/main/The-Untouched-Landscape.pdf" target="_blank" >}}

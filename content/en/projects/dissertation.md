@@ -2,7 +2,7 @@
 date: 2025-05-22
 title: "Final Year Dissertation Project"
 subtitle: "From Oct 2024 to May 2025"
-image: 'https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/static/images/suzume-project-1.jpg'
+image: '/static/images/suzume-project-1.jpg'
 description: "A detailed look into the project of re-scoring music from various anime."
 ---
 # Introduction

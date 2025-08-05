@@ -6,7 +6,7 @@ content_blocks:
       <p>Brinsley is a <b>composer</b>, <b>singer</b>, <b>pianist</b>, and <b>violinist</b>.<br>
       Grauduate from the <b>University of York</b> with a <i>first-class</i> honours in Music, and alumni of <b>Chetham's School of Music</b>.
       </p>
-    image: https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/static/images/001.jpg
+    image: /static/images/001.jpg
     image_alt: Brinsley Morrison's picture
     cta_button: Get in touch
     cta_button_link: '#contact'

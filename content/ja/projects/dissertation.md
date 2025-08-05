@@ -2,7 +2,7 @@
 date: 2025-05-22
 title: "卒業論文プロジェクト"
 subtitle: "2024年10月から2025年5月まで"
-image: 'https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/static/images/suzume-project-1.jpg'
+image: '/static/images/suzume-project-1.jpg'
 description: "様々なアニメのリスコアリングプロジェクトの詳細"
 ---
 # はじめに

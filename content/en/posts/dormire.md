@@ -5,7 +5,7 @@ title: Dormire
 description: >-
   A experimnetal piece which depicts the state of the mind’s consciousness when falling asleep. 
 tags:   [string quartet]
-image: https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/static/images/dormire-1.jpg
+image: /static/images/dormire-1.jpg
 ---
 
 {{< youtube 7wTFGWczEwo >}}
@@ -23,4 +23,4 @@ Performed by fellow students at Chethams' School of Music:
 
 ## View the score:
 
-{{< figure src="https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr/static/images/dormire-score.jpg" link="https://github.com/Brinsleym/Dormire/blob/main/Dormire.pdf" target="_blank" >}}
+{{< figure src="/static/images/dormire-score.jpg" link="https://github.com/Brinsleym/Dormire/blob/main/Dormire.pdf" target="_blank" >}}
