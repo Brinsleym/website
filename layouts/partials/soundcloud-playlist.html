@@ -250,7 +250,6 @@ window.SoundCloudPlaylistCache = (function() {
         // Check cache first for significant performance boost
         const cachedTracks = window.SoundCloudPlaylistCache.get(this.playlistUrl);
         if (cachedTracks) {
-          console.log('Loading playlist from cache');
           this.tracks = cachedTracks;
           this.renderPlaylist();
           await this.loadTrack(0);
@@ -490,7 +489,7 @@ window.SoundCloudPlaylistCache = (function() {
           this.currentWidget.play();
         }
       }).catch(error => {
-        console.warn('Failed to initialize track data:', error);
+        // Failed to initialize track data
       });
     }
 
@@ -817,8 +816,6 @@ window.SoundCloudPlaylistCache = (function() {
     }
 
     handleLoadError(error) {
-      console.error('Playlist load error:', error);
-      
       // Check if this is likely a privacy extension blocking issue
       if (error.message && (error.message.includes('privacy extension') || 
                             error.message.includes('blocked') || 
@@ -837,7 +834,6 @@ window.SoundCloudPlaylistCache = (function() {
     }
 
     handleTrackLoadError(error) {
-      console.error('Track load error:', error);
       this.showTrackError('Track load failed', 'Try selecting another track or refreshing');
     }
 
@@ -864,7 +860,7 @@ window.SoundCloudPlaylistCache = (function() {
         const player = new SoundCloudPlaylistPlayer(container, index);
         players.push(player);
       } catch (error) {
-        console.error('Failed to initialize playlist player:', error);
+        // Initialize playlist player failed
       }
     });
 
