@@ -3,7 +3,7 @@ date:   2021-06-15
 title:  嘆きつつ
 description: 嘆きつつは、藤原道綱母に帰される初期の詩に基づき、哀歌を通じて孤立感を探求した作品です。
 tags:   [合唱]
-image:  'images/nageki-tsutsu-1.jpg'
+image:  '/static/images/nageki-tsutsu-1.jpg'
 ---
 
 {{< youtube 5I4x6txsa78 >}}
@@ -13,8 +13,8 @@ image:  'images/nageki-tsutsu-1.jpg'
 
 歌詞は以下の通りです：
 
-{{< figure src="images/nagekitsutsu-text.png" width=600vw >}}
+{{< figure src="/static/images/nagekitsutsu-text.png" width=600vw >}}
 
 ## 楽譜を表示:
 
-{{< figure src="images/nagekitsutsu-score.jpg" link="https://github.com/Brinsleym/Nageki-Tsutsu/blob/main/Nageki-Tsutsu.pdf" target="_blank" >}}
+{{< figure src="/static/images/nagekitsutsu-score.jpg" link="https://github.com/Brinsleym/Nageki-Tsutsu/blob/main/Nageki-Tsutsu.pdf" target="_blank" >}}

@@ -1,4 +1,4 @@
-baseURL = "https://brinsleymorrison.com"
+baseURL = "http://localhost:1313"
 languageCode = "en"
 title = "Brinsley Morrison"
 _enabled_editors = ["visual", "content"]
@@ -58,4 +58,5 @@ posts = "/compositions/:title/"
 projects = "/blog/:title/"
 
 [params]
-jsdelivr_base_url = "https://cdn.jsdelivr.net/gh/Brinsleym/website@master"
+# Use local assets for development instead of CDN
+jsdelivr_base_url = ""

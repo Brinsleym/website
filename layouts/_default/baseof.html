@@ -39,16 +39,16 @@
 
   {{ block "footer" . }}{{ end }}
 
-  {{ $script := resources.Get "js/scripts.js" }}
-  {{ $commonJs := resources.Get "js/common.js" }}
-
-
-  {{ if hugo.IsServer }}
-  <script src="{{ $script.Permalink }}"></script>
-  <script src="{{ $commonJs.Permalink }}"></script>
+  {{ if eq site.Params.jsdelivr_base_url "" }}
+  <!-- Local development: process assets through Hugo pipeline -->
+  {{ $scripts := resources.Get "js/scripts.js" | resources.Minify }}
+  {{ $common := resources.Get "js/common.js" | resources.Minify }}
+  <script src="{{ $scripts.RelPermalink }}"></script>
+  <script src="{{ $common.RelPermalink }}"></script>
   {{ else }}
-  <script src="{{ ($script | minify | fingerprint).RelPermalink }}"></script>
-  <script src="{{ ($commonJs | minify | fingerprint).RelPermalink }}"></script>
+  <!-- Production: use CDN -->
+  <script src="{{ site.Params.jsdelivr_base_url }}/assets/js/scripts.js"></script>
+  <script src="{{ site.Params.jsdelivr_base_url }}/assets/js/common.js"></script>
   {{ end }}
 </body>
 

@@ -10,7 +10,7 @@
   <div class="{{$c}}__inner">
     <div class="{{$c}}__image-wrap">
       <a class="{{$c}}__image" href="/">
-        <img loading="lazy" src="{{ printf "%s%s" .Site.Params.asset_base_url "images/post-6.jpg" }}" alt="title">
+        <img loading="lazy" src="{{ partial "jsdelivr-url.html" "/static/images/post-6.jpg" }}" alt="title">
       </a>
     </div>
 
@@ -31,7 +31,7 @@
 
       <div class="{{$c}}__meta">
         <div class="{{$c}}__author-image">
-          <img loading="lazy" src="{{ printf "%s%s" .Site.Params.asset_base_url "images/page-1.jpg" }}" alt="Author Name">
+          <img loading="lazy" src="{{ partial "jsdelivr-url.html" "/static/images/page-1.jpg" }}" alt="Author Name">
         </div>
         <div class="{{$c}}__info">
           <div class="{{$c}}__author-name">Author Name</div>

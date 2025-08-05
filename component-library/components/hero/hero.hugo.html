@@ -19,7 +19,7 @@
 
           <div class="{{$c}}__right">
             <div class="{{$c}}__image">
-              <img loading="lazy" src="{{ printf "%s%s" site.Params.asset_base_url (strings.TrimPrefix "/" .image) }}" alt="{{ .image_alt }}">
+              <img src="{{ partial "jsdelivr-url.html" .image }}" alt="{{ .image_alt }}">
             </div>
           </div>
 

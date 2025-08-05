@@ -5,7 +5,7 @@
     {{ if .image }}
     <div class="{{$c}}__image-wrap">
       <a class="{{$c}}__image" href="{{ .url }}">
-        <img loading="lazy" src="{{ printf "%s%s" site.Params.asset_base_url (strings.TrimPrefix "/" .image) }}" alt="{{ .title }}">
+        <img loading="lazy" src="{{ partial "jsdelivr-url.html" .image }}" alt="{{ .title }}">
       </a>
     </div>
     {{ end }}
@@ -32,7 +32,7 @@
 
       <div class="{{$c}}__meta">
         <div class="{{$c}}__author-image">
-          <img loading="lazy" src="{{ printf "%s%s" .Site.Params.asset_base_url (strings.TrimPrefix "/" site.Data.author.author_image) }}" alt="{{ site.Data.author.author_name }}">
+          <img loading="lazy" src="{{ partial "jsdelivr-url.html" site.Data.author.author_image }}" alt="{{ site.Data.author.author_name }}">
         </div>
         <div class="{{$c}}__info">
           <div class="{{$c}}__author-name">

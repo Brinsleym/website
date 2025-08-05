@@ -5,7 +5,7 @@ title: 未被触碰的景观
 description: >-
   一部为室内乐团创作的作品，探索自然界错综复杂的美丽。
 tags:   [室内乐团, 交响乐]
-image: images/the-untouched-landscape-1.jpg
+image: /static/images/the-untouched-landscape-1.jpg
 ---
 
 我为独奏钢琴和弦乐六重奏创作了《未被触碰的景观》，并且非常感兴趣如何在室内乐的背景下创造出钢琴与弦乐之间的对话，类似于钢琴协奏曲的构思。
@@ -16,4 +16,4 @@ image: images/the-untouched-landscape-1.jpg
 
 ## 查看项目文件：
 
-{{< figure src="images/the-untouched-landscape-score.jpg" link="https://github.com/Brinsleym/The-Untouched-Landscape/blob/main/The-Untouched-Landscape.pdf" target="_blank" >}}
+{{< figure src="/static/images/the-untouched-landscape-score.jpg" link="https://github.com/Brinsleym/The-Untouched-Landscape/blob/main/The-Untouched-Landscape.pdf" target="_blank" >}}

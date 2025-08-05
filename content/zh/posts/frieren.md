@@ -5,7 +5,7 @@ title: "重配乐项目：《葬送的芙莉莲》"
 description: >- 
   为电视动画系列《葬送的芙莉莲》重新创作配乐
 tags:   [原声带, 影视配乐, 交响乐]
-image: 'images/frieren-1.jpg'
+image: '/static/images/frieren-1.jpg'
 draft: false
 ---
 {{< disclaimer-zh "葬送的芙莉莲" >}}
@@ -23,10 +23,10 @@ draft: false
 为了分离对白和音效，我最初使用了音轨分离工具[Ultimate Vocal Remover](https://ultimatevocalremover.com)，该工具提供了多个专门用于音乐分离的训练模型。在制作过程中，我发现了[Bandit V2](https://github.com/kwatcharasupat/bandit-v2)模型，它基于[Divide and Remaster V3数据集](https://github.com/kwatcharasupat/divide-and-remaster-v3)训练，这是一个专门使用电影片段的多语言数据集。这个模型在我的使用场景中表现显著更好，能够生成更高分辨率的音频，同时大幅减少了伪影。
 
 ## 试听配乐：
-{{< soundcloud-playlist playlist="2034380025" background="images/frieren-1.jpg" >}}
+{{< soundcloud-playlist playlist="2034380025" background="/static/images/frieren-1.jpg" >}}
 
 ## 查看项目文件：
 出于版权考虑，我不会分发原始音频或视频。如果你想体验Evan Call令人惊叹的原创配乐（我强烈推荐），请支持官方发行版本。
 
 以下是仅包含音乐的文件链接（不含对白或视频）：
-{{< figure src="images/frieren-project-1.jpg" link="https://github.com/Brinsleym/Frieren/" target="_blank" >}}
+{{< figure src="/static/images/frieren-project-1.jpg" link="https://github.com/Brinsleym/Frieren/" target="_blank" >}}

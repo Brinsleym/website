@@ -1,9 +1,8 @@
 {{ $track := .Get "track" }}
 {{ $background := .Get "background" }}
+{{ $processedBackground := "" }}
 {{ if $background }}
-  {{ if not (hasPrefix $background "http") }}
-    {{ $background = printf "%s%s" .Page.Site.Params.asset_base_url $background }}
-  {{ end }}
+  {{ $processedBackground = partial "jsdelivr-url.html" $background }}
 {{ end }}
 {{ $trackUrl := "" }}
 {{ if hasPrefix $track "https://" }}
@@ -11,4 +10,4 @@
 {{ else }}
   {{ $trackUrl = printf "https://api.soundcloud.com/tracks/%s" $track }}
 {{ end }}
-{{ partial "soundcloud-player.html" (dict "url" $trackUrl "background" $background) }}  
+{{ partial "soundcloud-player.html" (dict "url" $trackUrl "background" $processedBackground) }}  
