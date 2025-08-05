@@ -1,26 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{ .Site.Data.general_settings.title }} | CV</title>
+    <title>CV - {{ .Site.Data.general_settings.title }}</title>
+    <script src="https://documentservices.adobe.com/view-sdk/viewer.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #adobe-dc-view {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
 </head>
 <body>
-    <div id="adobe-dc-view" style="height: 100vh; width: 100%;"></div>
-    
-    <script src="https://acrobatservices.adobe.com/view-sdk/viewer.js"></script>
+    <div id="adobe-dc-view"></div>
     <script type="text/javascript">
-        var previewConfig = {
-            embedMode: "SIZED_CONTAINER"
+        const previewConfig = {
+            embedMode: "FULL_WINDOW"
         };
 
         document.addEventListener("adobe_dc_view_sdk.ready", function(){ 
-        	var adobeDCView = new AdobeDC.View({clientId: "08df5171d9244eb09764c0831d32afc2", divId: "adobe-dc-view"});
-        	adobeDCView.previewFile({
-      			content:{location: {url: "{{ printf "%s%s" .Site.Params.asset_base_url "doc/cv.pdf" }}"}},
-      			metaData:{fileName: "Brinsley Morrison CV.pdf"}
-      		}, previewConfig);
+            var adobeDCView = new AdobeDC.View({clientId: "08df5171d9244eb09764c0831d32afc2", divId: "adobe-dc-view"});
+            adobeDCView.previewFile({
+                content:{location: {url: "{{ partial "jsdelivr-url.html" "/static/doc/cv.pdf" }}"}},
+                metaData:{fileName: "Brinsley Morrison CV.pdf"}
+            }, previewConfig);
         });
     </script>
 </body>

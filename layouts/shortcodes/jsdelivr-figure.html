@@ -1,0 +1,14 @@
+{{- $src := .Get "src" -}}
+{{- $link := .Get "link" -}}
+{{- $target := .Get "target" -}}
+{{- $width := .Get "width" -}}
+{{- $alt := .Get "alt" -}}
+{{- $class := .Get "class" -}}
+{{- $title := .Get "title" -}}
+
+<figure{{ with $class }} class="{{ . }}"{{ end }}>
+  {{ if $link }}<a href="{{ $link }}"{{ with $target }} target="{{ . }}"{{ end }}>{{ end }}
+  <img src="{{ partial "jsdelivr-url.html" $src }}"{{ with $alt }} alt="{{ . }}"{{ end }}{{ with $width }} width="{{ . }}"{{ end }}{{ with $title }} title="{{ . }}"{{ end }}>
+  {{ if $link }}</a>{{ end }}
+  {{ with .Inner }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
+</figure>

@@ -1,7 +1,7 @@
 ---
 title:  春天
 date:   2020-12-02
-image:  'images/spring-1.jpg'
+image:  '/static/images/spring-1.jpg'
 tags:   [钢琴, 独奏]
 ---
 这首作品的首演由威廉·张（William Chang）于2020年12月在斯托勒大厅（Stoller Hall）演奏。

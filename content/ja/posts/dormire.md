@@ -5,7 +5,7 @@ title: "ドミレー"
 description: >-
   眠りに落ちるときの心の意識状態を描いた実験的な作品です。
 tags:   [弦楽四重奏]
-image: images/dormire-1.jpg
+image: /static/images/dormire-1.jpg
 ---
 
 {{< youtube 7wTFGWczEwo >}}
@@ -22,4 +22,4 @@ image: images/dormire-1.jpg
 
 ## 楽譜を表示:
 
-{{< figure src="images/dormire-score.jpg" link="https://github.com/Brinsleym/Dormire/blob/main/Dormire.pdf" target="_blank" >}}
+{{< figure src="/static/images/dormire-score.jpg" link="https://github.com/Brinsleym/Dormire/blob/main/Dormire.pdf" target="_blank" >}}

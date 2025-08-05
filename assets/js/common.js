@@ -1,6 +1,53 @@
 document.addEventListener("DOMContentLoaded", function () {
   'use strict';
 
+  /* ============================
+  // Lazy loading for images function
+  ============================ */
+  function initLazyLoading() {
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    
+    if (lazyImages.length > 0) {
+      if (window.IntersectionObserver) {
+        const imageObserverOptions = {
+          threshold: 0.1,
+          rootMargin: "-100px 0px -100px 0px"
+        };
+        
+        const imageObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              img.src = img.dataset.src;
+              img.classList.remove('lazy-load');
+              img.classList.add('loaded');
+              imageObserver.unobserve(img);
+            }
+          });
+        }, imageObserverOptions);
+        
+        lazyImages.forEach(img => {
+          // Add lazy class for CSS transition
+          img.classList.add('lazy');
+          
+          // Handle load event to show image
+          img.addEventListener('load', () => {
+            img.classList.add('loaded');
+          });
+          
+          imageObserver.observe(img);
+        });
+      } else {
+        // Fallback for browsers without IntersectionObserver support
+        lazyImages.forEach(img => {
+          img.src = img.dataset.src;
+          img.classList.remove('lazy-load');
+          img.classList.add('loaded');
+        });
+      }
+    }
+  }
+
   /* =======================
   // Menu
   ======================= */
@@ -55,7 +102,9 @@ document.addEventListener("DOMContentLoaded", function () {
   /* =======================
   // Responsive Videos
   ======================= */
-  reframe(".post__content iframe:not(.reframe-off), .page__content iframe:not(.reframe-off)");
+  if (typeof reframe !== 'undefined') {
+    reframe(".post__content iframe:not(.reframe-off), .page__content iframe:not(.reframe-off)");
+  }
 
 
   /* =======================
@@ -69,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
     for (var i = 0; i < imageLink.length; i++) imageLink[i].classList.add("no-lightense");
   }
 
-  if (lightense) {
+  if (lightense && typeof Lightense !== 'undefined') {
     Lightense(".page img:not(.no-lightense), .post img:not(.no-lightense)", {
     padding: 60,
     offset: 30
@@ -115,7 +164,9 @@ document.addEventListener("DOMContentLoaded", function () {
   /* ============================
   // Testimonials Slider
   ============================ */
-  if (document.querySelector(".my-slider")) {
+  const sliderElement = document.querySelector(".my-slider");
+  
+  if (sliderElement && typeof tns !== 'undefined') {
     var slider = tns({
       container: ".my-slider",
       items: 3,
@@ -137,13 +188,21 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
     });
+    
+    // Initialize lazy loading after slider is set up
+    setTimeout(() => {
+      initLazyLoading();
+    }, 200);
+  } else {
+    // Initialize lazy loading immediately if no slider
+    initLazyLoading();
   }
 
 
   /* ============================
   // iTyped
   ============================ */
-  if (document.querySelector(".c-subscribe")) {
+  if (document.querySelector(".c-subscribe") && typeof ityped !== 'undefined') {
     var options = {
       strings: itype_text,
       typeSpeed: 100,

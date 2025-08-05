@@ -8,14 +8,39 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@BrinsleyMorrison">
+  <meta name="twitter:creator" content="@BrinsleyMorrison">
   <meta name="twitter:title" content="{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Data.general_settings.title }}">
   <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary }}{{ else }}{{ with .Site.Data.general_settings.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
-  {{ if .IsHome}}<meta name="twitter:image" content="{{ printf "%s%s" .Site.Params.asset_base_url (strings.TrimPrefix "/" .Site.Data.general_settings.social_media_share_image) }}">{{ else }}<meta name="twitter:image" content="{{ printf "%s%s" .Site.Params.asset_base_url (strings.TrimPrefix "/" .Params.Image) }}">{{ end }}
+  {{ if .IsHome}}<meta name="twitter:image" content="{{ partial "jsdelivr-url.html" .Site.Data.general_settings.social_media_twitter_image | absURL }}">{{ else }}{{ if .Params.Image }}<meta name="twitter:image" content="{{ partial "jsdelivr-url.html" .Params.Image | absURL }}">{{ else }}<meta name="twitter:image" content="{{ partial "jsdelivr-url.html" .Site.Data.general_settings.social_media_twitter_image | absURL }}">{{ end }}{{ end }}
+  <meta name="twitter:image:alt" content="{{ if .IsHome }}{{ .Site.Data.general_settings.title }} - {{ .Site.Data.general_settings.description }}{{ else }}{{ .Title }}{{ end }}">
 
   <!-- Facebook OpenGraph -->
+  <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:site_name" content="{{ .Site.Data.general_settings.title }}">
   <meta property="og:title" content="{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Data.general_settings.title }}">
   <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Data.general_settings.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
-  {{ if .IsHome}}<meta property="og:image" content="{{ printf "%s%s" .Site.Params.asset_base_url (strings.TrimPrefix "/" .Site.Data.general_settings.social_media_share_image) }}">{{ else }}<meta property="og:image" content="{{ printf "%s%s" .Site.Params.asset_base_url (strings.TrimPrefix "/" .Params.Image) }}">{{ end }}
+  {{ if .IsHome}}<meta property="og:image" content="{{ partial "jsdelivr-url.html" .Site.Data.general_settings.social_media_share_image | absURL }}">{{ else }}{{ if .Params.Image }}<meta property="og:image" content="{{ partial "jsdelivr-url.html" .Params.Image | absURL }}">{{ else }}<meta property="og:image" content="{{ partial "jsdelivr-url.html" .Site.Data.general_settings.social_media_share_image | absURL }}">{{ end }}{{ end }}
+  <meta property="og:image:alt" content="{{ if .IsHome }}{{ .Site.Data.general_settings.title }} - {{ .Site.Data.general_settings.description }}{{ else }}{{ .Title }}{{ end }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Additional meta tags for better social sharing -->
+  <meta property="article:author" content="Brinsley Morrison">
+  {{ if .IsPage }}
+  {{ if .Date }}<meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ end }}
+  {{ if .Lastmod }}<meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">{{ end }}
+  {{ end }}
+
+  <!-- Preload critical images -->
+  {{ if .IsHome }}
+    {{ with (index .Params.content_blocks 0) }}
+      {{ if eq ._bookshop_name "hero" }}
+        <link rel="preload" as="image" href="{{ partial "jsdelivr-url.html" .image }}">
+      {{ end }}
+    {{ end }}
+  {{ end }}
 
   <!-- Fonts: Try fonts.googleapis.com, fallback on error to fonts.font.im -->
   <script>

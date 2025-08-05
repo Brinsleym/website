@@ -1,4 +1,6 @@
 title: Brinsley Morrison
-logo_image: "images/logo.svg"
+logo_image: /static/images/logo.svg
 description: Brinsley Morrison. Composer, singer and musician.
-social_media_share_image: "images/01.jpg"
+social_media_share_image: /static/images/social-4800x2508.png
+social_media_twitter_image: /static/images/social-4800x2700.png
+social_media_linkedin_image: /static/images/social-4800x2520.png

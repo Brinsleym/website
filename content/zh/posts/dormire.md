@@ -5,7 +5,7 @@ title: Dormire
 description: >-
   一首实验性作品，描绘了在入睡时心灵意识的状态。
 tags:   [弦乐四重奏]
-image: images/dormire-1.jpg
+image: /static/images/dormire-1.jpg
 ---
 
 {{< youtube 7wTFGWczEwo >}}
@@ -22,14 +22,14 @@ image: images/dormire-1.jpg
 
 ## 查看乐谱：
 
-{{< figure src="images/dormire-score.jpg" link="https://github.com/Brinsleym/Dormire/blob/main/Dormire.pdf" target="_blank" >}}
+{{< figure src="/static/images/dormire-score.jpg" link="https://github.com/Brinsleym/Dormire/blob/main/Dormire.pdf" target="_blank" >}}
 _schema: default
 date: 2022-03-30
 title: Dormire
 description: >-
   一首实验性作品，描绘了在入睡时心灵意识的状态。
 tags:   [弦乐四重奏]
-image: images/dormire-1.jpg
+image: /static/images/dormire-1.jpg
 ---
 
 {{< youtube 7wTFGWczEwo >}}
@@ -46,4 +46,4 @@ image: images/dormire-1.jpg
 
 ## 查看乐谱：
 
-{{< figure src="images/dormire-score.jpg" link="https://github.com/Brinsleym/Dormire/blob/main/Dormire.pdf" target="_blank" >}}
+{{< figure src="/static/images/dormire-score.jpg" link="https://github.com/Brinsleym/Dormire/blob/main/Dormire.pdf" target="_blank" >}}

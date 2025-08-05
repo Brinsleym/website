@@ -3,7 +3,7 @@ date:   2021-11-24
 title:  The Lost Town of Romania
 description: A short documentary on the village named Geamăna in the north-west of Romania
 tags:   [documentary, film score, orchestral]
-image:  'images/the-lost-town-of-romania-1.jpg'
+image:  '/static/images/the-lost-town-of-romania-1.jpg'
 ---
 {{< youtube 8ylEKtyMeP8 >}}
 
@@ -16,4 +16,4 @@ The project spanned from January at the start of this year to September, writing
 
 ## View the project files:
 
-{{< figure src="images/ltor-preview.png" link="https://github.com/Brinsleym/The-Lost-Town-of-Romania" target="_blank" >}}
+{{< figure src="/static/images/ltor-preview.png" link="https://github.com/Brinsleym/The-Lost-Town-of-Romania" target="_blank" >}}
