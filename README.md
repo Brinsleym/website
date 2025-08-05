@@ -25,7 +25,7 @@ hugo server --config config.dev.toml
 
 ## To Do
 
-- Social media cover image
+- ~~Social media cover image~~ ✅
 
 ## Future
 
