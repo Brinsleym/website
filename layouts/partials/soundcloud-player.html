@@ -179,7 +179,7 @@ window.SoundCloudAPIManager.loadAPI();
             updatePlayerData(dur, sound);
             finalizeInitialization();
           }).catch(error => {
-            console.warn('Failed to load track data:', error);
+            // Failed to load track data
             showErrorState();
           });
 
@@ -190,7 +190,7 @@ window.SoundCloudAPIManager.loadAPI();
         setupWidgetEventListeners();
         
       } catch (error) {
-        console.error('Failed to initialize SoundCloud widget:', error);
+        // Failed to initialize SoundCloud widget
         if (error.message && (error.message.includes('privacy extension') || 
                               error.message.includes('blocked') || 
                               error.message.includes('timeout'))) {

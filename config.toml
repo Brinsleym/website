@@ -58,4 +58,4 @@ posts = "/compositions/:title/"
 projects = "/blog/:title/"
 
 [params]
-jsdelivr_base_url = "https://cdn.jsdelivr.net/gh/Brinsleym/website@use_jsdelivr"
+jsdelivr_base_url = "https://cdn.jsdelivr.net/gh/Brinsleym/website@master"
