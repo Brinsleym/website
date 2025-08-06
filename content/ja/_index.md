@@ -4,7 +4,7 @@ content_blocks:
     title: "<p style=font-size:2rem;font-weight:500;line-height:0;>モリザワ&nbsp;&nbsp;&nbsp;リン</p>森沢&nbsp;&nbsp;&nbsp;淋"
     description_html: >-
       <p><b>作曲家</b>、<b>歌手</b>、<b>ピアニスト</b>、<b>ヴァイオリニスト</b>。<br>
-      英国のヨーク大学音楽科を<b>最優等</b>で卒業、チェタムズ音楽院出身。
+      <b>ヨーク大学</b>音楽学部を<b>最優等</b>で卒業、<b>チェタムズ音楽院</b>の卒業生。
       </p>
     image: /static/images/001.webp
     image_alt: 森沢淋の写真

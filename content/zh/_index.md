@@ -4,7 +4,7 @@ content_blocks:
     title: 林泽
     description_html: >-
       <p>林泽是<b>作曲家</b>、<b>歌手</b>、<b>钢琴家</b>兼<b>小提琴手</b>。<br>
-      以<b>一等荣誉</b>毕业于约克大学音乐系，切塔姆音乐学校校友。
+      毕业于<b>约克大学</b>，获得音乐学<b>一等荣誉学士学位</b>，<b>切塔姆音乐学校</b>校友。
       </p>
     image: /static/images/001.webp
     image_alt: 林泽的照片
