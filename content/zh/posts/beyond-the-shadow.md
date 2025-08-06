@@ -8,7 +8,7 @@ image: '/static/images/beyond-the-shadow-1.webp'
 ---
 我创作这首作品的重点是探索不和谐音与和谐音之间的关系。
 
-创作这首作品时，受到了久石让（Joe Hisaishi）四度钢琴和弦的启发，开头的下行动机与库尔塔格（Kurtag）的一些创意相似，高潮部分的表现也受到瓦格纳（Wagner）管弦乐写作的影响。其他一些显著的灵感来源包括肖斯塔科维奇（Shostakovich）标志性的暴力手法和武满徹（Takemitsu）的复调写作，这些都为我创作这首作品提供了很好的跳板。
+创作这首作品时，我深受久石让四度钢琴和声的影响。开头的下降动机让人联想到库尔塔格，而高潮部分的处理则受到瓦格纳管弦乐写作的启发。肖斯塔科维奇标志性的暴力手法和武满徹的多声部织体也为我的创作提供了灵感来源。
 
 {{< soundcloud-player track="https://soundcloud.com/brinsleymorrison/beyond-the-shadow" background="/static/images/beyond-the-shadow-1.webp" >}}
 
