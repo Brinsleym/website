@@ -363,8 +363,52 @@ window.SoundCloudAPIManager.loadAPI();
     }
 
     // Event Listeners with init. check
-    playButton.addEventListener('click', function() {
+    let iosAudioInitialized = false;
+    
+    // iOS Safari audio initialization helper
+    function initializeIOSAudio() {
+      if (iosAudioInitialized) return Promise.resolve();
+      
+      // Check if we're on iOS Safari
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+      const isSafari = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
+      
+      if (!isIOS || !isSafari) {
+        iosAudioInitialized = true;
+        return Promise.resolve();
+      }
+      
+      // For iOS Safari, we need to "prime" the audio context with a user gesture
+      return new Promise((resolve) => {
+        if (!widget) {
+          iosAudioInitialized = true;
+          resolve();
+          return;
+        }
+        
+        // Try to play and immediately pause to enable audio context
+        widget.play();
+        setTimeout(() => {
+          widget.pause();
+          widget.seekTo(0);
+          iosAudioInitialized = true;
+          resolve();
+        }, 100);
+      });
+    }
+    
+    playButton.addEventListener('click', async function() {
       if (!widget || !isInitialized) return;
+      
+      // Handle iOS Safari audio initialization
+      if (!iosAudioInitialized) {
+        await initializeIOSAudio();
+        // After initialization, proceed with the actual intended action
+        if (!isPlaying) {
+          widget.play();
+        }
+        return;
+      }
       
       if (isPlaying) {
         widget.pause();
@@ -394,9 +438,15 @@ window.SoundCloudAPIManager.loadAPI();
       
       widget.seekTo(newPosition);
       
-      // Ensure the widget is playing after seeking
+      // Ensure the widget is playing after seeking, with iOS handling
       if (!isPlaying) {
-        widget.play();
+        if (!iosAudioInitialized) {
+          initializeIOSAudio().then(() => {
+            widget.play();
+          });
+        } else {
+          widget.play();
+        }
       }
     }
 
@@ -488,9 +538,15 @@ window.SoundCloudAPIManager.loadAPI();
       if (widget && duration > 0) {
         widget.seekTo(newPosition);
         
-        // Ensure the widget is playing after seeking
+        // Ensure the widget is playing after seeking, with iOS handling
         if (!isPlaying) {
-          widget.play();
+          if (!iosAudioInitialized) {
+            initializeIOSAudio().then(() => {
+              widget.play();
+            });
+          } else {
+            widget.play();
+          }
         }
       }
       e.preventDefault();
