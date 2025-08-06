@@ -9,7 +9,7 @@ image: '/static/images/frieren-1.webp'
 ---
 {{< disclaimer-en "Sousou no Frieren" >}}
 
-This project began as a creative exercise to deepen my understanding of scoring music for anime, and was written as a part of my final-year undergraduate Composition Portfolio. Without any direct industry connections, I chose to re-score existing material as a way to practice composing to picture, while improving my ability to closely mirror music with the narrative and emotions of the characters. 
+This project began as a creative exercise to deepen my understanding of scoring music for anime and was written as part of my final-year undergraduate Composition Portfolio. Without any direct industry connections, I chose to re-score existing material to practice composing to picture and improve my ability to closely mirror music with narrative and the emotions of characters.
 
 ## Why Sousou no Frieren?
 

@@ -337,6 +337,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 pointer-events: auto !important;
             }
 
+            /* Re-enable for Lightense images */
+            .page img:not(.no-lightense),
+            .post img:not(.no-lightense) {
+                pointer-events: auto !important;
+            }
+
             /* Disable for card component images */
             .c-project-card a img,
             .c-blog-card a img,

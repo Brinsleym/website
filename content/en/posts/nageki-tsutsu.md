@@ -7,7 +7,7 @@ image:  '/static/images/nageki-tsutsu-1.webp'
 ---
 
 Performed by Chetham’s Contemporary Music Ensemble Chorus, and conducted by Doug Mason.
-The words to my composition; ‘Nageki, Tsutsu’ are attributed by the Japanese poet 藤原道綱母 (Michitsuna’s mother) from the late 900s who’s true name is unknown to history. She wrote about her troubled marriage, and this poem I selected is about her lamentation and loneliness on the nights she sleeps alone waiting until dawn for the nights to be over. I tried experimenting with quartal harmony and traditional Japanese scales and then combining this with 21st century choral writing styles influenced by simplistic tonal composers such as Eric Whitacre and Bob Chillcott.
+The words to my composition, “Nageki Tsutsu,” are attributed to the Japanese poet 藤原道綱母 (Michitsuna’s mother) from the late 900s, whose true name is unknown to history. She wrote about her troubled marriage. In this poem, she laments the loneliness of nights spent in solitude waiting for dawn. I experimented with quartal harmony and traditional Japanese scales, combining them with 21st-century choral writing styles influenced by composers such as Eric Whitacre and Bob Chilcott.
 
 {{< youtube 5I4x6txsa78 >}}
 

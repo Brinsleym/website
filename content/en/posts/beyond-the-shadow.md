@@ -7,9 +7,9 @@ tags: [Orchestral, piano]
 image: /static/images/beyond-the-shadow-1.webp
 ---
 
-My focus in writing this piece was exploring the relationship between dissonance and consonance. 
+My focus in writing this piece was exploring the relationship between dissonance and consonance.
 
-A few of the influences when writing this piece came from Joe Hisaishi’s quatal piano voicing, the opening falling motif, similar to ideas written by Kurtag and the climactic gesture informed by Wagner’s orchestral writing. Other notable inspiration such as Shostakovich’s iconic use of brutalisation and Takemitsu’s polyphonic writing also provided a great springboard for ideas when I wrote this piece.
+When writing this piece, I was really influenced by Joe Hisaishi’s quartal piano voicing. The opening falling motif is reminiscent of Kurtág, and the climactic gestures informed by Wagner’s orchestral writing. Shostakovich’s iconic use of brutalisation and Takemitsu’s polyphonic textures also provided a springboard for the ideas in writing this piece.
 
 {{< soundcloud-player track="https://soundcloud.com/brinsleymorrison/beyond-the-shadow" background="/static/images/beyond-the-shadow-1.webp" >}}
 

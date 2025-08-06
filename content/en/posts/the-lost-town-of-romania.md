@@ -7,11 +7,11 @@ image:  '/static/images/the-lost-town-of-romania-1.webp'
 ---
 {{< youtube 8ylEKtyMeP8 >}}
 
-The village in the video is called Geamăna in the north-west of Romania. I first came across the stories of this sunken village through a group of video bloggers’ trip round Romania on YouTube and was intrigued by the beauty of the destruction. All the drone footage you see is a compilation of the shots they took on each of their channels. After compiling these, I researched the history of the village, and edited them together with text explaining the story. 
+ The video features Geamăna, a village in north-west Romania, now entirely submerged by the waste of copper mining. I first learned of this story through videobloggers documenting a trip around Romania on YouTube and was struck by the haunting beauty of its ruins. All the drone footage is compiled from their channels, and falls under fair-use policies. After gathering the clips, I researched the village’s history and edited the videos with overlaid text explaining its story.
 
-I then set about writing a soundtrack, combining sampled instruments, synthesis, and various recordings of my singing All the audio in the track has been manipulated in some form. The orchestral instruments and piano you hear are all sampled, with various effects and plugins used. 
+ I then composed a soundtrack by combining sampled instruments, synthesis, and recordings of my voice (multitracked humming used as harmonic support). I used a combination of sampled instruments such as Spitfire's LABS alongside Logic Pro's stock plugins.
 
-The project spanned from January at the start of this year to September, writing it through lockdown and the summer holidays, and the whole process bar the final mixing was done from my laptop in my bedroom at home.
+ The project spanned from January to September, composed through COVID-19 lockdown and the summer holidays. Except for the final mix, the entire compositional process was done from my laptop in my bedroom at home.
 
 
 ## View the project files:
