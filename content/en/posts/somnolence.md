@@ -2,10 +2,10 @@
 title:  Somnolence
 date:   2020-10-09
 image:  '/static/images/somnolence-1.webp'
-description: Written for the BBC Young Composer programme, premiered in 2020 was performed by pianist Elizabeth Burley.
+description: Written for the BBC Young Composer programme and premiered in 2020, it was performed by pianist Elizabeth Burley.
 tags:   [piano, solo]
 ---
-I wrote this composition as part of the BBC Young Composer 30 second composition challenge. I wanted to capture the atmosphere of a relaxed, hot summer afternoon which time lazily passes by. The piece was performed by the BBC Musician Elizabeth Burley and was picked as one of the 18 winners of the competition.
+I wrote this composition for the BBC Young Composer 30-second challenge, aiming to capture the atmosphere of a relaxed, hot summer afternoon as time lazily passes by. The piece was performed by BBC musician Elizabeth Burley and was selected as one of the 18 winners of the competition.
 
 {{< soundcloud-player track="https://soundcloud.com/brinsleymorrison/somnolence" background="/static/images/somnolence-1.webp">}}
 

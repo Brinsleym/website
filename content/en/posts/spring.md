@@ -4,11 +4,11 @@ date:   2020-12-02
 image:  '/static/images/spring-1.webp'
 tags:   [Piano, Solo]
 ---
-The premiere performance of this was performed in the Stoller Hall by William Chang in December of 2020.
+The premiere performance was given at The Stoller Hall by William Chang in December 2020.
 
 {{< youtube Sn01o6iOUSI >}}
 
 <br> <br>
 
-I wrote this piece to convey three images of spring from my childhood where I lived by the coast in North Devon. The first image shows water dripping down the leaves of the plants in our garden into the pools of water on the stones below. The second image tries to portray the sound of distant waves on the rainy beach down the road, building intensity before my next image; the memory of the first time I saw a storm. The awe and amazement I felt for what was happening outside the little window, covered by a layer of water in the dark of night. Then the rain slowed and got lighter and everything was once again back to as it has been before.
+I wrote this piece to evoke three childhood memories of spring while living by the North Devon coast. The first depicts water dripping from garden leaves into pools on the stones below. The second portrays the distant sound of waves on the rainy beach down the road. The third recalls the first storm I witnessed — the awe I felt watching the ferocity of nature through a rain-covered window in the dark. As the rain lightened and slowed, everything returned to stillness.
 

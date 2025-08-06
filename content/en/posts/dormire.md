@@ -3,16 +3,16 @@ _schema: default
 date: 2022-03-30
 title: Dormire
 description: >-
-  A experimnetal piece which depicts the state of the mind’s consciousness when falling asleep. 
+  An experimental piece depicting the mind’s state of consciousness as it falls asleep.
 tags:   [string quartet]
 image: /static/images/dormire-1.webp
 ---
 
 {{< youtube 7wTFGWczEwo >}}
 
-Dormire is an experimnetal piece which depicts the state of the mind’s consciousness when falling asleep. 
+Dormire is an experimental piece that depicts the mind’s consciousness as one falls asleep.
 
-I wrote this piece primarily using quarter-tonality, creating an unnerving atmosphere playing with gthe idea of mistaken familiarity which often comes to me in dreams. The opening phrase depicts the act of falling asleep through a series of descending half major/minor 3rds. It foreshadows the nightmare to come and the spell-like nature of being so tired you just can’t help but fall asleep.
+I wrote this piece primarily using quarter-tone harmony to create an unnerving atmosphere, exploring the idea of mistaken familiarity often experienced in dreams. The opening phrase depicts the descent into sleep through a series of descending half-major/minor thirds, foreshadowing the nightmare to come, whilst capturing the spell-like nature of being so tired you cannot help but succumb to sleep.
 
 Performed by fellow students at Chetham’s School of Music:
 - **Jordan Brooks**: Violin I

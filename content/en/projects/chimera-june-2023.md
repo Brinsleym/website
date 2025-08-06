@@ -6,7 +6,7 @@ image: '/static/images/chimera-june-2023.webp'
 description: "The premiere performance of Brinsley's The Untouched Landscape."
 ---
 
-In the June 2023 concert held in the Sir Jack Lyons Concert Hall, The Chimera ensemble performed the premiere of Brinsley's [*The Untouched Landscape*](/compositions/the-untouched-landscape/). Brinsley directed the piece and partook in the ensemble, playing the Violin 1 part.
+In June 2023 at the Sir Jack Lyons Concert Hall, The Chimera Ensemble premiered Brinsley's [_The Untouched Landscape_](/compositions/the-untouched-landscape/). Brinsley directed the performance and performed the Violin I part.
 
 
 
@@ -23,4 +23,4 @@ In the June 2023 concert held in the Sir Jack Lyons Concert Hall, The Chimera en
 **Thea Musgrave**   Circe
 **James Williamson**   Lone Yellow
 
-The concert was split into two parts, with the concert programme having only promoted for the second half.
+The concert was split into two parts; however, promotional materials covered only the second half of the programme.
