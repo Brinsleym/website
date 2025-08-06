@@ -55,6 +55,13 @@
       width: 100%;
       border-radius: 50%;
       object-fit: cover;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-user-drag: none;
+      -moz-user-drag: none;
+      -ms-user-drag: none;
     }
   }
 

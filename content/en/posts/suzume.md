@@ -7,8 +7,6 @@ description: >-
 tags: [soundtrack, film score, orchestral]
 image: '/static/images/suzume_cover_1.webp'
 ---
-image: '/static/images/suzume_cover_1.webp'
----
 {{< disclaimer-en "Suzume no Tojimari" >}}
 
 As part of my final-year undergraduate composition project, involving the [Re-scoring of an episode of Sousou no Frieren](/compositions/re-scoring-sousou-no-frieren/) I wanted to challenge myself by scoring high-intensity scenes, rather than the slow-paced, primarily peaceful scenes which I felt much more comfortable with writing.
