@@ -27,6 +27,12 @@ For local development, use the dev configuration which serves assets locally:
 hugo server --config config.dev.toml
 ```
 
+## To-do
+- iOS sc player need click twice
+- make avatar hella smaller
+- disable open image in new tab with js
+
+
 ## Future to-do
 
 - Add copy to clipboard js when clicking on the mail icon & email adress text

@@ -131,6 +131,11 @@
     transition: $global-transition;
     font-size: 18px;
 
+    // Fix for ionicons v7 alignment issue
+    ion-icon {
+      top: 0 !important;
+    }
+
     .custom-soundcloud-playlist__track:hover & {
       opacity: 1;
     }
