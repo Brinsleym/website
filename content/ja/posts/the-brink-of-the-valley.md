@@ -1,7 +1,7 @@
 ---
 title:  谷の瀬戸際
 date:   2022-06-29
-image:  '/static/images/thebrinkofthevalley-1.jpg'
+image:  '/static/images/thebrinkofthevalley-1.webp'
 description: >-
   谷の頂から見える美しい風景を音で描写した作品。現代オーケストラとソロチェロのために書かれました。
 tags:   [オーケストラ, チェロソロ]
@@ -12,10 +12,10 @@ tags:   [オーケストラ, チェロソロ]
 
 <br> <br>
 
-![谷の瀬戸際の演奏](/static/images/thebrinkofthevalley-2.jpg)
+![谷の瀬戸際の演奏](/static/images/thebrinkofthevalley-2.webp)
 
 この作品は、自然が眠りにつく美しいピンク色の夕日から、暖かい火が灯る夜へと旅をします。人々は楽しげに歌い、踊り、心ゆくまで食事をし、自然は静かな静けさの中で大地を包み込みます。この作品を書いたとき、私は日本のジャズフュージョン作曲家である大野雄二や小畑貴裕に影響を受けました。彼らはハンス・ジマーの例を追い、技術とクラシックに影響を受けたオーケストレーションをジャズやモーダル・クアルタル音階を持つ伝統的な日本楽器の音と融合させています。私は似たような大きなアンサンブルで書きましたが、金管楽器はその金属的な音色が欲しくなかったので含めませんでした。代わりに、ハープ、マリンバ、チェレスタを使い、標準的なクラシックオーケストレーションを基盤にしながらも、より広範な音色のバリエーションを生み出したかったのです。この大きなアンサンブルの一因として、エレクトリックチェロを選んだこともあります。メロディックな役割を支配的にしているので、他の楽器の上で聴こえるようにしたかったからです。この選択は、スティーブ・ライヒのエレクトリックとアコースティック楽器の統合から部分的にインスパイアされ、似たようなサウンドを作りたかったという理由もあります。また、私の作品もミニマルで、テクスチャーの中に大きな興味を持っています。
 
 ## 楽譜を表示：
 
-{{< figure src="/static/images/botv-score.jpg" link="https://github.com/Brinsleym/The-Brink-of-the-Valley/blob/main/The-Brink-of-the-Valley.pdf" target="_blank" >}}
+{{< jsdelivr-figure src="/static/images/botv-score.webp" link="https://github.com/Brinsleym/The-Brink-of-the-Valley/blob/main/The-Brink-of-the-Valley.pdf" target="_blank" />}}

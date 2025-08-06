@@ -10,5 +10,5 @@
   {{ if $link }}<a href="{{ $link }}"{{ with $target }} target="{{ . }}"{{ end }}>{{ end }}
   <img src="{{ partial "jsdelivr-url.html" $src }}"{{ with $alt }} alt="{{ . }}"{{ end }}{{ with $width }} width="{{ . }}"{{ end }}{{ with $title }} title="{{ . }}"{{ end }}>
   {{ if $link }}</a>{{ end }}
-  {{ with .Inner }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
+  {{ if .Inner }}<figcaption>{{ .Inner | markdownify }}</figcaption>{{ end }}
 </figure>

@@ -16,4 +16,4 @@ The shared prominence of 4ths and 5ths is also noticeable in the voicing of chor
 
 ## View the project files:
 
-{{< figure src="/static/images/the-untouched-landscape-score.jpg" link="https://github.com/Brinsleym/The-Untouched-Landscape/blob/main/The-Untouched-Landscape.pdf" target="_blank" >}}
+{{< jsdelivr-figure src="/static/images/the-untouched-landscape-score.webp" link="https://github.com/Brinsleym/The-Untouched-Landscape/blob/main/The-Untouched-Landscape.pdf" target="_blank" />}}

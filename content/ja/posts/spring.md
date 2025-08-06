@@ -1,7 +1,7 @@
 ---
 title:  春
 date:   2020-12-02
-image:  '/static/images/spring-1.jpg'
+image:  '/static/images/spring-1.webp'
 tags:   [ピアノ, ソロ]
 ---
 この作品の初演は、2020年12月にウィリアム・チャンによってストーラーホールで行われました。

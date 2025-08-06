@@ -5,7 +5,7 @@ title: "Re-scoring: Sousou no Frieren"
 description: >- 
   Re-scoring the soundtrack to the second episode of the series Sousou no Frieren (葬送のフリーレン)
 tags:   [soundtrack, film score, orchestral]
-image: '/static/images/frieren-1.jpg'
+image: '/static/images/frieren-1.webp'
 ---
 {{< disclaimer-en "Sousou no Frieren" >}}
 
@@ -22,11 +22,11 @@ My goal was never to surpass Call’s work, but rather to engage with it as a le
 To isolate the dialogue and sound effects, I initially used the stem separation tool [Ultimate Vocal Remover](https://ultimatevocalremover.com), which offers a selection of models trained on separating music. Later on into the process, I discovered the model [Bandit V2](https://github.com/kwatcharasupat/bandit-v2), which is trained on the [Divide and Remaster V3 dataset](https://github.com/kwatcharasupat/divide-and-remaster-v3), a dataset specifically using clips of film, and was multilingual. This model proved significantly better results for my use case, and was able to produce much higher resolution results with significantly less artifacting.  
 
 ## Listen to the soundtrack:
-{{< soundcloud-playlist playlist="2034380025" background="/static/images/frieren-1.jpg" >}}
+{{< soundcloud-playlist playlist="2034380025" background="/static/images/frieren-1.webp" >}}
 
 ## View the project files:
 To respect copyright, I am not distributing the original audio or video. If you wish to experience Evan Call’s stunning original score (which I highly recommend), please support the official release.
 
 Below, you’ll find a link to my music-only project files (no dialogue or video included):
 
-{{< figure src="/static/images/frieren-project-1.jpg" link="https://github.com/Brinsleym/Frieren/" target="_blank" >}}
+{{< jsdelivr-figure src="/static/images/frieren-project-1.webp" link="https://github.com/Brinsleym/Frieren/" target="_blank" />}}

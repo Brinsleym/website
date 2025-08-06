@@ -3,7 +3,7 @@ date:   2021-11-24
 title:  ルーマニアの失われた町
 description: ルーマニア北西部の村「ジアマナ」に関する短編ドキュメンタリー
 tags:   [ドキュメンタリー, 映画音楽, オーケストラ]
-image:  '/static/images/the-lost-town-of-romania-1.jpg'
+image:  '/static/images/the-lost-town-of-romania-1.webp'
 ---
 {{< youtube 8ylEKtyMeP8 >}}
 
@@ -15,4 +15,4 @@ image:  '/static/images/the-lost-town-of-romania-1.jpg'
 
 ## プロジェクトファイルを見る：
 
-{{< figure src="/static/images/ltor-preview.png" link="https://github.com/Brinsleym/The-Lost-Town-of-Romania" target="_blank" >}}
+{{< jsdelivr-figure src="/static/images/ltor-preview.webp" link="https://github.com/Brinsleym/The-Lost-Town-of-Romania" target="_blank" />}}
