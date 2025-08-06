@@ -1,7 +1,7 @@
 ---
 title:  The Brink of the Valley
 date:   2022-06-29
-image:  '/static/images/thebrinkofthevalley-1.jpg'
+image:  '/static/images/thebrinkofthevalley-1.webp'
 description: >-
   An aural depiction of the beautiful view from the top of the valley.  Written for contemporary orchestra and solo cello.
 tags:   [orchestral, cello soloist]
@@ -12,7 +12,7 @@ The premiering concert took place in The Stoller Hall, was conducted by Brinsley
 
 <br> <br>
 
-![The Brink of the Valley Performance](/static/images/thebrinkofthevalley-2.jpg)
+![The Brink of the Valley Performance](/static/images/thebrinkofthevalley-2.webp)
 
 
 
@@ -20,5 +20,5 @@ The piece takes a journey from the beautiful pink setting of the sun as nature g
 
 ## View the score:
 
-{{< figure src="/static/images/botv-score.jpg" link="https://github.com/Brinsleym/The-Brink-of-the-Valley/blob/main/The-Brink-of-the-Valley.pdf" target="_blank" >}}
+{{< jsdelivr-figure src="/static/images/botv-score.webp" link="https://github.com/Brinsleym/The-Brink-of-the-Valley/blob/main/The-Brink-of-the-Valley.pdf" target="_blank" />}}
 

@@ -1,6 +1,6 @@
 ---
 name: "Concert: The Chimera Ensemble"
 position: "Steve Crowther’s verdict on The Chimera Ensemble"
-image: '/static/images/Steve_Crowther.jpg'
+image: '/static/images/Steve_Crowther.webp'
 blurb: "[Brinsley's playing presented:] care, the quality of touch, the precision and understanding of these tiny, intricate, aphoristic gems was a delight; polished and professional."
 ---

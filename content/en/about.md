@@ -8,7 +8,7 @@ content_blocks:
             Brinsley is a <b>multi-instrumentalist</b> and <b>composer</b>. He has performed as a vocal soloist with the <b>BBC Philharmonic Orchestra</b> and played as <b>principal violinist</b> in multiple orchestras. <br><br> Brinsley is an alumni of <b>Chetham’s School of Music</b>, and is currently at the <b>University of York</b>, studying (BA) Music.
           </p>
   - _bookshop_name: page-image
-    image: /static/images/thebrinkofthevalley-2.jpg
+    image: /static/images/thebrinkofthevalley-2.webp
     image_alt:
   - _bookshop_name: content
     content_html: >-
@@ -36,13 +36,13 @@ content_blocks:
        and <a href="https://g.co/kgs/U5eVBw" target="_blank">Marcus Farnsworth</a>.
        Brinsley also studied the violin and piano, and achieved his ABRSM Grade 8 on all three instruments before he finished his studies. Brinsley was part of jazz groups, orchestras, and even set up a barbershop ensemble- which he sang in, with weekly rehearsals and multiple performances. Brinsley was also part of other student-led choirs, as well as singing in Chetham’s Chamber and contemporary ensemble choirs.
       </p>
-            <img src="https://cdn.jsdelivr.net/gh/Brinsleym/website@master/static/images/chets-1.jpg" alt="Brinsley - solo vocal performance">
+            <img src="https://cdn.jsdelivr.net/gh/Brinsleym/website@master/static/images/chets-1.webp" alt="Brinsley - solo vocal performance">
       <i>Performance of scenes from Mozart's Le Nozze di Figaro in The Stoller Hall</i>
       <p> <br>
        Brinsley has been involved with the <b>BBC</b> on multiple occasions, performing on <b>BBC Radio 3</b> twice as a choral singer, firstly in the <a href="https://www.bbc.co.uk/programmes/b076b7td" target="_blank">Easter Sunday broadcast</a> from Hereford Cathedral, and secondly as part of the <a href="https://www.bbc.co.uk/programmes/b063dlsc" target="_blank">Three Choirs Festival service</a>. Brinsley also reached the <b>semi-finals</b> in the BBC Young Composer 30 second composing challenge. In his final year at Chetham’s, Brinsley performed as a <b>soloist with the BBC Philharmonic Orchestra</b> alongside Chetham’s Chamber Choir, singing in Haydn's Harmoniemesse at <a href="https://www.bridgewater-hall.co.uk/" target="_blank">The Bridgewater Hall</a>, which was then recorded and later <a href="https://www.bbc.co.uk/events/e4qmzc" target="_blank">broadcast on BBC Radio 3</a>.
       </p>
-      <img src="https://cdn.jsdelivr.net/gh/Brinsleym/website@master/static/images/bridgewater-1.jpg">
-      <img src="https://cdn.jsdelivr.net/gh/Brinsleym/website@master/static/images/bridgewater-1.jpg">
+      <img src="https://cdn.jsdelivr.net/gh/Brinsleym/website@master/static/images/bridgewater-1.webp">
+      <img src="https://cdn.jsdelivr.net/gh/Brinsleym/website@master/static/images/bridgewater-1.webp">
       <i>Haydn's Harmoniemesse - the BBC Philharmonic Orchestra and Chetham’s Chamber Choir</i>
       <br><br>
       <h1>Early career </h1>
@@ -51,7 +51,7 @@ content_blocks:
         During that time, he sang Bach's Passions and Oratorio each year amongs many other large musical works. During his time with Hereford Cathedral Choir, he performed in <b>Buckingham Palace</b>, on <b>BBC Radio 3</b>, and spent a week <b>on tour around America</b>. <br>
         At Hereford Cathedral, he sang 21 hours each week, and performed music in services 6 days a week. Although the workload tiring at such a young age, Brinsley felt incredibly rewarded and his love for music quickly developed as his vocal skills did too.
       </p>
-      <img src="https://cdn.jsdelivr.net/gh/Brinsleym/website@master/static/images/hereford-cathedral-choir.jpg" alt="Herford Cathedral Choir | BBC">
+      <img src="https://cdn.jsdelivr.net/gh/Brinsleym/website@master/static/images/hereford-cathedral-choir.webp" alt="Herford Cathedral Choir | BBC">
       <p> <i>BBC Live Broadcast - Hereford Cathedral Choir Easter Day Service, 2017</i></p>
 
   - _bookshop_name: contact-form

@@ -2,7 +2,7 @@
 date: 2023-06-09
 title: Chimera合奏团
 subtitle: 2023年6月
-image: '/static/images/chimera-june-2023.jpg'
+image: '/static/images/chimera-june-2023.webp'
 description: "林泽作品《未触及的风景》首演"
 ---
 

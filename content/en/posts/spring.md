@@ -1,7 +1,7 @@
 ---
 title:  Spring
 date:   2020-12-02
-image:  '/static/images/spring-1.jpg'
+image:  '/static/images/spring-1.webp'
 tags:   [Piano, Solo]
 ---
 The premiere performance of this was performed in the Stoller Hall by William Chang in December of 2020.

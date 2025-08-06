@@ -16,4 +16,4 @@ image: /static/images/the-untouched-landscape-1.jpg
 
 ## プロジェクトファイルを見る：
 
-{{< figure src="/static/images/the-untouched-landscape-score.jpg" link="https://github.com/Brinsleym/The-Untouched-Landscape/blob/main/The-Untouched-Landscape.pdf" target="_blank" >}}
+{{< jsdelivr-figure src="/static/images/the-untouched-landscape-score.webp" link="https://github.com/Brinsleym/The-Untouched-Landscape/blob/main/The-Untouched-Landscape.pdf" target="_blank" />}}
