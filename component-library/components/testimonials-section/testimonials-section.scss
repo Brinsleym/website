@@ -116,6 +116,11 @@
     overflow: hidden;
     transition: all .2s ease;
 
+    // Fix for ionicons v7 alignment issue
+    ion-icon {
+      top: 0 !important;
+    }
+
     &::after {
       content: "";
       position: absolute;

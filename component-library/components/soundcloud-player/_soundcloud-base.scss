@@ -101,6 +101,11 @@
     box-shadow: 0 2px 8px rgba($primary-color, 0.3);
     flex-shrink: 0;
 
+    // Fix for ionicons v7 alignment issue
+    ion-icon {
+      top: 0 !important;
+    }
+
     &:hover {
       transform: scale(1.05);
       box-shadow: 0 4px 12px rgba($primary-color, 0.4);
@@ -373,6 +378,7 @@
     ion-icon {
       font-size: 20px;
       margin-right: 2px;
+      top: 0 !important; // Fix for ionicons v7 alignment issue
     }
 
     span {
@@ -416,6 +422,11 @@
       width: 40px;
       height: 40px;
       font-size: 16px;
+
+      // Fix for ionicons v7 alignment issue
+      ion-icon {
+        top: 0 !important;
+      }
     }
 
     &__volume-controls {
@@ -554,4 +565,9 @@
       text-align: center;
     }
   }
+}
+
+// Fix for ionicons v7 alignment issue - specific to volume icon
+ion-icon.custom-soundcloud-player__volume-icon {
+  top:0 !important;
 }
