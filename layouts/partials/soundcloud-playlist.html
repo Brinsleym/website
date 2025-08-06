@@ -188,6 +188,7 @@ window.SoundCloudPlaylistCache = (function() {
       this.volume = 0.7;
       this.isDraggingProgress = false;
       this.isDraggingVolume = false;
+      this.iosAudioInitialized = false; // For iOS Safari audio context handling
       
       // Event listeners array for cleanup
       this.eventListeners = [];
@@ -472,12 +473,12 @@ window.SoundCloudPlaylistCache = (function() {
       return iframe;
     }
 
-    initializeTrackDataOptimized(track, autoPlay) {
+    async initializeTrackDataOptimized(track, autoPlay) {
       // Combine API calls for better performance
       Promise.all([
         new Promise(resolve => this.currentWidget.getDuration(resolve)),
         new Promise(resolve => resolve(track)) // Use cached track data instead of API call
-      ]).then(([dur, trackData]) => {
+      ]).then(async ([dur, trackData]) => {
         this.duration = dur;
         this.timeDisplays[1].textContent = this.formatTime(dur / 1000);
         this.updateTrackInfoOptimized(trackData);
@@ -486,6 +487,9 @@ window.SoundCloudPlaylistCache = (function() {
         this.resetPlayerState();
         
         if (autoPlay) {
+          if (!this.iosAudioInitialized) {
+            await this.initializeIOSAudio();
+          }
           this.currentWidget.play();
         }
       }).catch(error => {
@@ -638,8 +642,18 @@ window.SoundCloudPlaylistCache = (function() {
     }
 
     // Interaction handlers
-    togglePlayback() {
+    async togglePlayback() {
       if (!this.currentWidget) return;
+      
+      // Handle iOS Safari audio initialization
+      if (!this.iosAudioInitialized) {
+        await this.initializeIOSAudio();
+        // After initialization, proceed with the actual intended action
+        if (!this.isPlaying) {
+          this.currentWidget.play();
+        }
+        return;
+      }
       
       if (this.isPlaying) {
         this.currentWidget.pause();
@@ -652,6 +666,31 @@ window.SoundCloudPlaylistCache = (function() {
       } else {
         this.currentWidget.play();
       }
+    }
+    
+    // iOS Safari audio initialization helper
+    async initializeIOSAudio() {
+      if (this.iosAudioInitialized) return;
+      
+      // Check if we're on iOS Safari
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+      const isSafari = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
+      
+      if (!isIOS || !isSafari) {
+        this.iosAudioInitialized = true;
+        return;
+      }
+      
+      // For iOS Safari, we need to "prime" the audio context with a user gesture
+      if (this.currentWidget) {
+        // Try to play and immediately pause to enable audio context
+        this.currentWidget.play();
+        await new Promise(resolve => setTimeout(resolve, 100));
+        this.currentWidget.pause();
+        this.currentWidget.seekTo(0);
+      }
+      
+      this.iosAudioInitialized = true;
     }
 
     handleProgressMouseDown(e) {
@@ -680,7 +719,7 @@ window.SoundCloudPlaylistCache = (function() {
              target.closest('.custom-soundcloud-player__time-display');
     }
 
-    handleProgressSeek(clientX) {
+    async handleProgressSeek(clientX) {
       if (!this.currentWidget || this.duration === 0) return;
       
       const rect = this.mainControls.querySelector('.custom-soundcloud-player__progress-container').getBoundingClientRect();
@@ -691,6 +730,9 @@ window.SoundCloudPlaylistCache = (function() {
       this.currentWidget.seekTo(newPosition);
       
       if (!this.isPlaying) {
+        if (!this.iosAudioInitialized) {
+          await this.initializeIOSAudio();
+        }
         this.currentWidget.play();
       }
     }
