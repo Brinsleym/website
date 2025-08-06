@@ -3,7 +3,10 @@
   <!-- Main Player -->
   <div class="custom-soundcloud-player" data-track-url="">
     <!-- Artwork and Track Info -->
-    <div class="custom-soundcloud-player__artwork-container"{{ if .background }} style="background-image: url('{{ .background }}');"{{ end }}>
+    <div class="custom-soundcloud-player__artwork-container">
+      {{ if .background }}
+      <img class="custom-soundcloud-player__custom-background" src="{{ .background }}" alt="Track background" loading="lazy">
+      {{ end }}
       <img class="custom-soundcloud-player__artwork" src="" alt="Track artwork" style="display: none;">
       <div class="custom-soundcloud-player__artwork-overlay">
         <div class="custom-soundcloud-player__track-info-wrapper">
@@ -206,9 +209,8 @@ window.SoundCloudPlaylistCache = (function() {
     }
 
     setupCustomBackground() {
-      if (this.customBackground) {
-        this.artworkContainer.classList.add('has-custom-background');
-      }
+      // Custom background is now handled by the img element in HTML
+      // No need to add classes since the image is directly embedded
     }
 
     setupEventListeners() {

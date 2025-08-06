@@ -30,7 +30,6 @@ hugo server --config config.dev.toml
 ```
 
 ## To-do
-- make avatar hella smaller
 - disable open image in new tab with js
 
 

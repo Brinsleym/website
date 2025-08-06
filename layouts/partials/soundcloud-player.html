@@ -1,10 +1,10 @@
-<!-- Custom        <a href="#" class="custom-soundcloud-player__soundcloud-link" target="_blank">
-          <ion-icon name="logo-soundcloud"></ion-icon>
-          <span>Soundcloud</span>
-        </a>ndCloud Audio Player -->
+<!-- Custom SoundCloud Audio Player -->
 <div class="custom-soundcloud-player" data-track-url="{{ .url }}" {{ if .background }}data-custom-background="{{ .background }}"{{ end }}>
   <!-- Artwork and Track Info -->
-  <div class="custom-soundcloud-player__artwork-container"{{ if .background }} style="background-image: url('{{ .background }}');"{{ end }}>
+  <div class="custom-soundcloud-player__artwork-container">
+    {{ if .background }}
+    <img class="custom-soundcloud-player__custom-background" src="{{ .background }}" alt="Track background" loading="lazy">
+    {{ end }}
     <img class="custom-soundcloud-player__artwork" src="" alt="Track artwork" style="display: none;">
     <div class="custom-soundcloud-player__artwork-overlay">
       <div class="custom-soundcloud-player__track-info-wrapper">
@@ -139,11 +139,6 @@ window.SoundCloudAPIManager.loadAPI();
     }
 
     showPlayerShell();
-
-    // Set custom background class if provided
-    if (customBackground) {
-      artworkContainer.classList.add('has-custom-background');
-    }
 
     // Disable play button initially
     playButton.disabled = true;

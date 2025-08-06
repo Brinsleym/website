@@ -286,7 +286,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentPage = 1;
     let totalPages = 1;
 
-    // Function to update pagination visibility
+    // Update pagination visibility
     function updatePaginationControls() {
       const hasPrev = currentPage > 1;
       const hasNext = currentPage < totalPages;
@@ -313,14 +313,49 @@ document.addEventListener("DOMContentLoaded", function () {
       totalLabels.forEach(el => el.textContent = totalPages);
     }
 
-    // For now, set to single page (you can modify this based on actual content)
     totalPages = 1;
     currentPage = 1;
     
     updatePaginationControls();
   }
 
-  // Initialize pagination
   initPagination();
+
+  /* ============================
+  // Remove image-specific context menu options
+  ============================ */
+    function removeImageContextOptions() {
+        
+        const style = document.createElement('style');
+        style.textContent = `
+            img {
+                pointer-events: none !important;
+            }
+
+            /* Re-enable for images inside links (like jsdelivr-figure) that should be clickable */
+            a img {
+                pointer-events: auto !important;
+            }
+
+            /* Disable for card component images */
+            .c-project-card a img,
+            .c-blog-card a img,
+            .c-compositions-card a img,
+            .c-testimonial-card a img {
+                pointer-events: none !important;
+            }
+
+            /* Re-enable on hover for accessibility (screen readers, etc.) */
+            img:hover,
+            .c-project-card a img:hover,
+            .c-blog-card a img:hover,
+            .c-compositions-card a img:hover,
+            .c-testimonial-card a img:hover {
+                pointer-events: auto !important;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+  removeImageContextOptions();
 
 });
