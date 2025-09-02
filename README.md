@@ -1,6 +1,20 @@
-# Personal Website
+# Portfolio Site: [brinsleymorrison.com](https://brinsleymorrison.com)
+
 
 This repository contains the source code for my portfolio website, which is live at [brinsleymorrison.com](https://brinsleymorrison.com).
+<p align="center">
+ </a>
+ <a href="https://github.com/brinsleym/website/blob/master/LICENSE">
+  <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square" alt="MIT License">
+ </a>
+  <a href="https://gohugo.io">
+  <img src="https://img.shields.io/badge/hugo-v0.149.0-blue?logo=hugo&style=flat-square" alt="Hugo v0.149.0">
+  </a>
+ <a href="https://www.jsdelivr.com/package/gh/Brinsleym/website">
+  <img src="https://data.jsdelivr.com/v1/package/gh/Brinsleym/website/badge" alt="JSDelivr">
+ </a>
+ 
+</p>
 
 ## About
 
@@ -29,15 +43,10 @@ For local development, use the dev configuration which serves assets locally:
 hugo server --config config.dev.toml
 ```
 
-## To-do
-- disable open image in new tab with js
-
 
 ## Future to-do
 
 - Add copy to clipboard js when clicking on the mail icon & email adress text
-
-[![](https://data.jsdelivr.com/v1/package/gh/Brinsleym/website/badge)](https://www.jsdelivr.com/package/gh/Brinsleym/website)
 
 ---
 
