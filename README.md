@@ -6,10 +6,10 @@ This repository contains the source code for my portfolio website, which is live
  </a>
  <a href="https://github.com/brinsleym/website/blob/master/LICENSE">
   <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square" alt="MIT License">
- </a>
+ </a>&nbsp;&nbsp;&nbsp;
   <a href="https://gohugo.io">
   <img src="https://img.shields.io/badge/hugo-v0.149.0-blue?logo=hugo&style=flat-square" alt="Hugo v0.149.0">
-  </a>
+  </a>&nbsp;&nbsp;&nbsp;
  <a href="https://www.jsdelivr.com/package/gh/Brinsleym/website">
   <img src="https://data.jsdelivr.com/v1/package/gh/Brinsleym/website/badge" alt="JSDelivr">
  </a>
@@ -23,7 +23,6 @@ This site is forked from the [Vonge Hugo Bookshop Template](https://github.com/C
 ### Core Features
 
 - **Full Multilingual Support** & language switcher menu for English, Japanese and Chinese (Simplified)
-- **CloudCannon CMS Integration** with visual editing capabilities and automated builds
 - **Hugo Bookshop Component System** for modular, reusable content blocks
 
 ### Advanced Audio Features
@@ -60,7 +59,7 @@ This site is forked from the [Vonge Hugo Bookshop Template](https://github.com/C
 
 ### Technical Improvements
 
-- **Ionicons v7** (upgraded from v4) with modern icon support
+- **Ionicons v7** with modern icon support
 - **Advanced CSS/SCSS Structure** with component-based styling
 - **Tiny Slider Integration** for responsive carousels and galleries
 - **Mobile-Optimized Design** with extensive CSS improvements for mobile devices
@@ -90,11 +89,17 @@ This site is forked from the [Vonge Hugo Bookshop Template](https://github.com/C
 
 3. **Start the development server**:
    ```bash
-   hugo server --config config.dev.toml
+   make dev
    ```
-   This serves assets locally and enables hot reloading for development.
+   (Or run ```hugo server --config config.dev.toml```). This serves assets locally and enables hot reloading for development.
 
-4. **For Bookshop component development**:
+4. **Other Makefile commands**:
+
+   ```make deploy```: *(hugo --environment production --config config.toml)*  
+   ```make clean```: *(rm -rf public/)*  
+   ```make build```: *(clean deploy)*  
+
+6. **For Bookshop component development**:
    ```bash
    npm run bookshop-browser
    ```
@@ -107,21 +112,12 @@ The site uses a multi-step build process:
 2. **Bookshop Generation**: Processes component library with `npx "@bookshop/generate"`
 3. **Post-processing**: Optimizes assets with `npx @pagebreak/cli`
 
-### CloudCannon Integration
-
-This site is configured for CloudCannon CMS with:
-- Visual editing capabilities
-- Component-based content management
-- Automated builds and deployments
-- Multi-language content management
-
 
 ## Technical Stack
 
 ### Core Technologies
 - **[Hugo](https://gohugo.io)** - Static site generator (v0.149.0)
 - **[Hugo Bookshop](https://github.com/CloudCannon/bookshop)** - Component-based content management
-- **[CloudCannon](https://cloudcannon.com)** - Git-based CMS with visual editing
 
 ### Frontend Libraries
 - **[Ionicons v7](https://ionic.io/ionicons)** - Modern icon library
@@ -149,8 +145,6 @@ This site is configured for CloudCannon CMS with:
 ## Future to-do
 
 - Add copy to clipboard js when clicking on the mail icon & email address text
-- Implement dark mode theme switching
-- Add search functionality for compositions and projects
 - Enhance accessibility features with keyboard navigation improvements
 
 ---
