@@ -73,14 +73,13 @@ This site is forked from the [Vonge Hugo Bookshop Template](https://github.com/C
 - **Advanced CSS/SCSS Structure** with component-based styling
 - **Tiny Slider Integration** for responsive carousels and galleries
 - **Mobile-Optimized Design** with extensive CSS improvements for mobile devices
-- **Build System Integration** with npm scripts and Bookshop generation
+- **Hugo Build System** with optimized static site generation
 
 ## Development
 
 ### Prerequisites
 
 - [Hugo](https://gohugo.io/installation/) (v0.149.0 or later)
-- [Node.js](https://nodejs.org/) and npm for Bookshop components
 - Git for version control
 
 ### Local Development Setup
@@ -91,35 +90,25 @@ This site is forked from the [Vonge Hugo Bookshop Template](https://github.com/C
    cd website
    ```
 
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server**:
+2. **Start the development server**:
    ```bash
    make dev
    ```
    (Or run ```hugo server --config config.dev.toml```). This serves assets locally and enables hot reloading for development.
 
-4. **Other Makefile commands**:
+3. **Other Makefile commands**:
 
    ```make deploy```: *(hugo --environment production --config config.toml)*  
    ```make clean```: *(rm -rf public/)*  
    ```make build```: *(clean deploy)*  
 
-6. **For Bookshop component development**:
-   ```bash
-   npm run bookshop-browser
-   ```
-
 ### Build Process
 
-The site uses a multi-step build process:
+The site uses Hugo's built-in build process:
 
 1. **Hugo Build**: Generates static site files
-2. **Bookshop Generation**: Processes component library with `npx "@bookshop/generate"`
-3. **Post-processing**: Optimizes assets with `npx @pagebreak/cli`
+2. **Asset Processing**: Optimizes CSS and JavaScript assets
+3. **Static Generation**: Creates production-ready site files
 
 
 ## Technical Stack
