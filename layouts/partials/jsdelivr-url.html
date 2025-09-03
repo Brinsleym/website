@@ -5,6 +5,6 @@
   {{- $localPath := $path | replaceRE "^/static/" "/" -}}
   {{- printf "%s" $localPath -}}
 {{- else -}}
-  {{- /* Production: use CDN with full path */ -}}
+  {{- /* Production: use CDN with full path including /static/ */ -}}
   {{- printf "%s%s" $baseUrl $path -}}
 {{- end -}}
