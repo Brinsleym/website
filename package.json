@@ -18,8 +18,8 @@
   "devDependencies": {
     "@bookshop/browser": "3.9.0",
     "@bookshop/generate": "3.9.0",
-    "@bookshop/hugo-engine": "3.9.0",
-    "liquidjs": "9.28.0"
+    "@bookshop/hugo-engine": "3.16.4",
+    "liquidjs": "10.21.1"
   },
   "dependencies": {
     "fast-glob": "^3.2.7"
