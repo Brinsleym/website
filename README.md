@@ -1,9 +1,19 @@
 # Portfolio Site: [brinsleymorrison.com](https://brinsleymorrison.com)
 
 
-This repository contains the source code for my portfolio website, which is live at [brinsleymorrison.com](https://brinsleymorrison.com).
+This repository contains the source code for my portfolio website.
 <p align="center">
- </a>
+  <a href="https://brinsleymorrison.com" target="_blank">
+    <img 
+      src="https://github.com/user-attachments/assets/87353ec0-6aaf-4726-b929-b3256d5122c3"
+      alt="website preview"
+      style="display:inline-block; width:57%;"
+    >
+  </a>
+</p>
+<br>
+<p align="center">
+ 
  <a href="https://github.com/brinsleym/website/blob/master/LICENSE">
   <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square" alt="MIT License">
  </a>&nbsp;&nbsp;&nbsp;
@@ -64,7 +74,6 @@ This site is forked from the [Vonge Hugo Bookshop Template](https://github.com/C
 - **Tiny Slider Integration** for responsive carousels and galleries
 - **Mobile-Optimized Design** with extensive CSS improvements for mobile devices
 - **Build System Integration** with npm scripts and Bookshop generation
-
 
 ## Development
 
@@ -142,6 +151,12 @@ The site uses a multi-step build process:
 - **[Archive.org](https://archive.org)** - Backup snapshots
 - **Automated Builds** - CI/CD integration
 
+## Site Metrics
+
+  <a href="https://brinsleymorrison.com">
+    <img src="https://cdn.jsdelivr.net/gh/Brinsleym/brinsleym@master/metrics.plugin.pagespeed.screenshot.svg" alt="Site Metrics" style="display:inline-block; width:50%;">
+  </a>
+ 
 ## Future to-do
 
 - Add copy to clipboard js when clicking on the mail icon & email address text
