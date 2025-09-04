@@ -17,7 +17,7 @@ content_blocks:
       </p>
       <h2>Brinsley's CV:</h2>
       <body>
-        <iframe src="https://cdn.jsdelivr.net/gh/Brinsleym/website@master/static/doc/cv.pdf#navpanes=0" frameborder="0" height="500rem" width="100%" title="PDF Viewer"></iframe>
+        <iframe src="/doc/cv.pdf#navpanes=0" frameborder="0" height="500rem" width="100%" title="PDF Viewer"></iframe>
       <br>
       <h1>University of York</h1>
       <p>

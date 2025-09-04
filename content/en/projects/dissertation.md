@@ -13,8 +13,10 @@ The project consists of two works: [Re-scoring a 25-minute episode of the televi
 *(Click to the links above to see more information.)*
 
 ## View the commentary
-{{< diss-paper >}}
-<br><br>
+
+{{< pdf-embed pdf="/doc/diss-paper.pdf" >}}
+
+<br>
 
 # University awarded feedback {#feedback}
 

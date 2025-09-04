@@ -13,7 +13,7 @@ description: "对多部动画音乐重新配乐项目的详细解析"
 *(点击上方链接查看详情)*
 
 ## 查看论文解说 （英语）
-{{< diss-paper >}}
+{{< pdf-embed pdf="/doc/diss-paper.pdf" >}}
 <br><br>
 
 # 校方评语 {#feedback}

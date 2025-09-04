@@ -1,18 +1,11 @@
 prev_key: Prev
 next_key: Next
-
 related_posts_title: "You may also like:"
-
 prev_post: Previous post
 next_post: Next post
-
 next_project: Next project
-
-
 share_this_post: Share this Post
-
 view_all: View All
-
 contact_contact_description: "Send me an email me at:<br>contact@brinsleymorrison.com<br> or use the box below to send me a message."
 contact_email_title: "Get in touch"
 contact_email_description: "Send me an email at:"
@@ -22,3 +15,4 @@ contact_copy_success: "Copied to clipboard!"
 contact_copy_fallback: "Click to select and copy"
 social_email_copied: "Email copied!"
 t_author_name: Brinsley Morrison
+open_in_new_tab: Open in new tab

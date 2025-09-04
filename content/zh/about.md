@@ -17,7 +17,7 @@ content_blocks:
       </p>
       <h2>林泽的简历：</h2>
       <body>
-        <iframe src="https://cdn.jsdelivr.net/gh/Brinsleym/website@master/static/doc/cv.pdf#navpanes=0" frameborder="0" height="500rem" width="100%" title="PDF Viewer"></iframe>
+        <iframe src="/doc/cv.pdf#navpanes=0" frameborder="0" height="500rem" width="100%" title="PDF Viewer"></iframe>
       <br>
       <h1>约克大学</h1>
       <p>

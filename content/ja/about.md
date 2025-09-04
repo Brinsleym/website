@@ -18,7 +18,7 @@ content_blocks:
       </p>
       <h2>森沢淋の履歴書：</h2>
       <body>
-        <iframe src="https://cdn.jsdelivr.net/gh/Brinsleym/website@master/static/doc/cv.pdf#navpanes=0" frameborder="0" height="500rem" width="100%" title="PDF Viewer"></iframe>
+        <iframe src="/doc/cv.pdf#navpanes=0" frameborder="0" height="500rem" width="100%" title="PDF Viewer"></iframe>
       <br>
       <h1>ヨーク大学</h1>
       <p>
