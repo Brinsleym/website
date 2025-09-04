@@ -2,9 +2,17 @@
   <div class="social">
     <ul class="social__list list-reset">
       {{ range .Site.Data.social_links.social }}
-      <li class="social__item">
-        <a class="social__link" href="{{ .link }}" target="_blank" rel="noopener"
-          aria-label="{{ .icon }} icon"><ion-icon name="{{ lower .icon }}"></ion-icon></a>
+      <li class="social__item{{ if eq .icon "mail" }} social__item--mail{{ end }}">
+        {{ if eq .icon "mail" }}
+          <a class="social__link social__link--mail" href="{{ .link }}" data-email="contact@brinsleymorrison.com" target="_blank" rel="noopener"
+            aria-label="{{ .icon }} icon"><ion-icon name="{{ lower .icon }}"></ion-icon></a>
+          <div class="social__copy-feedback">
+            {{ T "social_email_copied" }}
+          </div>
+        {{ else }}
+          <a class="social__link" href="{{ .link }}" target="_blank" rel="noopener"
+            aria-label="{{ .icon }} icon"><ion-icon name="{{ lower .icon }}"></ion-icon></a>
+        {{ end }}
       </li>
       {{ end }}
     </ul>
