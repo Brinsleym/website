@@ -373,12 +373,36 @@ document.addEventListener("DOMContentLoaded", function () {
     const copyFeedback = document.getElementById('copy-feedback');
     
     if (copyButton && emailAddress && copyFeedback) {
-      copyButton.addEventListener('click', async function() {
+      copyButton.addEventListener('click', async function(e) {
+        // Ensure we have a user gesture
+        e.preventDefault();
         const email = emailAddress.textContent.trim();
         
+        // Debug logging for mobile
+        console.log('Copy button clicked, email:', email);
+        console.log('User agent:', navigator.userAgent);
+        console.log('Clipboard API available:', !!navigator.clipboard?.writeText);
+        
+        // For mobile browsers, try a more direct approach first
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        
+        if (isMobile) {
+          console.log('Mobile detected, using fallback method');
+          // On mobile, try the fallback method first as it's more reliable
+          fallbackCopyToClipboard(email);
+          return;
+        }
+        
+        // For desktop, try modern clipboard API first
         try {
           if (navigator.clipboard?.writeText) {
-            await navigator.clipboard.writeText(email);
+            // Add timeout for clipboard operations
+            const clipboardPromise = navigator.clipboard.writeText(email);
+            const timeoutPromise = new Promise((_, reject) => 
+              setTimeout(() => reject(new Error('Clipboard timeout')), 3000)
+            );
+            
+            await Promise.race([clipboardPromise, timeoutPromise]);
             showCopySuccess();
           } else {
             fallbackCopyToClipboard(email);
@@ -391,24 +415,57 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     
     function fallbackCopyToClipboard(text) {
-      // Create a temp textarea element
+      console.log('Using fallback copy method for text:', text);
+      
+      // Create a temp textarea element that's visible but off-screen for mobile compatibility
       const textArea = document.createElement('textarea');
       textArea.value = text;
+      
+      // Position the textarea in a way that works better on mobile
       textArea.style.position = 'fixed';
-      textArea.style.left = '-999999px';
-      textArea.style.top = '-999999px';
+      textArea.style.top = '0';
+      textArea.style.left = '0';
+      textArea.style.width = '2em';
+      textArea.style.height = '2em';
+      textArea.style.padding = '0';
+      textArea.style.border = 'none';
+      textArea.style.outline = 'none';
+      textArea.style.boxShadow = 'none';
+      textArea.style.background = 'transparent';
+      textArea.style.fontSize = '16px'; // Prevent zoom on iOS
+      textArea.style.zIndex = '-1';
+      textArea.style.opacity = '0';
+      textArea.setAttribute('readonly', '');
+      
       document.body.appendChild(textArea);
       
-      // Select and copy
+      // On mobile, we need to ensure the element is properly focused and selected
       textArea.focus();
-      textArea.select();
+      textArea.setSelectionRange(0, text.length);
+      
+      // For mobile Safari specifically
+      if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+        console.log('iOS detected, using iOS-specific selection method');
+        textArea.contentEditable = true;
+        textArea.readOnly = false;
+        const range = document.createRange();
+        range.selectNodeContents(textArea);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        textArea.setSelectionRange(0, 999999);
+      } else {
+        textArea.select();
+      }
 
-      // Fallback for older browsers
+      // Try to copy
       try {
         const successful = document.execCommand('copy');
+        console.log('execCommand copy result:', successful);
         if (successful) {
           showCopySuccess();
         } else {
+          console.log('execCommand failed, showing email text for manual copy');
           selectEmailText();
         }
       } catch (err) {
@@ -420,6 +477,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     
     function selectEmailText() {
+      console.log('Selecting email text for manual copy');
       // Select email text for manual copying
       const emailElement = document.getElementById('email-address');
       if (emailElement) {
@@ -430,6 +488,18 @@ document.addEventListener("DOMContentLoaded", function () {
         selection.addRange(range);
         
         emailElement.focus();
+        
+        // Show a message to help the user
+        const copyFeedback = document.getElementById('copy-feedback');
+        if (copyFeedback) {
+          copyFeedback.textContent = 'Email selected - press Copy to copy';
+          copyFeedback.classList.add('show');
+          
+          setTimeout(() => {
+            copyFeedback.classList.remove('show');
+            copyFeedback.textContent = 'Copied to clipboard!'; // Reset text
+          }, 3000);
+        }
       }
     }
     
@@ -494,6 +564,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   
   function fallbackCopyToClipboard(email, linkElement) {
+    // Create a temp textarea element that's visible but off-screen for mobile compatibility
     const textArea = document.createElement('textarea');
     textArea.value = email;
     textArea.style.position = 'fixed';
