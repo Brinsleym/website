@@ -1,14 +1,16 @@
 {{- $path := . -}}
 {{- $baseUrl := site.Params.jsdelivr_base_url -}}
 {{- if eq $baseUrl "" -}}
-  {{- /* Local development: remove /static/ prefix and serve from Hugo's static directory */ -}}
+  {{- /* Local development: remove /static/ prefix */ -}}
   {{- $localPath := $path | replaceRE "^/static/" "/" -}}
   {{- printf "%s" $localPath -}}
 {{- else -}}
-  {{- /* Production: use CDN with full path including /static/ */ -}}
-  {{- /* For generated CSS files, add /static prefix */ -}}
-  {{- if strings.HasPrefix $path "/css/" -}}
-    {{- $path = printf "/static%s" $path -}}
+  {{- /* Production: use CDN */ -}}
+  {{- /* For CSS files, ensure they have /static/ prefix */ -}}
+  {{- if or (strings.HasPrefix $path "/css/") (strings.HasPrefix $path "/static/css/") -}}
+    {{- if not (strings.HasPrefix $path "/static/") -}}
+      {{- $path = printf "/static%s" $path -}}
+    {{- end -}}
   {{- end -}}
   {{- printf "%s%s" $baseUrl $path -}}
 {{- end -}}
