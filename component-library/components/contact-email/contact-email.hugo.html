@@ -1,0 +1,39 @@
+<!-- begin contact -->
+{{ $c := "c-contact-email" }}
+<div class="{{$c}}" id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+
+        <div class="{{$c}}__content-box">
+          <div class="{{$c}}__contact-head">
+            <h2 class="{{$c}}__contact-title">{{ T "contact_email_title" }}</h2>
+            <p class="{{$c}}__contact-description">{{ T "contact_email_description" }}</p>
+          </div>
+          
+          <div class="{{$c}}__email-container">
+            <div class="{{$c}}__email-box">
+              <div class="{{$c}}__email-label">Email</div>
+              <div class="{{$c}}__email-address" id="email-address">{{ T "contact_email_address" }}</div>
+              <div class="{{$c}}__button-container">
+                <button class="{{$c}}__copy-button" id="copy-button" aria-label="{{ T "contact_copy_button" }}">
+                  <ion-icon name="copy-outline" class="{{$c}}__copy-icon"></ion-icon>
+                  <span class="{{$c}}__copy-text">{{ T "contact_copy_button" }}</span>
+                </button>
+                <div class="{{$c}}__copy-feedback" id="copy-feedback">
+                  {{ T "contact_copy_success" }}
+                </div>
+              </div>
+            </div>
+            
+            <div class="{{$c}}__fallback-text">
+              {{ T "contact_copy_fallback" }}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end contact -->

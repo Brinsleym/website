@@ -47,9 +47,9 @@ content_blocks:
       </p>
       <img src="https://cdn.jsdelivr.net/gh/Brinsleym/website@master/static/images/hereford-cathedral-choir.webp" alt="ヘレフォード大聖堂合唱団 | BBC">
       <p><i>BBC生放送 - ヘレフォード大聖堂合唱団イースター礼拝、2017年</i></p>
-  - _bookshop_name: contact-form
-    form_title: お問い合わせ
-    form_description: "メールでお問い合わせください: contact@brinsleymorrison.com または下のボックスを使ってメッセージを送信できます。"
-    form_submission_email: contact@brinsleymorrison.com
-    form_button_text: 今すぐ送信
+  - _bookshop_name: contact-email
+    contact_title: お問い合わせ
+    contact_description: "メールでお問い合わせください: contact@brinsleymorrison.com または下のボックスを使ってメッセージを送信できます。"
+    contact_submission_email: contact@brinsleymorrison.com
+    contact_button_text: 今すぐ送信
 ---

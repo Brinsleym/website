@@ -28,9 +28,9 @@ content_blocks:
     title: 反馈
     description_html: 
     show_testimonials: true
-  - _bookshop_name: contact-form
-    form_title: 联系我
-    form_description_key: contact_form_description
-    form_submission_email: contact@brinsleymorrison.com
-    form_button_text: 立即发送
+  - _bookshop_name: contact-email
+    contact_title: 联系我
+    contact_description_key: contact_contact_description
+    contact_submission_email: contact@brinsleymorrison.com
+    contact_button_text: 立即发送
 ---

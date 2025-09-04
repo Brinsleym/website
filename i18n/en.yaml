@@ -13,5 +13,11 @@ share_this_post: Share this Post
 
 view_all: View All
 
-contact_form_description: "Send me an email me at:<br>contact@brinsleymorrison.com<br> or use the box below to send me a message."
+contact_contact_description: "Send me an email me at:<br>contact@brinsleymorrison.com<br> or use the box below to send me a message."
+contact_email_title: "Get in touch"
+contact_email_description: "Send me an email at:"
+contact_email_address: "contact@brinsleymorrison.com"
+contact_copy_button: "Copy Email"
+contact_copy_success: "Copied to clipboard!"
+contact_copy_fallback: "Click to select and copy"
 t_author_name: Brinsley Morrison

@@ -51,9 +51,9 @@ content_blocks:
       <img src="https://cdn.jsdelivr.net/gh/Brinsleym/website@master/static/images/hereford-cathedral-choir.webp" alt="Hereford Cathedral Choir | BBC">
       <p> <i>BBC Live Broadcast - Hereford Cathedral Choir Easter Day Service, 2017</i></p>
 
-  - _bookshop_name: contact-form
-    form_title: Get in touch
-    form_description: "Send me an email me at contact@brinsleymorrison.com or use the box below to send me a message."
-    form_submission_email: contact@brinsleymorrison.com
-    form_button_text: Send now
+  - _bookshop_name: contact-email
+    contact_title: Get in touch
+    contact_description: "Send me an email me at contact@brinsleymorrison.com or use the box below to send me a message."
+    contact_submission_email: contact@brinsleymorrison.com
+    contact_button_text: Send now
 ---
