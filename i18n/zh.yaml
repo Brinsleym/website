@@ -1,17 +1,11 @@
 prev_key: 上一页
 next_key: 下一页
-
 related_posts_title: 你可能也喜欢
-
 prev_post: 上一篇
 next_post: 下一篇
-
 next_project: 下一个项目
-
 share_this_post: 分享此文章
-
 view_all: 查看所有
-
 contact_contact_description: "如需电子邮件咨询，请通过:<br>contact@brinsleymorrison.com<br>与我联系，或使用下面的方框给我们留言。"
 contact_email_title: "联系我"
 contact_email_description: "发送邮件至："
@@ -21,3 +15,4 @@ contact_copy_success: "已复制到剪贴板!"
 contact_copy_fallback: "点击选择并复制"
 social_email_copied: "已复制!"
 t_author_name: 林泽
+open_in_new_tab: 在新标签页中打开

@@ -12,7 +12,7 @@ description: "様々なアニメのリスコアリングプロジェクトの詳
 (上記のリンクをクリックして詳細をご覧ください。)
 
 ## 解説を見る（英語）
-{{< diss-paper >}}
+{{< pdf-embed pdf="/doc/diss-paper.pdf" >}}
 <br><br>
 
 # 大学からのフィードバック
