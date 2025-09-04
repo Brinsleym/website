@@ -10,4 +10,4 @@ footer_menu__settings:
       url: '/ja/about/'
 
 copyright_text_html: >-
-  <p> Copyright &copy; <script>document.write( new Date().getFullYear() );</script>  Brinsley Morrison. <a href="/ja/privacypolicy">個人情報保護方針</a>
+  <p> Copyright &copy; <script>document.write( new Date().getFullYear() );</script>  Brinsley Morrison | <a href="/ja/privacypolicy">個人情報保護方針</a>
