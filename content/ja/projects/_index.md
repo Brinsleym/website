@@ -15,10 +15,10 @@ content_blocks:
   - _bookshop_name: projects-list
     show_projects: true
     _live_render: false
-  - _bookshop_name: contact-form
-    form_title: お問い合わせ
-    form_description: "メールでお問い合わせください: contact@brinsleymorrison.com または下のボックスを使ってメッセージを送信できます。"
-    form_submission_email: contact@brinsleymorrison.com
-    form_button_text: 今すぐ送信
+  - _bookshop_name: contact-email
+    contact_title: お問い合わせ
+    contact_description: "メールでお問い合わせください: contact@brinsleymorrison.com または下のボックスを使ってメッセージを送信できます。"
+    contact_submission_email: contact@brinsleymorrison.com
+    contact_button_text: 今すぐ送信
 
 ---

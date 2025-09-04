@@ -28,9 +28,9 @@ content_blocks:
     title: フィードバック
     description_html:
     show_testimonials: true
-  - _bookshop_name: contact-form
-    form_title: お問い合わせ
-    form_description_key: contact_form_description
-    form_submission_email: contact@brinsleymorrison.com
-    form_button_text: 今すぐ送信
+  - _bookshop_name: contact-email
+    contact_title: お問い合わせ
+    contact_description_key: contact_contact_description
+    contact_submission_email: contact@brinsleymorrison.com
+    contact_button_text: 今すぐ送信
 ---

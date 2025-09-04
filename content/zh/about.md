@@ -46,10 +46,10 @@ content_blocks:
       </p>
       <img src="https://cdn.jsdelivr.net/gh/Brinsleym/website@master/static/images/hereford-cathedral-choir.webp" alt="赫里福德大教堂合唱团 | BBC">
       <p><i>BBC直播 - 赫里福德大教堂合唱团复活节日服务，2017年</i></p>
-  - _bookshop_name: contact-form
-    form_title: 联系我
-    form_description: "请通过电子邮件联系我：contact@brinsleymorrison.com，或者使用下方的框框发送消息。"
-    form_submission_email: contact@brinsleymorrison.com
-    form_button_text: 立即发送
+  - _bookshop_name: contact-email
+    contact_title: 联系我
+    contact_description: "请通过电子邮件联系我：contact@brinsleymorrison.com，或者使用下方的框框发送消息。"
+    contact_submission_email: contact@brinsleymorrison.com
+    contact_button_text: 立即发送
 
 ---

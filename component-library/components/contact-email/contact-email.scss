@@ -1,0 +1,217 @@
+/* Contact Email Container */
+.c-contact-email { $c: &;
+
+  .container {
+    position: relative;
+  }
+
+  &__content-box {
+    max-width: 580px;
+    margin: 0 auto;
+    padding-top: 56px;
+  }
+
+  &__contact-head {
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  &__contact-title {
+    display: inline-block;
+    margin-bottom: 12px;
+    font-size: 58px;
+    color: $heading-font-color;
+
+    @media only screen and (max-width: $mobile) {
+      font-size: 42px;
+    }
+  }
+
+  &__contact-description {
+    font-size: 20px;
+    font-weight: 600;
+    color: $text-color;
+    margin-bottom: 0;
+
+    @media only screen and (max-width: $mobile) {
+      font-size: 16px;
+    }
+  }
+
+  &__email-container {
+    position: relative;
+    margin-bottom: 60px;
+  }
+
+  &__email-box {
+    background: $background-color-alt;
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba($dark, 0.05);
+
+    &:hover {
+      box-shadow: 0 4px 16px rgba($primary-color, 0.15);
+    }
+
+    @media only screen and (max-width: $mobile) {
+      padding: 20px 16px;
+    }
+  }
+
+  &__email-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: $secondary-color;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+
+  &__email-address {
+    font-size: 24px;
+    font-weight: 700;
+    color: $text-color;
+    margin-bottom: 24px;
+    user-select: all;
+    cursor: text;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $light-gray;
+    }
+
+    &.hide {
+      opacity: 0;
+      transform: scale(0);
+    }
+
+    @media only screen and (max-width: $mobile) {
+      font-size: 18px;
+      word-break: break-all;
+    }
+  }
+
+  &__copy-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: $primary-color;
+    color: $button-color;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+
+    &:hover {
+      background: $button-background-hover;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba($primary-color, 0.3);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba($primary-color, 0.3);
+    }
+
+    @media only screen and (max-width: $mobile) {
+      padding: 12px 20px;
+      font-size: 14px;
+    }
+  }
+
+  &__copy-icon {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+  }
+
+  &__copy-text {
+    white-space: nowrap;
+  }
+
+  &__button-container {
+    position: relative;
+    display: inline-block;
+  }
+
+  &__copy-feedback {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: $dark;
+    color: $white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 10;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba($dark, 0.3);
+    margin-bottom: 24px;
+
+    &.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(-4px);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 4px solid transparent;
+      border-top-color: $dark;
+    }
+  }
+
+  &__fallback-text {
+    text-align: center;
+    font-size: 14px;
+    color: rgba($text-color, 0.6);
+    margin-top: 16px;
+    font-style: italic;
+  }
+
+  // Success animation
+  &__email-box.copied {
+    box-shadow: 0 2px 8px rgba($primary-color, 0.3);
+  }
+
+  &__copy-button.copied {
+    background: lighten($primary-color, 5%);
+    
+    #{$c}__copy-icon {
+      animation: checkmark 0.4s ease;
+    }
+  }
+}
+
+@keyframes checkmark {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

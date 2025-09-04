@@ -240,7 +240,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   /* ============================
-  // Contact form entrance animation
+  // Contact section entrance animation
   ============================ */
   const contactForm = document.querySelector("#contact");
   
@@ -363,5 +363,104 @@ document.addEventListener("DOMContentLoaded", function () {
         document.head.appendChild(style);
     }
   removeImageContextOptions();
+
+  /* ============================
+  // Email copy to clipboard functionality
+  ============================ */
+  function initEmailCopyToClipboard() {
+    const copyButton = document.getElementById('copy-button');
+    const emailAddress = document.getElementById('email-address');
+    const copyFeedback = document.getElementById('copy-feedback');
+    
+    if (copyButton && emailAddress && copyFeedback) {
+      copyButton.addEventListener('click', async function() {
+        const email = emailAddress.textContent.trim();
+        
+        try {
+          // Try to use the modern Clipboard API
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(email);
+            showCopySuccess();
+          } else {
+            fallbackCopyToClipboard(email);
+          }
+        } catch (err) {
+          console.log('Copy failed, using fallback method');
+          fallbackCopyToClipboard(email);
+        }
+      });
+    }
+    
+    function fallbackCopyToClipboard(text) {
+      // Create a temp textarea element
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+      textArea.style.position = 'fixed';
+      textArea.style.left = '-999999px';
+      textArea.style.top = '-999999px';
+      document.body.appendChild(textArea);
+      
+      // Select and copy
+      textArea.focus();
+      textArea.select();
+
+      // Fallback for older browsers
+      try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+          showCopySuccess();
+        } else {
+          selectEmailText();
+        }
+      } catch (err) {
+        console.log('Fallback copy failed');
+        selectEmailText();
+      } finally {
+        document.body.removeChild(textArea);
+      }
+    }
+    
+    function selectEmailText() {
+      // Select email text for manual copying
+      const emailElement = document.getElementById('email-address');
+      if (emailElement) {
+        const range = document.createRange();
+        range.selectNodeContents(emailElement);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        
+        emailElement.focus();
+      }
+    }
+    
+    function showCopySuccess() {
+      const copyButton = document.getElementById('copy-button');
+      const emailBox = copyButton.closest('.c-contact-email__email-box');
+      const copyFeedback = document.getElementById('copy-feedback');
+      const emailAddress = document.getElementById('email-address');
+
+      // Hide email address with zoom out effect
+      emailAddress.classList.add('hide');
+      
+      // Success classes
+      copyButton.classList.add('copied');
+      emailBox.classList.add('copied');
+      
+      // Show feedback message
+      copyFeedback.classList.add('show');
+      
+      // Remove classes after animation
+      setTimeout(() => {
+        copyButton.classList.remove('copied');
+        emailBox.classList.remove('copied');
+        copyFeedback.classList.remove('show');
+        // Show email address again
+        emailAddress.classList.remove('hide');
+      }, 1500);
+    }
+  }
+  
+  initEmailCopyToClipboard();
 
 });
