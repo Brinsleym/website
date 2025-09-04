@@ -21,11 +21,17 @@
               <ion-icon name="close"></ion-icon>
             </div>
 
-            <div class="nav__title">Menu</div>
+            <div class="nav__title">{{ i18n "menu_title" }}</div>
 
             <ul class="nav__list list-reset">
               {{ $currentPage := . }}
-              {{ range site.Data.navigation.menu__settings.menu__items }}
+              {{ $navData := index .Site.Data .Site.Language.Lang }}
+              {{ $menuItems := .Site.Data.navigation.menu__settings.menu__items }}
+              {{ if $navData }}
+                {{ $menuItems = $navData.navigation.menu__settings.menu__items }}
+              {{ end }}
+              
+              {{ range $menuItems }}
               {{ $menuURL := .url | absLangURL }}
               {{ $pageURL:= $currentPage.Permalink | absLangURL }}
               {{ $active := eq $menuURL $pageURL }}

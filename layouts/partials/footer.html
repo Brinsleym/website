@@ -1,0 +1,41 @@
+<!-- begin footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+
+        {{ partial "social-link.html" . }}
+
+        <ul class="footer_nav list-reset">
+          {{ $footerData := index .Site.Data .Site.Language.Lang }}
+          {{ if $footerData }}
+            {{ range $footerData.footer.footer_menu__settings.menu__items }}
+              <li class="footer_nav__item">
+                <a href="{{ .url }}"
+                  class="footer_nav__link">{{ .title }}</a>
+              </li>
+            {{ end }}
+          {{ else }}
+            {{ range .Site.Data.footer.footer_menu__settings.menu__items }}
+              <li class="footer_nav__item">
+                <a href="{{ .url }}"
+                  class="footer_nav__link">{{ .title }}</a>
+              </li>
+            {{ end }}
+          {{ end }}
+        </ul>
+
+        <div class="copyright">
+          {{ $footerData := index .Site.Data .Site.Language.Lang }}
+          {{ if $footerData }}
+            {{ $footerData.footer.copyright_text_html | safeHTML }}
+          {{ else }}
+            {{ .Site.Data.footer.copyright_text_html | safeHTML }}
+          {{ end }}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- end footer -->

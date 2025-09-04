@@ -7,7 +7,7 @@ description: >-
 tags: [サウンドトラック, 映画音楽, オーケストラ]
 image: '/static/images/suzume_cover_1.webp'
 ---
-{{< disclaimer-ja "Suzume no Tojimari" >}}
+{{< disclaimer "Suzume no Tojimari" >}}
 
 大学最終年の作曲プロジェクトの一環として、[『葬送のフリーレン』のリスコアリング](/ja/compositions/葬送のフリーレン-リスコアリングプロジェクト/)に続き、今回は自分にとって得意なスローテンポで穏やかなシーンではなく、ハイテンションなシーンに挑戦したいと思いました。
 
