@@ -377,15 +377,14 @@ document.addEventListener("DOMContentLoaded", function () {
         const email = emailAddress.textContent.trim();
         
         try {
-          // Try to use the modern Clipboard API
-          if (navigator.clipboard && window.isSecureContext) {
+          if (navigator.clipboard?.writeText) {
             await navigator.clipboard.writeText(email);
             showCopySuccess();
           } else {
             fallbackCopyToClipboard(email);
           }
         } catch (err) {
-          console.log('Copy failed, using fallback method');
+          console.log('Copy failed, using fallback method:', err);
           fallbackCopyToClipboard(email);
         }
       });
@@ -413,7 +412,7 @@ document.addEventListener("DOMContentLoaded", function () {
           selectEmailText();
         }
       } catch (err) {
-        console.log('Fallback copy failed');
+        console.log('Fallback copy failed:', err);
         selectEmailText();
       } finally {
         document.body.removeChild(textArea);
@@ -462,5 +461,118 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   
   initEmailCopyToClipboard();
+
+  /* ============================
+  // Header & Footer mail icon copy to clipboard (for desktop)
+  ============================ */
+  
+  // Global handler function for mail click events
+  function handleMailClick(e) {
+    if (!window.matchMedia('(min-width: 769px)').matches) {
+      return; // Allow default mailto behavior on mobile/tablet
+    }
+    
+    e.preventDefault();
+    const email = this.getAttribute('data-email');
+    if (!email) return;
+    
+    copyEmailToClipboard(email, this);
+  }
+
+  async function copyEmailToClipboard(email, linkElement) {
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(email);
+        showSocialCopySuccess(linkElement);
+      } else {
+        fallbackCopyToClipboard(email, linkElement);
+      }
+    } catch (err) {
+      console.log('Social mail copy failed:', err);
+      fallbackCopyToClipboard(email, linkElement);
+    }
+  }
+  
+  function fallbackCopyToClipboard(email, linkElement) {
+    const textArea = document.createElement('textarea');
+    textArea.value = email;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-999999px';
+    textArea.style.top = '-999999px';
+    document.body.appendChild(textArea);
+    
+    textArea.focus();
+    textArea.select();
+    
+    try {
+      const successful = document.execCommand('copy');
+      if (successful) {
+        showSocialCopySuccess(linkElement);
+      }
+    } catch (err) {
+      console.log('Fallback social copy failed:', err);
+    } finally {
+      document.body.removeChild(textArea);
+    }
+  }
+  
+  function showSocialCopySuccess(linkElement) {
+    const socialItem = linkElement.closest('.social__item--mail');
+    const feedback = socialItem?.querySelector('.social__copy-feedback');
+    
+    if (!feedback) return;
+    
+    // Show feedback
+    feedback.classList.add('show');
+    
+    // Hide after 1.5 seconds
+    setTimeout(() => {
+      feedback.classList.remove('show');
+    }, 1500);
+  }
+
+  function initSocialMailCopy() {
+    const socialMailLinks = document.querySelectorAll('.social__link--mail');
+    
+    // Remove existing event listeners by cloning elements
+    socialMailLinks.forEach(mailLink => {
+      const newMailLink = mailLink.cloneNode(true);
+      mailLink.parentNode.replaceChild(newMailLink, mailLink);
+    });
+    
+    const isDesktop = window.matchMedia('(min-width: 769px)').matches;
+    
+    if (!isDesktop) {
+      return; // Default for mobile/tablet
+    }
+    
+    // Add event listeners to fresh elements
+    const freshMailLinks = document.querySelectorAll('.social__link--mail');
+    freshMailLinks.forEach(mailLink => {
+      mailLink.addEventListener('click', handleMailClick);
+    });
+  }
+  
+  initSocialMailCopy();
+
+  // Resize handling with debouncing and media query listener
+  let resizeTimeout;
+  const mediaQuery = window.matchMedia('(min-width: 769px)');
+  
+  // Handle media query changes (more efficient than resize events)
+  mediaQuery.addEventListener('change', (e) => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      initSocialMailCopy();
+    }, 150);
+  });
+
+  // Fallback resize handler for browsers that don't support media query listeners
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      initSocialMailCopy();
+    }, 250);
+  });
 
 });

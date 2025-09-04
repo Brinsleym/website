@@ -17,6 +17,7 @@ contact_email_title: "お問い合わせ"
 contact_email_description: "メールをお送りください："
 contact_email_address: "contact@brinsleymorrison.com"
 contact_copy_button: "メールをコピー"
-contact_copy_success: "クリップボードにコピーされました！"
+contact_copy_success: "クリップボードにコピーされました!"
 contact_copy_fallback: "クリックして選択・コピー"
+social_email_copied: "コピー完了!"
 t_author_name: 森沢淋

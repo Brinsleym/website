@@ -20,4 +20,5 @@ contact_email_address: "contact@brinsleymorrison.com"
 contact_copy_button: "Copy Email"
 contact_copy_success: "Copied to clipboard!"
 contact_copy_fallback: "Click to select and copy"
+social_email_copied: "Email copied!"
 t_author_name: Brinsley Morrison

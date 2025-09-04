@@ -32,10 +32,10 @@ This site is forked from the [Vonge Hugo Bookshop Template](https://github.com/C
 
 ### Core Features
 
-- **Full Multilingual Support** & language switcher menu for English, Japanese and Chinese (Simplified)
+- **Full Multilingual Support** & language switcher menu for English, Japanese and Chinese (Simplified) using i18n configs.
 - **Hugo Bookshop Component System** for modular, reusable content blocks
 
-### Advanced Audio Features
+### Audio Features
 
 - **Custom SoundCloud Player** with playlist functionality using SoundCloud API
   - Advanced error handling and detection of privacy-blocking extensions
@@ -49,8 +49,9 @@ This site is forked from the [Vonge Hugo Bookshop Template](https://github.com/C
 ### Content Management & Structure
 
 - **Portfolio Sections**: Projects, compositions, and testimonials with rich media support
-- **Contact Form** with email integration
-- **CV/Resume Embedding** via iframe with PDF viewer
+- **Contact Section**: Replaced the original contact form section with a simpler 'copy email address' container  
+- **CV/Resume Embedding** via browser iframe
+- **Copy-to-Clipboard Email Functionality** with clipboard API detection and fallback support
 - **Bookshop Components**: Blog cards, hero sections, testimonial cards, project cards, and more
 
 ### Performance & User Experience
@@ -148,7 +149,6 @@ The site uses Hugo's built-in build process:
  
 ## Future to-do
 
-- Add copy to clipboard js when clicking on the mail icon & email address text
 - Enhance accessibility features with keyboard navigation improvements
 
 ---
