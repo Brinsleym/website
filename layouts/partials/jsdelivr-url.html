@@ -6,5 +6,9 @@
   {{- printf "%s" $localPath -}}
 {{- else -}}
   {{- /* Production: use CDN with full path including /static/ */ -}}
+  {{- /* For generated CSS files, add /static prefix */ -}}
+  {{- if strings.HasPrefix $path "/css/" -}}
+    {{- $path = printf "/static%s" $path -}}
+  {{- end -}}
   {{- printf "%s%s" $baseUrl $path -}}
 {{- end -}}
