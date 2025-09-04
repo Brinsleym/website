@@ -33,13 +33,7 @@
 
             <div class="post__meta-bottom">
               <div class="post__author">
-                {{ if eq .Lang "ja" }}
-                  {{ $.Site.Data.author.author_ja_name }}
-                {{ else if eq .Lang "zh" }}
-                  {{ $.Site.Data.author.author_zh_name }}
-                {{ else }}
-                  {{ $.Site.Data.author.author_name }}  {{/* Default (English) */}}
-                {{ end }}
+                {{ i18n "t_author_name" }}
               </div>
               <time class="post__date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
                 {{ partial "format-date.html" (dict "date" .Date "context" .) }}

@@ -33,13 +33,7 @@
         </div>
         <div class="article-info">
           <div class="article__author-name">
-            {{ if eq .Lang "ja" }}
-              {{ $.Site.Data.author.author_ja_name }}
-            {{ else if eq .Lang "zh" }}
-              {{ $.Site.Data.author.author_zh_name }}
-            {{ else }}
-              {{ $.Site.Data.author.author_name }}  {{/* Default (English) */}}
-            {{ end }}
+            {{ i18n "t_author_name" }}
           </div>
           {{ $format := or .Site.Language.Params.date_format "02 Jan 2006" }}
           <span class="article__date"><time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ partial "format-date.html" (dict "date" .Date "context" .) }}</time></span>

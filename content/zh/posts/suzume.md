@@ -7,7 +7,7 @@ description: >-
 tags: [原声带, 电影配乐, 管弦乐]
 image: '/static/images/suzume_cover_1.webp'
 ---
-{{< disclaimer-zh "铃芽之旅" >}}
+{{< disclaimer "铃芽之旅" >}}
 
 作为大学最后一年作曲项目的一部分，在[为《葬送的芙莉莲》一集重新配乐](/zh/compositions/重配乐项目葬送的芙莉莲/)之后，我想挑战自己为高强度的场景配乐，而不是我更擅长的慢节奏、平和的场景。
 

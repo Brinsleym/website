@@ -16,3 +16,7 @@ contact_copy_fallback: "Click to select and copy"
 social_email_copied: "Email copied!"
 t_author_name: Brinsley Morrison
 open_in_new_tab: Open in new tab
+menu_title: Menu
+disclaimer_title: Important Disclaimer
+disclaimer_content: "This project is a non-commercial, fan-made endeavor and is not affiliated with or endorsed by the creators, producers, or distributors of PLACEHOLDER. The music I've composed is intended solely for creative exploration and does not infringe upon the original series' copyright or intellectual property. I do not claim ownership of PLACEHOLDER or its content, and this project is unlicensed by any official entity. Cover image used under fair use for commentary. All rights to the original series, its soundtrack and images belong to their respective copyright holders."
+change_language: Change Language

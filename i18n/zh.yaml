@@ -16,3 +16,7 @@ contact_copy_fallback: "点击选择并复制"
 social_email_copied: "已复制!"
 t_author_name: 林泽
 open_in_new_tab: 在新标签页中打开
+menu_title: 菜单
+disclaimer_title: 重要声明
+disclaimer_content: "本项目是非商业性质的粉丝创作，与《PLACEHOLDER》的创作者、制作方或发行方均无任何关联，也未获得官方授权。我所创作的音乐仅用于艺术探索目的，不构成对原系列版权或知识产权的侵犯。本人不宣称对《PLACEHOLDER》及其内容拥有所有权，本项目未获得任何官方实体许可。封面图片基于评论目的依据合理使用原则使用。原系列、其配乐及图像的所有权利均归各自版权方所有。"
+change_language: 更改语言

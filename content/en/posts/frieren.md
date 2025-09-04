@@ -7,7 +7,7 @@ description: >-
 tags:   [soundtrack, film score, orchestral]
 image: '/static/images/frieren-1.webp'
 ---
-{{< disclaimer-en "Sousou no Frieren" >}}
+{{< disclaimer "Sousou no Frieren" >}}
 
 This project began as a creative exercise to deepen my understanding of scoring music for anime and was written as part of my final-year undergraduate Composition Portfolio. Without any direct industry connections, I chose to re-score existing material to practice composing to picture and improve my ability to closely mirror music with narrative and the emotions of characters.
 
