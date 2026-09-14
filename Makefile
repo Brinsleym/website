@@ -1,10 +1,10 @@
 .PHONY: dev deploy
 
 dev:
-	hugo server -D --environment development --config config.dev.toml
+	hugo server -D
 
 deploy:
-	hugo --environment production --config config.toml
+	hugo --environment production
 	mkdir -p static/css
 	cp public/css/*.css static/css/ 2>/dev/null || true
 

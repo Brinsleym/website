@@ -1,13 +1,13 @@
 baseURL = "https://brinsleymorrison.com"
-languageCode = "en"
+locale = "en"
 title = "Brinsley Morrison"
 _enabled_editors = ["visual", "content"]
 
 defaultContentLanguage = "en"
 [languages]
   [languages.en]
-    languageName = "English"
-    languageCode = 'en-GB'
+    label = "English"
+    locale = 'en-GB'
 
     weight = 1
     title = "Brinsley Morrison"
@@ -18,8 +18,8 @@ defaultContentLanguage = "en"
     
 
   [languages.ja]
-    languageName = "日本語"
-    languageCode = 'ja'
+    label = "日本語"
+    locale = 'ja'
 
     weight = 2
     title = "森沢淋"
@@ -29,8 +29,8 @@ defaultContentLanguage = "en"
       date_format = "2006年01月02日"
 
   [languages.zh]
-    languageName = "中文"
-    languageCode = 'zh'
+    label = "中文"
+    locale = 'zh'
 
     weight = 3
     title = "林泽"
@@ -59,3 +59,23 @@ projects = "/blog/:title/"
 
 [params]
 jsdelivr_base_url = "https://cdn.jsdelivr.net/gh/Brinsleym/website@master"
+
+[related]
+includeNewer = true
+threshold = 0
+toLower = true
+  [[related.indices]]
+  name = "tags"
+  weight = 100
+
+[taxonomies]
+tag = "tags"
+
+# Testimonials only feed the homepage slider: keep them listable,
+# but don't publish a page for each one (or the section itself).
+[[cascade]]
+  [cascade.build]
+    render = "never"
+    list = "always"
+  [cascade.target]
+    path = "{/testimonials,/testimonials/**}"

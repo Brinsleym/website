@@ -18,7 +18,7 @@ This repository contains the source code for my portfolio website.
   <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square" alt="MIT License">
  </a>&nbsp;&nbsp;&nbsp;
   <a href="https://gohugo.io">
-  <img src="https://img.shields.io/badge/hugo-v0.149.0-blue?logo=hugo&style=flat-square" alt="Hugo v0.149.0">
+  <img src="https://img.shields.io/badge/hugo-v0.158.0%2B-blue?logo=hugo&style=flat-square" alt="Hugo v0.158.0+">
   </a>&nbsp;&nbsp;&nbsp;
  <a href="https://www.jsdelivr.com/package/gh/Brinsleym/website">
   <img src="https://data.jsdelivr.com/v1/package/gh/Brinsleym/website/badge" alt="JSDelivr">
@@ -80,7 +80,7 @@ This site is forked from the [Vonge Hugo Bookshop Template](https://github.com/C
 
 ### Prerequisites
 
-- [Hugo](https://gohugo.io/installation/) (v0.149.0 or later)
+- [Hugo](https://gohugo.io/installation/) (v0.158.0 or later, extended edition)
 - Git for version control
 
 ### Local Development Setup
@@ -95,11 +95,11 @@ This site is forked from the [Vonge Hugo Bookshop Template](https://github.com/C
    ```bash
    make dev
    ```
-   (Or run ```hugo server --config config.dev.toml```). This serves assets locally and enables hot reloading for development.
+   (Or run ```hugo server -D```). `hugo server` uses the development environment, which applies `config/development/` on top of `config/_default/` to serve assets locally with hot reloading.
 
 3. **Other Makefile commands**:
 
-   ```make deploy```: *(hugo --environment production --config config.toml)*  
+   ```make deploy```: *(hugo --environment production)*  
    ```make clean```: *(rm -rf public/)*  
    ```make build```: *(clean deploy)*  
 
@@ -115,7 +115,7 @@ The site uses Hugo's built-in build process:
 ## Technical Stack
 
 ### Core Technologies
-- **[Hugo](https://gohugo.io)** - Static site generator (v0.149.0)
+- **[Hugo](https://gohugo.io)** - Static site generator (v0.158.0+)
 - **[Hugo Bookshop](https://github.com/CloudCannon/bookshop)** - Component-based content management
 
 ### Frontend Libraries

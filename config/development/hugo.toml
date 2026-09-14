@@ -1,0 +1,7 @@
+# Development overrides. Hugo applies these automatically for `hugo server`
+# (and any command run with --environment development).
+baseURL = "http://localhost:1313"
+
+[params]
+# Serve CSS/JS/images locally instead of from jsDelivr
+jsdelivr_base_url = ""
