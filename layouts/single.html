@@ -28,7 +28,7 @@
 
           <div class="post__meta">
             <div class="post__author-image">
-              <img loading="lazy" src="{{ partial "jsdelivr-url.html" site.Data.author.author_image }}" alt="{{ site.Data.author.author_name }}">
+              <img loading="lazy" src="{{ partial "jsdelivr-url.html" hugo.Data.author.author_image }}" alt="{{ hugo.Data.author.author_name }}">
             </div>
 
             <div class="post__meta-bottom">
@@ -72,9 +72,6 @@
 
 {{ partial "related-posts.html" . }}
 
-{{ if .Site.Data.general_settings.disqus_identifier }}
-  {{ partial "disqus-comments.html" . }}
-{{ end }}
 
 {{ end }}
 

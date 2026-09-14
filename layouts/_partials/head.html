@@ -3,26 +3,26 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="{{ partial "jsdelivr-url.html" "/static/favicon.ico" }}">
-  <title>{{ if not .IsHome }}{{ humanize .Title }} | {{ end }}{{ .Site.Data.general_settings.title }}</title>
-  <meta name="description" content="{{if .IsHome}}{{ .Site.Data.general_settings.description }}{{else}}{{ .Description }}{{end}}">
+  <title>{{ if not .IsHome }}{{ humanize .Title }} | {{ end }}{{ hugo.Data.general_settings.title }}</title>
+  <meta name="description" content="{{if .IsHome}}{{ hugo.Data.general_settings.description }}{{else}}{{ .Description }}{{end}}">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@BrinsleyMorrison">
   <meta name="twitter:creator" content="@BrinsleyMorrison">
-  <meta name="twitter:title" content="{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Data.general_settings.title }}">
-  <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary }}{{ else }}{{ with .Site.Data.general_settings.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
-  {{ if .IsHome}}<meta name="twitter:image" content="{{ partial "jsdelivr-url.html" .Site.Data.general_settings.social_media_twitter_image | absURL }}">{{ else }}{{ if .Params.Image }}<meta name="twitter:image" content="{{ partial "jsdelivr-url.html" .Params.Image | absURL }}">{{ else }}<meta name="twitter:image" content="{{ partial "jsdelivr-url.html" .Site.Data.general_settings.social_media_twitter_image | absURL }}">{{ end }}{{ end }}
-  <meta name="twitter:image:alt" content="{{ if .IsHome }}{{ .Site.Data.general_settings.title }} - {{ .Site.Data.general_settings.description }}{{ else }}{{ .Title }}{{ end }}">
+  <meta name="twitter:title" content="{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ hugo.Data.general_settings.title }}">
+  <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary }}{{ else }}{{ with hugo.Data.general_settings.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
+  {{ if .IsHome}}<meta name="twitter:image" content="{{ partial "jsdelivr-url.html" hugo.Data.general_settings.social_media_twitter_image | absURL }}">{{ else }}{{ if .Params.Image }}<meta name="twitter:image" content="{{ partial "jsdelivr-url.html" .Params.Image | absURL }}">{{ else }}<meta name="twitter:image" content="{{ partial "jsdelivr-url.html" hugo.Data.general_settings.social_media_twitter_image | absURL }}">{{ end }}{{ end }}
+  <meta name="twitter:image:alt" content="{{ if .IsHome }}{{ hugo.Data.general_settings.title }} - {{ hugo.Data.general_settings.description }}{{ else }}{{ .Title }}{{ end }}">
 
   <!-- Facebook OpenGraph -->
   <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
   <meta property="og:url" content="{{ .Permalink }}">
-  <meta property="og:site_name" content="{{ .Site.Data.general_settings.title }}">
-  <meta property="og:title" content="{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Data.general_settings.title }}">
-  <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Data.general_settings.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
-  {{ if .IsHome}}<meta property="og:image" content="{{ partial "jsdelivr-url.html" .Site.Data.general_settings.social_media_share_image | absURL }}">{{ else }}{{ if .Params.Image }}<meta property="og:image" content="{{ partial "jsdelivr-url.html" .Params.Image | absURL }}">{{ else }}<meta property="og:image" content="{{ partial "jsdelivr-url.html" .Site.Data.general_settings.social_media_share_image | absURL }}">{{ end }}{{ end }}
-  <meta property="og:image:alt" content="{{ if .IsHome }}{{ .Site.Data.general_settings.title }} - {{ .Site.Data.general_settings.description }}{{ else }}{{ .Title }}{{ end }}">
+  <meta property="og:site_name" content="{{ hugo.Data.general_settings.title }}">
+  <meta property="og:title" content="{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ hugo.Data.general_settings.title }}">
+  <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with hugo.Data.general_settings.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
+  {{ if .IsHome}}<meta property="og:image" content="{{ partial "jsdelivr-url.html" hugo.Data.general_settings.social_media_share_image | absURL }}">{{ else }}{{ if .Params.Image }}<meta property="og:image" content="{{ partial "jsdelivr-url.html" .Params.Image | absURL }}">{{ else }}<meta property="og:image" content="{{ partial "jsdelivr-url.html" hugo.Data.general_settings.social_media_share_image | absURL }}">{{ end }}{{ end }}
+  <meta property="og:image:alt" content="{{ if .IsHome }}{{ hugo.Data.general_settings.title }} - {{ hugo.Data.general_settings.description }}{{ else }}{{ .Title }}{{ end }}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
@@ -70,14 +70,8 @@
   <!-- The bookshop_scss partial returns a slice of all SCSS resources from your Bookshop -->
   {{ $bookshop_scss_files := partial "bookshop_scss" . }}
   <!-- resources.Concat converts all of the above SCSS resources into one logical CSS file -->
-  {{ $scss := $bookshop_scss_files | resources.Concat "css/bookshop.css" | resources.ToCSS | resources.Minify |
+  {{ $scss := $bookshop_scss_files | resources.Concat "css/bookshop.css" | css.Sass | resources.Minify |
   resources.Fingerprint }}
   <link rel="stylesheet" href="{{ partial "jsdelivr-url.html" $scss.RelPermalink }}">
   
-  <!-- Umami Analytics -->
-  {{ if eq hugo.Environment "production" }}
-  {{ with .Site.Params.umamiWebsiteID }}
-  <script defer src="https://cloud.umami.is/script.js" data-website-id="{{ . }}"></script>
-  {{ end }}
-  {{ end }}
 </head>

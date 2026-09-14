@@ -1,7 +1,7 @@
-{{ if .Site.Data.social_links.social }}
+{{ if hugo.Data.social_links.social }}
   <div class="social">
     <ul class="social__list list-reset">
-      {{ range .Site.Data.social_links.social }}
+      {{ range hugo.Data.social_links.social }}
       <li class="social__item{{ if eq .icon "mail" }} social__item--mail{{ end }}">
         {{ if eq .icon "mail" }}
           <a class="social__link social__link--mail" href="{{ .link }}" data-email="contact@brinsleymorrison.com" target="_blank" rel="noopener"

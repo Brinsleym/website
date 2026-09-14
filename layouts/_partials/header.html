@@ -5,11 +5,11 @@
       <div class="c-header__inner">
 
         <div class="logo">
-          <a class="logo__link" href="{{ .Site.BaseURL }}">
-          {{ if .Site.Data.general_settings.logo_image }}
-            <img class="logo__image" src="{{ partial "jsdelivr-url.html" .Site.Data.general_settings.logo_image }}" alt="{{ .Site.Data.general_settings.title }}">
+          <a class="logo__link" href="{{ "/" | relLangURL }}">
+          {{ if hugo.Data.general_settings.logo_image }}
+            <img class="logo__image" src="{{ partial "jsdelivr-url.html" hugo.Data.general_settings.logo_image }}" alt="{{ hugo.Data.general_settings.title }}">
           {{ else }}
-            {{ .Site.Data.general_settings.title }}
+            {{ hugo.Data.general_settings.title }}
           {{ end }}
           </a>
         </div>
@@ -25,8 +25,8 @@
 
             <ul class="nav__list list-reset">
               {{ $currentPage := . }}
-              {{ $navData := index .Site.Data .Site.Language.Lang }}
-              {{ $menuItems := .Site.Data.navigation.menu__settings.menu__items }}
+              {{ $navData := index hugo.Data .Site.Language.Lang }}
+              {{ $menuItems := hugo.Data.navigation.menu__settings.menu__items }}
               {{ if $navData }}
                 {{ $menuItems = $navData.navigation.menu__settings.menu__items }}
               {{ end }}

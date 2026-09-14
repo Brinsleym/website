@@ -1,0 +1,13 @@
+{{ if hugo.IsMultilingual }}
+            <div class="language-switcher-title">{{ i18n "change_language" }}:</div> <div class="dropdown">
+                <button class="dropbtn">{{ .Site.Language.Label }}
+                </button>
+                <div class="dropdown-content">
+                    {{ range $.Translations }}
+                    <a title="{{ .Language.Label }}" href="{{ .Permalink }}">{{
+                        .Language.Label }}</a>
+                    {{ end }}
+                </div>
+            </div>
+     {{ end }}
+     

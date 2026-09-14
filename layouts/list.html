@@ -9,7 +9,7 @@
     <div class="col col-12">
       <div class="contaniner__inner animate">
         <div class="row">
-          {{ range .Data.Pages }}
+          {{ range .Pages }}
             {{ partial "bookshop" (slice "compositions-card" (dict "url" .RelPermalink "image" .Params.image "title" .Params.title "description" .Params.description "Summary" .Summary "date" .Date "tags" .Params.tags)) }}
           {{ end }}
         </div>

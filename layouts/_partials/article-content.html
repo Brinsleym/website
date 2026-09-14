@@ -29,13 +29,12 @@
 
       <div class="article__meta">
         <div class="article__author-image">
-          <img loading="lazy" src="{{ partial "jsdelivr-url.html" site.Data.author.author_image }}" alt="{{ site.Data.author.author_name }}">
+          <img loading="lazy" src="{{ partial "jsdelivr-url.html" hugo.Data.author.author_image }}" alt="{{ hugo.Data.author.author_name }}">
         </div>
         <div class="article-info">
           <div class="article__author-name">
             {{ i18n "t_author_name" }}
           </div>
-          {{ $format := or .Site.Language.Params.date_format "02 Jan 2006" }}
           <span class="article__date"><time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ partial "format-date.html" (dict "date" .Date "context" .) }}</time></span>
         </div>
       </div>

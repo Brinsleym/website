@@ -10,7 +10,7 @@
             </div>
           </div>
           <div class="row">
-            {{ range first 3 ( where ( where .Site.Pages.ByDate.Reverse ".Params.tags" "intersect" .Params.tags ) "Permalink" "!=" .Permalink ) }}
+            {{ range first 3 (site.RegularPages.Related .) }}
               {{ partial "article-content.html" . }}
             {{ end }}
           </div>

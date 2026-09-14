@@ -1,0 +1,5 @@
+{{- $src := .Destination -}}
+{{- if hasPrefix $src "/" -}}
+  {{- $src = partial "jsdelivr-url.html" $src -}}
+{{- end -}}
+<img src="{{ $src }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . }}"{{ end }} loading="lazy" />

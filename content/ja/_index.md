@@ -30,7 +30,6 @@ content_blocks:
     show_testimonials: true
   - _bookshop_name: contact-email
     contact_title: お問い合わせ
-    contact_description_key: contact_contact_description
     contact_submission_email: contact@brinsleymorrison.com
     contact_button_text: 今すぐ送信
 ---

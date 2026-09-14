@@ -14,7 +14,7 @@
 
       <div class="{{$c}}__tags-box">
         {{ range .tags }}
-          <a href="/tags/{{ . }}" class="{{$c}}__tag">{{ . }}</a>
+          <a href="{{ printf "/tags/%s/" (. | urlize) | relLangURL }}" class="{{$c}}__tag">{{ . }}</a>
         {{ end }}
       </div>
 
@@ -32,7 +32,7 @@
 
       <div class="{{$c}}__meta">
         <div class="{{$c}}__author-image">
-          <img loading="lazy" src="{{ partial "jsdelivr-url.html" site.Data.author.author_image }}" alt="{{ site.Data.author.author_name }}">
+          <img loading="lazy" src="{{ partial "jsdelivr-url.html" hugo.Data.author.author_image }}" alt="{{ hugo.Data.author.author_name }}">
         </div>
         <div class="{{$c}}__info">
           <div class="{{$c}}__author-name">
