@@ -36,6 +36,7 @@ content_blocks:
         <h2>3. Cookies and Tracking Technologies</h2>
         <p>We do not use analytics or tracking technologies on this website.</p>
         <p>The only cookies that may be set are essential cookies needed to support basic functionality, such as session management during form submissions. These cookies are strictly necessary and do not collect any personal data.</p>
+        <p>We also set a single <code>lang</code> cookie to remember your preferred language (English, Japanese or Chinese), so that the site does not redirect you away from the language you have chosen. It stores only a language code, contains no personal data, is not used for tracking, and expires after one year. You can delete it at any time in your browser settings.</p>
 
         <h2>4. Data Storage and Security</h2>
         <p>Our website is hosted on a <strong>VPS server</strong> run by <strong>IONOS</strong>, a third-party hosting provider. While your personal data (submitted via the contact form) is processed by Formspree, we do not store any user data on our servers except for the contact form submissions. Formspree has its own privacy and data protection policies which you can review by visiting their website.</p>
