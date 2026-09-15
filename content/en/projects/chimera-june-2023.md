@@ -1,6 +1,7 @@
 ---
 date: 2023-06-09
 title: The Chimera Ensemble
+tags: [chamber orchestra, orchestral]
 subtitle: June 2023
 image: '/static/images/chimera-june-2023.webp'
 description: "The premiere performance of Brinsley's The Untouched Landscape."

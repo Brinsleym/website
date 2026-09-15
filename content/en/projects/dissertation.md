@@ -1,24 +1,25 @@
 ---
 date: 2025-05-22
 title: "Final Year Dissertation Project"
+tags: [film score, soundtrack]
 subtitle: "From Oct 2024 to May 2025"
 image: '/static/images/suzume-project-1.webp'
 description: "A detailed look into the project of re-scoring music from various anime."
 ---
-# Introduction
+## Introduction
 
 For my final year at the University of York, I took the module 'Extended Composition Folio'. This involved planning, writing, and executing a portfolio of compositions alongside a commentary. It was a perfect opportunity to focus on scoring music to picture and to receive weekly one-to-one tutorials.
 
 The project consists of two works: [Re-scoring a 25-minute episode of the televised series, 'Sousou no Frieren'](/compositions/re-scoring-sousou-no-frieren/), and [re-scoring a 5-minute scene from 'Suzume no Tojimari'](/compositions/re-scoring-scenes-from-suzume-no-tojimari/).  
 *(Click to the links above to see more information.)*
 
-## View the commentary
+### View the commentary
 
 {{< pdf-embed pdf="/doc/diss-paper.pdf" >}}
 
 <br>
 
-# University awarded feedback {#feedback}
+## University awarded feedback {#feedback}
 
 
 > Grade Awarded:  **90**

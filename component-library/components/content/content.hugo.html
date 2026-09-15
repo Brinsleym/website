@@ -1,5 +1,8 @@
 <div class="container">
   <div class="page animate">
-    {{ .content_html | safeHTML }}
+    {{- /* Raw HTML can't call partials, so route src="/static/..." through jsdelivr-url:
+           jsDelivr in production, local files in development. */}}
+    {{- $staticBase := partial "jsdelivr-url.html" "/static/" }}
+    {{ replace .content_html `src="/static/` (printf `src="%s` $staticBase) | safeHTML }}
   </div>
 </div>

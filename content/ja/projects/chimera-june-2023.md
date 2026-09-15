@@ -1,6 +1,7 @@
 ---
 date: 2023-06-09
 title: キメラアンサンブル
+tags: [室内オーケストラ, オーケストラ]
 subtitle: 2023年6月
 image: '/static/images/chimera-june-2023.webp'
 description: "森沢淋の作品『未踏の風景』の初演"

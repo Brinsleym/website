@@ -1,5 +1,6 @@
 ---
 title: 個人情報保護方針
+description: "brinsleymorrison.com における個人情報の収集・利用・保護の方法と、GDPR に基づくお客様の権利について説明します。"
 content_blocks:
   - _bookshop_name: page-heading
     title: 個人情報保護方針

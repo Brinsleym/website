@@ -3,7 +3,7 @@ title: 作品
 url: /zh/compositions/
 seo:
   page_description: 林泽创作的部分作品列表，按时间顺序排列，从最新到最早。
-  canonical_url: https://brinsleymorrison.com/compositions/
+  canonical_url: https://brinsleymorrison.com/zh/compositions/
   featured_image: 
   author_twitter_handle: 
   open_graph_type:

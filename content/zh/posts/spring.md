@@ -1,5 +1,6 @@
 ---
 title:  春天
+description: "林泽创作的钢琴独奏作品《春天》，2020年12月由William Chang在斯托勒大厅首演。"
 date:   2020-12-02
 image:  '/static/images/spring-1.webp'
 tags:   [钢琴, 独奏]

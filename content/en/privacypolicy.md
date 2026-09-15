@@ -1,5 +1,6 @@
 ---
 title: Privacy Policy
+description: "How brinsleymorrison.com collects, uses and protects personal data, including contact form submissions, and your rights under the GDPR."
 content_blocks:
   - _bookshop_name: page-heading
     title: Privacy Policy

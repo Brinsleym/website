@@ -17,13 +17,13 @@ I chose scenes from Suzume no Tojimari because of the strong sense of awe I felt
 
 My goal was never to surpass the original composers' work, but rather to engage with it as a learning opportunity. Scoring music for fast-paced visuals was something I hadn't previously practiced much, and so this was both invaluable, and a fun endeavor. When scoring my own soundtrack, I sought to loosely emulate the origina composers' approach while crafting an original composition that served the same fundamental purpose: to further immerse the audience in the stunning visuals, storyline and voice acting through a closely linked soundtrack.
 
-# Technical Process
+## Technical Process
 As with the other material from [this project](/blog/final-year-dissertation-project/), I made use of AI audio seperation tools to isolate the dialogue and sound effects, using the model [Bandit V2](https://github.com/kwatcharasupat/bandit-v2), which is trained on the [Divide and Remaster V3 dataset](https://github.com/kwatcharasupat/divide-and-remaster-v3), a dataset specifically using clips of film, and was multilingual. This model proved significantly better results for my use case, and was able to produce much higher resolution results with significantly less artifacting.  
 
-## Listen to the soundtrack:
+### Listen to the soundtrack:
 {{< soundcloud-playlist playlist="2057796114" background="/static/images/suzume_cover_1.webp" >}}
 
-## View the project files:
+### View the project files:
 To respect copyright, I am not distributing the original audio or video. If you wish to experience Jinnouchi and Hoffmann’s stunning original score (which I highly recommend), please support the official release.
 
 Below you’ll find a link to my music-only project files (no dialogue or video included):

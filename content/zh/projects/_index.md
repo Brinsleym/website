@@ -2,7 +2,7 @@
 title: 博客
 url: /zh/blog/
 seo:
-  page_description: 
+  page_description: "林泽参与的音乐会、录音与项目，包括与The 24合唱团和Chimera Ensemble的演出，以及约克大学毕业设计。"
   canonical_url: 
   featured_image: 
   author_twitter_handle: 

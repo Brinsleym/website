@@ -2,8 +2,8 @@
 title: 最近のパフォーマンス
 url: /ja/blog/
 seo:
-  page_description: 
-  canonical_url: /ja/blog/
+  page_description: "森沢淋が参加したコンサート、録音、プロジェクトの記録。The 24やキメラ・アンサンブルとの演奏、ヨーク大学での卒業制作など。"
+  canonical_url: https://brinsleymorrison.com/ja/blog/
   featured_image: 
   author_twitter_handle: 
   open_graph_type:

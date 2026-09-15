@@ -1,5 +1,6 @@
 ---
 title:  春
+description: "森沢淋作曲のピアノ独奏曲『春』。2020年12月、ストーラーホールにてウィリアム・チャンが初演しました。"
 date:   2020-12-02
 image:  '/static/images/spring-1.webp'
 tags:   [ピアノ, ソロ]

@@ -2,7 +2,7 @@
 title: Recent Performances
 url: /blog/
 seo:
-  page_description: 
+  page_description: "Concerts, recordings and projects Brinsley Morrison has been part of, from The 24 and The Chimera Ensemble to his University of York dissertation."
   canonical_url: 
   featured_image: 
   author_twitter_handle: 

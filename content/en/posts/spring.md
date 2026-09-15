@@ -1,5 +1,6 @@
 ---
 title:  Spring
+description: "Spring, a solo piano work by Brinsley Morrison, premiered by William Chang at The Stoller Hall in December 2020."
 date:   2020-12-02
 image:  '/static/images/spring-1.webp'
 tags:   [Piano, Solo]

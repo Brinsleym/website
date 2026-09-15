@@ -1,5 +1,6 @@
 ---
 title: 隐私政策
+description: "说明 brinsleymorrison.com 如何收集、使用和保护个人数据（包括联系表单提交），以及您在 GDPR 下的权利。"
 content_blocks:
   - _bookshop_name: page-heading
     title: 隐私政策
