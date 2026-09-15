@@ -5,6 +5,24 @@ _enabled_editors = ["visual", "content"]
 
 defaultContentLanguage = "en"
 ignoreFiles = ['\.bck$']
+enableRobotsTXT = true
+
+# llms.txt (https://llmstxt.org) and a full-text companion, built for each language
+[outputFormats]
+  [outputFormats.llms]
+    baseName = "llms"
+    mediaType = "text/plain"
+    isPlainText = true
+    notAlternative = true
+  [outputFormats.llmsfull]
+    baseName = "llms-full"
+    mediaType = "text/plain"
+    isPlainText = true
+    notAlternative = true
+
+[outputs]
+  home = ["html", "rss", "llms", "llmsfull"]
+
 [languages]
   [languages.en]
     label = "English"

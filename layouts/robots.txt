@@ -1,0 +1,9 @@
+# robots.txt for {{ site.BaseURL }}
+# Search engines and AI assistants are welcome to crawl this site.
+# A plain-text guide to the site for language models: {{ "llms.txt" | absURL }}
+
+User-agent: *
+Content-Signal: search=yes, ai-input=yes
+Allow: /
+
+Sitemap: {{ "sitemap.xml" | absURL }}

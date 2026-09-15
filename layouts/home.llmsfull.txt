@@ -1,0 +1,39 @@
+{{- /* llms-full.txt: the site's written content as plain Markdown, for language models.
+       Page bodies are the raw Markdown without shortcodes, scripts or inline HTML tags
+       (autolinks like <https://…> are kept). */ -}}
+{{- $pages := slice -}}
+{{- with site.GetPage "/about" }}{{ $pages = $pages | append . }}{{ end -}}
+{{- range where site.RegularPages "Section" "posts" }}{{ $pages = $pages | append . }}{{ end -}}
+{{- range where site.RegularPages "Section" "projects" }}{{ $pages = $pages | append . }}{{ end -}}
+# {{ site.Title }}
+
+> {{ T "site_description" }}
+
+Source: {{ .Permalink }}
+{{ range $pages }}
+---
+
+## {{ .Title }}
+
+URL: {{ .Permalink }}
+{{- if and .IsPage (not .Date.IsZero) (ne .Section "") (ne .Type "page") }}
+Date: {{ .Date.Format "2006-01-02" }}
+{{- end }}
+{{- with .Description }}
+Summary: {{ . }}
+{{- end }}
+{{- with .Params.tags }}
+Tags: {{ delimit . ", " }}
+{{- end }}
+
+{{ $text := .RawContent | replaceRE `(?s)\{\{[<%].*?[%>]\}\}` "" | replaceRE `(?is)<script.*?</script>` "" | replaceRE `</?[a-zA-Z][a-zA-Z0-9]*(\s[^>]*)?/?>` "" -}}
+{{- if not (strings.TrimSpace $text) -}}
+  {{- /* Bookshop pages: prefer the main content block; the heading blurb repeats its opening */ -}}
+  {{- $blocks := .Params.content_blocks -}}
+  {{- range $blocks }}{{ with .content_html }}{{ $text = printf "%s\n\n%s" $text (. | plainify) }}{{ end }}{{ end -}}
+  {{- if not (strings.TrimSpace $text) -}}
+    {{- range $blocks }}{{ with .about_description_html }}{{ $text = printf "%s\n\n%s" $text (. | plainify) }}{{ end }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+{{ $text | htmlUnescape | replaceRE `[ \t]+\n` "\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace }}
+{{ end -}}

@@ -1,0 +1,39 @@
+{{- /* llms.txt (https://llmstxt.org): a Markdown guide to the site for language models. */ -}}
+{{- $about := site.GetPage "/about" -}}
+{{- $compositions := site.GetPage "/posts" -}}
+{{- $projects := site.GetPage "/projects" -}}
+{{- $profileNames := dict "logo-youtube" "YouTube" "logo-soundcloud" "SoundCloud" "logo-github" "GitHub" "logo-linkedin" "LinkedIn" -}}
+# {{ site.Title }}
+
+> {{ T "site_description" }}
+{{ with $about }}{{ with .Description }}
+{{ . }}
+{{ end }}{{ end }}
+{{- with .Translations }}
+Other languages: {{ range $i, $t := . }}{{ if $i }}, {{ end }}[{{ .Language.Label }}]({{ .Permalink }}llms.txt){{ end }}
+{{ end }}
+## {{ with $about }}{{ .Title }}{{ else }}About{{ end }}
+{{ with $about }}
+- [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
+{{- end }}
+- Email: contact@brinsleymorrison.com
+{{- range hugo.Data.social_links.social }}{{ if ne .icon "mail" }}
+- [{{ index $profileNames .icon | default .icon }}]({{ .link }})
+{{- end }}{{ end }}
+
+## {{ with $compositions }}{{ .Title }}{{ else }}Compositions{{ end }}
+{{ range where site.RegularPages "Section" "posts" }}
+- [{{ .Title }}]({{ .Permalink }}): {{ with .Description }}{{ . }} {{ end }}({{ .Date.Format "2006" }}{{ with .Params.tags }}; {{ delimit . ", " }}{{ end }})
+{{- end }}
+
+## {{ with $projects }}{{ .Title }}{{ else }}Performances and projects{{ end }}
+{{ range where site.RegularPages "Section" "projects" }}
+- [{{ .Title }}]({{ .Permalink }}): {{ with .Description }}{{ . }} {{ end }}({{ .Date.Format "2006-01-02" }})
+{{- end }}
+
+## Optional
+
+- [Full text of the About page, compositions and blog posts]({{ "llms-full.txt" | absLangURL }})
+{{- with site.GetPage "/privacypolicy" }}
+- [{{ .Title }}]({{ .Permalink }})
+{{- end }}
