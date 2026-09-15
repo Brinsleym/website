@@ -5,10 +5,11 @@
 {{- $alt := .Get "alt" -}}
 {{- $class := .Get "class" -}}
 {{- $title := .Get "title" -}}
+{{- $size := partial "image-size.html" $src -}}
 
 <figure{{ with $class }} class="{{ . }}"{{ end }}>
   {{ if $link }}<a href="{{ $link }}"{{ with $target }} target="{{ . }}"{{ end }}>{{ end }}
-  <img src="{{ partial "jsdelivr-url.html" $src }}"{{ with $alt }} alt="{{ . }}"{{ end }}{{ with $width }} width="{{ . }}"{{ end }}{{ with $title }} title="{{ . }}"{{ end }}>
+  <img src="{{ partial "jsdelivr-url.html" $src }}" alt="{{ $alt | default .Page.Title }}"{{ with $width }} width="{{ . }}"{{ else }}{{ with $size }} width="{{ .width }}" height="{{ .height }}"{{ end }}{{ end }}{{ with $title }} title="{{ . }}"{{ end }} loading="lazy" decoding="async">
   {{ if $link }}</a>{{ end }}
   {{ if .Inner }}<figcaption>{{ .Inner | markdownify }}</figcaption>{{ end }}
 </figure>

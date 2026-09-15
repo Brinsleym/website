@@ -19,7 +19,8 @@
 
           <div class="{{$c}}__right">
             <div class="{{$c}}__image">
-              <img src="{{ partial "jsdelivr-url.html" .image }}" alt="{{ .image_alt }}">
+              {{ $size := partial "image-size.html" .image }}
+              <img src="{{ partial "jsdelivr-url.html" .image }}" alt="{{ .image_alt }}"{{ with $size }} width="{{ .width }}" height="{{ .height }}"{{ end }} fetchpriority="high" decoding="async">
             </div>
           </div>
 

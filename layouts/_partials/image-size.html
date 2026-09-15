@@ -1,0 +1,11 @@
+{{- /* Given a "/static/..." image path, returns (dict "width" "height") read from the file, or an empty dict. */ -}}
+{{- $result := dict -}}
+{{- if and (eq (printf "%T" .) "string") (strings.HasPrefix . "/static/") -}}
+  {{- $file := strings.TrimPrefix "/" . -}}
+  {{- if and (fileExists $file) (not (strings.HasSuffix $file ".svg")) -}}
+    {{- with images.Config $file -}}
+      {{- $result = dict "width" .Width "height" .Height -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $result -}}

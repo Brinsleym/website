@@ -5,7 +5,8 @@
     {{ if .image }}
     <div class="{{$c}}__image-wrap">
       <a class="{{$c}}__image" href="{{ .url }}">
-        <img loading="lazy" src="{{ partial "jsdelivr-url.html" .image }}" alt="{{ .title }}">
+        {{ $size := partial "image-size.html" .image }}
+        <img loading="lazy" decoding="async" src="{{ partial "jsdelivr-url.html" .image }}" alt="{{ .title }}"{{ with $size }} width="{{ .width }}" height="{{ .height }}"{{ end }}>
       </a>
     </div>
     {{ end }}
@@ -32,7 +33,8 @@
 
       <div class="{{$c}}__meta">
         <div class="{{$c}}__author-image">
-          <img loading="lazy" src="{{ partial "jsdelivr-url.html" hugo.Data.author.author_image }}" alt="{{ hugo.Data.author.author_name }}">
+          {{ $avatarSize := partial "image-size.html" hugo.Data.author.author_image }}
+          <img loading="lazy" decoding="async" src="{{ partial "jsdelivr-url.html" hugo.Data.author.author_image }}" alt=""{{ with $avatarSize }} width="{{ .width }}" height="{{ .height }}"{{ end }}>
         </div>
         <div class="{{$c}}__info">
           <div class="{{$c}}__author-name">

@@ -7,7 +7,10 @@
         <div class="logo">
           <a class="logo__link" href="{{ "/" | relLangURL }}">
           {{ if hugo.Data.general_settings.logo_image }}
-            <img class="logo__image" src="{{ partial "jsdelivr-url.html" hugo.Data.general_settings.logo_image }}" alt="{{ hugo.Data.general_settings.title }}">
+            {{- /* Size attributes match the rendered size (.logo__image is max-height: 17px); the
+                   source file's 4290px width would otherwise stretch the logo horizontally. */}}
+            {{ $logoSize := partial "image-size.html" hugo.Data.general_settings.logo_image }}
+            <img class="logo__image" src="{{ partial "jsdelivr-url.html" hugo.Data.general_settings.logo_image }}" alt="{{ site.Title }}"{{ with $logoSize }} width="{{ math.Round (div (mul 17.0 .width) .height) }}" height="17"{{ end }}>
           {{ else }}
             {{ hugo.Data.general_settings.title }}
           {{ end }}

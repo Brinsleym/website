@@ -10,4 +10,4 @@
 {{ else }}
   {{ $playlistUrl = printf "https://api.soundcloud.com/playlists/%s" $playlist }}
 {{ end }}
-{{ partial "soundcloud-playlist.html" (dict "url" $playlistUrl "background" $processedBackground) }}
+{{ partial "soundcloud-playlist.html" (dict "url" $playlistUrl "background" $processedBackground "backgroundSize" (partial "image-size.html" $background)) }}

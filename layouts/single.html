@@ -6,10 +6,11 @@
   <div class="container">
     <div class="row">
 
-      {{ if .Params.image }}
+      {{ with .Params.image }}
+      {{ $size := partial "image-size.html" . }}
       <div class="col col-6 col-d-12">
         <div class="post-image">
-          <img loading="lazy" src="{{ partial "jsdelivr-url.html" .Params.Image | absURL }}" alt="{{ .Title }}">
+          <img src="{{ partial "jsdelivr-url.html" . | absURL }}" alt="{{ $.Title }}"{{ with $size }} width="{{ .width }}" height="{{ .height }}"{{ end }} loading="eager" fetchpriority="high" decoding="async">
         </div>
       </div>
       {{ end }}
@@ -28,7 +29,8 @@
 
           <div class="post__meta">
             <div class="post__author-image">
-              <img loading="lazy" src="{{ partial "jsdelivr-url.html" hugo.Data.author.author_image }}" alt="{{ hugo.Data.author.author_name }}">
+              {{ $avatarSize := partial "image-size.html" hugo.Data.author.author_image }}
+              <img loading="lazy" decoding="async" src="{{ partial "jsdelivr-url.html" hugo.Data.author.author_image }}" alt=""{{ with $avatarSize }} width="{{ .width }}" height="{{ .height }}"{{ end }}>
             </div>
 
             <div class="post__meta-bottom">

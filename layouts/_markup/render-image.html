@@ -1,5 +1,7 @@
 {{- $src := .Destination -}}
+{{- $size := dict -}}
 {{- if hasPrefix $src "/" -}}
+  {{- $size = partial "image-size.html" $src -}}
   {{- $src = partial "jsdelivr-url.html" $src -}}
 {{- end -}}
-<img src="{{ $src }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . }}"{{ end }} loading="lazy" />
+<img src="{{ $src }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ with $size }} width="{{ .width }}" height="{{ .height }}"{{ end }} loading="lazy" decoding="async" />
