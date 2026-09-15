@@ -8,3 +8,4 @@ _gen
 .DS_Store
 .vscode
 .markdownlint.json
+.claude
