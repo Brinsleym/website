@@ -1,71 +1,134 @@
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Warm up the third-party origins in the critical path -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link rel="icon" type="image/x-icon" href="{{ partial "jsdelivr-url.html" "/static/favicon.ico" }}">
-  <title>{{ if not .IsHome }}{{ humanize .Title }} | {{ end }}{{ hugo.Data.general_settings.title }}</title>
-  <meta name="description" content="{{if .IsHome}}{{ hugo.Data.general_settings.description }}{{else}}{{ .Description }}{{end}}">
+
+  {{- $seo := .Params.seo | default dict }}
+
+  {{- /* Title: language-aware site title, descriptor on the homepage */}}
+  {{- $title := printf "%s | %s" .Title site.Title }}
+  {{- if .IsHome }}
+    {{- $title = printf "%s — %s" site.Title (T "site_tagline") }}
+  {{- else if eq .Kind "404" }}
+    {{- $title = printf "%s | %s" (T "not_found_title") site.Title }}
+  {{- end }}
+  <title>{{ $title }}</title>
+
+  {{- /* Description: seo block → front matter → summary → language-aware site description */}}
+  {{- $desc := "" }}
+  {{- with $seo.page_description }}
+    {{- $desc = . }}
+  {{- else with .Description }}
+    {{- $desc = . }}
+  {{- else }}
+    {{- if and .IsPage .Summary }}
+      {{- $desc = .Summary | plainify | htmlUnescape | strings.TrimSpace | truncate 155 }}
+    {{- end }}
+  {{- end }}
+  {{- if not $desc }}{{ $desc = T "site_description" }}{{ end }}
+  <meta name="description" content="{{ $desc }}">
+
+  {{- if or $seo.no_index (eq .Type "components") (eq .Kind "404") }}
+  <meta name="robots" content="noindex">
+  {{- end }}
+
+  {{- if ne .Kind "404" }}
+  {{- $canonical := .Permalink }}
+  {{- with $seo.canonical_url }}{{ $canonical = . | absURL }}{{ end }}
+  <link rel="canonical" href="{{ $canonical }}">
+
+  {{- if .IsTranslated }}
+  {{- $defaultLang := (index hugo.Sites 0).Language.Lang }}
+  {{- range .AllTranslations }}
+  <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+  {{- if eq .Language.Lang $defaultLang }}
+  <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+  {{- end }}
+  {{- end }}
+  {{- end }}
+  {{- end }}
+
+  {{- /* Social images */}}
+  {{- $shareImage := hugo.Data.general_settings.social_media_share_image }}
+  {{- $twitterImage := hugo.Data.general_settings.social_media_twitter_image }}
+  {{- if and (not .IsHome) .Params.image }}
+    {{- $shareImage = .Params.image }}
+    {{- $twitterImage = .Params.image }}
+  {{- end }}
+  {{- $locales := dict "en" "en_GB" "ja" "ja_JP" "zh" "zh_CN" }}
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@BrinsleyMorrison">
   <meta name="twitter:creator" content="@BrinsleyMorrison">
-  <meta name="twitter:title" content="{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ hugo.Data.general_settings.title }}">
-  <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary }}{{ else }}{{ with hugo.Data.general_settings.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
-  {{ if .IsHome}}<meta name="twitter:image" content="{{ partial "jsdelivr-url.html" hugo.Data.general_settings.social_media_twitter_image | absURL }}">{{ else }}{{ if .Params.Image }}<meta name="twitter:image" content="{{ partial "jsdelivr-url.html" .Params.Image | absURL }}">{{ else }}<meta name="twitter:image" content="{{ partial "jsdelivr-url.html" hugo.Data.general_settings.social_media_twitter_image | absURL }}">{{ end }}{{ end }}
-  <meta name="twitter:image:alt" content="{{ if .IsHome }}{{ hugo.Data.general_settings.title }} - {{ hugo.Data.general_settings.description }}{{ else }}{{ .Title }}{{ end }}">
+  <meta name="twitter:title" content="{{ $title }}">
+  <meta name="twitter:description" content="{{ $desc }}">
+  <meta name="twitter:image" content="{{ partial "jsdelivr-url.html" $twitterImage | absURL }}">
+  <meta name="twitter:image:alt" content="{{ $title }}">
 
-  <!-- Facebook OpenGraph -->
-  <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+  <!-- Open Graph -->
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
   <meta property="og:url" content="{{ .Permalink }}">
-  <meta property="og:site_name" content="{{ hugo.Data.general_settings.title }}">
-  <meta property="og:title" content="{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ hugo.Data.general_settings.title }}">
-  <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with hugo.Data.general_settings.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
-  {{ if .IsHome}}<meta property="og:image" content="{{ partial "jsdelivr-url.html" hugo.Data.general_settings.social_media_share_image | absURL }}">{{ else }}{{ if .Params.Image }}<meta property="og:image" content="{{ partial "jsdelivr-url.html" .Params.Image | absURL }}">{{ else }}<meta property="og:image" content="{{ partial "jsdelivr-url.html" hugo.Data.general_settings.social_media_share_image | absURL }}">{{ end }}{{ end }}
-  <meta property="og:image:alt" content="{{ if .IsHome }}{{ hugo.Data.general_settings.title }} - {{ hugo.Data.general_settings.description }}{{ else }}{{ .Title }}{{ end }}">
+  <meta property="og:site_name" content="{{ site.Title }}">
+  <meta property="og:title" content="{{ $title }}">
+  <meta property="og:description" content="{{ $desc }}">
+  <meta property="og:locale" content="{{ index $locales .Language.Lang }}">
+  {{- range .Translations }}
+  <meta property="og:locale:alternate" content="{{ index $locales .Language.Lang }}">
+  {{- end }}
+  <meta property="og:image" content="{{ partial "jsdelivr-url.html" $shareImage | absURL }}">
+  <meta property="og:image:alt" content="{{ $title }}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
-  <!-- Additional meta tags for better social sharing -->
+  {{- if .IsPage }}
   <meta property="article:author" content="Brinsley Morrison">
-  {{ if .IsPage }}
-  {{ if .Date }}<meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ end }}
-  {{ if .Lastmod }}<meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">{{ end }}
-  {{ end }}
+  {{- if not .Date.IsZero }}
+  <meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+  {{- end }}
+  {{- if not .Lastmod.IsZero }}
+  <meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
+  {{- end }}
+  {{- end }}
 
   <!-- Preload critical images -->
-  {{ if .IsHome }}
-    {{ with (index .Params.content_blocks 0) }}
-      {{ if eq ._bookshop_name "hero" }}
-        <link rel="preload" as="image" href="{{ partial "jsdelivr-url.html" .image }}">
-      {{ end }}
-    {{ end }}
-  {{ end }}
+  {{- if .IsHome }}
+    {{- with (index .Params.content_blocks 0) }}
+      {{- if eq ._bookshop_name "hero" }}
+  <link rel="preload" as="image" href="{{ partial "jsdelivr-url.html" .image }}" fetchpriority="high">
+      {{- end }}
+    {{- end }}
+  {{- end }}
 
-  <!-- Fonts: Try fonts.googleapis.com, fallback on error to fonts.font.im -->
+  <!-- Fonts: non-render-blocking Google Fonts (media swap); if it hasn't loaded or fails
+       within 3s (e.g. blocked networks), load the fonts.font.im mirror instead -->
+  <link rel="stylesheet" id="font-primary" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" media="print" onload="this.media='all';this.dataset.loaded='1'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"></noscript>
   <script>
-    (function() {
-      function loadFont(url) {
+    (function () {
+      var primary = document.getElementById('font-primary');
+      function fallback() {
+        if (primary.dataset.loaded || document.getElementById('font-fallback')) return;
         var link = document.createElement('link');
+        link.id = 'font-fallback';
         link.rel = 'stylesheet';
-        link.href = url;
+        link.href = 'https://fonts.font.im/css2?family=Inter:wght@400;500;600;700;900&display=swap';
         document.head.appendChild(link);
       }
-      
-      var primary = document.createElement('link');
-      primary.rel = 'stylesheet';
-      primary.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap';
-      
-      var timeout = setTimeout(() => loadFont('https://fonts.font.im/css2?family=Inter:wght@400;500;600;700;900&display=swap'), 3000);
-      primary.onload = primary.onerror = () => clearTimeout(timeout);
-      
-      document.head.appendChild(primary);
+      primary.addEventListener('error', fallback);
+      setTimeout(fallback, 3000);
     })();
   </script>
-  
-  <!-- Ionicons -->
+
+  <!-- Ionicons (module scripts are deferred by default) -->
   <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script nomodule defer src="https://cdn.jsdelivr.net/npm/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
   <!-- The bookshop_scss partial returns a slice of all SCSS resources from your Bookshop -->
   {{ $bookshop_scss_files := partial "bookshop_scss" . }}
@@ -73,5 +136,6 @@
   {{ $scss := $bookshop_scss_files | resources.Concat "css/bookshop.css" | css.Sass | resources.Minify |
   resources.Fingerprint }}
   <link rel="stylesheet" href="{{ partial "jsdelivr-url.html" $scss.RelPermalink }}">
-  
+
+  {{ partial "schema.html" (dict "page" . "description" $desc) }}
 </head>

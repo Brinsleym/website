@@ -8,6 +8,8 @@
 /css/*
   Cache-Control: public, max-age=31536000, immutable
 
-# Cache HTML for longer since updates are infrequent (30 days)
+# HTML: browsers revalidate, the edge caches for an hour
 /*
-  Cache-Control: public, max-age=2592000
+  Cache-Control: public, max-age=0, s-maxage=3600, stale-while-revalidate=86400
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin

@@ -1,21 +1,37 @@
-<head>
-    <meta charset="utf-8">
-    <title>Redirecting...</title>
-    <script>
-        const path = window.location.pathname;
-        if (path.startsWith('/ja/')) {
-            window.location.href = 'https://brinsleymorrison.com/ja/';
-        } 
-        else if (path.startsWith('/zh/')) {
-            window.location.href = 'https://brinsleymorrison.com/zh/';
-        }
-        else {
-            window.location.href = 'https://brinsleymorrison.com';
-        }
-    </script>
-    <!-- Fallback meta refresh if JavaScript is disabled -->
-    <meta http-equiv="refresh" content="0; url=https://brinsleymorrison.com" />
-</head>
-<body>
-    <p>If you are not redirected automatically, <a href="https://brinsleymorrison.com">click here</a>.</p>
-</body>
+{{ define "main" }}
+
+{{ partial "bookshop" (slice "page-heading" (dict "title" (T "not_found_title") "description" (T "not_found_text"))) }}
+
+<div class="container">
+  <div class="page animate">
+    <p>
+      <a class="c-button c-button--primary c-button--small" href="{{ site.Home.RelPermalink }}">{{ T "not_found_home" }}</a>
+    </p>
+  </div>
+</div>
+
+<section class="section compositions">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        <div class="contaniner__inner animate">
+          <div class="section__info">
+            <div class="section__head">
+              <h2 class="section__title">{{ T "not_found_recent" }}</h2>
+              {{ with site.GetPage "/posts" }}
+              <a class="section__link" href="{{ .RelPermalink }}">{{ T "view_all" "View all" }} <ion-icon name="arrow-forward"></ion-icon></a>
+              {{ end }}
+            </div>
+          </div>
+          <div class="row">
+            {{ range where site.RegularPages "Section" "posts" | first 3 }}
+              {{ partial "bookshop" (slice "compositions-card" (dict "url" .RelPermalink "image" .Params.image "title" .Params.title "description" .Params.description "Summary" .Summary "date" .Date "tags" .Params.tags)) }}
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

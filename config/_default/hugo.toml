@@ -4,6 +4,7 @@ title = "Brinsley Morrison"
 _enabled_editors = ["visual", "content"]
 
 defaultContentLanguage = "en"
+ignoreFiles = ['\.bck$']
 [languages]
   [languages.en]
     label = "English"

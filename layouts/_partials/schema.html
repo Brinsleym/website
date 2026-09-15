@@ -1,0 +1,91 @@
+{{- /*
+  JSON-LD structured data.
+  Every page: the Person entity (the anchor that ties the site to its profiles).
+  Homepage: WebSite. Compositions: MusicComposition. Blog: BlogPosting.
+  Non-home pages: BreadcrumbList.
+*/ -}}
+{{- $page := .page -}}
+{{- $root := "/" | absURL -}}
+{{- $personID := printf "%s#person" $root -}}
+
+{{- $sameAs := slice -}}
+{{- range hugo.Data.social_links.social -}}
+  {{- if ne .icon "mail" }}{{ $sameAs = $sameAs | append .link }}{{ end -}}
+{{- end -}}
+
+{{- $person := dict
+  "@type" "Person"
+  "@id" $personID
+  "name" "Brinsley Morrison"
+  "alternateName" (slice "森沢淋" "林泽")
+  "url" $root
+  "image" ("/images/001.webp" | absURL)
+  "jobTitle" "Composer"
+  "email" "mailto:contact@brinsleymorrison.com"
+  "alumniOf" (slice
+    (dict "@type" "CollegeOrUniversity" "name" "University of York")
+    (dict "@type" "EducationalOrganization" "name" "Chetham's School of Music")
+  )
+  "knowsAbout" (slice "Music composition" "Orchestration" "Film scoring" "Singing" "Violin" "Piano")
+  "sameAs" $sameAs
+-}}
+{{- $graph := slice $person -}}
+
+{{- if $page.IsHome -}}
+  {{- $graph = $graph | append (dict
+    "@type" "WebSite"
+    "@id" (printf "%s#website" $page.Permalink)
+    "url" $page.Permalink
+    "name" site.Title
+    "description" .description
+    "inLanguage" site.Language.Locale
+    "publisher" (dict "@id" $personID)
+  ) -}}
+{{- end -}}
+
+{{- if $page.IsPage -}}
+  {{- $image := "" -}}
+  {{- with $page.Params.image }}{{ $image = partial "jsdelivr-url.html" . | absURL }}{{ end -}}
+
+  {{- if eq $page.Section "posts" -}}
+    {{- $composition := dict
+      "@type" "MusicComposition"
+      "@id" (printf "%s#composition" $page.Permalink)
+      "name" $page.Title
+      "url" $page.Permalink
+      "composer" (dict "@id" $personID)
+      "datePublished" ($page.Date.Format "2006-01-02")
+      "description" .description
+    -}}
+    {{- with $page.Params.tags }}{{ $composition = merge $composition (dict "genre" .) }}{{ end -}}
+    {{- with $image }}{{ $composition = merge $composition (dict "image" .) }}{{ end -}}
+    {{- $graph = $graph | append $composition -}}
+  {{- else if eq $page.Section "projects" -}}
+    {{- $post := dict
+      "@type" "BlogPosting"
+      "@id" (printf "%s#article" $page.Permalink)
+      "headline" $page.Title
+      "url" $page.Permalink
+      "author" (dict "@id" $personID)
+      "datePublished" ($page.Date.Format "2006-01-02")
+      "dateModified" ($page.Lastmod.Format "2006-01-02")
+      "inLanguage" site.Language.Locale
+      "description" .description
+    -}}
+    {{- with $page.Params.tags }}{{ $post = merge $post (dict "keywords" .) }}{{ end -}}
+    {{- with $image }}{{ $post = merge $post (dict "image" .) }}{{ end -}}
+    {{- $graph = $graph | append $post -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if and (not $page.IsHome) (ne $page.Kind "404") -}}
+  {{- $crumbs := slice (dict "@type" "ListItem" "position" 1 "name" site.Title "item" site.Home.Permalink) -}}
+  {{- with $page.Parent -}}
+    {{- if not .IsHome -}}
+      {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" 2 "name" .Title "item" .Permalink) -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" (add (len $crumbs) 1) "name" $page.Title "item" $page.Permalink) -}}
+  {{- $graph = $graph | append (dict "@type" "BreadcrumbList" "itemListElement" $crumbs) -}}
+{{- end }}
+  <script type="application/ld+json">{{ dict "@context" "https://schema.org" "@graph" $graph | jsonify | safeJS }}</script>
