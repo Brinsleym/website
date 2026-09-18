@@ -1,0 +1,27 @@
+---
+date: 2024-06-08
+title: "モーツァルト《大ミサ曲 ハ短調》ヨーク・ミンスター"
+subtitle: 2024年6月8日（土）
+tags: [オーケストラ, 合唱]
+image: '/static/images/minster-jun-2024-1.webp'
+description: "ヨーク・ミンスターでのモーツァルト《ミサ曲 ハ短調》、ブルックナー《テ・デウム》、エルガー《エレジー》"
+---
+
+森沢は、ヨーク・ミンスターで行われた2023/24シーズンの最終公演に、ヨーク大学交響楽団の一員として出演しました。ヨーク・フェスティバル・オブ・アイディアズの一環として開かれたこの公演では、ヨーク大学合唱団とザ・24が加わり、ロバート・ホリングワースとジョン・ストリンガーが指揮しました。未完に終わったモーツァルトの《ミサ曲 ハ短調》に、生誕200年を迎えたブルックナーの《テ・デウム》と2つのモテット、そして弦楽のためのエルガー《エレジー》が並びました。[^1]
+
+## プログラム
+
+**W.A.モーツァルト** ミサ曲 ハ短調 K. 427  
+**アントン・ブルックナー** Locus iste ・ Christus factus est ・ Te Deum in C  
+**エドワード・エルガー** Elegy, Op. 58
+
+**指揮：** ロバート・ホリングワース、ジョン・ストリンガー  
+**独唱：** エルスペス・ピゴット、レベッカ・リー、ヘレナ・クック、ジェームズ・ベドー、パトリック・オズボーン ・ **ヴァイオリン独奏：** マイケル・カペッチ
+
+![ヨーク・ミンスターで演奏するヨーク大学合唱団と交響楽団](/static/images/minster-jun-2024-1.webp)
+*写真：YorkConcerts*
+
+スティーヴ・クロウザーはこの一夜を「前半と後半で趣の異なる試合のよう」と評し、モーツァルトでは大聖堂の残響に細部が埋もれたものの、ブルックナーの《テ・デウム》は厚みのある響きだったと記しています。[^2]
+
+[^1]: [YorkConcerts：ヨーク大学合唱団と交響楽団 2024（アーカイブ）](https://web.archive.org/web/20250513042454/https://yorkconcerts.co.uk/whats-on/2023-24/university-choir-and-symphony-orchestra-2024/)
+[^2]: [批評：スティーヴ・クロウザー、charleshutchpress.co.uk](https://charleshutchpress.co.uk/review-steve-crowthers-verdict-on-university-of-york-choir-and-symphony-orchestra-the-24-york-minster-june-8/)
