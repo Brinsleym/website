@@ -20,9 +20,8 @@ description: "セントラル・ホールでのベネヴォリ《Missa Si Deus P
 **指揮：** ロバート・ホリングワース
 
 ![セントラル・ホールの舞台上のヨーク大学合唱団、ザ・24、ザ・シティ・ミュージック](/static/images/choir-the24-city-musick-mar-2023-1.webp)
-*写真：YorkConcerts*
 
-批評家のスティーヴ・クロウザーは、パレストリーナでのザ・24を「まさに絶好調」と評し、最後のアニュス・デイを豊麗だと記しました。[^2]
+批評家のスティーヴ・クロウザーはこれを「きわめて想像力に富んだプログラム」と呼び、ザ・24を「まさに絶好調の合唱団で、終始この上なく明晰なパート・シンギングを聴かせた。実に見事」と特筆しました。カトリーヌ・ピエロンによるフレスコバルディのチェンバー・オルガンは「息をのむよう」、結びのアニュス・デイは「豊麗で、じつに喜ばしい」と記されています。[^2]
 
 [^1]: [YorkConcerts：ヨーク大学合唱団とザ・シティ・ミュージック（アーカイブ）](https://web.archive.org/web/20240526184518/https://yorkconcerts.co.uk/whats-on/2022-23/university-choir-the-city-musick/)
 [^2]: [批評：スティーヴ・クロウザー、charleshutchpress.co.uk](https://charleshutchpress.co.uk/review-steve-crowthers-verdict-on-university-of-york-choir-the-24-and-the-city-musick/)

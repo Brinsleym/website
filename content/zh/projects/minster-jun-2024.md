@@ -19,9 +19,8 @@ description: "约克大教堂的莫扎特《c小调弥撒》、布鲁克纳《�
 **独唱：** 埃尔斯佩思·皮戈特、丽贝卡·利、海伦娜·库克、詹姆斯·贝多、帕特里克·奥斯本 ・ **小提琴独奏：** 迈克尔·卡佩奇
 
 ![约克大学合唱团与交响乐团在约克大教堂演出](/static/images/minster-jun-2024-1.webp)
-*摄影：YorkConcerts*
 
-乐评人史蒂夫·克劳瑟形容这一晚"像一场上下半场风格迥异的比赛"：莫扎特的细节被大教堂的混响淹没，而布鲁克纳的《感恩赞》则饱满有力。[^2]
+乐评写道，这场演出“有许多值得称道之处”，从《荣耀经》中“精致而利落的弦乐”，到四位独唱带来的“极为出色的《降福经》”。谈到演唱布鲁克纳经文歌的The 24，乐评认为“再好也不过如此”，称赞其“清晰、均衡、细节，以及真正的音乐洞察力”；埃尔加的《挽歌》则被誉为“一件可爱的珍宝般的作品”。[^2]
 
 [^1]: [YorkConcerts：约克大学合唱团与交响乐团 2024（存档）](https://web.archive.org/web/20250513042454/https://yorkconcerts.co.uk/whats-on/2023-24/university-choir-and-symphony-orchestra-2024/)
 [^2]: [乐评：史蒂夫·克劳瑟，charleshutchpress.co.uk](https://charleshutchpress.co.uk/review-steve-crowthers-verdict-on-university-of-york-choir-and-symphony-orchestra-the-24-york-minster-june-8/)

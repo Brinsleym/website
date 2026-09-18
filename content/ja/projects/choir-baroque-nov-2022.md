@@ -19,9 +19,8 @@ description: "セントラル・ホールでのシャルパンティエ《真夜
 **指揮：** ロバート・ホリングワース、アレクサンダー・カイル
 
 ![舞台上のヨーク大学合唱団とバロック・アンサンブル、指揮者と客席](/static/images/choir-baroque-nov-2022-1.webp)
-*写真：YorkConcerts*
 
-マーティン・ドライヤーは、バロックのミサとハウエルズ、トマスの朗読を組み合わせた構成を「独創的な着想」と評し、バロック・アンサンブルの鋭いリズムと引き締まったアンサンブルを称賛しました。[^2]
+批評は、シャルパンティエとハウエルズ、ディラン・トマスを織り交ぜた構成を「独創的な着想」と呼びました。バロック・アンサンブルは「様式感をもって応え、鋭いリズムと引き締まったアンサンブルを聴かせた」とされ、クレドのテンポの変化は「巧みに処理された」、ボー・ホルテンの《First Snow》は「効果的な締めくくりとなった」と評されています。[^2]
 
 [^1]: [YorkConcerts：ヨーク大学合唱団とバロック・アンサンブル（アーカイブ）](https://web.archive.org/web/20221104210006/https://yorkconcerts.co.uk/whats-on/2022-23/university-choir-baroque-ensemble/)
 [^2]: [批評：マーティン・ドライヤー、charleshutchpress.co.uk](https://charleshutchpress.co.uk/review-martin-dreyers-verdict-on-university-of-york-choir-baroque-ensembles-christmas-concert/)

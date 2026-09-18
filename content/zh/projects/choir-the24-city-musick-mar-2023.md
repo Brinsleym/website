@@ -20,9 +20,8 @@ description: "中央大厅的贝内沃利《Missa Si Deus Pro Nobis》与十七�
 **指挥：** 罗伯特·霍林沃斯
 
 ![约克大学合唱团、The 24与The City Musick在中央大厅的舞台上](/static/images/choir-the24-city-musick-mar-2023-1.webp)
-*摄影：YorkConcerts*
 
-乐评人史蒂夫·克劳瑟认为，The 24在帕莱斯特里纳作品中"显然处于最佳状态"，并称结尾的羔羊颂华美动人。[^2]
+乐评人史蒂夫·克劳瑟称这是“一套极富想象力的曲目”，并特别提到The 24是“一支显然处于最佳状态的合唱团，各声部的演唱自始至终清澈见底。非常出色。”凯瑟琳·皮埃隆演奏的弗雷斯科巴尔迪室内管风琴“令人屏息”，结尾的羔羊颂则“华美，十分动人”。[^2]
 
 [^1]: [YorkConcerts：约克大学合唱团与The City Musick（存档）](https://web.archive.org/web/20240526184518/https://yorkconcerts.co.uk/whats-on/2022-23/university-choir-the-city-musick/)
 [^2]: [乐评：史蒂夫·克劳瑟，charleshutchpress.co.uk](https://charleshutchpress.co.uk/review-steve-crowthers-verdict-on-university-of-york-choir-the-24-and-the-city-musick/)

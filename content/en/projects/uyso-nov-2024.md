@@ -19,9 +19,8 @@ Brinsley performed with the University of York Symphony Orchestra in its autumn 
 **Conductor:** John Stringer · **Piano:** Alexa MacLaren
 
 ![The University of York Symphony Orchestra in front of the concert hall organ](/static/images/uyso-nov-2024-1.webp)
-*Photo: YorkConcerts*
 
-Steve Crowther's review singled out Bonis, a composer he felt the concert revealed to be of real stature.[^2]
+The review called this "a really attractive programme", and found that Mel Bonis's miniature "clearly revealed a composer of real stature and individuality". Alexa MacLaren's Mendelssohn was "simply exhilarating" from the introduction on, full of "sparkling passagework"; "the rapturous response from the capacity audience was genuinely touching".[^2]
 
 {{< youtube jTwhuRQggcQ >}}
 

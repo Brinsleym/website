@@ -18,9 +18,8 @@ Brinsley performed with the University of York Symphony Orchestra in its autumn 
 **Conductor:** John Stringer
 
 ![The University of York Symphony Orchestra under purple stage lighting](/static/images/uyso-nov-2023-1.webp)
-*Photo: YorkConcerts*
 
-Steve Crowther reviewed the concert for a packed auditorium, naming the Shostakovich soloists Persephone Alloway, Isaac McAreavey, Mari McGregor, Sam Banks, George Roberts and Vlad Turapov.[^2]
+The concert "was played to a packed auditorium", and the review gave "great credit to the University Symphony Orchestra and conductor John Stringer, who have deservedly generated such a trusted following". The climax of *En Saga* was "very effective", and the Shostakovich "a terrific performance".[^2]
 
 {{< youtube EuywkMTD-sc >}}
 

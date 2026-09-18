@@ -16,9 +16,8 @@ description: "ヨーク・ミンスターでのヨーク大学合唱団・交響
 **指揮：** ジョン・ストリンガー ・ **独唱：** ジョシュア・エリコット（ゲロンティアス）、キティ・ホエイトリー（天使）、アレクサンダー・アシュワース（司祭、苦悶の天使）
 
 ![ヨーク大学の公演が行われるヨーク・ミンスターの身廊](/static/images/minster-jun-2023-1.webp)
-*写真：YorkConcerts*
 
-批評家のスティーヴ・クロウザーは、雄大な管弦楽の前奏曲を称賛し、標題役のエリコットを「堂々たる」歌唱と評しました。[^2]
+批評は、冒頭の「よく練られた、雄大な管弦楽の前奏曲」に触れ、ゲロンティアス役のジョシュア・エリコットを「まさに堂々たるもの」と評しました。キティ・ホエイトリーの《Softly and gently》は「まさに天上のよう」、管弦楽と合唱は「終始素晴らしかった」とされ、ジョン・ストリンガーはこの大編成と大聖堂の音響を「卓越した音楽的手腕で」まとめたと記されています。[^2]
 
 [^1]: [YorkConcerts：ヨーク大学合唱団と交響楽団（アーカイブ）](https://web.archive.org/web/20230614171346/https://yorkconcerts.co.uk/whats-on/2022-23/university-choir-and-symphony-orchestra/)
 [^2]: [批評：スティーヴ・クロウザー、charleshutchpress.co.uk](https://charleshutchpress.co.uk/review-steve-crowthers-verdict-on-the-dream-of-gerontius-york-minster/)

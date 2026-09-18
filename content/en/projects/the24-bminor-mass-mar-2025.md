@@ -16,9 +16,8 @@ Brinsley took part in this performance of Bach's Mass in B minor in the Sir Jack
 **Conductor:** Robert Hollingworth · **With:** Manchester Baroque, soloists from I Fagiolini
 
 ![The 24 and Manchester Baroque performing in the Sir Jack Lyons Concert Hall](/static/images/the24-bminor-mass-mar-2025-1.webp)
-*Video still: YorkConcerts on YouTube*
 
-The concert sold out. Martin Dreyer noted that the choir sang the first half without scores, an "impressive feat of memory" that kept the choruses crisp.[^2]
+The concert was "deservedly a sell-out". The review found "a great deal to admire" and "plenty of sparkle", noting that the choir sang the first half from memory - "an impressive feat of memory that kept the choruses crisp".[^2]
 
 {{< youtube ny-HHlChY8Y >}}
 

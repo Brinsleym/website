@@ -19,9 +19,8 @@ Brinsley performed with the University of York Symphony Orchestra in its spring 
 **Conductor:** John Stringer · **Violin:** Anna Lezdkan
 
 ![Anna Lezdkan playing the Sibelius Violin Concerto with the University of York Symphony Orchestra](/static/images/uyso-mar-2025-1.webp)
-*Photo: YorkConcerts*
 
-Martin Dreyer wrote that Lezdkan was calm and full of panache in the cadenza, and found the finale exciting.[^2]
+Martin Dreyer wrote that Anna Lezdkan "exhibited extreme calm under duress" and despatched the cadenza "with considerable panache", and that the finale was "undeniably exciting". The Wagner "built impressively into a long crescendo", the violins finding "a sumptuously swelling blend" in the *Liebestod*.[^2]
 
 {{< youtube bY4mAbnFXbE >}}
 

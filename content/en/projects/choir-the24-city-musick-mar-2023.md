@@ -20,9 +20,8 @@ The concert took its title from a curious device in which the lower parts move q
 **Conductor:** Robert Hollingworth
 
 ![The University of York Choir, The 24 and The City Musick on stage in Central Hall](/static/images/choir-the24-city-musick-mar-2023-1.webp)
-*Photo: YorkConcerts*
 
-Steve Crowther found The 24 "clearly at the top of their game" in the Palestrina, and described the closing Agnus Dei as luxurious.[^2]
+Steve Crowther called it "a highly imaginative programme" and singled out The 24 as "a choir clearly at the top of their game, with crystal-clear part singing throughout. Very impressive." Catherine Pierron's Frescobaldi on the chamber organ was "breathtaking", and the closing Agnus Dei "luxurious, quite delightful".[^2]
 
 [^1]: [YorkConcerts: University Choir & The City Musick (archived)](https://web.archive.org/web/20240526184518/https://yorkconcerts.co.uk/whats-on/2022-23/university-choir-the-city-musick/)
 [^2]: [Review: Steve Crowther, charleshutchpress.co.uk](https://charleshutchpress.co.uk/review-steve-crowthers-verdict-on-university-of-york-choir-the-24-and-the-city-musick/)

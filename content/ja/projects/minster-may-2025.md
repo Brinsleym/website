@@ -16,9 +16,9 @@ description: "完売のヨーク・ミンスターで、ヨーク大学合唱団
 **フェリックス・メンデルスゾーン** Warum toben die Heiden ・ Da Israel aus Ägypten zog  
 **ヨハネス・ブラームス** ドイツ・レクイエム Op. 45
 
-**指揮：** ロバート・ホリングワース ・ **独唱：** エレオノーレ・コッカラム（ソプラノ）、ジョージ・クラーク（バリトン）
+**指揮：** ロバート・ホリングワース
+**独唱：** エレオノーレ・コッカラム（ソプラノ）、ジョージ・クラーク（バリトン）
 
 ![ヨーク・ミンスターでブラームスを演奏するヨーク大学合唱団と交響楽団](/static/images/minster-may-2025-1.webp)
-*写真：YorkConcerts*
 
 [^1]: [YorkConcerts：ヨーク大学合唱団と交響楽団 2025（アーカイブ）](https://web.archive.org/web/20250425085152/https://yorkconcerts.co.uk/whats-on/2024-25/university-choir-and-symphony-orchestra-2025/)

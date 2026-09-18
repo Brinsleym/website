@@ -20,6 +20,5 @@ Brinsley sang with The 24 in this Christmas concert in Central Hall, where the c
 **Conductor:** Eamonn Dougan
 
 ![The University of York Choir and The 24 with harp and strings in Central Hall](/static/images/choir-the24-dec-2024-1.webp)
-*Photo: YorkConcerts*
 
 [^1]: [YorkConcerts: University Choir and The 24 (archived)](https://web.archive.org/web/20240912122232/https://yorkconcerts.co.uk/whats-on/2024-25/university-choir-and-the-24/)

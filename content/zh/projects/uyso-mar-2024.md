@@ -18,7 +18,6 @@ description: "索尔瓦尔兹多蒂尔《Metacosmos》、夏洛特·布雷特尔
 **指挥：** 约翰·斯特林格 ・ **钢琴：** 夏洛特·布雷特尔
 
 ![夏洛特·布雷特尔与约克大学交响乐团合作演出](/static/images/uyso-mar-2024-1.webp)
-*摄影：YorkConcerts*
 
 {{< youtube -1vJRFKi7SA >}}
 

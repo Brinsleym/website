@@ -20,9 +20,8 @@ Brinsley performed with the University of York Symphony Orchestra in the first o
 **Conductor:** John Stringer
 
 ![The University of York Symphony Orchestra performing in the Sir Jack Lyons Concert Hall](/static/images/uyso-nov-2022-1.webp)
-*Photo: YorkConcerts*
 
-Reviewing the concert, Martin Dreyer described the tickets as "like gold dust", and singled out the orchestra's triumphant Gershwin.[^2]
+Tickets were "like gold dust", wrote Martin Dreyer, who described the orchestra as "a popular group" whose "standards are high". He heard violins that were "immediately bold" in the Elgar, a military march that "rang out with majestic bravado", and a Delius that reached "an immense climax, which suited the orchestra's mood perfectly".[^2]
 
 {{< youtube a9-HNq_cyNs >}}
 

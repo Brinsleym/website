@@ -18,7 +18,6 @@ Brinsley performed with the University of York Symphony Orchestra in its spring 
 **Conductor:** John Stringer · **Piano:** Charlotte Brettell
 
 ![Charlotte Brettell at the piano with the University of York Symphony Orchestra](/static/images/uyso-mar-2024-1.webp)
-*Photo: YorkConcerts*
 
 {{< youtube -1vJRFKi7SA >}}
 

@@ -19,9 +19,8 @@ description: "中央大厅的夏庞蒂埃《午夜弥撒》、豪厄尔斯的圣
 **指挥：** 罗伯特·霍林沃斯、亚历山大·凯尔
 
 ![舞台上的约克大学合唱团与巴洛克合奏团、指挥与观众](/static/images/choir-baroque-nov-2022-1.webp)
-*摄影：YorkConcerts*
 
-乐评人马丁·德雷尔称这种把巴洛克弥撒、豪厄尔斯与托马斯朗诵交织在一起的构思"别具匠心"，并称赞巴洛克合奏团节奏敏锐、合奏紧凑。[^2]
+乐评称这种把夏庞蒂埃、豪厄尔斯与狄兰·托马斯交织在一起的构思“别具匠心”。巴洛克合奏团“回应得极有风格，节奏敏锐、合奏紧凑”，《信经》中的速度变化“处理得当”，博·霍尔滕的《First Snow》则“成为一个有效的收束”。[^2]
 
 [^1]: [YorkConcerts：约克大学合唱团与巴洛克合奏团（存档）](https://web.archive.org/web/20221104210006/https://yorkconcerts.co.uk/whats-on/2022-23/university-choir-baroque-ensemble/)
 [^2]: [乐评：马丁·德雷尔，charleshutchpress.co.uk](https://charleshutchpress.co.uk/review-martin-dreyers-verdict-on-university-of-york-choir-baroque-ensembles-christmas-concert/)

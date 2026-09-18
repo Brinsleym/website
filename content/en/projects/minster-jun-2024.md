@@ -19,9 +19,8 @@ Brinsley performed with the University of York Symphony Orchestra in the 2023/24
 **Soloists:** Elspeth Piggott, Rebecca Lea, Helena Cooke, James Beddoe, Patrick Osborne · **Solo violin:** Michael Capecci
 
 ![The University of York Choir and Symphony Orchestra performing in York Minster](/static/images/minster-jun-2024-1.webp)
-*Photo: YorkConcerts*
 
-Steve Crowther called the evening "a game of two halves", with detail lost to the Minster acoustic in the Mozart but a full-bodied Bruckner *Te Deum*.[^2]
+There was "much to admire", the review said, from "fine, crisp string playing in the Gloria" to a "very fine Benedictus" from the four soloists. Of The 24 in the Bruckner motets it concluded that "it doesn't come much better", praising "clarity, balance, detail and very real musical insight", while Elgar's *Elegy* proved "a delightful jewel of a work".[^2]
 
 [^1]: [YorkConcerts: University Choir and Symphony Orchestra 2024 (archived)](https://web.archive.org/web/20250513042454/https://yorkconcerts.co.uk/whats-on/2023-24/university-choir-and-symphony-orchestra-2024/)
 [^2]: [Review: Steve Crowther, charleshutchpress.co.uk](https://charleshutchpress.co.uk/review-steve-crowthers-verdict-on-university-of-york-choir-and-symphony-orchestra-the-24-york-minster-june-8/)

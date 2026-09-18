@@ -19,9 +19,8 @@ description: "ヨーク・ミンスターでのモーツァルト《ミサ曲 �
 **独唱：** エルスペス・ピゴット、レベッカ・リー、ヘレナ・クック、ジェームズ・ベドー、パトリック・オズボーン ・ **ヴァイオリン独奏：** マイケル・カペッチ
 
 ![ヨーク・ミンスターで演奏するヨーク大学合唱団と交響楽団](/static/images/minster-jun-2024-1.webp)
-*写真：YorkConcerts*
 
-スティーヴ・クロウザーはこの一夜を「前半と後半で趣の異なる試合のよう」と評し、モーツァルトでは大聖堂の残響に細部が埋もれたものの、ブルックナーの《テ・デウム》は厚みのある響きだったと記しています。[^2]
+批評には「称賛すべきものが多くあった」とあり、グローリアの「精緻で切れのある弦楽」から、4人の独唱による「たいへん見事なベネディクトゥス」までが挙げられています。ブルックナーのモテットを歌ったザ・24については「これ以上のものはそうそうない」とし、「明晰さ、均衡、細部、そして真に音楽的な洞察」を称賛。エルガーの《エレジー》は「愛すべき宝石のような作品」と評されました。[^2]
 
 [^1]: [YorkConcerts：ヨーク大学合唱団と交響楽団 2024（アーカイブ）](https://web.archive.org/web/20250513042454/https://yorkconcerts.co.uk/whats-on/2023-24/university-choir-and-symphony-orchestra-2024/)
 [^2]: [批評：スティーヴ・クロウザー、charleshutchpress.co.uk](https://charleshutchpress.co.uk/review-steve-crowthers-verdict-on-university-of-york-choir-and-symphony-orchestra-the-24-york-minster-june-8/)

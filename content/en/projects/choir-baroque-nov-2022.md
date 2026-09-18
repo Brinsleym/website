@@ -19,9 +19,8 @@ Brinsley took part in the University of York Choir and Baroque Ensemble's Christ
 **Conductors:** Robert Hollingworth, Alexander Kyle
 
 ![The University of York Choir and Baroque Ensemble on stage with conductor and audience](/static/images/choir-baroque-nov-2022-1.webp)
-*Photo: YorkConcerts*
 
-Martin Dreyer called the pairing of Baroque mass, Howells and Thomas "an ingenious idea", and praised the Baroque Ensemble's keen rhythm and taut ensemble.[^2]
+The review called the weaving together of Charpentier, Howells and Dylan Thomas "an ingenious idea". The Baroque Ensemble "responded stylishly, with keen rhythm and taut ensemble", the tempo changes in the Credo were "well managed", and Bo Holten's *First Snow* "made an effective finisher".[^2]
 
 [^1]: [YorkConcerts: University Choir & Baroque Ensemble (archived)](https://web.archive.org/web/20221104210006/https://yorkconcerts.co.uk/whats-on/2022-23/university-choir-baroque-ensemble/)
 [^2]: [Review: Martin Dreyer, charleshutchpress.co.uk](https://charleshutchpress.co.uk/review-martin-dreyers-verdict-on-university-of-york-choir-baroque-ensembles-christmas-concert/)

@@ -16,9 +16,9 @@ Brinsley performed with the University of York Symphony Orchestra in the 2024/25
 **Felix Mendelssohn** Warum toben die Heiden · Da Israel aus Ägypten zog  
 **Johannes Brahms** Ein deutsches Requiem, Op. 45
 
-**Conductor:** Robert Hollingworth · **Soloists:** Eleonore Cockerham (soprano), George Clark (baritone)
+**Conductor:** Robert Hollingworth
+**Soloists:** Eleonore Cockerham (soprano), George Clark (baritone)
 
 ![The University of York Choir and Symphony Orchestra performing Brahms in York Minster](/static/images/minster-may-2025-1.webp)
-*Photo: YorkConcerts*
 
 [^1]: [YorkConcerts: University Choir and Symphony Orchestra 2025 (archived)](https://web.archive.org/web/20250425085152/https://yorkconcerts.co.uk/whats-on/2024-25/university-choir-and-symphony-orchestra-2025/)

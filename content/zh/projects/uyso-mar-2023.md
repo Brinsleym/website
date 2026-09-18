@@ -18,7 +18,6 @@ description: "西格富斯多蒂尔《Oceans》英国首演、布朗热《Fantai
 **指挥：** 约翰·斯特林格 ・ **钢琴：** 劳拉·米切尔
 
 ![约克大学交响乐团与钢琴家在杰克·莱昂斯音乐厅演出](/static/images/uyso-mar-2023-1.webp)
-*摄影：YorkConcerts*
 
 {{< youtube PKV-qNK8iHk >}}
 

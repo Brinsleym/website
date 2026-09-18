@@ -18,7 +18,6 @@ description: "ソルヴァルズドッティル《Metacosmos》、シャーロ�
 **指揮：** ジョン・ストリンガー ・ **ピアノ：** シャーロット・ブレッテル
 
 ![ヨーク大学交響楽団と共演するピアノのシャーロット・ブレッテル](/static/images/uyso-mar-2024-1.webp)
-*写真：YorkConcerts*
 
 {{< youtube -1vJRFKi7SA >}}
 

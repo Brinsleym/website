@@ -18,7 +18,6 @@ description: "シグフースドッティル《Oceans》の英国初演、ブー
 **指揮：** ジョン・ストリンガー ・ **ピアノ：** ローラ・ミッチェル
 
 ![サー・ジャック・ライオンズ・コンサートホールで、ピアニストと共演するヨーク大学交響楽団](/static/images/uyso-mar-2023-1.webp)
-*写真：YorkConcerts*
 
 {{< youtube PKV-qNK8iHk >}}
 

@@ -18,7 +18,6 @@ Brinsley performed with the University of York Symphony Orchestra in its spring 
 **Conductor:** John Stringer · **Piano:** Laura Mitchell
 
 ![The University of York Symphony Orchestra with a pianist in the Sir Jack Lyons Concert Hall](/static/images/uyso-mar-2023-1.webp)
-*Photo: YorkConcerts*
 
 {{< youtube PKV-qNK8iHk >}}
 

@@ -20,6 +20,5 @@ description: "イーモン・ドゥーガン指揮によるフィンジ《In Ter
 **指揮：** イーモン・ドゥーガン
 
 ![セントラル・ホールで、ハープと弦楽器とともに歌うヨーク大学合唱団とザ・24](/static/images/choir-the24-dec-2024-1.webp)
-*写真：YorkConcerts*
 
 [^1]: [YorkConcerts：ヨーク大学合唱団とザ・24（アーカイブ）](https://web.archive.org/web/20240912122232/https://yorkconcerts.co.uk/whats-on/2024-25/university-choir-and-the-24/)

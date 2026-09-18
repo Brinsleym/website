@@ -1,0 +1,3 @@
+{{- /* Blog posts open their links in a new tab. */ -}}
+{{- $newTab := eq .Page.Section "projects" -}}
+<a href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $newTab }} target="_blank" rel="noopener"{{ end }}>{{ .Text }}</a>

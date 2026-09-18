@@ -16,9 +16,9 @@ description: "约克大学合唱团、交响乐团与The 24在满座的约克大
 **费利克斯·门德尔松 (Felix Mendelssohn)** Warum toben die Heiden ・ Da Israel aus Ägypten zog  
 **约翰内斯·勃拉姆斯 (Johannes Brahms)** 德意志安魂曲，Op. 45
 
-**指挥：** 罗伯特·霍林沃斯 ・ **独唱：** 埃莉诺·科克勒姆（女高音）、乔治·克拉克（男中音）
+**指挥：** 罗伯特·霍林沃斯
+**独唱：** 埃莉诺·科克勒姆（女高音）、乔治·克拉克（男中音）
 
 ![约克大学合唱团与交响乐团在约克大教堂演出勃拉姆斯作品](/static/images/minster-may-2025-1.webp)
-*摄影：YorkConcerts*
 
 [^1]: [YorkConcerts：约克大学合唱团与交响乐团 2025（存档）](https://web.archive.org/web/20250425085152/https://yorkconcerts.co.uk/whats-on/2024-25/university-choir-and-symphony-orchestra-2025/)
