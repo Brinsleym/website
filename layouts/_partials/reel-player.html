@@ -1,0 +1,304 @@
+<!-- Custom player for the ensembles' Instagram reels, served from our own copy -->
+<figure class="reel-player" data-reel-player{{ with .ratio }} style="--reel-ratio: {{ . }}"{{ end }}>
+  <div class="reel-player__frame">
+    <video class="reel-player__video"
+           preload="metadata"
+           playsinline
+           webkit-playsinline
+           poster="{{ .poster }}"
+           data-src-primary="{{ .primary }}"
+           data-src-fallback="{{ .fallback }}"
+           {{ with .label }}aria-label="{{ . }}"{{ end }}></video>
+
+    <button class="reel-player__overlay" type="button" aria-label="{{ .playLabel }}">
+      <span><ion-icon name="play" aria-hidden="true"></ion-icon></span>
+    </button>
+
+    <div class="reel-player__spinner" hidden></div>
+
+    <div class="reel-player__controls">
+      <button class="reel-player__btn reel-player__play" type="button" aria-label="{{ .playLabel }}">
+        <ion-icon name="play" aria-hidden="true"></ion-icon>
+      </button>
+      <span class="reel-player__time reel-player__time--current">0:00</span>
+      <div class="reel-player__scrub" role="slider" tabindex="0"
+           aria-label="{{ .seekLabel }}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div class="reel-player__buffer"></div>
+        <div class="reel-player__progress"><span class="reel-player__knob"></span></div>
+      </div>
+      <span class="reel-player__time reel-player__time--total">0:00</span>
+      <div class="reel-player__volume">
+        <button class="reel-player__btn reel-player__mute" type="button" aria-label="{{ .muteLabel }}">
+          <ion-icon name="volume-high" aria-hidden="true"></ion-icon>
+        </button>
+        <div class="reel-player__vol-track" role="slider" tabindex="0"
+             aria-label="{{ .volumeLabel }}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
+          <div class="reel-player__vol-fill"></div>
+        </div>
+      </div>
+      <button class="reel-player__btn reel-player__fullscreen" type="button" aria-label="{{ .fullscreenLabel }}">
+        <ion-icon name="expand" aria-hidden="true"></ion-icon>
+      </button>
+    </div>
+
+    <div class="reel-player__message" hidden>
+      <span>{{ .unavailable }}</span>
+      <a href="{{ .link }}" target="_blank" rel="noopener">{{ .watchOn }}</a>
+    </div>
+  </div>
+
+  <figcaption class="reel-player__caption">
+    {{ with .caption }}{{ . }} {{ end }}<a href="{{ .link }}" target="_blank" rel="noopener">{{ .watchOn }}</a>
+  </figcaption>
+</figure>
+
+<script>
+/* Reel player: one initialiser for every player on the page. */
+(function () {
+  if (window.__reelPlayerReady) return;
+  window.__reelPlayerReady = true;
+
+  var VOLUME_KEY = 'reel-player-volume';
+
+  function fmt(t) {
+    if (!isFinite(t) || t < 0) t = 0;
+    var m = Math.floor(t / 60), s = Math.floor(t % 60);
+    return m + ':' + (s < 10 ? '0' : '') + s;
+  }
+
+  function readStoredVolume() {
+    try {
+      var v = parseFloat(window.localStorage.getItem(VOLUME_KEY));
+      return isFinite(v) && v >= 0 && v <= 1 ? v : null;
+    } catch (e) { return null; }
+  }
+
+  function storeVolume(v) {
+    try { window.localStorage.setItem(VOLUME_KEY, String(v)); } catch (e) {}
+  }
+
+  function fraction(el, event) {
+    var r = el.getBoundingClientRect();
+    if (!r.width) return 0;
+    var x = (event.touches ? event.touches[0].clientX : event.clientX) - r.left;
+    return Math.min(1, Math.max(0, x / r.width));
+  }
+
+  function drag(el, onMove) {
+    function move(e) { onMove(fraction(el, e)); e.preventDefault(); }
+    function up() {
+      document.removeEventListener('mousemove', move);
+      document.removeEventListener('mouseup', up);
+      document.removeEventListener('touchmove', move);
+      document.removeEventListener('touchend', up);
+    }
+    el.addEventListener('mousedown', function (e) {
+      move(e);
+      document.addEventListener('mousemove', move);
+      document.addEventListener('mouseup', up);
+    });
+    el.addEventListener('touchstart', function (e) {
+      move(e);
+      document.addEventListener('touchmove', move, { passive: false });
+      document.addEventListener('touchend', up);
+    }, { passive: false });
+  }
+
+  function setup(root) {
+    if (root.__reelReady) return;
+    root.__reelReady = true;
+
+    var video = root.querySelector('.reel-player__video');
+    var overlay = root.querySelector('.reel-player__overlay');
+    var playBtn = root.querySelector('.reel-player__play');
+    var playIcon = playBtn.querySelector('ion-icon');
+    var overlayIcon = overlay.querySelector('ion-icon');
+    var current = root.querySelector('.reel-player__time--current');
+    var total = root.querySelector('.reel-player__time--total');
+    var scrub = root.querySelector('.reel-player__scrub');
+    var progress = root.querySelector('.reel-player__progress');
+    var buffer = root.querySelector('.reel-player__buffer');
+    var muteBtn = root.querySelector('.reel-player__mute');
+    var muteIcon = muteBtn.querySelector('ion-icon');
+    var volTrack = root.querySelector('.reel-player__vol-track');
+    var volFill = root.querySelector('.reel-player__vol-fill');
+    var fsBtn = root.querySelector('.reel-player__fullscreen');
+    var spinner = root.querySelector('.reel-player__spinner');
+    var message = root.querySelector('.reel-player__message');
+    var frame = root.querySelector('.reel-player__frame');
+
+    // --- source selection, with a fallback when the CDN cannot be reached ---
+    var primary = video.getAttribute('data-src-primary');
+    var fallback = video.getAttribute('data-src-fallback');
+    var usingFallback = false;
+    var watchdog = null;
+
+    function clearWatchdog() {
+      if (watchdog) { clearTimeout(watchdog); watchdog = null; }
+    }
+
+    function giveUp() {
+      clearWatchdog();
+      spinner.hidden = true;
+      message.hidden = false;
+    }
+
+    function useFallback() {
+      clearWatchdog();
+      if (usingFallback || !fallback || fallback === primary) { giveUp(); return; }
+      usingFallback = true;
+      video.src = fallback;
+      video.load();
+      armWatchdog(12000);
+    }
+
+    function armWatchdog(ms) {
+      clearWatchdog();
+      watchdog = setTimeout(function () {
+        // Nothing has arrived: the CDN is unreachable rather than slow.
+        if (video.readyState < 1) usingFallback ? giveUp() : useFallback();
+      }, ms);
+    }
+
+    video.addEventListener('error', function () {
+      usingFallback ? giveUp() : useFallback();
+    });
+    video.addEventListener('loadedmetadata', function () {
+      clearWatchdog();
+      message.hidden = true;
+      total.textContent = fmt(video.duration);
+      scrub.setAttribute('aria-valuemax', '100');
+    });
+
+    video.src = primary;
+    armWatchdog(8000);
+
+    // --- volume ---
+    var stored = readStoredVolume();
+    video.volume = stored === null ? 1 : stored;
+
+    function paintVolume() {
+      var v = video.muted ? 0 : video.volume;
+      volFill.style.width = (v * 100) + '%';
+      volTrack.setAttribute('aria-valuenow', Math.round(v * 100));
+      muteIcon.setAttribute('name', v === 0 ? 'volume-mute' : (v < 0.5 ? 'volume-low' : 'volume-high'));
+    }
+
+    var lastAudible = video.volume > 0 ? video.volume : 1;
+
+    function setVolume(v) {
+      v = Math.min(1, Math.max(0, v));
+      if (v > 0) lastAudible = v;
+      video.volume = v;
+      video.muted = v === 0;
+      storeVolume(v);
+      paintVolume();
+    }
+
+    muteBtn.addEventListener('click', function () {
+      if (video.muted || video.volume === 0) {
+        // Unmuting a slider sitting at zero should give some sound back.
+        video.muted = false;
+        if (video.volume === 0) setVolume(lastAudible);
+      } else {
+        lastAudible = video.volume;
+        video.muted = true;
+      }
+      paintVolume();
+    });
+    drag(volTrack, setVolume);
+    volTrack.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowUp') { setVolume(video.volume + 0.1); e.preventDefault(); }
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') { setVolume(video.volume - 0.1); e.preventDefault(); }
+    });
+    paintVolume();
+
+    // --- play / pause ---
+    function toggle() {
+      if (video.paused) {
+        // Only one reel plays at a time.
+        document.querySelectorAll('.reel-player__video').forEach(function (other) {
+          if (other !== video && !other.paused) other.pause();
+        });
+        var p = video.play();
+        if (p && p.catch) p.catch(function () {});
+      } else {
+        video.pause();
+      }
+    }
+
+    overlay.addEventListener('click', toggle);
+    playBtn.addEventListener('click', toggle);
+    video.addEventListener('click', toggle);
+
+    video.addEventListener('play', function () {
+      root.classList.add('is-playing');
+      playIcon.setAttribute('name', 'pause');
+      overlayIcon.setAttribute('name', 'pause');
+    });
+    video.addEventListener('pause', function () {
+      root.classList.remove('is-playing');
+      playIcon.setAttribute('name', 'play');
+      overlayIcon.setAttribute('name', 'play');
+    });
+    video.addEventListener('ended', function () {
+      root.classList.remove('is-playing');
+      playIcon.setAttribute('name', 'play');
+      overlayIcon.setAttribute('name', 'play');
+    });
+
+    video.addEventListener('waiting', function () { spinner.hidden = false; });
+    video.addEventListener('playing', function () { spinner.hidden = true; });
+    video.addEventListener('canplay', function () { spinner.hidden = true; });
+
+    // --- progress ---
+    video.addEventListener('timeupdate', function () {
+      var d = video.duration;
+      var pct = d ? (video.currentTime / d) * 100 : 0;
+      progress.style.width = pct + '%';
+      current.textContent = fmt(video.currentTime);
+      scrub.setAttribute('aria-valuenow', Math.round(pct));
+    });
+    video.addEventListener('progress', function () {
+      if (!video.buffered.length || !video.duration) return;
+      var end = video.buffered.end(video.buffered.length - 1);
+      buffer.style.width = ((end / video.duration) * 100) + '%';
+    });
+
+    function seekTo(f) {
+      if (video.duration) video.currentTime = f * video.duration;
+    }
+    drag(scrub, seekTo);
+    scrub.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { video.currentTime = Math.min(video.duration, video.currentTime + 5); e.preventDefault(); }
+      if (e.key === 'ArrowLeft') { video.currentTime = Math.max(0, video.currentTime - 5); e.preventDefault(); }
+      if (e.key === ' ' || e.key === 'Enter') { toggle(); e.preventDefault(); }
+    });
+
+    // --- fullscreen ---
+    fsBtn.addEventListener('click', function () {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else if (frame.requestFullscreen) {
+        frame.requestFullscreen();
+      } else if (video.webkitEnterFullscreen) {
+        video.webkitEnterFullscreen();
+      }
+    });
+    document.addEventListener('fullscreenchange', function () {
+      var inFs = document.fullscreenElement === frame;
+      fsBtn.querySelector('ion-icon').setAttribute('name', inFs ? 'contract' : 'expand');
+    });
+  }
+
+  function init() {
+    document.querySelectorAll('[data-reel-player]').forEach(setup);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>

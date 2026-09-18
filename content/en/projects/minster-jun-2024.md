@@ -22,7 +22,9 @@ Brinsley performed with the University of York Symphony Orchestra in the 2023/24
 
 There was "much to admire", the review said, from "fine, crisp string playing in the Gloria" to a "very fine Benedictus" from the four soloists. Of The 24 in the Bruckner motets it concluded that "it doesn't come much better", praising "clarity, balance, detail and very real musical insight", while Elgar's *Elegy* proved "a delightful jewel of a work".[^2]
 
-**More:** [The soloists](https://www.instagram.com/p/C7d7RAKMSEd/) · [After the concert](https://www.instagram.com/reel/C8MTKKts5hX/)
+{{< reel video="reel-minster-jun-2024" link="https://www.instagram.com/reel/C8MTKKts5hX/" caption="After the concert." >}}
+
+**More:** [The soloists](https://www.instagram.com/p/C7d7RAKMSEd/)
 
 [^1]: [YorkConcerts: University Choir and Symphony Orchestra 2024 (archived)](https://web.archive.org/web/20250513042454/https://yorkconcerts.co.uk/whats-on/2023-24/university-choir-and-symphony-orchestra-2024/)
 [^2]: [Review: Steve Crowther, charleshutchpress.co.uk](https://charleshutchpress.co.uk/review-steve-crowthers-verdict-on-university-of-york-choir-and-symphony-orchestra-the-24-york-minster-june-8/)

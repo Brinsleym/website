@@ -1,0 +1,31 @@
+{{- /*
+  Instagram reel, played from our own copy of the video.
+
+    {{< reel video="reel-minster-jun-2024" link="https://www.instagram.com/reel/XXXX/" caption="After the concert." >}}
+
+  video   basename of the file in static/videos (.mp4) — a poster of the same
+          name plus "-poster.webp" is expected in static/images
+  link    the original Instagram post
+  caption optional line under the player
+  ratio   optional aspect ratio, defaults to the 9/16 of a reel
+*/ -}}
+{{- $name := .Get "video" -}}
+{{- $link := .Get "link" -}}
+{{- $videoPath := printf "/static/videos/%s.mp4" $name -}}
+{{- $posterPath := printf "/static/images/%s-poster.webp" $name -}}
+{{- partial "reel-player.html" (dict
+      "primary"         (partial "jsdelivr-url.html" $videoPath)
+      "fallback"        (strings.TrimPrefix "/static" $videoPath)
+      "poster"          (partial "jsdelivr-url.html" $posterPath)
+      "link"            $link
+      "caption"         (.Get "caption")
+      "ratio"           (default "9 / 16" (.Get "ratio"))
+      "label"           (.Get "caption")
+      "playLabel"       (T "reel_play")
+      "seekLabel"       (T "reel_seek")
+      "muteLabel"       (T "reel_mute")
+      "volumeLabel"     (T "reel_volume")
+      "fullscreenLabel" (T "reel_fullscreen")
+      "watchOn"         (T "reel_watch_on_instagram")
+      "unavailable"     (T "reel_unavailable")
+  ) -}}

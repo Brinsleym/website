@@ -21,6 +21,8 @@ description: "ソルヴァルズドッティル《Metacosmos》、シャーロ�
 
 {{< youtube -1vJRFKi7SA >}}
 
-**関連リンク：** [シャーロット・ブレッテルが語るグリーグ](https://www.instagram.com/reel/C4aIzaqIn5e/) · [公演後の映像](https://www.instagram.com/reel/C4yHX5vs1xe/)
+{{< reel video="reel-uyso-mar-2024" link="https://www.instagram.com/reel/C4yHX5vs1xe/" caption="公演後の映像。" >}}
+
+**関連リンク：** [シャーロット・ブレッテルが語るグリーグ](https://www.instagram.com/reel/C4aIzaqIn5e/)
 
 [^1]: [YorkConcerts：ヨーク大学交響楽団 2024（アーカイブ）](https://web.archive.org/web/20250325194332/https://yorkconcerts.co.uk/whats-on/2023-24/university-symphony-orchestra-2024/)

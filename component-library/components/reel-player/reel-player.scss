@@ -1,0 +1,295 @@
+// ==============================================
+// REEL PLAYER
+// Self-hosted copies of the ensembles' Instagram
+// reels, with our own controls.
+// ==============================================
+
+.reel-player {
+  margin: ($base-spacing-unit * 4) auto;
+  max-width: 360px;
+  font-family: $base-font-family;
+
+  &__frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: var(--reel-ratio, 9 / 16);
+    border-radius: $global-radius;
+    overflow: hidden;
+    background: $dark;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.07);
+    border: 1px solid rgba($border-color, 0.3);
+    transition: $global-transition;
+
+    &:hover,
+    &:focus-within {
+      box-shadow: 0px 10px 30px rgba($primary-color, 0.18);
+    }
+  }
+
+  &__video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: $dark;
+  }
+
+  // Big play button over the poster
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    background: rgba($dark, 0.25);
+    transition: opacity .25s ease, background .25s ease;
+
+    &:hover {
+      background: rgba($dark, 0.35);
+    }
+
+    ion-icon {
+      font-size: 32px;
+      color: $white;
+      margin-left: 4px;
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(90deg, $primary-color 0%, $secondary-color 167%);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+      transition: transform .25s ease;
+    }
+
+    &:hover span {
+      transform: scale(1.06);
+    }
+  }
+
+  &.is-playing &__overlay {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  // Controls
+  &__controls {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 24px 12px 10px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
+    opacity: 1;
+    transition: opacity .25s ease;
+  }
+
+  &.is-playing:not(:hover):not(:focus-within) &__controls {
+    opacity: 0;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: $white;
+    cursor: pointer;
+    transition: background .2s ease;
+
+    &:hover,
+    &:focus-visible {
+      background: rgba($white, 0.18);
+    }
+
+    ion-icon {
+      font-size: 17px;
+    }
+  }
+
+  &__time {
+    flex: 0 0 auto;
+    font-size: 12px;
+    line-height: 1;
+    color: $white;
+    font-variant-numeric: tabular-nums;
+    opacity: .9;
+  }
+
+  &__scrub {
+    position: relative;
+    flex: 1 1 auto;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    touch-action: none;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 4px;
+      border-radius: 2px;
+      background: rgba($white, 0.3);
+    }
+  }
+
+  &__buffer,
+  &__progress {
+    position: absolute;
+    left: 0;
+    height: 4px;
+    border-radius: 2px;
+    width: 0;
+  }
+
+  &__buffer {
+    background: rgba($white, 0.4);
+  }
+
+  &__progress {
+    background: $primary-color;
+  }
+
+  &__knob {
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: $white;
+    transform: translateY(-50%) scale(0);
+    transition: transform .15s ease;
+  }
+
+  &__scrub:hover &__knob,
+  &__scrub:focus-visible &__knob {
+    transform: translateY(-50%) scale(1);
+  }
+
+  &__volume {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+  }
+
+  &__vol-track {
+    position: relative;
+    width: 0;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    touch-action: none;
+    transition: width .25s ease, margin .25s ease;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 4px;
+      border-radius: 2px;
+      background: rgba($white, 0.3);
+    }
+  }
+
+  &__volume:hover &__vol-track,
+  &__volume:focus-within &__vol-track {
+    width: 54px;
+    margin-left: 4px;
+  }
+
+  &__vol-fill {
+    position: absolute;
+    left: 0;
+    height: 4px;
+    border-radius: 2px;
+    background: $white;
+  }
+
+  &__spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 38px;
+    height: 38px;
+    margin: -19px 0 0 -19px;
+    border: 3px solid rgba($white, 0.25);
+    border-top-color: $white;
+    border-radius: 50%;
+    animation: reel-spin .8s linear infinite;
+    pointer-events: none;
+  }
+
+  &__message {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 24px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.5;
+    color: $white;
+    background: rgba($dark, 0.88);
+
+    a {
+      color: $white;
+      text-decoration: underline;
+    }
+  }
+
+  &__caption {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+    color: rgba($text-color, 0.75);
+
+    a {
+      color: rgba($text-color, 0.75);
+      text-decoration: underline;
+    }
+  }
+
+  &[hidden],
+  [hidden] {
+    display: none !important;
+  }
+
+  @media only screen and (max-width: $mobile) {
+    max-width: 100%;
+
+    &__volume {
+      display: none;
+    }
+  }
+}
+
+@keyframes reel-spin {
+  to { transform: rotate(360deg); }
+}
