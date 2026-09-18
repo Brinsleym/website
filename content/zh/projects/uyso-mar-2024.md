@@ -21,4 +21,6 @@ description: "索尔瓦尔兹多蒂尔《Metacosmos》、夏洛特·布雷特尔
 
 {{< youtube -1vJRFKi7SA >}}
 
+**更多：** [夏洛特·布雷特尔谈格里格](https://www.instagram.com/reel/C4aIzaqIn5e/) · [音乐会后的影片](https://www.instagram.com/reel/C4yHX5vs1xe/)
+
 [^1]: [YorkConcerts：约克大学交响乐团 2024（存档）](https://web.archive.org/web/20250325194332/https://yorkconcerts.co.uk/whats-on/2023-24/university-symphony-orchestra-2024/)

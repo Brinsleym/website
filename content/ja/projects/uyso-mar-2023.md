@@ -21,4 +21,6 @@ description: "シグフースドッティル《Oceans》の英国初演、ブー
 
 {{< youtube PKV-qNK8iHk >}}
 
+**関連リンク：** [本番に向けたリハーサル](https://www.instagram.com/reel/CpSTsHotTul/)
+
 [^1]: [YorkConcerts：ヨーク大学交響楽団、2023年春（アーカイブ）](https://web.archive.org/web/20230104192935/https://yorkconcerts.co.uk/whats-on/2022-23/university-symphony-orchestra-spring/)

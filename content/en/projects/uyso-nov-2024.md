@@ -20,9 +20,13 @@ Brinsley performed with the University of York Symphony Orchestra in its autumn 
 
 ![The University of York Symphony Orchestra in front of the concert hall organ](/static/images/uyso-nov-2024-1.webp)
 
+![Alexa MacLaren at the piano with the University of York Symphony Orchestra](/static/images/uyso-nov-2024-2.webp)
+
 The review called this "a really attractive programme", and found that Mel Bonis's miniature "clearly revealed a composer of real stature and individuality". Alexa MacLaren's Mendelssohn was "simply exhilarating" from the introduction on, full of "sparkling passagework"; "the rapturous response from the capacity audience was genuinely touching".[^2]
 
 {{< youtube jTwhuRQggcQ >}}
+
+**More:** [Photographs from the concert](https://www.instagram.com/p/DC1ZlVss3rw/) · [Alexa MacLaren on the Mendelssohn](https://www.instagram.com/reel/DCoy6NoP2Px/) · [Death and Transfiguration](https://www.instagram.com/reel/DC86qSwtLb4/)
 
 [^1]: [YorkConcerts: University Symphony Orchestra, autumn 2024 (archived)](https://web.archive.org/web/20251116220712/https://yorkconcerts.co.uk/whats-on/2024-25/university-symphony-orchestra-autumn-2024/)
 [^2]: [Review: Steve Crowther, charleshutchpress.co.uk](https://charleshutchpress.co.uk/review-steve-crowthers-verdict-on-university-of-york-symphony-orchestra-sir-jack-lyons-concert-hall-university-of-york-23-11-2024/)

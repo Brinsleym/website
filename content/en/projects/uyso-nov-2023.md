@@ -19,9 +19,13 @@ Brinsley performed with the University of York Symphony Orchestra in its autumn 
 
 ![The University of York Symphony Orchestra under purple stage lighting](/static/images/uyso-nov-2023-1.webp)
 
+![The University of York Symphony Orchestra on stage in the Sir Jack Lyons Concert Hall](/static/images/uyso-nov-2023-2.webp)
+
 The concert "was played to a packed auditorium", and the review gave "great credit to the University Symphony Orchestra and conductor John Stringer, who have deservedly generated such a trusted following". The climax of *En Saga* was "very effective", and the Shostakovich "a terrific performance".[^2]
 
 {{< youtube EuywkMTD-sc >}}
+
+**More:** [Concert announcement](https://www.instagram.com/p/Cz9STDqM-u6/)
 
 [^1]: [YorkConcerts: University Symphony Orchestra, autumn 2023 (archived)](https://web.archive.org/web/20250917024220/https://yorkconcerts.co.uk/whats-on/2023-24/university-symphony-orchestra-autumn-2023/)
 [^2]: [Review: Steve Crowther, charleshutchpress.co.uk](https://charleshutchpress.co.uk/review-steve-crowthers-verdict-on-university-of-york-symphony-orchestra-sir-jack-lyons-concert-hall-november-25/)

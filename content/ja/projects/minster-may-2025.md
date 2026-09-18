@@ -21,4 +21,8 @@ description: "完売のヨーク・ミンスターで、ヨーク大学合唱団
 
 ![ヨーク・ミンスターでブラームスを演奏するヨーク大学合唱団と交響楽団](/static/images/minster-may-2025-1.webp)
 
+![ヨーク・ミンスターでブラームスを指揮するロバート・ホリングワース](/static/images/minster-may-2025-2.webp)
+
+**関連リンク：** [コンサートの写真](https://www.instagram.com/p/DJlvXSYMq_p/) · [本番の映像](https://www.instagram.com/reel/DJtet-XCj4P/)
+
 [^1]: [YorkConcerts：ヨーク大学合唱団と交響楽団 2025（アーカイブ）](https://web.archive.org/web/20250425085152/https://yorkconcerts.co.uk/whats-on/2024-25/university-choir-and-symphony-orchestra-2025/)

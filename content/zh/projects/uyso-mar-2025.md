@@ -20,9 +20,13 @@ description: "安娜·列兹德坎演奏西贝柳斯小提琴协奏曲，另有�
 
 ![安娜·列兹德坎与约克大学交响乐团合作演出西贝柳斯小提琴协奏曲](/static/images/uyso-mar-2025-1.webp)
 
+![杰克·莱昂斯音乐厅中的约克大学交响乐团](/static/images/uyso-mar-2025-2.webp)
+
 乐评人马丁·德雷尔写道，安娜·列兹德坎“在重压之下展现出极度的从容”，并以“相当的气派”完成了华彩段，终乐章“无疑令人振奋”。瓦格纳的前奏曲“以令人印象深刻的方式筑成一段长长的渐强”，在爱之死中，小提琴奏出“华美而渐次涨满的融合音响”。[^2]
 
 {{< youtube bY4mAbnFXbE >}}
+
+**更多：** [安娜·列兹德坎谈西贝柳斯](https://www.instagram.com/reel/DHGdGoCtAZf/) · [演出中的《爱之死》](https://www.instagram.com/reel/DHd60UGtjlq/)
 
 [^1]: [YorkConcerts：约克大学交响乐团，2025年春季（存档）](https://web.archive.org/web/20250325193604/https://yorkconcerts.co.uk/whats-on/2024-25/university-symphony-orchestra-spring-2025/)
 [^2]: [乐评：马丁·德雷尔，charleshutchpress.co.uk](https://charleshutchpress.co.uk/review-martin-dreyers-verdict-on-university-of-york-symphony-orchestra-sir-jack-lyons-concert-hall-march-15/)

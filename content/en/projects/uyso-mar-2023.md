@@ -21,4 +21,6 @@ Brinsley performed with the University of York Symphony Orchestra in its spring 
 
 {{< youtube PKV-qNK8iHk >}}
 
+**More:** [Rehearsing for the concert](https://www.instagram.com/reel/CpSTsHotTul/)
+
 [^1]: [YorkConcerts: University Symphony Orchestra, spring 2023 (archived)](https://web.archive.org/web/20230104192935/https://yorkconcerts.co.uk/whats-on/2022-23/university-symphony-orchestra-spring/)

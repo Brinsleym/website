@@ -22,5 +22,7 @@ description: "ヨーク大学合唱団、ザ・24、バロック・アンサン�
 
 マーティン・ドライヤーは、バロック・アンサンブルが「最初から万全の構え」で、「フルートとオーボエの一流のソロ」を聴かせたと書いています。《Omnes generationes》には「切れのある踏み込み」があり、《Fecit potentiam》の結びは「見事なまでに凱歌のよう」、最後のグローリアも「同じく堂々たるもの」と評されました。[^2]
 
+**関連リンク：** [合唱団のリハーサル](https://www.instagram.com/reel/C0lu678sxnM/) · [本番のバッハ《マニフィカト》](https://www.instagram.com/reel/C1HDvouMPM0/)
+
 [^1]: [YorkConcerts：ヨーク大学合唱団、2023年秋（アーカイブ）](https://web.archive.org/web/20231210212054/https://yorkconcerts.co.uk/whats-on/2023-24/university-choir-autumn-2023/)
 [^2]: [批評：マーティン・ドライヤー、charleshutchpress.co.uk](https://charleshutchpress.co.uk/review-martin-dreyers-verdict-on-university-of-york-choir-baroque-ensemble-central-hall-university-of-york-december-16/)

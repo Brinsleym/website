@@ -20,9 +20,13 @@ description: "アンナ・レズドカンを迎えたシベリウスのヴァイ
 
 ![ヨーク大学交響楽団とシベリウスのヴァイオリン協奏曲を演奏するアンナ・レズドカン](/static/images/uyso-mar-2025-1.webp)
 
+![サー・ジャック・ライオンズ・コンサートホールのヨーク大学交響楽団](/static/images/uyso-mar-2025-2.webp)
+
 マーティン・ドライヤーは、アンナ・レズドカンが「重圧のもとで並外れた落ち着きを見せ」、カデンツァを「相当な華やかさで」弾ききったと書き、終楽章を「紛れもなく胸躍るもの」と評しました。ワーグナーは「長いクレッシェンドへと見事に築かれ」、愛の死ではヴァイオリンが「豪奢にふくらむ響きの溶け合い」を聴かせたと記されています。[^2]
 
 {{< youtube bY4mAbnFXbE >}}
+
+**関連リンク：** [アンナ・レズドカンが語るシベリウス](https://www.instagram.com/reel/DHGdGoCtAZf/) · [本番の《愛の死》](https://www.instagram.com/reel/DHd60UGtjlq/)
 
 [^1]: [YorkConcerts：ヨーク大学交響楽団、2025年春（アーカイブ）](https://web.archive.org/web/20250325193604/https://yorkconcerts.co.uk/whats-on/2024-25/university-symphony-orchestra-spring-2025/)
 [^2]: [批評：マーティン・ドライヤー、charleshutchpress.co.uk](https://charleshutchpress.co.uk/review-martin-dreyers-verdict-on-university-of-york-symphony-orchestra-sir-jack-lyons-concert-hall-march-15/)

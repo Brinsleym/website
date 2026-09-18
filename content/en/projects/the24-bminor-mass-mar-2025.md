@@ -17,9 +17,13 @@ Brinsley took part in this performance of Bach's Mass in B minor in the Sir Jack
 
 ![The 24 and Manchester Baroque performing in the Sir Jack Lyons Concert Hall](/static/images/the24-bminor-mass-mar-2025-1.webp)
 
+![Robert Hollingworth conducting The 24 and Manchester Baroque](/static/images/the24-bminor-mass-mar-2025-2.webp)
+
 The concert was "deservedly a sell-out". The review found "a great deal to admire" and "plenty of sparkle", noting that the choir sang the first half from memory - "an impressive feat of memory that kept the choruses crisp".[^2]
 
 {{< youtube ny-HHlChY8Y >}}
+
+**More:** [Photographs from the concert](https://www.instagram.com/p/DH_YE9yNUxr/) · [The day before the concert](https://www.instagram.com/p/DHtEo-ZNli_/) · [The Gloria](https://www.instagram.com/reel/DIOw6kttmpJ/)
 
 [^1]: [YorkConcerts: JS Bach - Mass in B Minor (archived)](https://web.archive.org/web/20241208060110/https://yorkconcerts.co.uk/whats-on/2024-25/b-minor-mass/)
 [^2]: [Review: Martin Dreyer, charleshutchpress.co.uk](https://charleshutchpress.co.uk/review-martin-dreyers-verdict-on-mass-in-b-minor-the-24-manchester-baroque-march-28/)

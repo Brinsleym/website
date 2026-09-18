@@ -22,5 +22,7 @@ description: "约克大学合唱团、The 24与巴洛克合奏团演出巴赫与
 
 马丁·德雷尔写道，巴洛克合奏团“一开始就全神贯注、状态十足”，长笛与双簧管有“一流的独奏”。《Omnes generationes》有“干净利落的切入”，《Fecit potentiam》的结尾“凯歌般辉煌”，最后的《荣耀经》同样“气势堂皇”。[^2]
 
+**更多：** [合唱团排练](https://www.instagram.com/reel/C0lu678sxnM/) · [演出中的巴赫《尊主颂》](https://www.instagram.com/reel/C1HDvouMPM0/)
+
 [^1]: [YorkConcerts：约克大学合唱团，2023年秋季（存档）](https://web.archive.org/web/20231210212054/https://yorkconcerts.co.uk/whats-on/2023-24/university-choir-autumn-2023/)
 [^2]: [乐评：马丁·德雷尔，charleshutchpress.co.uk](https://charleshutchpress.co.uk/review-martin-dreyers-verdict-on-university-of-york-choir-baroque-ensemble-central-hall-university-of-york-december-16/)

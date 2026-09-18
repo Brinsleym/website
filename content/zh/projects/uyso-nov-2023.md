@@ -19,9 +19,13 @@ description: "萨里阿霍《Lumière et Pesanteur》、西贝柳斯《萨迦》
 
 ![紫色灯光下的约克大学交响乐团](/static/images/uyso-nov-2023-1.webp)
 
+![杰克·莱昂斯音乐厅舞台上的约克大学交响乐团](/static/images/uyso-nov-2023-2.webp)
+
 乐评写道，这场音乐会“在座无虚席的音乐厅中演出”，并把“极大的赞誉”给予“约克大学交响乐团与指挥约翰·斯特林格——他们理应赢得如此值得信赖的追随”。《萨迦》的高潮“非常有效果”，肖斯塔科维奇则是“一次精彩的演出”。[^2]
 
 {{< youtube EuywkMTD-sc >}}
+
+**更多：** [音乐会预告](https://www.instagram.com/p/Cz9STDqM-u6/)
 
 [^1]: [YorkConcerts：约克大学交响乐团，2023年秋季（存档）](https://web.archive.org/web/20250917024220/https://yorkconcerts.co.uk/whats-on/2023-24/university-symphony-orchestra-autumn-2023/)
 [^2]: [乐评：史蒂夫·克劳瑟，charleshutchpress.co.uk](https://charleshutchpress.co.uk/review-steve-crowthers-verdict-on-university-of-york-symphony-orchestra-sir-jack-lyons-concert-hall-november-25/)

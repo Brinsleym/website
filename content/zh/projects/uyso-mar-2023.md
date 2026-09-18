@@ -21,4 +21,6 @@ description: "西格富斯多蒂尔《Oceans》英国首演、布朗热《Fantai
 
 {{< youtube PKV-qNK8iHk >}}
 
+**更多：** [音乐会前的排练](https://www.instagram.com/reel/CpSTsHotTul/)
+
 [^1]: [YorkConcerts：约克大学交响乐团，2023年春季（存档）](https://web.archive.org/web/20230104192935/https://yorkconcerts.co.uk/whats-on/2022-23/university-symphony-orchestra-spring/)

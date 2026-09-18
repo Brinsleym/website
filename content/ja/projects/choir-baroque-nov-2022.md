@@ -20,7 +20,11 @@ description: "セントラル・ホールでのシャルパンティエ《真夜
 
 ![舞台上のヨーク大学合唱団とバロック・アンサンブル、指揮者と客席](/static/images/choir-baroque-nov-2022-1.webp)
 
+![セントラル・ホールの舞台に並ぶヨーク大学合唱団と管弦楽](/static/images/choir-baroque-nov-2022-2.webp)
+
 批評は、シャルパンティエとハウエルズ、ディラン・トマスを織り交ぜた構成を「独創的な着想」と呼びました。バロック・アンサンブルは「様式感をもって応え、鋭いリズムと引き締まったアンサンブルを聴かせた」とされ、クレドのテンポの変化は「巧みに処理された」、ボー・ホルテンの《First Snow》は「効果的な締めくくりとなった」と評されています。[^2]
+
+**関連リンク：** [公演告知](https://www.instagram.com/p/Clgxfj8MqBn/)
 
 [^1]: [YorkConcerts：ヨーク大学合唱団とバロック・アンサンブル（アーカイブ）](https://web.archive.org/web/20221104210006/https://yorkconcerts.co.uk/whats-on/2022-23/university-choir-baroque-ensemble/)
 [^2]: [批評：マーティン・ドライヤー、charleshutchpress.co.uk](https://charleshutchpress.co.uk/review-martin-dreyers-verdict-on-university-of-york-choir-baroque-ensembles-christmas-concert/)

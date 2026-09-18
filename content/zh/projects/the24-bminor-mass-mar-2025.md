@@ -17,9 +17,13 @@ description: "The 24与曼彻斯特巴洛克乐团及I Fagiolini的独唱者合�
 
 ![The 24与曼彻斯特巴洛克乐团在杰克·莱昂斯音乐厅演出](/static/images/the24-bminor-mass-mar-2025-1.webp)
 
+![罗伯特·霍林沃斯指挥The 24与曼彻斯特巴洛克乐团](/static/images/the24-bminor-mass-mar-2025-2.webp)
+
 这场音乐会“理所当然地座无虚席”。乐评认为其中“有大量值得称道之处”，也“不乏光彩”，并提到合唱团在上半场完全脱谱演唱——“一份令人印象深刻的记忆功夫，让合唱段落保持干净利落”。[^2]
 
 {{< youtube ny-HHlChY8Y >}}
+
+**更多：** [音乐会照片](https://www.instagram.com/p/DH_YE9yNUxr/) · [音乐会前一天](https://www.instagram.com/p/DHtEo-ZNli_/) · [《荣耀经》片段](https://www.instagram.com/reel/DIOw6kttmpJ/)
 
 [^1]: [YorkConcerts：J.S.巴赫《b小调弥撒》（存档）](https://web.archive.org/web/20241208060110/https://yorkconcerts.co.uk/whats-on/2024-25/b-minor-mass/)
 [^2]: [乐评：马丁·德雷尔，charleshutchpress.co.uk](https://charleshutchpress.co.uk/review-martin-dreyers-verdict-on-mass-in-b-minor-the-24-manchester-baroque-march-28/)

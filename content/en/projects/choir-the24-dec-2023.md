@@ -22,5 +22,7 @@ Brinsley sang with The 24 in this Christmas concert in Central Hall, where the c
 
 Martin Dreyer found the Baroque Ensemble "immediately right on its toes", with "first-class solo work from flutes and oboes". There was "a crisp attack into 'Omnes generationes'"; the end of 'Fecit potentiam' was "superbly triumphal" and the final Gloria "equally imposing".[^2]
 
+**More:** [The choir in rehearsal](https://www.instagram.com/reel/C0lu678sxnM/) · [Bach's Magnificat in performance](https://www.instagram.com/reel/C1HDvouMPM0/)
+
 [^1]: [YorkConcerts: University Choir, autumn 2023 (archived)](https://web.archive.org/web/20231210212054/https://yorkconcerts.co.uk/whats-on/2023-24/university-choir-autumn-2023/)
 [^2]: [Review: Martin Dreyer, charleshutchpress.co.uk](https://charleshutchpress.co.uk/review-martin-dreyers-verdict-on-university-of-york-choir-baroque-ensemble-central-hall-university-of-york-december-16/)

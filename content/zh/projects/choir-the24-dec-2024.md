@@ -21,4 +21,8 @@ description: "埃蒙·杜根指挥的芬齐《In Terra Pax》、沃恩·威廉�
 
 ![约克大学合唱团与The 24在中央大厅演出，舞台上有竖琴与弦乐](/static/images/choir-the24-dec-2024-1.webp)
 
+![中央大厅里的约克大学合唱团与The 24，由埃蒙·杜根指挥](/static/images/choir-the24-dec-2024-2.webp)
+
+**更多：** [音乐会照片](https://www.instagram.com/p/DDhBsXds60t/) · [演出片段](https://www.instagram.com/reel/DDr7Ge0o_IL/)
+
 [^1]: [YorkConcerts：约克大学合唱团与The 24（存档）](https://web.archive.org/web/20240912122232/https://yorkconcerts.co.uk/whats-on/2024-25/university-choir-and-the-24/)

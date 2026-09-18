@@ -20,9 +20,13 @@ Brinsley performed with the University of York Symphony Orchestra in its spring 
 
 ![Anna Lezdkan playing the Sibelius Violin Concerto with the University of York Symphony Orchestra](/static/images/uyso-mar-2025-1.webp)
 
+![The University of York Symphony Orchestra in the Sir Jack Lyons Concert Hall](/static/images/uyso-mar-2025-2.webp)
+
 Martin Dreyer wrote that Anna Lezdkan "exhibited extreme calm under duress" and despatched the cadenza "with considerable panache", and that the finale was "undeniably exciting". The Wagner "built impressively into a long crescendo", the violins finding "a sumptuously swelling blend" in the *Liebestod*.[^2]
 
 {{< youtube bY4mAbnFXbE >}}
+
+**More:** [Anna Lezdkan on the Sibelius](https://www.instagram.com/reel/DHGdGoCtAZf/) · [The Liebestod in performance](https://www.instagram.com/reel/DHd60UGtjlq/)
 
 [^1]: [YorkConcerts: University Symphony Orchestra, spring 2025 (archived)](https://web.archive.org/web/20250325193604/https://yorkconcerts.co.uk/whats-on/2024-25/university-symphony-orchestra-spring-2025/)
 [^2]: [Review: Martin Dreyer, charleshutchpress.co.uk](https://charleshutchpress.co.uk/review-martin-dreyers-verdict-on-university-of-york-symphony-orchestra-sir-jack-lyons-concert-hall-march-15/)

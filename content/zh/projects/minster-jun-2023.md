@@ -17,7 +17,11 @@ description: "约克大学合唱团与交响乐团在约克大教堂演出埃尔
 
 ![约克大学音乐会期间的约克大教堂中殿](/static/images/minster-jun-2023-1.webp)
 
+![在杰克·莱昂斯音乐厅排练《杰龙修斯之梦》的歌者与乐手](/static/images/minster-jun-2023-2.webp)
+
 乐评以“分寸拿捏得当、气度恢宏的管弦乐前奏曲”开篇，称饰演杰龙修斯的约书亚·埃利科特“极具威仪”，基蒂·惠特利演唱的《Softly and gently》“宛如天籁”。管弦乐与合唱“自始至终都很出色”，而约翰·斯特林格以“卓越的音乐掌控力”驾驭了如此庞大的阵容与大教堂的声学环境。[^2]
+
+**更多：** [两百多位音乐家的排练](https://www.instagram.com/p/CtbHgg4MK5Q/) · [音乐会后的影片](https://www.instagram.com/reel/CtykmdVLEbz/)
 
 [^1]: [YorkConcerts：约克大学合唱团与交响乐团（存档）](https://web.archive.org/web/20230614171346/https://yorkconcerts.co.uk/whats-on/2022-23/university-choir-and-symphony-orchestra/)
 [^2]: [乐评：史蒂夫·克劳瑟，charleshutchpress.co.uk](https://charleshutchpress.co.uk/review-steve-crowthers-verdict-on-the-dream-of-gerontius-york-minster/)

@@ -21,4 +21,6 @@ Brinsley performed with the University of York Symphony Orchestra in its spring 
 
 {{< youtube -1vJRFKi7SA >}}
 
+**More:** [Charlotte Brettell on the Grieg](https://www.instagram.com/reel/C4aIzaqIn5e/) · [After the concert](https://www.instagram.com/reel/C4yHX5vs1xe/)
+
 [^1]: [YorkConcerts: University Symphony Orchestra 2024 (archived)](https://web.archive.org/web/20250325194332/https://yorkconcerts.co.uk/whats-on/2023-24/university-symphony-orchestra-2024/)

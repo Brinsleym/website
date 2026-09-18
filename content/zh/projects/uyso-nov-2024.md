@@ -20,9 +20,13 @@ description: "梅尔·博尼斯、阿莱克莎·麦克拉伦演奏的门德尔�
 
 ![约克大学交响乐团在音乐厅管风琴前演出](/static/images/uyso-nov-2024-1.webp)
 
+![阿莱克莎·麦克拉伦与约克大学交响乐团合作演出](/static/images/uyso-nov-2024-2.webp)
+
 乐评称这是“一套非常有吸引力的曲目”，并认为梅尔·博尼斯这首精巧小品的演出“清楚地显示出一位真正有分量、有个性的作曲家”。阿莱克莎·麦克拉伦的门德尔松从引子起便“令人振奋不已”，满是“闪烁生辉的经过句”；“满座观众热烈的反应真切动人”。[^2]
 
 {{< youtube jTwhuRQggcQ >}}
+
+**更多：** [音乐会照片](https://www.instagram.com/p/DC1ZlVss3rw/) · [阿莱克莎·麦克拉伦谈门德尔松](https://www.instagram.com/reel/DCoy6NoP2Px/) · [《死与净化》片段](https://www.instagram.com/reel/DC86qSwtLb4/)
 
 [^1]: [YorkConcerts：约克大学交响乐团，2024年秋季（存档）](https://web.archive.org/web/20251116220712/https://yorkconcerts.co.uk/whats-on/2024-25/university-symphony-orchestra-autumn-2024/)
 [^2]: [乐评：史蒂夫·克劳瑟，charleshutchpress.co.uk](https://charleshutchpress.co.uk/review-steve-crowthers-verdict-on-university-of-york-symphony-orchestra-sir-jack-lyons-concert-hall-university-of-york-23-11-2024/)
