@@ -1,31 +1,45 @@
 {{ if or .NextInSection .PrevInSection }}
-<div class="post__navigation animate">
+{{ $prevLabel := T "prev_post" }}
+{{ $nextLabel := T "next_post" }}
+<nav class="post__navigation animate" aria-label="{{ T "post_navigation" }}">
 
   {{ if .PrevInSection }}
-  <a class="post__prev" href="{{ .PrevInSection.Permalink }}">
+  {{ $prev := .PrevInSection }}
+  <a class="post__prev" href="{{ $prev.Permalink }}" aria-label="{{ $prevLabel }}: {{ $prev.Title }}">
     <div class="prev__image">
-      {{ $size := partial "image-size.html" .PrevInSection.Params.Image }}
-      <img loading="lazy" decoding="async" src="{{ partial "jsdelivr-url.html" .PrevInSection.Params.Image }}" alt="{{ .PrevInSection.Title }}"{{ with $size }} width="{{ .width }}" height="{{ .height }}"{{ end }}>
+      {{ $size := partial "image-size.html" $prev.Params.Image }}
+      <img loading="lazy" decoding="async" src="{{ partial "jsdelivr-url.html" $prev.Params.Image }}" alt=""{{ with $size }} width="{{ .width }}" height="{{ .height }}"{{ end }}>
     </div>
     <div class="prev__box">
-      <span class="post__nav post__nav__prev">{{ T "prev_post" "Prev post" }}</span>
-      <h2 class="post__nav__title">{{ .PrevInSection.Title }}</h2>
+      <span class="post__nav post__nav__prev">{{ $prevLabel }}</span>
+      <h2 class="post__nav__title">{{ $prev.Title }}</h2>
+      {{ with $prev.GetTerms "tags" }}
+      <div class="post__nav__tags">
+        {{ range . }}<span class="post__nav__tag">{{ .LinkTitle }}</span>{{ end }}
+      </div>
+      {{ end }}
     </div>
   </a>
   {{ end }}
 
   {{ if .NextInSection }}
-  <a class="post__next" href="{{ .NextInSection.Permalink }}">
+  {{ $next := .NextInSection }}
+  <a class="post__next" href="{{ $next.Permalink }}" aria-label="{{ $nextLabel }}: {{ $next.Title }}">
     <div class="next__box">
-      <span class="post__nav post__nav__next">{{ T "next_post" "Next post" }}</span>
-      <h2 class="post__nav__title">{{ .NextInSection.Title }}</h2>
+      <span class="post__nav post__nav__next">{{ $nextLabel }}</span>
+      <h2 class="post__nav__title">{{ $next.Title }}</h2>
+      {{ with $next.GetTerms "tags" }}
+      <div class="post__nav__tags">
+        {{ range . }}<span class="post__nav__tag">{{ .LinkTitle }}</span>{{ end }}
+      </div>
+      {{ end }}
     </div>
     <div class="next__image">
-      {{ $size := partial "image-size.html" .NextInSection.Params.Image }}
-      <img loading="lazy" decoding="async" src="{{ partial "jsdelivr-url.html" .NextInSection.Params.Image }}" alt="{{ .NextInSection.Title }}"{{ with $size }} width="{{ .width }}" height="{{ .height }}"{{ end }}>
+      {{ $size := partial "image-size.html" $next.Params.Image }}
+      <img loading="lazy" decoding="async" src="{{ partial "jsdelivr-url.html" $next.Params.Image }}" alt=""{{ with $size }} width="{{ .width }}" height="{{ .height }}"{{ end }}>
     </div>
   </a>
   {{ end }}
 
-</div>
+</nav>
 {{ end }}

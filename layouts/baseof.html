@@ -23,7 +23,7 @@
   <!-- Render any additional page content below the page's content blocks -->
   {{ block "main" . }}{{ end }}
 
-  <div class="top" title="Top"><ion-icon name="arrow-up"></ion-icon></div>
+  <button class="top" type="button" title="{{ T "scroll_to_top" }}" aria-label="{{ T "scroll_to_top" }}"><ion-icon name="arrow-up" aria-hidden="true"></ion-icon></button>
 
   {{ block "footer" . }}{{ end }}
 

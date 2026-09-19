@@ -2,10 +2,10 @@ footer_menu__settings:
   menu__items:
     - title: 'Home'
       url: '/'
-    - title: 'Blog'
-      url: '/blog/'
     - title: 'Compositions'
       url: '/compositions/'
+    - title: 'Blog'
+      url: '/blog/'
     - title: 'About me'
       url: '/about/'
 

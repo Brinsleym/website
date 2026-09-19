@@ -17,9 +17,6 @@ content_blocks:
       <p>
         森沢は<b>多楽器奏者</b>であり、<b>作曲家</b>です。彼は<b>BBCフィルハーモニー管弦楽団</b>のボーカルソリストとして演奏した経験があり、また複数のオーケストラで<b>コンサートマスター</b>としても演奏しました。<br><br>森沢は<b>ヨーク大学</b>で<b>音楽学士号を最優等</b>で取得し、最終学年では映画音楽作曲を専攻しました。森沢は<b>チータム音楽学校</b>の卒業生でもあり、そこで作曲と声楽、そしてヴァイオリンとピアノを学びました。
       </p>
-      <h2>森沢淋の履歴書：</h2>
-        <iframe src="/doc/cv.pdf#navpanes=0" frameborder="0" height="500rem" width="100%" title="森沢淋の履歴書（PDF）" loading="lazy"></iframe>
-      <br>
       <h2>ヨーク大学</h2>
       <p>
         森沢は2025年夏に最優等で卒業しました。大学では、最終年度の論文プロジェクトとして映像作品のための新作音楽作品集を制作しました。（<a href="https://brinsleymorrison.com/blog/final-year-dissertation-project/" target="_blank">詳細はこちらをお読みください</a>）。ヨークでの学習期間中、森沢は<a href="https://www.facebook.com/uyso.uk" target="_blank" rel="noopener">ヨーク大学交響楽団</a>での演奏、<a href="https://www.york.ac.uk/arts-creative-technologies/about/music-at-york/ensembles/" target="_blank" rel="noopener">The 24</a>での歌唱、そして<a href="https://www.york.ac.uk/arts-creative-technologies/about/music-at-york/ensembles/" target="_blank" rel="noopener">The Chimera Ensemble</a>のための音楽委嘱と演奏も行いました。
