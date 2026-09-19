@@ -391,6 +391,14 @@
 		}
 	}
 
+	// The posts at either end of the section have only one neighbour, so the
+	// single card would otherwise sit against one edge.
+	.post__prev:only-child,
+	.post__next:only-child {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
 	@media only screen and (max-width: $tablet) {
 		flex-wrap: wrap;
 
