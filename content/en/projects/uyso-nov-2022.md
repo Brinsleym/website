@@ -2,7 +2,7 @@
 date: 2022-11-26
 title: "University Symphony Orchestra - London and Paris"
 subtitle: Saturday 26 November 2022
-tags: [orchestral]
+blog_tags: [performance, orchestral]
 image: '/static/images/uyso-nov-2022-1.webp'
 description: "Elgar, Delius, Grainger and Gershwin with the University of York Symphony Orchestra, conducted by John Stringer."
 ---

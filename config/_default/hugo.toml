@@ -75,6 +75,14 @@ unsafe = true
 [permalinks]
 posts = "/compositions/:title/"
 projects = "/blog/:title/"
+  # Compositions and blog posts keep separate tag vocabularies, each listed
+  # under its own section rather than in one shared /tags/ index.
+  [permalinks.taxonomy]
+  tags = "/compositions/tags/"
+  blog_tags = "/blog/tags/"
+  [permalinks.term]
+  tags = "/compositions/tags/:slug/"
+  blog_tags = "/blog/tags/:slug/"
 
 [params]
 jsdelivr_base_url = "https://cdn.jsdelivr.net/gh/Brinsleym/website@master"
@@ -86,9 +94,13 @@ toLower = true
   [[related.indices]]
   name = "tags"
   weight = 100
+  [[related.indices]]
+  name = "blog_tags"
+  weight = 100
 
 [taxonomies]
 tag = "tags"
+blog_tag = "blog_tags"
 
 # Testimonials only feed the homepage slider: keep them listable,
 # but don't publish a page for each one (or the section itself).

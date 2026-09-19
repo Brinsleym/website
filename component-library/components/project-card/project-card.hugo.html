@@ -15,7 +15,7 @@
 
       <div class="{{$c}}__tags-box">
         {{ range .tags }}
-          <a href="{{ printf "/tags/%s/" (. | urlize) | relLangURL }}" class="{{$c}}__tag">{{ . }}</a>
+          <a href="{{ printf "/blog/tags/%s/" (. | urlize) | relLangURL }}" class="{{$c}}__tag">{{ . }}</a>
         {{ end }}
       </div>
 

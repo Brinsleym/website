@@ -2,7 +2,7 @@
 date: 2023-12-16
 title: "Magnificat - University Choir, The 24 and Baroque Ensemble"
 subtitle: Saturday 16 December 2023
-tags: [choral]
+blog_tags: [performance, choral]
 image: '/static/images/choir-the24-dec-2023-1.webp'
 description: "Bach's Magnificat and Cozzolani's Magnificat Primo with the University Choir, The 24 and Baroque Ensemble."
 ---

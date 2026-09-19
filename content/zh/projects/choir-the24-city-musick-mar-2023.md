@@ -2,7 +2,7 @@
 date: 2023-03-18
 title: "勒住驴子 - 约克大学合唱团、The 24与The City Musick"
 subtitle: 2023年3月18日，星期六
-tags: [合唱]
+blog_tags: [演出, 合唱]
 image: '/static/images/choir-the24-city-musick-mar-2023-1.webp'
 description: "中央大厅的贝内沃利《Missa Si Deus Pro Nobis》与十七世纪罗马的巨型巴洛克音乐"
 ---

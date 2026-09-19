@@ -2,7 +2,7 @@
 date: 2024-12-07
 title: "A Great Mystery - University Choir and The 24 at Christmas"
 subtitle: Saturday 7 December 2024
-tags: [choral]
+blog_tags: [performance, choral]
 image: '/static/images/choir-the24-dec-2024-1.webp'
 description: "Finzi's In Terra Pax, Vaughan Williams and three settings of O magnum mysterium, conducted by Eamonn Dougan."
 ---

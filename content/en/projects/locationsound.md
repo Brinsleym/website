@@ -1,7 +1,7 @@
 ---
 date: 2024-01-17
 title: "Location Sound Project Recording"
-tags: [solo, documentary]
+blog_tags: [behind the scenes, solo, documentary, composition]
 subtitle: Recorded on 17th Jan 2024
 image: '/static/images/locationsound1.webp'
 description: "A behind-the-scenes look at my Location Sound module project."

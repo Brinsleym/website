@@ -2,7 +2,7 @@
 date: 2024-06-08
 title: "Mozart's Great Mass in C minor, York Minster"
 subtitle: Saturday 8 June 2024
-tags: [orchestral, choral]
+blog_tags: [performance, orchestral, choral]
 image: '/static/images/minster-jun-2024-1.webp'
 description: "Mozart's Mass in C minor, Bruckner's Te Deum and Elgar's Elegy in York Minster."
 ---

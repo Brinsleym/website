@@ -1,0 +1,27 @@
+{{ define "main" }}
+
+{{/* The index of every tag in one vocabulary: /compositions/tags/ or
+     /blog/tags/. */}}
+{{ $isBlog := eq .Data.Plural "blog_tags" }}
+{{ $c := cond $isBlog "c-project-card" "c-compositions-card" }}
+
+{{/* .Title on a taxonomy page is the plural key, which reads as "Blog_tags". */}}
+{{ partial "bookshop" (slice "page-heading" (dict
+     "title" (i18n (cond $isBlog "blog_tags_title" "compositions_tags_title"))
+     "description" (i18n (cond $isBlog "tagged_blog_index" "tagged_compositions_index")))) }}
+
+<div class="container">
+  <div class="row">
+    <div class="col col-12">
+      <div class="contaniner__inner animate">
+        <div class="tag-index">
+          {{ range .Pages }}
+            <a href="{{ .RelPermalink }}" class="{{ $c }}__tag tag-index__tag">{{ .Title }}</a>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{ end }}

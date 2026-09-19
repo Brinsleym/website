@@ -2,7 +2,7 @@
 date: 2025-03-28
 title: "巴赫《b小调弥撒》- The 24与曼彻斯特巴洛克乐团"
 subtitle: 2025年3月28日，星期五
-tags: [合唱]
+blog_tags: [演出, 合唱]
 image: '/static/images/the24-bminor-mass-mar-2025-1.webp'
 description: "The 24与曼彻斯特巴洛克乐团及I Fagiolini的独唱者合作演出巴赫《b小调弥撒》"
 ---

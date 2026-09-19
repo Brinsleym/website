@@ -2,7 +2,7 @@
 date: 2025-03-15
 title: "University Symphony Orchestra - Sibelius Violin Concerto"
 subtitle: Saturday 15 March 2025
-tags: [orchestral]
+blog_tags: [performance, orchestral]
 image: '/static/images/uyso-mar-2025-1.webp'
 description: "Sibelius's Violin Concerto with Anna Lezdkan, Wagner's Prelude and Liebestod and Strauss's Festival Prelude."
 ---

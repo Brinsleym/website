@@ -2,7 +2,7 @@
 date: 2023-12-16
 title: "マニフィカト - ヨーク大学合唱団、ザ・24、バロック・アンサンブル"
 subtitle: 2023年12月16日（土）
-tags: [合唱]
+blog_tags: [演奏, 合唱]
 image: '/static/images/choir-the24-dec-2023-1.webp'
 description: "ヨーク大学合唱団、ザ・24、バロック・アンサンブルによるバッハとコッツォラーニの《マニフィカト》"
 ---

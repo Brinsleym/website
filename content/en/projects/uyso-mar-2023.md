@@ -2,7 +2,7 @@
 date: 2023-03-11
 title: "University Symphony Orchestra - Rachmaninoff's Second Symphony"
 subtitle: Saturday 11 March 2023
-tags: [orchestral]
+blog_tags: [performance, orchestral]
 image: '/static/images/uyso-mar-2023-1.webp'
 description: "The UK premiere of Sigfúsdóttir's Oceans, Boulanger's Fantaisie variée and Rachmaninoff's Second Symphony."
 ---

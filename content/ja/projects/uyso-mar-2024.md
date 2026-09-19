@@ -2,7 +2,7 @@
 date: 2024-03-16
 title: "ヨーク大学交響楽団 - グリーグとブラームス"
 subtitle: 2024年3月16日（土）
-tags: [オーケストラ]
+blog_tags: [演奏, オーケストラ]
 image: '/static/images/uyso-mar-2024-1.webp'
 description: "ソルヴァルズドッティル《Metacosmos》、シャーロット・ブレッテルを迎えたグリーグのピアノ協奏曲、ブラームス交響曲第4番"
 ---

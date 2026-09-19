@@ -2,7 +2,7 @@
 date: 2024-12-07
 title: "伟大的奥秘 - 约克大学合唱团与The 24的圣诞音乐会"
 subtitle: 2024年12月7日，星期六
-tags: [合唱]
+blog_tags: [演出, 合唱]
 image: '/static/images/choir-the24-dec-2024-1.webp'
 description: "埃蒙·杜根指挥的芬齐《In Terra Pax》、沃恩·威廉姆斯，以及三首《O magnum mysterium》"
 ---

@@ -5,6 +5,12 @@ prev_post: 上一篇
 next_post: 下一篇
 post_navigation: 文章导航
 scroll_to_top: 返回顶部
+tagged_compositions: "带此标签的作品"
+tagged_blog: "带此标签的文章"
+blog_tags_title: "博客标签"
+compositions_tags_title: "作品标签"
+tagged_blog_index: "博客使用的所有标签"
+tagged_compositions_index: "作品使用的所有标签"
 share_this_post: 分享此文章
 view_all: 查看所有
 contact_email_title: "联系我"

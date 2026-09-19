@@ -2,7 +2,7 @@
 date: 2024-03-16
 title: "University Symphony Orchestra - Grieg and Brahms"
 subtitle: Saturday 16 March 2024
-tags: [orchestral]
+blog_tags: [performance, orchestral]
 image: '/static/images/uyso-mar-2024-1.webp'
 description: "Thorvaldsdottir's Metacosmos, Grieg's Piano Concerto with Charlotte Brettell and Brahms's Fourth Symphony."
 ---

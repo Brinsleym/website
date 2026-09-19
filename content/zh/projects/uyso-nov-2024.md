@@ -2,7 +2,7 @@
 date: 2024-11-23
 title: "约克大学交响乐团 - 博尼斯、门德尔松与施特劳斯"
 subtitle: 2024年11月23日，星期六
-tags: [交响乐]
+blog_tags: [演出, 交响乐]
 image: '/static/images/uyso-nov-2024-1.webp'
 description: "梅尔·博尼斯、阿莱克莎·麦克拉伦演奏的门德尔松第一钢琴协奏曲、布索尼与施特劳斯《死与净化》"
 ---
