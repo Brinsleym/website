@@ -21,7 +21,7 @@ content_blocks:
       </div>
       <h2>ヨーク大学</h2>
       <p>
-        森沢は2025年夏に最優等で卒業しました。大学では、最終年度の論文プロジェクトとして映像作品のための新作音楽作品集を制作しました。（<a href="https://brinsleymorrison.com/blog/final-year-dissertation-project/" target="_blank">詳細はこちらをお読みください</a>）。ヨークでの学習期間中、森沢は<a href="https://www.facebook.com/uyso.uk" target="_blank" rel="noopener">ヨーク大学交響楽団</a>での演奏、<a href="https://www.york.ac.uk/arts-creative-technologies/about/music-at-york/ensembles/" target="_blank" rel="noopener">The 24</a>での歌唱、そして<a href="https://www.york.ac.uk/arts-creative-technologies/about/music-at-york/ensembles/" target="_blank" rel="noopener">The Chimera Ensemble</a>のための音楽委嘱と演奏も行いました。
+        森沢は2025年夏に最優等で卒業しました。大学では、最終年度の論文プロジェクトとして映像作品のための新作音楽作品集を制作しました。（<a href="/ja/blog/%E5%8D%92%E6%A5%AD%E8%AB%96%E6%96%87%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/">詳細はこちらをお読みください</a>）。ヨークでの学習期間中、森沢は<a href="https://www.facebook.com/uyso.uk" target="_blank" rel="noopener">ヨーク大学交響楽団</a>での演奏、<a href="https://www.york.ac.uk/arts-creative-technologies/about/music-at-york/ensembles/" target="_blank" rel="noopener">The 24</a>での歌唱、そして<a href="https://www.york.ac.uk/arts-creative-technologies/about/music-at-york/ensembles/" target="_blank" rel="noopener">The Chimera Ensemble</a>のための音楽委嘱と演奏も行いました。
       </p>
       <p>
         2023年、森沢は<a href="https://www.yorkoratory.com/st-wilfrids" target="_blank">ヨーク・オラトリウム（聖ウィルフリッド）</a>で合唱奨学生として活動し、4声部のソロボイス・アンサンブルで週2回の礼拝で歌唱し、また<a href="https://www.york.ac.uk/arts-creative-technologies/study/funding/choral-scholarship/" target ="_blank">ヨーク大学から合唱奨学金を授与</a>されました。

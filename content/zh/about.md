@@ -20,7 +20,7 @@ content_blocks:
       </div>
       <h2>约克大学</h2>
       <p>
-        林泽于2025年夏季以一等荣誉学位毕业。在大学期间，他的最终年毕业论文项目涉及创作一组新作品的影视配乐作品集。（<a href="https://brinsleymorrison.com/blog/final-year-dissertation-project/" target="_blank">了解更多详情请点击这里</a>）。在约克学习期间，林泽还与<a href="https://www.facebook.com/uyso.uk" target="_blank" rel="noopener">约克大学交响乐团</a>合作演出，与<a href="https://www.york.ac.uk/arts-creative-technologies/about/music-at-york/ensembles/" target="_blank" rel="noopener">The 24</a>合唱团演唱，以及为<a href="https://www.york.ac.uk/arts-creative-technologies/about/music-at-york/ensembles/" target="_blank" rel="noopener">The Chimera Ensemble</a>委约音乐并与其合作演出。
+        林泽于2025年夏季以一等荣誉学位毕业。在大学期间，他的最终年毕业论文项目涉及创作一组新作品的影视配乐作品集。（<a href="/zh/blog/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E9%A1%B9%E7%9B%AE/">了解更多详情请点击这里</a>）。在约克学习期间，林泽还与<a href="https://www.facebook.com/uyso.uk" target="_blank" rel="noopener">约克大学交响乐团</a>合作演出，与<a href="https://www.york.ac.uk/arts-creative-technologies/about/music-at-york/ensembles/" target="_blank" rel="noopener">The 24</a>合唱团演唱，以及为<a href="https://www.york.ac.uk/arts-creative-technologies/about/music-at-york/ensembles/" target="_blank" rel="noopener">The Chimera Ensemble</a>委约音乐并与其合作演出。
       </p>
       <p>
         2023年，林泽在<a href="https://www.yorkoratory.com/st-wilfrids" target="_blank">约克圣殿（圣威尔弗里德）</a>担任合唱学者，在四声部独唱合唱团中演唱，每周演出两场服务，并被<a href="https://www.york.ac.uk/arts-creative-technologies/study/funding/choral-scholarship/" target ="_blank">约克大学授予合唱奖学金</a>。
