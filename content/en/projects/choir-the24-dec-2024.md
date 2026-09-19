@@ -7,7 +7,7 @@ image: '/static/images/choir-the24-dec-2024-1.webp'
 description: "Finzi's In Terra Pax, Vaughan Williams and three settings of O magnum mysterium, conducted by Eamonn Dougan."
 ---
 
-Brinsley sang with The 24 in this Christmas concert in Central Hall, where the choir joined the University of York Choir under guest conductor Eamonn Dougan, Associate Conductor of The Sixteen. Around Finzi's *In Terra Pax* and Vaughan Williams's *Fantasia on Christmas Carols*, the programme set three settings of *O magnum mysterium* beside each other - by Victoria, Lauridsen and Joanna Marsh - along with part-songs by Elgar and a new carol by Stef Conner.[^1]
+Brinsley sang with The 24 in this Christmas concert in Central Hall, where the choir joined the University of York Choir under guest conductor Eamonn Dougan, Associate Conductor of The Sixteen. Around Finzi's *In Terra Pax* and Vaughan Williams's *Fantasia on Christmas Carols*, the programme set three settings of *O magnum mysterium* beside each other (Victoria, Lauridsen and Joanna Marsh), along with part-songs by Elgar and a new carol by Stef Conner.[^1]
 
 ## Programme
 

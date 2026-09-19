@@ -7,7 +7,7 @@ image: '/static/images/the24-bminor-mass-mar-2025-1.webp'
 description: "The 24 with Manchester Baroque and soloists from I Fagiolini in Bach's Mass in B minor."
 ---
 
-Brinsley took part in this performance of Bach's Mass in B minor in the Sir Jack Lyons Concert Hall, in which The 24 - expanded to thirty-five singers - was joined by the period instruments of Manchester Baroque and soloists from I Fagiolini, conducted by Robert Hollingworth. The performance was repeated in Manchester Cathedral two days later.[^1]
+Brinsley took part in this performance of Bach's Mass in B minor in the Sir Jack Lyons Concert Hall, in which The 24, expanded to thirty-five singers, was joined by the period instruments of Manchester Baroque and soloists from I Fagiolini, conducted by Robert Hollingworth. The performance was repeated in Manchester Cathedral two days later.[^1]
 
 ## Programme
 
@@ -19,7 +19,7 @@ Brinsley took part in this performance of Bach's Mass in B minor in the Sir Jack
 
 ![Robert Hollingworth conducting The 24 and Manchester Baroque](/static/images/the24-bminor-mass-mar-2025-2.webp)
 
-The concert was "deservedly a sell-out". The review found "a great deal to admire" and "plenty of sparkle", noting that the choir sang the first half from memory - "an impressive feat of memory that kept the choruses crisp".[^2]
+The concert was "deservedly a sell-out". The review found "a great deal to admire" and "plenty of sparkle", noting that the choir sang the first half from memory: "an impressive feat of memory that kept the choruses crisp".[^2]
 
 {{< youtube ny-HHlChY8Y >}}
 

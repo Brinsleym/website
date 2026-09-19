@@ -7,11 +7,11 @@ image: '/static/images/hd-qingdao-1.webp'
 description: "Presenting the 2026 Opening Ceremony at HD Qingdao Kindergarten alongside the Kindergarten Principal, and hosting the graduation."
 ---
 
-Brinsley has taught at HD Qingdao School in Shandong, China since January 2026, and his work there has reached well beyond the classroom and onto the school's stage. Brinsley was selected to present the 2026 Opening Ceremony alongside Renee Zhang, Kindergarten Principal, welcoming the whole kindergarten, its staff and its families at the start of the academic year.
+Brinsley has taught at HD Qingdao School in Shandong, China since January 2026, and the work has extended beyond the classroom to the school's stage. He was selected to present the 2026 Opening Ceremony alongside Renee Zhang, Kindergarten Principal, welcoming the whole kindergarten, its staff and its families at the start of the academic year.
 
 ![Brinsley Morrison presenting the 2026 Opening Ceremony of HD Qingdao Kindergarten](/static/images/hd-qingdao-1.webp)
 
-Presenting a ceremony for an audience of very young children and their parents asks for the same things a concert platform does — pacing, projection and the composure to hold a room — and the bilingual setting adds another: every cue has to land twice, once in each language, without the energy dropping between them.
+Presenting to an audience of very young children and their parents asks for much the same thing a concert platform does: pacing, projection and the composure to hold a room. The bilingual setting adds one more demand, because every cue has to land twice, once in each language, and the energy cannot drop in between.
 
 ## Events presented
 
@@ -20,9 +20,7 @@ Presenting a ceremony for an audience of very young children and their parents a
 
 ![Brinsley Morrison and Renee Zhang presenting the opening ceremony](/static/images/hd-qingdao-3.webp)
 
-At the graduation and promotion ceremony Brinsley shared the microphone with the graduating children themselves, each pupil taking their own lines in front of a full hall — a first stage appearance for most of them, and one that needed a steady co-presenter beside them.
-
-![Brinsley Morrison co-presenting the graduation ceremony with a graduating pupil](/static/images/hd-qingdao-2.webp)
+At the graduation and promotion ceremony Brinsley shared the microphone with the graduating children themselves, each pupil taking their own lines in front of a full hall. For most of them it was a first appearance on stage, and they needed a steady co-presenter beside them.
 
 ![Brinsley Morrison presenting at HD Qingdao Kindergarten](/static/images/hd-qingdao-4.webp)
 

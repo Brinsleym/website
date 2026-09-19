@@ -7,7 +7,7 @@ image: '/static/images/uyso-nov-2023-1.webp'
 description: "Saariaho's Lumière et Pesanteur, Sibelius's En Saga and Shostakovich's Fifteenth Symphony."
 ---
 
-Brinsley performed with the University of York Symphony Orchestra in its autumn concert in the Sir Jack Lyons Concert Hall, conducted by John Stringer. The programme opened with Kaija Saariaho's *Lumière et Pesanteur*, written in memory of the composer who had died earlier that year, continued with Sibelius's *En Saga*, and closed with Shostakovich's Fifteenth Symphony - his last, and full of quotations and solo writing for the orchestra's principals.[^1]
+Brinsley performed with the University of York Symphony Orchestra in its autumn concert in the Sir Jack Lyons Concert Hall, conducted by John Stringer. The programme opened with Kaija Saariaho's *Lumière et Pesanteur*, written in memory of the composer who had died earlier that year, continued with Sibelius's *En Saga*, and closed with Shostakovich's Fifteenth Symphony, his last, which is full of quotations and solo writing for the orchestra's principals.[^1]
 
 ## Programme
 

@@ -7,7 +7,7 @@ image: '/static/images/choir-the24-city-musick-mar-2023-1.webp'
 description: "Benevoli's Missa Si Deus Pro Nobis and the Colossal Baroque of seventeenth-century Rome, in Central Hall."
 ---
 
-Brinsley took part in this concert of the "Colossal Baroque" in Central Hall, in which the University of York Choir and The 24 were joined by the period instruments of The City Musick - cornett, sackbut, dulcian, strings, organs and theorbos - under Robert Hollingworth. At its centre was Orazio Benevoli's *Missa Si Deus Pro Nobis*, written for multiple choirs with continuo, alongside music by his Venetian teacher Vincenzo Ugolini and other composers of seventeenth-century Rome.
+Brinsley took part in this concert of the "Colossal Baroque" in Central Hall, in which the University of York Choir and The 24 were joined by the period instruments of The City Musick (cornett, sackbut, dulcian, strings, organs and theorbos) under Robert Hollingworth. At its centre was Orazio Benevoli's *Missa Si Deus Pro Nobis*, written for multiple choirs with continuo, alongside music by his Venetian teacher Vincenzo Ugolini and other composers of seventeenth-century Rome.
 
 The concert took its title from a curious device in which the lower parts move quickly beneath a static soprano line, supposedly like a priest trying to rein in a frenetic donkey.[^1]
 
