@@ -21,7 +21,7 @@ description: "约克大学合唱团与交响乐团在约克大教堂演出埃尔
 
 乐评以“分寸拿捏得当、气度恢宏的管弦乐前奏曲”开篇，称饰演杰龙修斯的约书亚·埃利科特“极具威仪”，基蒂·惠特利演唱的《Softly and gently》“宛如天籁”。管弦乐与合唱“自始至终都很出色”，而约翰·斯特林格以“卓越的音乐掌控力”驾驭了如此庞大的阵容与大教堂的声学环境。[^2]
 
-{{< reel video="reel-minster-jun-2023" link="https://www.instagram.com/reel/CtykmdVLEbz/" caption="音乐会后的影片。" >}}
+{{< reel video="reel-minster-jun-2023" link="https://www.instagram.com/reel/CtykmdVLEbz/" >}}
 
 **更多：** [两百多位音乐家的排练](https://www.instagram.com/p/CtbHgg4MK5Q/)
 

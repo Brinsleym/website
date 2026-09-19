@@ -21,7 +21,7 @@ description: "索尔瓦尔兹多蒂尔《Metacosmos》、夏洛特·布雷特尔
 
 {{< youtube -1vJRFKi7SA >}}
 
-{{< reel video="reel-uyso-mar-2024" link="https://www.instagram.com/reel/C4yHX5vs1xe/" caption="音乐会后的影片。" >}}
+{{< reel video="reel-uyso-mar-2024" link="https://www.instagram.com/reel/C4yHX5vs1xe/" >}}
 
 **更多：** [夏洛特·布雷特尔谈格里格](https://www.instagram.com/reel/C4aIzaqIn5e/)
 

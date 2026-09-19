@@ -3,7 +3,8 @@ next_key: Next
 related_posts_title: "You may also like:"
 prev_post: Previous post
 next_post: Next post
-next_project: Next project
+post_navigation: Post navigation
+scroll_to_top: Back to top
 share_this_post: Share this Post
 view_all: View All
 contact_email_title: "Get in touch"
@@ -30,6 +31,6 @@ reel_pause: "Pause"
 reel_seek: "Seek"
 reel_mute: "Mute"
 reel_volume: "Volume"
-reel_fullscreen: "Full screen"
+reel_video_label: "Concert video"
 reel_watch_on_instagram: "Watch on Instagram"
 reel_unavailable: "This video could not be loaded."

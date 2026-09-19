@@ -22,7 +22,7 @@ description: "约克大教堂的莫扎特《c小调弥撒》、布鲁克纳《�
 
 乐评写道，这场演出“有许多值得称道之处”，从《荣耀经》中“精致而利落的弦乐”，到四位独唱带来的“极为出色的《降福经》”。谈到演唱布鲁克纳经文歌的The 24，乐评认为“再好也不过如此”，称赞其“清晰、均衡、细节，以及真正的音乐洞察力”；埃尔加的《挽歌》则被誉为“一件可爱的珍宝般的作品”。[^2]
 
-{{< reel video="reel-minster-jun-2024" link="https://www.instagram.com/reel/C8MTKKts5hX/" caption="音乐会后的影片。" >}}
+{{< reel video="reel-minster-jun-2024" link="https://www.instagram.com/reel/C8MTKKts5hX/" >}}
 
 **更多：** [独唱者介绍](https://www.instagram.com/p/C7d7RAKMSEd/)
 

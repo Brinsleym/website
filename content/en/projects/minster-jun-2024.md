@@ -22,7 +22,7 @@ Brinsley performed with the University of York Symphony Orchestra in the 2023/24
 
 There was "much to admire", the review said, from "fine, crisp string playing in the Gloria" to a "very fine Benedictus" from the four soloists. Of The 24 in the Bruckner motets it concluded that "it doesn't come much better", praising "clarity, balance, detail and very real musical insight", while Elgar's *Elegy* proved "a delightful jewel of a work".[^2]
 
-{{< reel video="reel-minster-jun-2024" link="https://www.instagram.com/reel/C8MTKKts5hX/" caption="After the concert." >}}
+{{< reel video="reel-minster-jun-2024" link="https://www.instagram.com/reel/C8MTKKts5hX/" >}}
 
 **More:** [The soloists](https://www.instagram.com/p/C7d7RAKMSEd/)
 

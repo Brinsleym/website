@@ -21,7 +21,7 @@ description: "ヨーク・ミンスターでのヨーク大学合唱団・交響
 
 批評は、冒頭の「よく練られた、雄大な管弦楽の前奏曲」に触れ、ゲロンティアス役のジョシュア・エリコットを「まさに堂々たるもの」と評しました。キティ・ホエイトリーの《Softly and gently》は「まさに天上のよう」、管弦楽と合唱は「終始素晴らしかった」とされ、ジョン・ストリンガーはこの大編成と大聖堂の音響を「卓越した音楽的手腕で」まとめたと記されています。[^2]
 
-{{< reel video="reel-minster-jun-2023" link="https://www.instagram.com/reel/CtykmdVLEbz/" caption="公演後の映像。" >}}
+{{< reel video="reel-minster-jun-2023" link="https://www.instagram.com/reel/CtykmdVLEbz/" >}}
 
 **関連リンク：** [200人を超える音楽家のリハーサル](https://www.instagram.com/p/CtbHgg4MK5Q/)
 

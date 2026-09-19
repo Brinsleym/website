@@ -21,7 +21,7 @@ Brinsley performed with the University of York Symphony Orchestra in the 2022/23
 
 The review opened on "a well-judged expansive orchestral Prelude" and found Joshua Ellicott "simply imperious" as Gerontius, with Kitty Whately's *Softly and gently* "just heavenly". Orchestra and choir were "excellent throughout", and John Stringer handled these forces and the Minster acoustic "with exceptional musical skill".[^2]
 
-{{< reel video="reel-minster-jun-2023" link="https://www.instagram.com/reel/CtykmdVLEbz/" caption="After the concert." >}}
+{{< reel video="reel-minster-jun-2023" link="https://www.instagram.com/reel/CtykmdVLEbz/" >}}
 
 **More:** [Over 200 musicians in rehearsal](https://www.instagram.com/p/CtbHgg4MK5Q/)
 

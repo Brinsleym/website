@@ -3,7 +3,8 @@ next_key: 次へ
 related_posts_title: 関連する投稿
 prev_post: 前の投稿
 next_post: 次の投稿
-next_project: 次のプロジェクト
+post_navigation: 記事ナビゲーション
+scroll_to_top: ページ上部へ戻る
 share_this_post: この投稿をシェアする
 view_all: すべて見る
 contact_email_title: "お問い合わせ"
@@ -30,6 +31,6 @@ reel_pause: "一時停止"
 reel_seek: "シーク"
 reel_mute: "ミュート"
 reel_volume: "音量"
-reel_fullscreen: "全画面表示"
+reel_video_label: "公演映像"
 reel_watch_on_instagram: "Instagramで見る"
 reel_unavailable: "この動画を読み込めませんでした。"

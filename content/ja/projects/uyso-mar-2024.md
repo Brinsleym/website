@@ -21,7 +21,7 @@ description: "ソルヴァルズドッティル《Metacosmos》、シャーロ�
 
 {{< youtube -1vJRFKi7SA >}}
 
-{{< reel video="reel-uyso-mar-2024" link="https://www.instagram.com/reel/C4yHX5vs1xe/" caption="公演後の映像。" >}}
+{{< reel video="reel-uyso-mar-2024" link="https://www.instagram.com/reel/C4yHX5vs1xe/" >}}
 
 **関連リンク：** [シャーロット・ブレッテルが語るグリーグ](https://www.instagram.com/reel/C4aIzaqIn5e/)
 

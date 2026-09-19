@@ -22,7 +22,7 @@ description: "ヨーク・ミンスターでのモーツァルト《ミサ曲 �
 
 批評には「称賛すべきものが多くあった」とあり、グローリアの「精緻で切れのある弦楽」から、4人の独唱による「たいへん見事なベネディクトゥス」までが挙げられています。ブルックナーのモテットを歌ったザ・24については「これ以上のものはそうそうない」とし、「明晰さ、均衡、細部、そして真に音楽的な洞察」を称賛。エルガーの《エレジー》は「愛すべき宝石のような作品」と評されました。[^2]
 
-{{< reel video="reel-minster-jun-2024" link="https://www.instagram.com/reel/C8MTKKts5hX/" caption="公演後の映像。" >}}
+{{< reel video="reel-minster-jun-2024" link="https://www.instagram.com/reel/C8MTKKts5hX/" >}}
 
 **関連リンク：** [独唱者の紹介](https://www.instagram.com/p/C7d7RAKMSEd/)
 

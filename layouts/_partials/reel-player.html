@@ -1,14 +1,22 @@
-<!-- Custom player for the ensembles' Instagram reels, served from our own copy -->
-<figure class="reel-player" data-reel-player{{ with .ratio }} style="--reel-ratio: {{ . }}"{{ end }}>
+<!-- Custom player for the ensembles' Instagram reels, served from our own copy.
+
+     Progressive enhancement: the markup below is a plain <video> with native
+     controls and two <source> elements, so it still plays if our script never
+     runs (JS off, a privacy extension, a strict CSP) and the browser itself
+     falls back to the second source when the CDN cannot be reached. The script
+     drops the native controls and reveals ours by adding .is-enhanced. -->
+<figure class="reel-player" data-reel-player{{ with .ratio }} style="{{ printf "--reel-ratio: %s" . | safeCSS }}"{{ end }}>
   <div class="reel-player__frame">
     <video class="reel-player__video"
+           controls
            preload="metadata"
            playsinline
            webkit-playsinline
            poster="{{ .poster }}"
-           data-src-primary="{{ .primary }}"
-           data-src-fallback="{{ .fallback }}"
-           {{ with .label }}aria-label="{{ . }}"{{ end }}></video>
+           aria-label="{{ .videoLabel }}">
+      <source src="{{ .primary }}" type="video/mp4">
+      <source src="{{ .fallback }}" type="video/mp4">
+    </video>
 
     <button class="reel-player__overlay" type="button" aria-label="{{ .playLabel }}">
       <span><ion-icon name="play" aria-hidden="true"></ion-icon></span>
@@ -17,31 +25,33 @@
     <div class="reel-player__spinner" hidden></div>
 
     <div class="reel-player__controls">
-      <button class="reel-player__btn reel-player__play" type="button" aria-label="{{ .playLabel }}">
-        <ion-icon name="play" aria-hidden="true"></ion-icon>
-      </button>
       <span class="reel-player__time reel-player__time--current">0:00</span>
+
       <div class="reel-player__scrub" role="slider" tabindex="0"
            aria-label="{{ .seekLabel }}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-        <div class="reel-player__buffer"></div>
-        <div class="reel-player__progress"><span class="reel-player__knob"></span></div>
+        <div class="reel-player__bar">
+          <div class="reel-player__buffer"></div>
+          <div class="reel-player__progress"></div>
+        </div>
       </div>
+
       <span class="reel-player__time reel-player__time--total">0:00</span>
+
       <div class="reel-player__volume">
+        <div class="reel-player__vol-track" role="slider" tabindex="0"
+             aria-label="{{ .volumeLabel }}" aria-orientation="vertical"
+             aria-valuemin="0" aria-valuemax="100" aria-valuenow="80">
+          <div class="reel-player__vol-bar">
+            <div class="reel-player__vol-fill"></div>
+          </div>
+        </div>
         <button class="reel-player__btn reel-player__mute" type="button" aria-label="{{ .muteLabel }}">
           <ion-icon name="volume-high" aria-hidden="true"></ion-icon>
         </button>
-        <div class="reel-player__vol-track" role="slider" tabindex="0"
-             aria-label="{{ .volumeLabel }}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
-          <div class="reel-player__vol-fill"></div>
-        </div>
       </div>
-      <button class="reel-player__btn reel-player__fullscreen" type="button" aria-label="{{ .fullscreenLabel }}">
-        <ion-icon name="expand" aria-hidden="true"></ion-icon>
-      </button>
     </div>
 
-    <div class="reel-player__message" hidden>
+    <div class="reel-player__message" role="status" hidden>
       <span>{{ .unavailable }}</span>
       <a href="{{ .link }}" target="_blank" rel="noopener">{{ .watchOn }}</a>
     </div>
@@ -55,10 +65,13 @@
 <script>
 /* Reel player: one initialiser for every player on the page. */
 (function () {
+  'use strict';
+
   if (window.__reelPlayerReady) return;
   window.__reelPlayerReady = true;
 
   var VOLUME_KEY = 'reel-player-volume';
+  var DEFAULT_VOLUME = 0.8;
 
   function fmt(t) {
     if (!isFinite(t) || t < 0) t = 0;
@@ -66,6 +79,7 @@
     return m + ':' + (s < 10 ? '0' : '') + s;
   }
 
+  /* Storage is unavailable in private windows and with some privacy settings. */
   function readStoredVolume() {
     try {
       var v = parseFloat(window.localStorage.getItem(VOLUME_KEY));
@@ -77,30 +91,84 @@
     try { window.localStorage.setItem(VOLUME_KEY, String(v)); } catch (e) {}
   }
 
-  function fraction(el, event) {
-    var r = el.getBoundingClientRect();
-    if (!r.width) return 0;
-    var x = (event.touches ? event.touches[0].clientX : event.clientX) - r.left;
-    return Math.min(1, Math.max(0, x / r.width));
+  function point(event) {
+    if (event.touches && event.touches.length) return event.touches[0];
+    if (event.changedTouches && event.changedTouches.length) return event.changedTouches[0];
+    return event;
   }
 
-  function drag(el, onMove) {
-    function move(e) { onMove(fraction(el, e)); e.preventDefault(); }
+  /* Fraction along an element, 0 to 1. Vertical tracks run bottom to top. */
+  function fraction(el, event, vertical) {
+    var r = el.getBoundingClientRect();
+    var p = point(event);
+    if (vertical) {
+      if (!r.height) return 0;
+      return Math.min(1, Math.max(0, (r.bottom - p.clientY) / r.height));
+    }
+    if (!r.width) return 0;
+    return Math.min(1, Math.max(0, (p.clientX - r.left) / r.width));
+  }
+
+  /* Drag on a track. Pointer Events where available, mouse and touch elsewhere. */
+  function drag(el, vertical, onMove, onStart, onEnd) {
+    var dragging = false;
+
+    function begin(e) {
+      dragging = true;
+      el.classList.add('is-scrubbing');
+      if (onStart) onStart();
+      onMove(fraction(el, e, vertical));
+    }
+
+    function finish() {
+      if (!dragging) return;
+      dragging = false;
+      el.classList.remove('is-scrubbing');
+      if (onEnd) onEnd();
+    }
+
+    if (window.PointerEvent) {
+      el.addEventListener('pointerdown', function (e) {
+        if (e.button !== undefined && e.button !== 0) return;
+        begin(e);
+        try { el.setPointerCapture(e.pointerId); } catch (err) {}
+        e.preventDefault();
+      });
+      el.addEventListener('pointermove', function (e) {
+        if (!dragging) return;
+        onMove(fraction(el, e, vertical));
+        e.preventDefault();
+      });
+      el.addEventListener('pointerup', finish);
+      el.addEventListener('pointercancel', finish);
+      return;
+    }
+
+    function move(e) {
+      if (!dragging) return;
+      onMove(fraction(el, e, vertical));
+      e.preventDefault();
+    }
+
     function up() {
+      finish();
       document.removeEventListener('mousemove', move);
       document.removeEventListener('mouseup', up);
       document.removeEventListener('touchmove', move);
       document.removeEventListener('touchend', up);
     }
+
     el.addEventListener('mousedown', function (e) {
-      move(e);
+      begin(e);
       document.addEventListener('mousemove', move);
       document.addEventListener('mouseup', up);
+      e.preventDefault();
     });
     el.addEventListener('touchstart', function (e) {
-      move(e);
+      begin(e);
       document.addEventListener('touchmove', move, { passive: false });
       document.addEventListener('touchend', up);
+      e.preventDefault();
     }, { passive: false });
   }
 
@@ -110,26 +178,33 @@
 
     var video = root.querySelector('.reel-player__video');
     var overlay = root.querySelector('.reel-player__overlay');
-    var playBtn = root.querySelector('.reel-player__play');
-    var playIcon = playBtn.querySelector('ion-icon');
-    var overlayIcon = overlay.querySelector('ion-icon');
+    var overlayIcon = overlay && overlay.querySelector('ion-icon');
     var current = root.querySelector('.reel-player__time--current');
     var total = root.querySelector('.reel-player__time--total');
     var scrub = root.querySelector('.reel-player__scrub');
     var progress = root.querySelector('.reel-player__progress');
     var buffer = root.querySelector('.reel-player__buffer');
     var muteBtn = root.querySelector('.reel-player__mute');
-    var muteIcon = muteBtn.querySelector('ion-icon');
+    var muteIcon = muteBtn && muteBtn.querySelector('ion-icon');
     var volTrack = root.querySelector('.reel-player__vol-track');
     var volFill = root.querySelector('.reel-player__vol-fill');
-    var fsBtn = root.querySelector('.reel-player__fullscreen');
     var spinner = root.querySelector('.reel-player__spinner');
     var message = root.querySelector('.reel-player__message');
-    var frame = root.querySelector('.reel-player__frame');
 
-    // --- source selection, with a fallback when the CDN cannot be reached ---
-    var primary = video.getAttribute('data-src-primary');
-    var fallback = video.getAttribute('data-src-fallback');
+    /* Anything missing means the markup is not what we expect: leave the
+       native controls in place rather than presenting a broken player. */
+    if (!video || !overlay || !current || !total || !scrub || !progress ||
+        !buffer || !muteBtn || !volTrack || !volFill || !spinner || !message) {
+      return;
+    }
+
+    /* Take over from the browser's own controls. */
+    root.classList.add('is-enhanced');
+    video.removeAttribute('controls');
+
+    var sources = video.querySelectorAll('source');
+    var primary = sources.length ? sources[0].getAttribute('src') : '';
+    var fallback = sources.length > 1 ? sources[1].getAttribute('src') : '';
     var usingFallback = false;
     var watchdog = null;
 
@@ -143,6 +218,8 @@
       message.hidden = false;
     }
 
+    /* The browser swaps <source> elements by itself on an outright error. The
+       watchdog is for the other case: a CDN that hangs instead of refusing. */
     function useFallback() {
       clearWatchdog();
       if (usingFallback || !fallback || fallback === primary) { giveUp(); return; }
@@ -155,36 +232,38 @@
     function armWatchdog(ms) {
       clearWatchdog();
       watchdog = setTimeout(function () {
-        // Nothing has arrived: the CDN is unreachable rather than slow.
-        if (video.readyState < 1) usingFallback ? giveUp() : useFallback();
+        if (video.readyState < 1) {
+          if (usingFallback) giveUp(); else useFallback();
+        }
       }, ms);
     }
 
     video.addEventListener('error', function () {
-      usingFallback ? giveUp() : useFallback();
+      if (usingFallback) giveUp(); else useFallback();
     });
+
     video.addEventListener('loadedmetadata', function () {
       clearWatchdog();
       message.hidden = true;
       total.textContent = fmt(video.duration);
-      scrub.setAttribute('aria-valuemax', '100');
     });
 
-    video.src = primary;
     armWatchdog(8000);
 
-    // --- volume ---
+    /* ---- volume ---- */
     var stored = readStoredVolume();
-    video.volume = stored === null ? 1 : stored;
+    video.volume = stored === null ? DEFAULT_VOLUME : stored;
 
     function paintVolume() {
       var v = video.muted ? 0 : video.volume;
-      volFill.style.width = (v * 100) + '%';
+      volFill.style.height = (v * 100) + '%';
       volTrack.setAttribute('aria-valuenow', Math.round(v * 100));
-      muteIcon.setAttribute('name', v === 0 ? 'volume-mute' : (v < 0.5 ? 'volume-low' : 'volume-high'));
+      if (muteIcon) {
+        muteIcon.setAttribute('name', v === 0 ? 'volume-mute' : (v < 0.5 ? 'volume-low' : 'volume-high'));
+      }
     }
 
-    var lastAudible = video.volume > 0 ? video.volume : 1;
+    var lastAudible = video.volume > 0 ? video.volume : DEFAULT_VOLUME;
 
     function setVolume(v) {
       v = Math.min(1, Math.max(0, v));
@@ -206,20 +285,24 @@
       }
       paintVolume();
     });
-    drag(volTrack, setVolume);
+
+    drag(volTrack, true, setVolume);
     volTrack.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowRight' || e.key === 'ArrowUp') { setVolume(video.volume + 0.1); e.preventDefault(); }
-      if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') { setVolume(video.volume - 0.1); e.preventDefault(); }
+      if (e.key === 'ArrowUp' || e.key === 'ArrowRight') { setVolume(video.volume + 0.1); e.preventDefault(); }
+      if (e.key === 'ArrowDown' || e.key === 'ArrowLeft') { setVolume(video.volume - 0.1); e.preventDefault(); }
+      if (e.key === 'Home') { setVolume(0); e.preventDefault(); }
+      if (e.key === 'End') { setVolume(1); e.preventDefault(); }
     });
     paintVolume();
 
-    // --- play / pause ---
+    /* ---- play / pause ---- */
     function toggle() {
       if (video.paused) {
         // Only one reel plays at a time.
-        document.querySelectorAll('.reel-player__video').forEach(function (other) {
-          if (other !== video && !other.paused) other.pause();
-        });
+        var others = document.querySelectorAll('.reel-player__video');
+        for (var i = 0; i < others.length; i++) {
+          if (others[i] !== video && !others[i].paused) others[i].pause();
+        }
         var p = video.play();
         if (p && p.catch) p.catch(function () {});
       } else {
@@ -228,71 +311,74 @@
     }
 
     overlay.addEventListener('click', toggle);
-    playBtn.addEventListener('click', toggle);
     video.addEventListener('click', toggle);
 
-    video.addEventListener('play', function () {
-      root.classList.add('is-playing');
-      playIcon.setAttribute('name', 'pause');
-      overlayIcon.setAttribute('name', 'pause');
-    });
-    video.addEventListener('pause', function () {
-      root.classList.remove('is-playing');
-      playIcon.setAttribute('name', 'play');
-      overlayIcon.setAttribute('name', 'play');
-    });
-    video.addEventListener('ended', function () {
-      root.classList.remove('is-playing');
-      playIcon.setAttribute('name', 'play');
-      overlayIcon.setAttribute('name', 'play');
-    });
+    function paintPlayState() {
+      var playing = !video.paused && !video.ended;
+      root.classList.toggle('is-playing', playing);
+      if (overlayIcon) overlayIcon.setAttribute('name', playing ? 'pause' : 'play');
+      overlay.setAttribute('aria-label', playing ? {{ .pauseLabel | jsonify }} : {{ .playLabel | jsonify }});
+    }
+
+    video.addEventListener('play', paintPlayState);
+    video.addEventListener('pause', paintPlayState);
+    video.addEventListener('ended', paintPlayState);
 
     video.addEventListener('waiting', function () { spinner.hidden = false; });
     video.addEventListener('playing', function () { spinner.hidden = true; });
     video.addEventListener('canplay', function () { spinner.hidden = true; });
 
-    // --- progress ---
-    video.addEventListener('timeupdate', function () {
-      var d = video.duration;
-      var pct = d ? (video.currentTime / d) * 100 : 0;
+    /* ---- progress ---- */
+    var scrubbing = false;
+
+    function paintProgress(pct, time) {
       progress.style.width = pct + '%';
-      current.textContent = fmt(video.currentTime);
+      current.textContent = fmt(time);
       scrub.setAttribute('aria-valuenow', Math.round(pct));
+      scrub.setAttribute('aria-valuetext', fmt(time) + ' / ' + fmt(video.duration));
+    }
+
+    video.addEventListener('timeupdate', function () {
+      if (scrubbing) return;
+      var d = video.duration;
+      paintProgress(d ? (video.currentTime / d) * 100 : 0, video.currentTime);
     });
+
     video.addEventListener('progress', function () {
       if (!video.buffered.length || !video.duration) return;
       var end = video.buffered.end(video.buffered.length - 1);
       buffer.style.width = ((end / video.duration) * 100) + '%';
     });
 
-    function seekTo(f) {
-      if (video.duration) video.currentTime = f * video.duration;
-    }
-    drag(scrub, seekTo);
+    drag(scrub, false, function (f) {
+      if (!video.duration) return;
+      // Paint straight away so the bar tracks the pointer, then seek.
+      paintProgress(f * 100, f * video.duration);
+      video.currentTime = f * video.duration;
+    }, function () {
+      scrubbing = true;
+    }, function () {
+      scrubbing = false;
+    });
+
     scrub.addEventListener('keydown', function (e) {
+      if (!video.duration) return;
       if (e.key === 'ArrowRight') { video.currentTime = Math.min(video.duration, video.currentTime + 5); e.preventDefault(); }
       if (e.key === 'ArrowLeft') { video.currentTime = Math.max(0, video.currentTime - 5); e.preventDefault(); }
+      if (e.key === 'Home') { video.currentTime = 0; e.preventDefault(); }
+      if (e.key === 'End') { video.currentTime = video.duration; e.preventDefault(); }
       if (e.key === ' ' || e.key === 'Enter') { toggle(); e.preventDefault(); }
     });
 
-    // --- fullscreen ---
-    fsBtn.addEventListener('click', function () {
-      if (document.fullscreenElement) {
-        document.exitFullscreen();
-      } else if (frame.requestFullscreen) {
-        frame.requestFullscreen();
-      } else if (video.webkitEnterFullscreen) {
-        video.webkitEnterFullscreen();
-      }
-    });
-    document.addEventListener('fullscreenchange', function () {
-      var inFs = document.fullscreenElement === frame;
-      fsBtn.querySelector('ion-icon').setAttribute('name', inFs ? 'contract' : 'expand');
-    });
+    paintPlayState();
   }
 
   function init() {
-    document.querySelectorAll('[data-reel-player]').forEach(setup);
+    var players = document.querySelectorAll('[data-reel-player]');
+    for (var i = 0; i < players.length; i++) {
+      // One broken player must not take the others down with it.
+      try { setup(players[i]); } catch (e) {}
+    }
   }
 
   if (document.readyState === 'loading') {

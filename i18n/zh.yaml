@@ -3,7 +3,8 @@ next_key: 下一页
 related_posts_title: 你可能也喜欢
 prev_post: 上一篇
 next_post: 下一篇
-next_project: 下一个项目
+post_navigation: 文章导航
+scroll_to_top: 返回顶部
 share_this_post: 分享此文章
 view_all: 查看所有
 contact_email_title: "联系我"
@@ -30,6 +31,6 @@ reel_pause: "暂停"
 reel_seek: "进度"
 reel_mute: "静音"
 reel_volume: "音量"
-reel_fullscreen: "全屏"
+reel_video_label: "音乐会影片"
 reel_watch_on_instagram: "在Instagram上观看"
 reel_unavailable: "无法加载此视频。"
