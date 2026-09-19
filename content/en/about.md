@@ -13,9 +13,11 @@ content_blocks:
     image_alt: "Premiere performance of The Brink of the Valley"
   - _bookshop_name: content
     content_html: >-
-      <p> <!-- callout? -->
-        Brinsley is a <b>multi-instrumentalist</b> and <b>composer</b>. He has performed as a vocal soloist with the <b>BBC Philharmonic Orchestra</b> and played as <b>principal violinist</b> in multiple orchestras. <br><br> Brinsley holds a <b>First Class Honours BA in Music</b> from the <b>University of York</b>, where he specialised in Composition for Film in his final year. Brinsley is also an alumnus of <b>Chetham’s School of Music</b>, where he studied composition and singing alongside violin and piano.
-      </p>
+      <div class="page__summary">
+        <p>
+          Brinsley is a <b>multi-instrumentalist</b> and <b>composer</b>. He has performed as a vocal soloist with the <b>BBC Philharmonic Orchestra</b> and played as <b>principal violinist</b> in multiple orchestras. <br><br> Brinsley holds a <b>First Class Honours BA in Music</b> from the <b>University of York</b>, where he specialised in Composition for Film in his final year. Brinsley is also an alumnus of <b>Chetham’s School of Music</b>, where he studied composition and singing alongside violin and piano.
+        </p>
+      </div>
       <h2>University of York</h2>
       <p>
         Brinsley graduated in the summer of 2025 with First Class Honours. His final-year dissertation project involved creating a portfolio of newly written material scored to picture (<a href="https://brinsleymorrison.com/blog/final-year-dissertation-project/" target="_blank">read more here</a>). While studying at York, Brinsley also played with the <a href="https://www.facebook.com/uyso.uk" target="_blank" rel="noopener">University of York Symphony Orchestra</a>, sang with <a href="https://www.york.ac.uk/arts-creative-technologies/about/music-at-york/ensembles/" target="_blank" rel="noopener">The 24</a>, and commissioned music for and performed with <a href="https://www.york.ac.uk/arts-creative-technologies/about/music-at-york/ensembles/" target="_blank" rel="noopener">The Chimera Ensemble</a>.

@@ -13,9 +13,11 @@ content_blocks:
     image_alt: "《谷底边缘》首演"
   - _bookshop_name: content
     content_html: >-
-      <p>
-        林泽是一位<b>多乐器演奏家</b>和<b>作曲家</b>。他曾作为独唱歌手与<b>BBC爱乐乐团</b>合作演出，并在多个管弦乐团担任<b>首席小提琴</b>。<br><br>林泽以<b>音乐学士一等荣誉学位</b>毕业于<b>约克大学</b>，在最后一年专攻电影配乐创作。林泽也是<b>切塔姆音乐学校</b>的校友，在那里他学习作曲和声乐，同时也学习小提琴和钢琴。
-      </p>
+      <div class="page__summary">
+        <p>
+          林泽是一位<b>多乐器演奏家</b>和<b>作曲家</b>。他曾作为独唱歌手与<b>BBC爱乐乐团</b>合作演出，并在多个管弦乐团担任<b>首席小提琴</b>。<br><br>林泽以<b>音乐学士一等荣誉学位</b>毕业于<b>约克大学</b>，在最后一年专攻电影配乐创作。林泽也是<b>切塔姆音乐学校</b>的校友，在那里他学习作曲和声乐，同时也学习小提琴和钢琴。
+        </p>
+      </div>
       <h2>约克大学</h2>
       <p>
         林泽于2025年夏季以一等荣誉学位毕业。在大学期间，他的最终年毕业论文项目涉及创作一组新作品的影视配乐作品集。（<a href="https://brinsleymorrison.com/blog/final-year-dissertation-project/" target="_blank">了解更多详情请点击这里</a>）。在约克学习期间，林泽还与<a href="https://www.facebook.com/uyso.uk" target="_blank" rel="noopener">约克大学交响乐团</a>合作演出，与<a href="https://www.york.ac.uk/arts-creative-technologies/about/music-at-york/ensembles/" target="_blank" rel="noopener">The 24</a>合唱团演唱，以及为<a href="https://www.york.ac.uk/arts-creative-technologies/about/music-at-york/ensembles/" target="_blank" rel="noopener">The Chimera Ensemble</a>委约音乐并与其合作演出。

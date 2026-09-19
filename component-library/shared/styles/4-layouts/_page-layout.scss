@@ -204,6 +204,24 @@
 	}
 }
 
+/* Standfirst summary, boxed like the contact card */
+.page__summary {
+	background: $background-color-alt;
+	border-radius: 16px;
+	padding: 24px;
+	margin-bottom: 32px;
+	box-shadow: 0 2px 8px rgba($dark, 0.05);
+
+	> p:last-child {
+		margin-bottom: 0;
+	}
+
+	@media only screen and (max-width: $mobile) {
+		padding: 20px 16px;
+		margin-bottom: 24px;
+	}
+}
+
 /* Share */
 .post__share {
 	margin: 32px 0 60px;
