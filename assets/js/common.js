@@ -56,21 +56,26 @@ document.addEventListener("DOMContentLoaded", function () {
   menuCloseIcon = document.querySelector(".nav__icon-close"),
   menuList = document.querySelector(".main-nav");
 
-  menuOpenIcon.addEventListener("click", () => {
-    menuOpen();
-  });
-
-  menuCloseIcon.addEventListener("click", () => {
-    menuClose();
-  });
-
   function menuOpen() {
-    menuList.classList.add("is-open");
+    if (menuList) menuList.classList.add("is-open");
   }
 
   function menuClose() {
-    menuList.classList.remove("is-open");
+    if (menuList) menuList.classList.remove("is-open");
   }
+
+  // Guarded: a page without the menu markup must not stop
+  // everything below this point from being set up.
+  if (menuOpenIcon) menuOpenIcon.addEventListener("click", menuOpen);
+  if (menuCloseIcon) menuCloseIcon.addEventListener("click", menuClose);
+
+  // Close the menu on Escape, and when a link inside it is followed.
+  document.addEventListener("keydown", function (e) {
+    if ((e.key === "Escape" || e.keyCode === 27) && menuList &&
+        menuList.classList.contains("is-open")) {
+      menuClose();
+    }
+  });
 
   /* =======================
   // Animation Load Page
@@ -109,21 +114,174 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* =======================
   // Zoom Image
+  //
+  // Replaces the Lightense library, which had two
+  // faults. It triggered the opening transform from a
+  // 20ms timer, so on a busy frame the browser painted
+  // both states at once and the image jumped straight
+  // to full size instead of animating. And it moved the
+  // image into a wrapper element, restoring it 300ms
+  // after a close from a timer that read shared state,
+  // so closing and reopening quickly unwrapped the
+  // newly opened image and stranded it half zoomed.
+  //
+  // Here the transform is committed on an animation
+  // frame after a forced reflow, and the image is never
+  // moved in the DOM, so neither fault can occur.
   ======================= */
-  const lightense = document.querySelector(".page img, .post img"),
-  imageLink = document.querySelectorAll(".page a img, .post a img");
+  const imageLink = document.querySelectorAll(".page a img, .post a img");
 
-  if (imageLink) {
-    for (var i = 0; i < imageLink.length; i++) imageLink[i].parentNode.classList.add("image-link");
-    for (var i = 0; i < imageLink.length; i++) imageLink[i].classList.add("no-lightense");
+  for (let i = 0; i < imageLink.length; i++) {
+    imageLink[i].parentNode.classList.add("image-link");
+    imageLink[i].classList.add("no-zoom");
   }
 
-  if (lightense && typeof Lightense !== 'undefined') {
-    Lightense(".page img:not(.no-lightense), .post img:not(.no-lightense)", {
-    padding: 60,
-    offset: 30
+  function initImageZoom() {
+    const SELECTOR = ".page img:not(.no-zoom), .post img:not(.no-zoom)";
+    const DURATION = 300;      // must match the CSS transition
+    const PADDING = 60;        // breathing room around the zoomed image
+    const SCROLL_CLOSE = 30;   // px of scrolling that dismisses it
+    const RADIUS = 8;          // visual corner radius while zoomed
+
+    const images = document.querySelectorAll(SELECTOR);
+    if (!images.length) return;
+
+    const reduceMotion = window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const backdrop = document.createElement("div");
+    backdrop.className = "img-zoom-backdrop";
+    document.body.appendChild(backdrop);
+
+    let openImage = null;
+    let startScroll = 0;
+    let lastFocus = null;
+    let session = 0; // invalidates the pending teardown of an earlier zoom
+
+    function close() {
+      if (!openImage) return;
+
+      const img = openImage;
+      const mine = ++session;
+      openImage = null;
+
+      img.style.transform = "";
+      img.style.borderRadius = "";
+      img.classList.remove("is-zoomed");
+      img.setAttribute("aria-expanded", "false");
+      backdrop.classList.remove("is-open");
+
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", close);
+      document.removeEventListener("keydown", onKey);
+
+      // Hold the stacking context until the image has shrunk back,
+      // but only if no new zoom has started in the meantime.
+      window.setTimeout(function () {
+        if (session === mine) img.classList.remove("is-zooming");
+      }, reduceMotion ? 0 : DURATION);
+
+      if (lastFocus && typeof lastFocus.focus === "function") {
+        lastFocus.focus();
+      }
+      lastFocus = null;
+    }
+
+    function open(img) {
+      if (openImage === img) { close(); return; }
+      if (openImage) close();
+
+      const rect = img.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+
+      const vw = document.documentElement.clientWidth || window.innerWidth;
+      const vh = document.documentElement.clientHeight || window.innerHeight;
+      const availW = Math.max(vw - PADDING * 2, 1);
+      const availH = Math.max(vh - PADDING * 2, 1);
+
+      // Fit the image inside the viewport. This can be below 1 for a tall
+      // image that is already wider than the screen can show, which is the
+      // point: the zoom is there to reveal the whole picture.
+      let scale = Math.min(availW / rect.width, availH / rect.height);
+      // Never enlarge past the file's own resolution. naturalWidth is 0 until
+      // the file has decoded, in which case there is nothing to cap against.
+      if (img.naturalWidth) scale = Math.min(scale, img.naturalWidth / rect.width);
+      if (!isFinite(scale) || scale <= 0) scale = 1;
+
+      const dx = Math.round(vw / 2 - (rect.left + rect.width / 2));
+      const dy = Math.round(vh / 2 - (rect.top + rect.height / 2));
+
+      session++;
+      openImage = img;
+      startScroll = window.scrollY || window.pageYOffset || 0;
+      lastFocus = document.activeElement;
+
+      img.classList.add("is-zooming", "is-zoomed");
+      img.setAttribute("aria-expanded", "true");
+      backdrop.classList.add("is-open");
+
+      // Force the starting state to be recalculated before the transform is
+      // set. Reading offsetWidth flushes the pending style change, so the two
+      // states land in separate recalculations and the transition runs. The
+      // old library used a 20ms timer for this, which could fire before the
+      // first state had been committed and made the zoom jump instantly.
+      // A layout read is used rather than requestAnimationFrame because rAF
+      // does not fire in a hidden tab, which would leave the image untouched.
+      void img.offsetWidth;
+
+      img.style.transform =
+        "translate3d(" + dx + "px, " + dy + "px, 0) scale(" + scale + ")";
+      // Divide by the scale so the corners look the same however far the
+      // image has been enlarged.
+      img.style.borderRadius = (RADIUS / scale).toFixed(2) + "px";
+
+      window.addEventListener("scroll", onScroll, false);
+      window.addEventListener("resize", close, false);
+      document.addEventListener("keydown", onKey, false);
+    }
+
+    function onScroll() {
+      const now = window.scrollY || window.pageYOffset || 0;
+      if (Math.abs(startScroll - now) >= SCROLL_CLOSE) close();
+    }
+
+    function onKey(e) {
+      if (e.key === "Escape" || e.keyCode === 27) {
+        e.preventDefault();
+        close();
+      }
+    }
+
+    backdrop.addEventListener("click", close, false);
+
+    images.forEach(img => {
+      if (!img.getAttribute("src")) return;
+
+      img.classList.add("img-zoom-target");
+      img.setAttribute("tabindex", "0");
+      img.setAttribute("role", "button");
+      img.setAttribute("aria-expanded", "false");
+
+      img.addEventListener("click", function (e) {
+        // Ctrl or Cmd click opens the file itself, as the old library did.
+        if (e.metaKey || e.ctrlKey) {
+          window.open(img.src, "_blank", "noopener");
+          return;
+        }
+        e.preventDefault();
+        open(img);
+      });
+
+      img.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+          e.preventDefault();
+          open(img);
+        }
+      });
     });
   }
+
+  initImageZoom();
 
   /* ============================
   // Smooth scrolling to section
@@ -224,19 +382,21 @@ document.addEventListener("DOMContentLoaded", function () {
   ============================ */
   const btnScrollToTop = document.querySelector(".top");
 
-  window.addEventListener("scroll", function () {
-    window.scrollY > window.innerHeight ? btnScrollToTop.classList.add("is-active") : btnScrollToTop.classList.remove("is-active");
-  });
+  if (btnScrollToTop) {
+    window.addEventListener("scroll", function () {
+      btnScrollToTop.classList.toggle("is-active", window.scrollY > window.innerHeight);
+    }, { passive: true });
 
-  btnScrollToTop.addEventListener("click", function () {
-    if (window.scrollY != 0) {
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: "smooth"
-      })
-    }
-  });
+    btnScrollToTop.addEventListener("click", function () {
+      if (window.scrollY != 0) {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "smooth"
+        })
+      }
+    });
+  }
 
 
   /* ============================
@@ -337,9 +497,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 pointer-events: auto !important;
             }
 
-            /* Re-enable for Lightense images */
-            .page img:not(.no-lightense),
-            .post img:not(.no-lightense) {
+            /* Re-enable for zoomable images */
+            .page img:not(.no-zoom),
+            .post img:not(.no-zoom) {
                 pointer-events: auto !important;
             }
 
@@ -378,16 +538,11 @@ document.addEventListener("DOMContentLoaded", function () {
         e.preventDefault();
         const email = emailAddress.textContent.trim();
         
-        // Debug logging for mobile
-        console.log('Copy button clicked, email:', email);
-        console.log('User agent:', navigator.userAgent);
-        console.log('Clipboard API available:', !!navigator.clipboard?.writeText);
         
         // For mobile browsers, try a more direct approach first
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         
         if (isMobile) {
-          console.log('Mobile detected, using fallback method');
           // On mobile, try the fallback method first as it's more reliable
           fallbackCopyToClipboard(email);
           return;
@@ -408,14 +563,12 @@ document.addEventListener("DOMContentLoaded", function () {
             fallbackCopyToClipboard(email);
           }
         } catch (err) {
-          console.log('Copy failed, using fallback method:', err);
           fallbackCopyToClipboard(email);
         }
       });
     }
     
     function fallbackCopyToClipboard(text) {
-      console.log('Using fallback copy method for text:', text);
       
       // Create a temp textarea element that's visible but off-screen for mobile compatibility
       const textArea = document.createElement('textarea');
@@ -445,7 +598,6 @@ document.addEventListener("DOMContentLoaded", function () {
       
       // For mobile Safari specifically
       if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
-        console.log('iOS detected, using iOS-specific selection method');
         textArea.contentEditable = true;
         textArea.readOnly = false;
         const range = document.createRange();
@@ -461,15 +613,12 @@ document.addEventListener("DOMContentLoaded", function () {
       // Try to copy
       try {
         const successful = document.execCommand('copy');
-        console.log('execCommand copy result:', successful);
         if (successful) {
           showCopySuccess();
         } else {
-          console.log('execCommand failed, showing email text for manual copy');
           selectEmailText();
         }
       } catch (err) {
-        console.log('Fallback copy failed:', err);
         selectEmailText();
       } finally {
         document.body.removeChild(textArea);
@@ -477,7 +626,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     
     function selectEmailText() {
-      console.log('Selecting email text for manual copy');
       // Select email text for manual copying
       const emailElement = document.getElementById('email-address');
       if (emailElement) {
@@ -558,7 +706,6 @@ document.addEventListener("DOMContentLoaded", function () {
         fallbackCopyToClipboard(email, linkElement);
       }
     } catch (err) {
-      console.log('Social mail copy failed:', err);
       fallbackCopyToClipboard(email, linkElement);
     }
   }
@@ -581,7 +728,6 @@ document.addEventListener("DOMContentLoaded", function () {
         showSocialCopySuccess(linkElement);
       }
     } catch (err) {
-      console.log('Fallback social copy failed:', err);
     } finally {
       document.body.removeChild(textArea);
     }
@@ -629,21 +775,20 @@ document.addEventListener("DOMContentLoaded", function () {
   // Resize handling with debouncing and media query listener
   let resizeTimeout;
   const mediaQuery = window.matchMedia('(min-width: 769px)');
-  
-  // Handle media query changes (more efficient than resize events)
-  mediaQuery.addEventListener('change', (e) => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-      initSocialMailCopy();
-    }, 150);
-  });
 
-  // Fallback resize handler for browsers that don't support media query listeners
-  window.addEventListener('resize', () => {
+  function onBreakpointChange() {
     clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-      initSocialMailCopy();
-    }, 250);
-  });
+    resizeTimeout = setTimeout(initSocialMailCopy, 150);
+  }
+
+  // Watch the breakpoint rather than every resize event. addEventListener on a
+  // MediaQueryList is the modern form; Safari below 14 only has addListener.
+  if (typeof mediaQuery.addEventListener === 'function') {
+    mediaQuery.addEventListener('change', onBreakpointChange);
+  } else if (typeof mediaQuery.addListener === 'function') {
+    mediaQuery.addListener(onBreakpointChange);
+  } else {
+    window.addEventListener('resize', onBreakpointChange, { passive: true });
+  }
 
 });

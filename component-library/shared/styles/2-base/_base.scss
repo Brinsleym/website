@@ -111,23 +111,17 @@ pre {
   word-break: break-all;
 }
 
-img,
-.lightense-wrap {
+img {
   max-width: 100%;
   height: auto;
   vertical-align: middle;
 }
 
 img,
-.lightense-wrap,
 .gallery {
 
   img {
     border-radius: 16px;
-    
-    &.lightense-open {
-      border-radius: 0;
-    }
   }
 
   &+em {
@@ -160,6 +154,78 @@ img,
     &+em {
       margin-top: 12px;
     }
+  }
+}
+
+// ==============================================
+// Click to zoom an image
+// The image is transformed where it sits; nothing is
+// moved in the DOM. See initImageZoom in common.js.
+// ==============================================
+$img-zoom-duration: 300ms;
+$img-zoom-easing: cubic-bezier(.2, 0, .1, 1);
+
+.img-zoom-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999998;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  cursor: zoom-out;
+  opacity: 0;
+  visibility: hidden;
+  background-color: var(--bg-color-80, rgba(255, 255, 255, .98));
+  transition: opacity $img-zoom-duration ease, visibility $img-zoom-duration ease;
+
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@supports (backdrop-filter: blur(30px)) {
+  .img-zoom-backdrop {
+    backdrop-filter: blur(30px);
+  }
+}
+
+@supports (-webkit-backdrop-filter: blur(30px)) {
+  .img-zoom-backdrop {
+    -webkit-backdrop-filter: blur(30px);
+  }
+}
+
+.img-zoom-target {
+  cursor: zoom-in;
+  transition: transform $img-zoom-duration $img-zoom-easing,
+              border-radius $img-zoom-duration $img-zoom-easing;
+
+  &:focus-visible {
+    outline: 2px solid $link-color;
+    outline-offset: 4px;
+  }
+
+  // Held for the closing animation too, so the image does not
+  // drop behind the page content while it shrinks back.
+  &.is-zooming {
+    position: relative;
+    z-index: 999999;
+  }
+
+  &.is-zoomed {
+    cursor: zoom-out;
+    will-change: transform;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .img-zoom-backdrop,
+  .img-zoom-target {
+    transition: none;
   }
 }
 
