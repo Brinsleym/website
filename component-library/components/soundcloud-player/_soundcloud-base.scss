@@ -19,6 +19,11 @@
     margin: 0;
   }
 
+  // Hidden while the privacy-extension panel stands in its place.
+  &[hidden] {
+    display: none;
+  }
+
   &__artwork-container {
     position: relative;
     width: 100%;
@@ -148,6 +153,15 @@
     position: relative;
     padding: ($base-spacing-unit * 0.8) 0;
     cursor: pointer;
+    // It is a slider, so the browser must not take a drag on it for a scroll.
+    touch-action: none;
+    --progress: 0;
+
+    &:focus-visible {
+      outline: 2px solid $primary-color;
+      outline-offset: 4px;
+      border-radius: 3px;
+    }
   }
 
   &__progress-bar {
@@ -164,36 +178,62 @@
     }
   }
 
+  // Scaled rather than resized. The fill is repainted on every frame of a
+  // drag, and width forces layout and paint each time where scaleX stays on
+  // the compositor.
   &__progress-fill {
     height: 100%;
+    width: 100%;
     background: linear-gradient(90deg, $primary-color 0%, $secondary-color 100%);
     border-radius: 3px;
-    transition: width 0.1s ease;
-    width: 0%;
-    position: relative;
+    transform: scaleX(var(--progress));
+    transform-origin: left center;
+    transition: transform 0.1s ease;
+  }
 
-    &::after {
+  // A full-width layer moved by a percentage of its own width, which is the
+  // container's width. That puts the dot on the playhead without the scaled
+  // fill distorting it or the bar's overflow clipping it, and translateX is
+  // as cheap to animate as the fill's scale.
+  &__progress-handle {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 0;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateX(calc(var(--progress) * 100%));
+    transition: transform 0.1s ease, opacity 0.2s ease;
+
+    &::before {
       content: '';
       position: absolute;
-      right: -7px;
-      top: 50%;
-      transform: translateY(-50%);
+      left: -7px;
+      top: -7px;
       width: 14px;
       height: 14px;
       background: $primary-color;
       border-radius: 50%;
-      opacity: 0;
-      transition: opacity 0.2s ease;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     }
   }
 
-  &__progress-container:hover &__progress-fill::after {
+  &__progress-container:hover &__progress-handle,
+  &__progress-container:focus-visible &__progress-handle,
+  &__progress-container.is-scrubbing &__progress-handle {
     opacity: 1;
   }
 
   &__progress-container:hover &__progress-bar {
     height: 8px;
+  }
+
+  // Nothing eases while a pointer is down on the bar: the paint should land
+  // under the pointer rather than trail a tenth of a second behind it.
+  &__progress-container.is-scrubbing &__progress-fill,
+  &__progress-container.is-scrubbing &__progress-handle {
+    transition: none;
   }
 
   &__time-display {
@@ -215,6 +255,33 @@
     padding: ($base-spacing-unit * 0.5) 0;
   }
 
+  // The mute control is a button so that it can be reached and pressed from
+  // the keyboard. The playlist still renders the bare icon, so the icon keeps
+  // its own cursor and hover styles.
+  &__volume-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+    flex-shrink: 0;
+
+    &:focus-visible {
+      outline: 2px solid $primary-color;
+      outline-offset: 2px;
+      border-radius: 50%;
+    }
+
+    &:hover .custom-soundcloud-player__volume-icon,
+    &:focus-visible .custom-soundcloud-player__volume-icon {
+      opacity: 1;
+      color: $primary-color;
+    }
+  }
+
   &__volume-icon {
     color: $text-color;
     opacity: 0.6;
@@ -232,6 +299,8 @@
     }
   }
 
+  // --volume is a plain number from 0 to 1, so it can drive both a scale and
+  // a percentage translation. The single player and the playlist both set it.
   &__volume-slider {
     width: 90px;
     height: 24px;
@@ -239,9 +308,15 @@
     border-radius: 12px;
     position: relative;
     cursor: pointer;
-    --volume: 70%;
+    touch-action: none;
+    --volume: 0.7;
     display: flex;
     align-items: center;
+
+    &:focus-visible {
+      outline: 2px solid $primary-color;
+      outline-offset: 2px;
+    }
 
     &::before {
       content: '';
@@ -260,31 +335,51 @@
       position: absolute;
       left: 0;
       top: 50%;
-      transform: translateY(-50%);
       height: 4px;
-      width: var(--volume);
+      width: 100%;
       background: linear-gradient(90deg, $primary-color 0%, $secondary-color 100%);
       border-radius: 2px;
-      transition: width 0.1s ease;
+      transform: translateY(-50%) scaleX(var(--volume));
+      transform-origin: left center;
+      transition: transform 0.1s ease;
     }
 
     .volume-handle {
       position: absolute;
-      right: calc(100% - var(--volume));
+      left: 0;
+      right: 0;
       top: 50%;
-      transform: translate(50%, -50%);
-      width: 14px;
-      height: 14px;
-      background: $primary-color;
-      border-radius: 50%;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      height: 0;
+      pointer-events: none;
       opacity: 0;
-      transition: opacity 0.2s ease, right 0.1s ease;
+      transform: translateX(calc(var(--volume) * 100%));
+      transition: transform 0.1s ease, opacity 0.2s ease;
       z-index: 2;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: -7px;
+        top: -7px;
+        width: 14px;
+        height: 14px;
+        background: $primary-color;
+        border-radius: 50%;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      }
     }
 
-    &:hover .volume-handle {
+    &:hover .volume-handle,
+    &:focus-visible .volume-handle,
+    &.is-scrubbing .volume-handle {
       opacity: 1;
+    }
+
+    &.is-scrubbing {
+      &::after,
+      .volume-handle {
+        transition: none;
+      }
     }
   }
 
@@ -503,6 +598,12 @@
   align-items: flex-start;
   gap: ($base-spacing-unit * 2);
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.07); // Match the player's shadow
+
+  // Hidden until the widget API turns out to be blocked. Needed explicitly:
+  // the display: flex above would otherwise beat the [hidden] default.
+  &[hidden] {
+    display: none;
+  }
 
   &__icon {
     flex-shrink: 0;

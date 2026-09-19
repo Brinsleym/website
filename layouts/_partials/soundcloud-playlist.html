@@ -37,6 +37,7 @@
             <div class="custom-soundcloud-player__progress-bar">
               <div class="custom-soundcloud-player__progress-fill"></div>
             </div>
+            <div class="custom-soundcloud-player__progress-handle" aria-hidden="true"></div>
           </div>
           <div class="custom-soundcloud-player__time-display">0:00</div>
         </div>
@@ -169,8 +170,8 @@ window.SoundCloudPlaylistCache = (function() {
       // Player elements
       this.artworkContainer = this.player.querySelector('.custom-soundcloud-player__artwork-container');
       this.playButton = this.player.querySelector('.custom-soundcloud-player__play-button');
+      this.progressContainer = this.player.querySelector('.custom-soundcloud-player__progress-container');
       this.progressBar = this.player.querySelector('.custom-soundcloud-player__progress-bar');
-      this.progressFill = this.player.querySelector('.custom-soundcloud-player__progress-fill');
       this.timeDisplays = this.player.querySelectorAll('.custom-soundcloud-player__time-display');
       this.artwork = this.player.querySelector('.custom-soundcloud-player__artwork');
       this.title = this.player.querySelector('.custom-soundcloud-player__title');
@@ -613,13 +614,14 @@ window.SoundCloudPlaylistCache = (function() {
 
     updateProgress() {
       if (this.duration > 0) {
-        const percentage = (this.position / this.duration) * 100;
-        this.progressFill.style.width = `${percentage}%`;
+        // --progress and --volume are plain fractions: the stylesheet turns
+        // them into transforms rather than animating width.
+        this.progressContainer.style.setProperty('--progress', this.position / this.duration);
       }
     }
 
     updateVolumeDisplay() {
-      this.volumeSlider.style.setProperty('--volume', `${this.volume * 100}%`);
+      this.volumeSlider.style.setProperty('--volume', this.volume);
       
       if (this.volume === 0) {
         this.volumeIcon.name = 'volume-off';
@@ -639,7 +641,7 @@ window.SoundCloudPlaylistCache = (function() {
       
       requestAnimationFrame(() => {
         this.volumeSlider.style.transition = '';
-        if (handle) handle.style.transition = 'opacity 0.2s ease, right 0.1s ease';
+        if (handle) handle.style.transition = 'opacity 0.2s ease, transform 0.1s ease';
       });
     }
 
@@ -724,7 +726,7 @@ window.SoundCloudPlaylistCache = (function() {
     async handleProgressSeek(clientX) {
       if (!this.currentWidget || this.duration === 0) return;
       
-      const rect = this.mainControls.querySelector('.custom-soundcloud-player__progress-container').getBoundingClientRect();
+      const rect = this.progressContainer.getBoundingClientRect();
       const clickX = clientX - rect.left;
       const clickRatio = Math.max(0, Math.min(1, clickX / rect.width));
       const newPosition = clickRatio * this.duration;

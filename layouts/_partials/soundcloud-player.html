@@ -1,638 +1,94 @@
-<!-- Custom SoundCloud Audio Player -->
-<div class="custom-soundcloud-player" data-track-url="{{ .url }}" {{ if .background }}data-custom-background="{{ .background }}"{{ end }}>
-  <!-- Artwork and Track Info -->
-  <div class="custom-soundcloud-player__artwork-container">
-    {{ if .background }}
-    <img class="custom-soundcloud-player__custom-background" src="{{ .background }}" alt="Track background"{{ with .backgroundSize }} width="{{ .width }}" height="{{ .height }}"{{ end }} loading="lazy" decoding="async">
-    {{ end }}
-    <img class="custom-soundcloud-player__artwork" alt="Track artwork" style="display: none;">
-    <div class="custom-soundcloud-player__artwork-overlay">
-      <div class="custom-soundcloud-player__track-info-wrapper">
-        <div class="custom-soundcloud-player__track-info">
-          <div class="custom-soundcloud-player__title">Loading...</div>
-          <div class="custom-soundcloud-player__artist">Please wait</div>
+<!-- Custom SoundCloud audio player.
+
+     Markup only: the implementation lives in assets/js/soundcloud-player.js
+     and is loaded once per page from baseof.html, so a page carrying two
+     players still ships one copy of the script. Strings the script needs
+     after load are passed as data attributes, since it cannot reach Hugo's
+     translations itself. -->
+<div class="soundcloud-player-block" data-soundcloud-player>
+  <div class="custom-soundcloud-player custom-soundcloud-player--loading"
+       data-track-url="{{ .url }}"
+       {{ if .background }}data-custom-background="{{ .background }}"{{ end }}
+       data-label-play="{{ T "sc_play" }}"
+       data-label-pause="{{ T "sc_pause" }}"
+       data-label-mute="{{ T "sc_mute" }}"
+       data-label-unmute="{{ T "sc_unmute" }}"
+       data-label-error-title="{{ T "sc_error_title" }}"
+       data-label-error-artist="{{ T "sc_error_artist" }}"
+       data-label-unknown-title="{{ T "sc_unknown_title" }}"
+       data-label-unknown-artist="{{ T "sc_unknown_artist" }}"
+       data-label-iframe="{{ T "sc_iframe_title" }}">
+    <!-- Artwork and Track Info -->
+    <div class="custom-soundcloud-player__artwork-container">
+      {{ if .background }}
+      <img class="custom-soundcloud-player__custom-background" src="{{ .background }}" alt="{{ T "sc_background_alt" }}"{{ with .backgroundSize }} width="{{ .width }}" height="{{ .height }}"{{ end }} loading="lazy" decoding="async">
+      {{ end }}
+      <img class="custom-soundcloud-player__artwork" alt="{{ T "sc_artwork_alt" }}" style="display: none;">
+      <div class="custom-soundcloud-player__artwork-overlay">
+        <div class="custom-soundcloud-player__track-info-wrapper">
+          <div class="custom-soundcloud-player__track-info">
+            <div class="custom-soundcloud-player__title">{{ T "sc_loading_title" }}</div>
+            <div class="custom-soundcloud-player__artist">{{ T "sc_loading_artist" }}</div>
+          </div>
+          <a href="#" class="custom-soundcloud-player__soundcloud-link" target="_blank" rel="noopener">
+            <ion-icon name="logo-soundcloud" aria-hidden="true"></ion-icon>
+            <span>Soundcloud</span>
+          </a>
         </div>
-        <a href="#" class="custom-soundcloud-player__soundcloud-link" target="_blank">
-          <ion-icon name="logo-soundcloud"></ion-icon>
-          <span>Soundcloud</span>
-        </a>
+      </div>
+    </div>
+
+    <!-- Player Controls -->
+    <div class="custom-soundcloud-player__controls">
+      <div class="custom-soundcloud-player__main-controls">
+        <!-- Play/Pause Button. Disabled until the widget answers. -->
+        <button class="custom-soundcloud-player__play-button" type="button" disabled aria-label="{{ T "sc_play" }}">
+          <ion-icon name="play" aria-hidden="true"></ion-icon>
+        </button>
+
+        <!-- Time and Progress -->
+        <div class="custom-soundcloud-player__time-info">
+          <div class="custom-soundcloud-player__time-display custom-soundcloud-player__time-display--current">0:00</div>
+          <div class="custom-soundcloud-player__progress-container" role="slider" tabindex="0"
+               aria-label="{{ T "sc_seek" }}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="custom-soundcloud-player__progress-bar">
+              <div class="custom-soundcloud-player__progress-fill"></div>
+            </div>
+            <div class="custom-soundcloud-player__progress-handle" aria-hidden="true"></div>
+          </div>
+          <div class="custom-soundcloud-player__time-display custom-soundcloud-player__time-display--total">0:00</div>
+        </div>
+
+        <!-- Volume Controls (hidden on mobile) -->
+        <div class="custom-soundcloud-player__volume-controls">
+          <button class="custom-soundcloud-player__volume-button" type="button" aria-label="{{ T "sc_mute" }}">
+            <ion-icon class="custom-soundcloud-player__volume-icon" name="volume-high" aria-hidden="true"></ion-icon>
+          </button>
+          <div class="custom-soundcloud-player__volume-slider" role="slider" tabindex="0"
+               aria-label="{{ T "sc_volume" }}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70">
+            <div class="volume-handle" aria-hidden="true"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Player Controls -->
-  <div class="custom-soundcloud-player__controls">
-    <div class="custom-soundcloud-player__main-controls">
-      <!-- Play/Pause Button -->
-      <button class="custom-soundcloud-player__play-button" type="button">
-        <ion-icon name="play"></ion-icon>
-      </button>
-
-      <!-- Time and Progress -->
-      <div class="custom-soundcloud-player__time-info">
-        <div class="custom-soundcloud-player__time-display">0:00</div>
-        <div class="custom-soundcloud-player__progress-container">
-          <div class="custom-soundcloud-player__progress-bar">
-            <div class="custom-soundcloud-player__progress-fill"></div>
-          </div>
-        </div>
-        <div class="custom-soundcloud-player__time-display">0:00</div>
-      </div>
-
-      <!-- Volume Controls (hidden on mobile) -->
-      <div class="custom-soundcloud-player__volume-controls">
-        <ion-icon class="custom-soundcloud-player__volume-icon" name="volume-high"></ion-icon>
-        <div class="custom-soundcloud-player__volume-slider">
-          <div class="volume-handle"></div>
-        </div>
-      </div>
+  <!-- Shown in place of the player when a privacy extension blocks the
+       widget API. A sibling that is revealed rather than a replacement for
+       the player, so nothing the script is holding gets detached. -->
+  <div class="soundcloud-privacy-error" role="status" hidden>
+    <div class="soundcloud-privacy-error__icon">
+      <ion-icon name="shield-outline" aria-hidden="true"></ion-icon>
+    </div>
+    <div class="soundcloud-privacy-error__content">
+      <h4>{{ T "sc_blocked_title" }}</h4>
+      <p>{{ T "sc_blocked_intro" | safeHTML }}</p>
+      <p><strong>{{ T "sc_blocked_howto" }}</strong></p>
+      <ol>
+        <li>{{ T "sc_blocked_step_disable" }}</li>
+        <li>{{ T "sc_blocked_step_allow" | safeHTML }}</li>
+      </ol>
+      <p>{{ T "sc_blocked_refresh" }}</p>
     </div>
   </div>
 </div>
-
-<!-- Preload and Load SoundCloud Widget API with caching -->
-<script>
-// Global SoundCloud API management
-window.SoundCloudAPIManager = (function() {
-  let apiLoaded = false;
-  let apiPromise = null;
-  
-  function loadAPI() {
-    if (apiPromise) return apiPromise;
-    
-    apiPromise = new Promise((resolve, reject) => {
-      if (window.SC) {
-        apiLoaded = true;
-        resolve();
-        return;
-      }
-      
-      const script = document.createElement('script');
-      script.src = 'https://w.soundcloud.com/player/api.js';
-      script.async = true;
-      
-      // Set a timeout to detect blocking
-      const timeout = setTimeout(() => {
-        reject(new Error('SoundCloud API loading timeout - likely blocked by privacy extension'));
-      }, 10000); // 10 second timeout
-      
-      script.onload = () => {
-        clearTimeout(timeout);
-        apiLoaded = true;
-        resolve();
-      };
-      
-      script.onerror = () => {
-        clearTimeout(timeout);
-        reject(new Error('SoundCloud API blocked by privacy extension or network error'));
-      };
-      
-      document.head.appendChild(script);
-    });
-    
-    return apiPromise;
-  }
-  
-  return {
-    loadAPI: loadAPI,
-    isLoaded: () => apiLoaded
-  };
-})();
-
-// Start loading API immediately
-window.SoundCloudAPIManager.loadAPI();
-</script>
-
-<script>
-(function() {
-  const players = document.querySelectorAll('.custom-soundcloud-player');
-  
-  players.forEach((player, index) => {
-    const trackUrl = player.dataset.trackUrl;
-    const customBackground = player.dataset.customBackground;
-    const artworkContainer = player.querySelector('.custom-soundcloud-player__artwork-container');
-    const playButton = player.querySelector('.custom-soundcloud-player__play-button');
-    const progressBar = player.querySelector('.custom-soundcloud-player__progress-bar');
-    const progressFill = player.querySelector('.custom-soundcloud-player__progress-fill');
-    const timeDisplays = player.querySelectorAll('.custom-soundcloud-player__time-display');
-    const artwork = player.querySelector('.custom-soundcloud-player__artwork');
-    const title = player.querySelector('.custom-soundcloud-player__title');
-    const artist = player.querySelector('.custom-soundcloud-player__artist');
-    const volumeSlider = player.querySelector('.custom-soundcloud-player__volume-slider');
-    const volumeIcon = player.querySelector('.custom-soundcloud-player__volume-icon');
-    const soundcloudLink = player.querySelector('.custom-soundcloud-player__soundcloud-link');
-
-    let widget = null;
-    let isPlaying = false;
-    let duration = 0;
-    let position = 0;
-    let volume = 0.7;
-    let isInitialized = false;
-
-    // Show player shell immediately
-    function showPlayerShell() {
-      title.textContent = 'Loading track...';
-      artist.textContent = 'Please wait';
-      timeDisplays[1].textContent = '--:--';
-      
-      player.classList.add('custom-soundcloud-player--loading');
-    }
-
-    showPlayerShell();
-
-    // Disable play button initially
-    playButton.disabled = true;
-    playButton.style.opacity = '0.6';
-
-    // Create optimized hidden iframe for SoundCloud Widget API
-    const iframeId = `soundcloud-widget-${index}`;
-    const iframe = document.createElement('iframe');
-    iframe.id = iframeId;
-    iframe.src = `https://w.soundcloud.com/player/?url=${encodeURIComponent(trackUrl)}&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&visual=false&buying=false&download=false&sharing=false`;
-    iframe.style.display = 'none';
-    iframe.width = '100%';
-    iframe.height = '0';
-    iframe.setAttribute('loading', 'eager'); // Prioritize loading
-    player.appendChild(iframe);
-
-    // Initialize widget asynchronously
-    initWidget();
-
-    async function initWidget() {
-      try {
-        // Wait for SoundCloud API
-        await window.SoundCloudAPIManager.loadAPI();
-        
-        widget = SC.Widget(iframe);
-        
-        widget.bind(SC.Widget.Events.READY, function() {
-          // Combine API calls
-          Promise.all([
-            new Promise(resolve => widget.getDuration(resolve)),
-            new Promise(resolve => widget.getCurrentSound(resolve))
-          ]).then(([dur, sound]) => {
-            updatePlayerData(dur, sound);
-            finalizeInitialization();
-          }).catch(error => {
-            // Failed to load track data
-            showErrorState();
-          });
-
-          widget.setVolume(volume * 100);
-          updateVolumeDisplay();
-        });
-
-        setupWidgetEventListeners();
-        
-      } catch (error) {
-        // Failed to initialize SoundCloud widget
-        if (error.message && (error.message.includes('privacy extension') || 
-                              error.message.includes('blocked') || 
-                              error.message.includes('timeout'))) {
-          showPrivacyExtensionError();
-        } else {
-          showErrorState();
-        }
-      }
-    }
-
-    function updatePlayerData(dur, sound) {
-      duration = dur;
-      timeDisplays[1].textContent = formatTime(duration / 1000);
-      
-      if (sound) {
-        title.textContent = sound.title || 'SoundCloud Track';
-        artist.textContent = sound.user.username || 'Unknown Artist';
-        soundcloudLink.href = sound.permalink_url;
-        
-        // Load smaller artwork first
-        if (sound.artwork_url && !customBackground) {
-          loadArtworkOptimized(sound.artwork_url);
-        }
-      }
-    }
-
-    function loadArtworkOptimized(artworkUrl) {
-      const quickArtwork = artworkUrl.replace('-large', '-t300x300');
-      const img = new Image();
-      
-      img.onload = function() {
-        artwork.src = quickArtwork;
-        artwork.style.display = 'block';
-      };
-      
-      img.onerror = function() {
-        const fallbackArtwork = artworkUrl.replace('-large', '-t120x120');
-        artwork.src = fallbackArtwork;
-        artwork.style.display = 'block';
-      };
-      
-      img.src = quickArtwork;
-    }
-
-    function setupWidgetEventListeners() {
-      widget.bind(SC.Widget.Events.PLAY, function() {
-        isPlaying = true;
-        updatePlayButton();
-      });
-
-      widget.bind(SC.Widget.Events.PAUSE, function() {
-        isPlaying = false;
-        updatePlayButton();
-
-        // volume 0 after timeout to prevent rumble
-        if (widget) {
-          widget.setVolume(0);
-          setTimeout(() => {
-            if (widget && !isPlaying) {
-              widget.setVolume(volume * 100);
-            }
-          }, 100);
-        }
-      });
-
-      widget.bind(SC.Widget.Events.FINISH, function() {
-        isPlaying = false;
-        position = 0;
-        updatePlayButton();
-        updateProgress();
-        
-        if (widget) {
-          widget.setVolume(0);
-          setTimeout(() => {
-            if (widget) {
-              widget.setVolume(volume * 100);
-            }
-          }, 100);
-        }
-      });
-
-      widget.bind(SC.Widget.Events.PLAY_PROGRESS, function(data) {
-        position = data.currentPosition;
-        updateProgress();
-        timeDisplays[0].textContent = formatTime(position / 1000);
-      });
-    }
-
-    function finalizeInitialization() {
-      isInitialized = true;
-      player.classList.remove('custom-soundcloud-player--loading');
-      
-      // Enable controls (after player loaded)
-      playButton.disabled = false;
-      playButton.style.opacity = '1';
-    }
-
-    function showErrorState() {
-      title.textContent = 'Failed to load track';
-      artist.textContent = 'Please check the URL';
-      player.classList.remove('custom-soundcloud-player--loading');
-      player.classList.add('custom-soundcloud-player--error');
-    }
-
-    function showPrivacyExtensionError() {
-      // Replace the entire player with privacy extension error message
-      player.outerHTML = `
-        <div class="soundcloud-privacy-error">
-          <div class="soundcloud-privacy-error__icon">
-            <ion-icon name="shield-outline"></ion-icon>
-          </div>
-          <div class="soundcloud-privacy-error__content">
-            <h4>SoundCloud Blocked by Privacy Extension</h4>
-            <p>Your browser extension (such as Privacy Badger, uBlock Origin, or similar) is blocking access to <code>w.soundcloud.com</code>.</p>
-            <p><strong>To listen to this track:</strong></p>
-            <ol>
-              <li>Temporarily disable your privacy extension for this site, or</li>
-              <li>Add <code>w.soundcloud.com</code> to your extension's whitelist</li>
-            </ol>
-            <p>Then refresh this page to load the SoundCloud player.</p>
-          </div>
-        </div>
-      `;
-    }
-
-    function updatePlayButton() {
-      const playIcon = playButton.querySelector('ion-icon');
-      playIcon.name = isPlaying ? 'pause' : 'play';
-      playButton.classList.toggle('playing', isPlaying);
-    }
-
-    function updateProgress() {
-      if (duration > 0) {
-        const percentage = (position / duration) * 100;
-        progressFill.style.width = `${percentage}%`;
-      }
-    }
-
-    function updateVolumeDisplay() {
-      volumeSlider.style.setProperty('--volume', `${volume * 100}%`);
-      
-      if (volume === 0) {
-        volumeIcon.name = 'volume-off';
-      } else if (volume < 0.5) {
-        volumeIcon.name = 'volume-low';
-      } else {
-        volumeIcon.name = 'volume-high';
-      }
-    }
-
-    function updateVolumeDisplayImmediate() {
-      // Temporarily disable transitions for immediate feedback during drag
-      volumeSlider.style.transition = 'none';
-      const handle = volumeSlider.querySelector('.volume-handle');
-      if (handle) handle.style.transition = 'opacity 0.2s ease';
-      
-      updateVolumeDisplay();
-      
-      // Re-enable transitions after a brief delay
-      requestAnimationFrame(() => {
-        volumeSlider.style.transition = '';
-        if (handle) handle.style.transition = 'opacity 0.2s ease, right 0.1s ease';
-      });
-    }
-
-    function formatTime(seconds) {
-      const mins = Math.floor(seconds / 60);
-      const secs = Math.floor(seconds % 60);
-      return `${mins}:${secs.toString().padStart(2, '0')}`;
-    }
-
-    // Event Listeners with init. check
-    let iosAudioInitialized = false;
-    
-    // iOS Safari audio initialization helper
-    function initializeIOSAudio() {
-      if (iosAudioInitialized) return Promise.resolve();
-      
-      // Check if we're on iOS Safari
-      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-      const isSafari = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
-      
-      if (!isIOS || !isSafari) {
-        iosAudioInitialized = true;
-        return Promise.resolve();
-      }
-      
-      // For iOS Safari, we need to "prime" the audio context with a user gesture
-      return new Promise((resolve) => {
-        if (!widget) {
-          iosAudioInitialized = true;
-          resolve();
-          return;
-        }
-        
-        // Try to play and immediately pause to enable audio context
-        widget.play();
-        setTimeout(() => {
-          widget.pause();
-          widget.seekTo(0);
-          iosAudioInitialized = true;
-          resolve();
-        }, 100);
-      });
-    }
-    
-    playButton.addEventListener('click', async function() {
-      if (!widget || !isInitialized) return;
-      
-      // Handle iOS Safari audio initialization
-      if (!iosAudioInitialized) {
-        await initializeIOSAudio();
-        // After initialization, proceed with the actual intended action
-        if (!isPlaying) {
-          widget.play();
-        }
-        return;
-      }
-      
-      if (isPlaying) {
-        widget.pause();
-        // Additional cleanup for pause to prevent rumble
-        setTimeout(() => {
-          if (widget && !isPlaying) {
-            widget.seekTo(position);
-          }
-        }, 50);
-      } else {
-        widget.play();
-      }
-    });
-
-    // Progress Bar Interaction & Dragging
-    let isDraggingProgress = false;
-    const mainControls = player.querySelector('.custom-soundcloud-player__main-controls');
-    
-    function handleProgressInteraction(e) {
-      if (!widget || duration === 0) return;
-      
-      const progressContainer = player.querySelector('.custom-soundcloud-player__progress-container');
-      const rect = progressContainer.getBoundingClientRect();
-      const clickX = e.clientX - rect.left;
-      const clickRatio = Math.max(0, Math.min(1, clickX / rect.width));
-      const newPosition = clickRatio * duration;
-      
-      widget.seekTo(newPosition);
-      
-      // Ensure the widget is playing after seeking, with iOS handling
-      if (!isPlaying) {
-        if (!iosAudioInitialized) {
-          initializeIOSAudio().then(() => {
-            widget.play();
-          });
-        } else {
-          widget.play();
-        }
-      }
-    }
-
-    // main-controls area
-    mainControls.addEventListener('mousedown', function(e) {
-      if (e.target.closest('.custom-soundcloud-player__play-button') || 
-          e.target.closest('.custom-soundcloud-player__volume-controls') ||
-          e.target.closest('.custom-soundcloud-player__time-display')) {
-        return;
-      }
-      
-      isDraggingProgress = true;
-      handleProgressInteraction(e);
-      e.preventDefault();
-    });
-
-    document.addEventListener('mousemove', function(e) {
-      if (isDraggingProgress) {
-        handleProgressInteraction(e);
-      }
-    });
-
-    document.addEventListener('mouseup', function() {
-      isDraggingProgress = false;
-    });
-
-    progressBar.addEventListener('click', handleProgressInteraction);
-
-    // Volume Slider Interaction
-    let isDraggingVolume = false;
-    const volumeControls = player.querySelector('.custom-soundcloud-player__volume-controls');
-    
-    function handleVolumeInteraction(e) {
-      if (!widget) return;
-      
-      const rect = volumeSlider.getBoundingClientRect();
-      const clickX = e.clientX - rect.left;
-      volume = Math.max(0, Math.min(1, clickX / rect.width));
-      
-      widget.setVolume(volume * 100);
-      
-      // Use immediate update during dragging for smoother interaction
-      if (isDraggingVolume) {
-        updateVolumeDisplayImmediate();
-      } else {
-        updateVolumeDisplay();
-      }
-    }
-
-    // Interactive Volume Controls Area
-    volumeControls.addEventListener('mousedown', function(e) {
-      if (e.target.closest('.custom-soundcloud-player__volume-icon')) {
-        return;
-      }
-      
-      isDraggingVolume = true;
-      handleVolumeInteraction(e);
-      e.preventDefault();
-    });
-
-    document.addEventListener('mousemove', function(e) {
-      if (isDraggingVolume) {
-        handleVolumeInteraction(e);
-      }
-    });
-
-    document.addEventListener('mouseup', function() {
-      isDraggingVolume = false;
-    });
-
-    volumeSlider.addEventListener('click', handleVolumeInteraction);
-
-    // Mobile touch support 
-    mainControls.addEventListener('touchstart', function(e) {
-      if (e.target.closest('.custom-soundcloud-player__play-button') || 
-          e.target.closest('.custom-soundcloud-player__volume-controls') ||
-          e.target.closest('.custom-soundcloud-player__time-display')) {
-        return;
-      }
-      
-      isDraggingProgress = true;
-      const touch = e.touches[0];
-      const progressContainer = player.querySelector('.custom-soundcloud-player__progress-container');
-      const rect = progressContainer.getBoundingClientRect();
-      const clickX = touch.clientX - rect.left;
-      const clickRatio = Math.max(0, Math.min(1, clickX / rect.width));
-      const newPosition = clickRatio * duration;
-      
-      if (widget && duration > 0) {
-        widget.seekTo(newPosition);
-        
-        // Ensure the widget is playing after seeking, with iOS handling
-        if (!isPlaying) {
-          if (!iosAudioInitialized) {
-            initializeIOSAudio().then(() => {
-              widget.play();
-            });
-          } else {
-            widget.play();
-          }
-        }
-      }
-      e.preventDefault();
-    });
-
-    document.addEventListener('touchmove', function(e) {
-      if (isDraggingProgress && e.touches[0]) {
-        const touch = e.touches[0];
-        const progressContainer = player.querySelector('.custom-soundcloud-player__progress-container');
-        const rect = progressContainer.getBoundingClientRect();
-        const clickX = touch.clientX - rect.left;
-        const clickRatio = Math.max(0, Math.min(1, clickX / rect.width));
-        const newPosition = clickRatio * duration;
-        
-        if (widget && duration > 0) {
-          widget.seekTo(newPosition);
-          
-          // Ensure the widget is playing after seeking
-          if (!isPlaying) {
-            widget.play();
-          }
-        }
-      }
-    });
-
-    document.addEventListener('touchend', function() {
-      isDraggingProgress = false;
-      isDraggingVolume = false;
-    });
-
-    volumeSlider.addEventListener('touchstart', function(e) {
-      isDraggingVolume = true;
-      const touch = e.touches[0];
-      const rect = volumeSlider.getBoundingClientRect();
-      const clickX = touch.clientX - rect.left;
-      volume = Math.max(0, Math.min(1, clickX / rect.width));
-      
-      if (widget) {
-        widget.setVolume(volume * 100);
-        updateVolumeDisplay();
-      }
-      e.preventDefault();
-    });
-
-    // vol controls touch support
-    volumeControls.addEventListener('touchstart', function(e) {
-      if (e.target.closest('.custom-soundcloud-player__volume-icon')) {
-        return;
-      }
-      
-      isDraggingVolume = true;
-      const touch = e.touches[0];
-      const rect = volumeSlider.getBoundingClientRect();
-      const clickX = touch.clientX - rect.left;
-      volume = Math.max(0, Math.min(1, clickX / rect.width));
-      
-      if (widget) {
-        widget.setVolume(volume * 100);
-        updateVolumeDisplay();
-      }
-      e.preventDefault();
-    });
-
-    document.addEventListener('touchmove', function(e) {
-      if (isDraggingVolume && e.touches[0]) {
-        const touch = e.touches[0];
-        const rect = volumeSlider.getBoundingClientRect();
-        const clickX = touch.clientX - rect.left;
-        volume = Math.max(0, Math.min(1, clickX / rect.width));
-        
-        if (widget) {
-          widget.setVolume(volume * 100);
-          updateVolumeDisplayImmediate();
-        }
-      }
-    });
-
-    volumeIcon.addEventListener('click', function() {
-      if (!widget || !isInitialized) return;
-      
-      if (volume > 0) {
-        widget.setVolume(0);
-        volume = 0;
-      } else {
-        volume = 0.7;
-        widget.setVolume(volume * 100);
-      }
-      updateVolumeDisplay();
-    });
-
-    // Initialize widget on DOM ready
-  });
-})();
-</script>

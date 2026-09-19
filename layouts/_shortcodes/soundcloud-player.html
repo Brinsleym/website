@@ -10,4 +10,8 @@
 {{ else }}
   {{ $trackUrl = printf "https://api.soundcloud.com/tracks/%s" $track }}
 {{ end }}
+{{/* Tells baseof.html that this page needs assets/js/soundcloud-player.js, so
+     only the pages actually carrying a player pay for the script. The content
+     is rendered before the closing script tags, so the flag is set by then. */}}
+{{ .Page.Store.Set "hasSoundCloudPlayer" true }}
 {{ partial "soundcloud-player.html" (dict "url" $trackUrl "background" $processedBackground "backgroundSize" (partial "image-size.html" $background)) }}
