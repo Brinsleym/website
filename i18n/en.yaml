@@ -5,8 +5,8 @@ prev_post: Previous post
 next_post: Next post
 post_navigation: Post navigation
 scroll_to_top: Back to top
-tagged_compositions: "Compositions tagged with this"
-tagged_blog: "Posts tagged with this"
+tag_page_title: "My Blog: %s"
+tag_page_description: "Posts tagged with %s"
 blog_tags_title: "Blog tags"
 compositions_tags_title: "Composition tags"
 tagged_blog_index: "Every tag used on the blog"

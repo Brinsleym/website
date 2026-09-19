@@ -11,7 +11,7 @@ seo:
 content_blocks:
   - _bookshop_name: page-heading
     title: '私のブログ'
-    description: '私が関わったいくつかのプロジェクトを扱った投稿のコレクション。'
+    description: '私が関わったいくつかの演奏会やプロジェクトを扱った投稿のコレクション。'
   - _bookshop_name: projects-list
     show_projects: true
     _live_render: false

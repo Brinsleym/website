@@ -6,8 +6,8 @@
 {{ $isBlog := eq .Data.Plural "blog_tags" }}
 
 {{ partial "bookshop" (slice "page-heading" (dict
-     "title" .Title
-     "description" (i18n (cond $isBlog "tagged_blog" "tagged_compositions")))) }}
+     "title" (printf (T "tag_page_title") .Title)
+     "description" (printf (T "tag_page_description") .Title))) }}
 
 <div class="container">
   <div class="row">
