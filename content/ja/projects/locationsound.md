@@ -1,7 +1,7 @@
 ---
 date: 2024-01-17
 title: "ロケーションサウンド・プロジェクト録音"
-blog_tags: [舞台裏, 作曲]
+blog_tags: [behind the scenes, composition]
 subtitle: 2024年1月17日録音
 image: '/static/images/locationsound1.webp'
 description: "ロケーションサウンド・プロジェクトの舞台裏"

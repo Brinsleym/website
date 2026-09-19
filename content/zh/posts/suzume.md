@@ -4,7 +4,7 @@ date: 2024-12-18
 title: "为《铃芽之旅》场景重新配乐"
 description: >- 
   为电影《铃芽之旅》精选场景重新配乐
-tags: [原声带, 电影配乐, 管弦乐]
+tags: [soundtrack, film score, orchestral]
 image: '/static/images/suzume_cover_1.webp'
 ---
 {{< disclaimer "铃芽之旅" >}}

@@ -5,8 +5,10 @@ prev_post: 上一篇
 next_post: 下一篇
 post_navigation: 文章导航
 scroll_to_top: 返回顶部
-tag_page_title: "我的博客：%s"
-tag_page_description: "带有“%s”标签的文章"
+tag_page_title_blog: "我的博客：%s"
+tag_page_title_compositions: "作品：%s"
+tag_page_description_blog: "带有“%s”标签的文章"
+tag_page_description_compositions: "带有“%s”标签的作品"
 blog_tags_title: "博客标签"
 compositions_tags_title: "作品标签"
 tagged_blog_index: "博客使用的所有标签"

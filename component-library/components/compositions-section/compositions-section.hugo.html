@@ -82,7 +82,7 @@
           {{ if .show_posts }}
           <div class="row">
             {{ range where site.RegularPages "Section" "posts" | first 3 }}
-              {{ partial "bookshop" (slice "compositions-card" (dict "url" .RelPermalink "image" .Params.image "title" .Params.title "description" .Params.description "Summary" .Summary "date" .Date "tags" .Params.tags)) }}
+              {{ partial "bookshop" (slice "compositions-card" (dict "url" .RelPermalink "image" .Params.image "title" .Params.title "description" .Params.description "Summary" .Summary "date" .Date "tags" (.GetTerms "tags"))) }}
             {{ end }}
           </div>
           {{ end }}

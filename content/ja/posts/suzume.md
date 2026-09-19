@@ -4,7 +4,7 @@ date: 2024-12-18
 title: "『すずめの戸締まり』リスコアリングプロジェクト"
 description: >- 
   映画『すずめの戸締まり』のシーンリスコアリング
-tags: [サウンドトラック, 映画音楽, オーケストラ]
+tags: [soundtrack, film score, orchestral]
 image: '/static/images/suzume_cover_1.webp'
 ---
 {{< disclaimer "Suzume no Tojimari" >}}

@@ -2,7 +2,7 @@
 date:   2021-11-24
 title:  罗马尼亚失落的小镇
 description: 关于罗马尼亚西北部名为Geamăna的村庄的短纪录片
-tags:   [纪录片, 电影配乐, 交响乐]
+tags: [documentary, film score, orchestral]
 image:  '/static/images/the-lost-town-of-romania-1.webp'
 ---
 {{< youtube 8ylEKtyMeP8 >}}

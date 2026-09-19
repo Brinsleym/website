@@ -4,7 +4,7 @@ date: 2022-03-30
 title: "ドミレー"
 description: >-
   眠りに落ちるときの心の意識状態を描いた実験的な作品です。
-tags:   [弦楽四重奏]
+tags: [string quartet]
 image: /static/images/dormire-1.webp
 ---
 

@@ -4,7 +4,7 @@ date: 2024-12-18
 title: "『葬送のフリーレン』 リスコアリングプロジェクト"
 description: >- 
   テレビアニメシリーズ『葬送のフリーレン』のサウンドトラックを再構築
-tags:   [サウンドトラック, 映画音楽, オーケストラ]
+tags: [soundtrack, film score, orchestral]
 image: '/static/images/frieren-1.webp'
 draft: false
 ---

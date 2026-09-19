@@ -4,7 +4,7 @@ date: 2023-04-16
 title: 未被触碰的景观
 description: >-
   一部为室内乐团创作的作品，探索自然界错综复杂的美丽。
-tags:   [室内乐团, 交响乐]
+tags: [chamber orchestra, orchestral]
 image: /static/images/the-untouched-landscape-1.jpg
 ---
 

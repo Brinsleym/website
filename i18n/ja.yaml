@@ -5,8 +5,10 @@ prev_post: 前の投稿
 next_post: 次の投稿
 post_navigation: 記事ナビゲーション
 scroll_to_top: ページ上部へ戻る
-tag_page_title: "私のブログ：%s"
-tag_page_description: "「%s」のタグが付いた投稿"
+tag_page_title_blog: "私のブログ：%s"
+tag_page_title_compositions: "作曲：%s"
+tag_page_description_blog: "「%s」のタグが付いた投稿"
+tag_page_description_compositions: "「%s」のタグが付いた作品"
 blog_tags_title: "ブログのタグ"
 compositions_tags_title: "作品のタグ"
 tagged_blog_index: "ブログで使われているタグ一覧"

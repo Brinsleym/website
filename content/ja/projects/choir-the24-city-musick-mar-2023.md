@@ -2,7 +2,7 @@
 date: 2023-03-18
 title: "ロバを引き止める - ヨーク大学合唱団、ザ・24、ザ・シティ・ミュージック"
 subtitle: 2023年3月18日（土）
-blog_tags: [演奏]
+blog_tags: [performance]
 image: '/static/images/choir-the24-city-musick-mar-2023-1.webp'
 description: "セントラル・ホールでのベネヴォリ《Missa Si Deus Pro Nobis》と17世紀ローマの巨大バロック"
 ---

@@ -2,7 +2,7 @@
 date: 2024-12-07
 title: "大いなる神秘 - ヨーク大学合唱団とザ・24のクリスマス"
 subtitle: 2024年12月7日（土）
-blog_tags: [演奏]
+blog_tags: [performance]
 image: '/static/images/choir-the24-dec-2024-1.webp'
 description: "イーモン・ドゥーガン指揮によるフィンジ《In Terra Pax》、ヴォーン・ウィリアムズ、3つの《O magnum mysterium》"
 ---

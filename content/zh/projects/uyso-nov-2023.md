@@ -2,7 +2,7 @@
 date: 2023-11-25
 title: "约克大学交响乐团 - 萨里阿霍、西贝柳斯与肖斯塔科维奇"
 subtitle: 2023年11月25日，星期六
-blog_tags: [演出]
+blog_tags: [performance]
 image: '/static/images/uyso-nov-2023-1.webp'
 description: "萨里阿霍《Lumière et Pesanteur》、西贝柳斯《萨迦》与肖斯塔科维奇第十五交响曲"
 ---

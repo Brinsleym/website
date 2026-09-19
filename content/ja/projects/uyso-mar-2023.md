@@ -2,7 +2,7 @@
 date: 2023-03-11
 title: "ヨーク大学交響楽団 - ラフマニノフ交響曲第2番"
 subtitle: 2023年3月11日（土）
-blog_tags: [演奏]
+blog_tags: [performance]
 image: '/static/images/uyso-mar-2023-1.webp'
 description: "シグフースドッティル《Oceans》の英国初演、ブーランジェ《Fantaisie variée》、ラフマニノフ交響曲第2番"
 ---

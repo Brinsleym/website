@@ -4,7 +4,7 @@ date: 2024-12-18
 title: "重配乐项目：《葬送的芙莉莲》"
 description: >- 
   为电视动画系列《葬送的芙莉莲》重新创作配乐
-tags:   [原声带, 影视配乐, 交响乐]
+tags: [soundtrack, film score, orchestral]
 image: '/static/images/frieren-1.webp'
 draft: false
 ---

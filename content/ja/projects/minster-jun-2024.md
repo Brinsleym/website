@@ -2,7 +2,7 @@
 date: 2024-06-08
 title: "モーツァルト《大ミサ曲 ハ短調》ヨーク・ミンスター"
 subtitle: 2024年6月8日（土）
-blog_tags: [演奏]
+blog_tags: [performance]
 image: '/static/images/minster-jun-2024-1.webp'
 description: "ヨーク・ミンスターでのモーツァルト《ミサ曲 ハ短調》、ブルックナー《テ・デウム》、エルガー《エレジー》"
 ---

@@ -4,7 +4,7 @@ date:   2022-06-29
 image:  '/static/images/thebrinkofthevalley-1.webp'
 description: >-
   这是一首描绘从山谷顶部看到的美丽景色的作品。为现代交响乐团和大提琴独奏创作。
-tags:   [交响乐, 大提琴独奏]
+tags: [orchestral, cello soloist]
 ---
 
 这首作品是对我父母住在康沃尔山谷顶部的美丽景色的声音表现。

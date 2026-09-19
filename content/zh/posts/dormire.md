@@ -4,7 +4,7 @@ date: 2022-03-30
 title: Dormire
 description: >-
   一首实验性作品，描绘了意识进入睡眠时的状态。
-tags:   [弦乐四重奏]
+tags: [string quartet]
 image: /static/images/dormire-1.webp
 ---
 

@@ -2,7 +2,7 @@
 date: 2023-12-16
 title: "尊主颂 - 约克大学合唱团、The 24与巴洛克合奏团"
 subtitle: 2023年12月16日，星期六
-blog_tags: [演出]
+blog_tags: [performance]
 image: '/static/images/choir-the24-dec-2023-1.webp'
 description: "约克大学合唱团、The 24与巴洛克合奏团演出巴赫与科佐拉尼的《尊主颂》"
 ---

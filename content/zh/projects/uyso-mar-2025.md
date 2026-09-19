@@ -2,7 +2,7 @@
 date: 2025-03-15
 title: "约克大学交响乐团 - 西贝柳斯小提琴协奏曲"
 subtitle: 2025年3月15日，星期六
-blog_tags: [演出]
+blog_tags: [performance]
 image: '/static/images/uyso-mar-2025-1.webp'
 description: "安娜·列兹德坎演奏西贝柳斯小提琴协奏曲，另有瓦格纳的前奏曲与爱之死、施特劳斯《节庆前奏曲》"
 ---

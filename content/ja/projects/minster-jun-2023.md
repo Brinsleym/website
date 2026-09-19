@@ -2,7 +2,7 @@
 date: 2023-06-14
 title: "《ゲロンティアスの夢》ヨーク・ミンスター"
 subtitle: 2023年6月14日（水）
-blog_tags: [演奏]
+blog_tags: [performance]
 image: '/static/images/minster-jun-2023-1.webp'
 description: "ヨーク・ミンスターでのヨーク大学合唱団・交響楽団によるエルガー《ゲロンティアスの夢》"
 ---

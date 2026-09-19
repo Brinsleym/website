@@ -54,7 +54,7 @@
   <div class="row" data-pagebreak="6">
     {{ range where site.RegularPages "Section" "posts" }}
       {{ partial "bookshop" (slice "compositions-card" (dict "url" .RelPermalink "image" .Params.image "title" .Params.title
-      "description" .Params.description "Summary" .Summary "date" .Date "tags" .Params.tags)) }}
+      "description" .Params.description "Summary" .Summary "date" .Date "tags" (.GetTerms "tags"))) }}
     {{ end }}
   </div>
 </div>

@@ -4,7 +4,7 @@ date: 2023-04-16
 title: 未踏の風景
 description: >-
   室内オーケストラのために書かれた作品で、自然界の精緻な美しさを探求しています。
-tags:   [室内オーケストラ, オーケストラ]
+tags: [chamber orchestra, orchestral]
 image: /static/images/the-untouched-landscape-1.jpg
 ---
 

@@ -2,7 +2,7 @@
 date:   2021-06-15
 title:  Nageki Tsutsu
 description: 《Nageki Tsutsu》通过一首哀歌探讨了孤独的感觉，诗歌内容源自藤原道綱母的早期作品。
-tags:   [合唱]
+tags: [choral]
 image:  '/static/images/nageki-tsutsu-1.webp'
 ---
 

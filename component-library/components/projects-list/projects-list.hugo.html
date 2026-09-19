@@ -43,7 +43,7 @@
     "subtitle" .Params.subtitle
     "description" .Params.description
     "date" .Date
-    "tags" .Params.blog_tags
+    "tags" (.GetTerms "blog_tags")
   )) }}
     {{ end }}
   </div>

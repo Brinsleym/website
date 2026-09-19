@@ -3,7 +3,7 @@ date: 2024-02-04
 title: 超越阴影
 description: >-
   这是一首为扩展管弦乐队创作的作品，探索不和谐音与和谐音之间的关系。
-tags: [管弦乐, 钢琴]
+tags: [orchestral, piano]
 image: '/static/images/beyond-the-shadow-1.webp'
 ---
 我创作这首作品的重点是探索不和谐音与和谐音之间的关系。

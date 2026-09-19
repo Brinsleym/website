@@ -6,8 +6,8 @@
 {{ $isBlog := eq .Data.Plural "blog_tags" }}
 
 {{ partial "bookshop" (slice "page-heading" (dict
-     "title" (printf (T "tag_page_title") .Title)
-     "description" (printf (T "tag_page_description") .Title))) }}
+     "title" (printf (T (cond $isBlog "tag_page_title_blog" "tag_page_title_compositions")) .Title)
+     "description" (printf (T (cond $isBlog "tag_page_description_blog" "tag_page_description_compositions")) .Title))) }}
 
 <div class="container">
   <div class="row">
@@ -24,7 +24,7 @@
                 "description" .Params.description
                 "Summary" .Summary
                 "date" .Date
-                "tags" .Params.blog_tags)) }}
+                "tags" (.GetTerms "blog_tags"))) }}
             {{ else }}
               {{ partial "bookshop" (slice "compositions-card" (dict
                 "url" .RelPermalink
@@ -33,7 +33,7 @@
                 "description" .Params.description
                 "Summary" .Summary
                 "date" .Date
-                "tags" .Params.tags)) }}
+                "tags" (.GetTerms "tags"))) }}
             {{ end }}
           {{ end }}
         </div>

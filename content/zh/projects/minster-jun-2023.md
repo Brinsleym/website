@@ -2,7 +2,7 @@
 date: 2023-06-14
 title: "《杰龙修斯之梦》约克大教堂"
 subtitle: 2023年6月14日，星期三
-blog_tags: [演出]
+blog_tags: [performance]
 image: '/static/images/minster-jun-2023-1.webp'
 description: "约克大学合唱团与交响乐团在约克大教堂演出埃尔加《杰龙修斯之梦》"
 ---

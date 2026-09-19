@@ -5,8 +5,10 @@ prev_post: Previous post
 next_post: Next post
 post_navigation: Post navigation
 scroll_to_top: Back to top
-tag_page_title: "My Blog: %s"
-tag_page_description: "Posts tagged with %s"
+tag_page_title_blog: "My Blog: %s"
+tag_page_title_compositions: "Compositions: %s"
+tag_page_description_blog: "Posts tagged with %s"
+tag_page_description_compositions: "Compositions tagged with %s"
 blog_tags_title: "Blog tags"
 compositions_tags_title: "Composition tags"
 tagged_blog_index: "Every tag used on the blog"

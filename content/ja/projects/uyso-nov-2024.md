@@ -2,7 +2,7 @@
 date: 2024-11-23
 title: "ヨーク大学交響楽団 - ボニス、メンデルスゾーン、シュトラウス"
 subtitle: 2024年11月23日（土）
-blog_tags: [演奏]
+blog_tags: [performance]
 image: '/static/images/uyso-nov-2024-1.webp'
 description: "メル・ボニス、アレクサ・マクラーレンを迎えたメンデルスゾーンのピアノ協奏曲第1番、ブゾーニ、R.シュトラウス《死と変容》"
 ---

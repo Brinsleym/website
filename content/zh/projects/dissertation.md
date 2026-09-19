@@ -1,7 +1,7 @@
 ---
 date: 2025-05-22
 title: "毕业设计项目"
-blog_tags: [幕后, 作曲]
+blog_tags: [behind the scenes, composition]
 subtitle: "2024年10月至2025年5月"
 image: '/static/images/suzume-project-1.webp'
 description: "对多部动画音乐重新配乐项目的详细解析" 

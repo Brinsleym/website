@@ -4,7 +4,7 @@ date:   2022-06-29
 image:  '/static/images/thebrinkofthevalley-1.webp'
 description: >-
   谷の頂から見える美しい風景を音で描写した作品。現代オーケストラとソロチェロのために書かれました。
-tags:   [オーケストラ, チェロソロ]
+tags: [orchestral, cello soloist]
 ---
 
 この作品は、私の両親が住んでいるコーンウォールの谷の頂上からの眺めを描いています。

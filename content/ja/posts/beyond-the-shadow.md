@@ -3,7 +3,7 @@ date: 2024-02-04
 title: "影の彼方"
 description: >-
   拡張オーケストラのために書かれたこの作品は、ディソナンスとコンソナンスの関係を探求しています。
-tags: [オーケストラ, ピアノ]
+tags: [orchestral, piano]
 image: /static/images/beyond-the-shadow-1.webp
 ---
 この作品を書く際の私の焦点は、ディソナンスとコンソナンスの関係を探ることでした。
