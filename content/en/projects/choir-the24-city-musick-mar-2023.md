@@ -2,7 +2,7 @@
 date: 2023-03-18
 title: "Reining in the Donkey - University Choir, The 24 and The City Musick"
 subtitle: Saturday 18 March 2023
-blog_tags: [performance, choral]
+blog_tags: [performance]
 image: '/static/images/choir-the24-city-musick-mar-2023-1.webp'
 description: "Benevoli's Missa Si Deus Pro Nobis and the Colossal Baroque of seventeenth-century Rome, in Central Hall."
 ---

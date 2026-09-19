@@ -2,7 +2,7 @@
 date: 2022-11-26
 title: "约克大学交响乐团 - 伦敦与巴黎"
 subtitle: 2022年11月26日，星期六
-blog_tags: [演出, 交响乐]
+blog_tags: [演出]
 image: '/static/images/uyso-nov-2022-1.webp'
 description: "约翰·斯特林格指挥约克大学交响乐团演出埃尔加、戴留斯、格兰杰与格什温的作品"
 ---

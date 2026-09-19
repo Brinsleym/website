@@ -2,7 +2,7 @@
 date: 2022-11-26
 title: "ヨーク大学交響楽団 - ロンドンとパリ"
 subtitle: 2022年11月26日（土）
-blog_tags: [演奏, オーケストラ]
+blog_tags: [演奏]
 image: '/static/images/uyso-nov-2022-1.webp'
 description: "ジョン・ストリンガー指揮、ヨーク大学交響楽団によるエルガー、ディーリアス、グレインジャー、ガーシュウィン"
 ---

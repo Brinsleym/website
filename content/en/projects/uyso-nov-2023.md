@@ -2,7 +2,7 @@
 date: 2023-11-25
 title: "University Symphony Orchestra - Saariaho, Sibelius and Shostakovich"
 subtitle: Saturday 25 November 2023
-blog_tags: [performance, orchestral]
+blog_tags: [performance]
 image: '/static/images/uyso-nov-2023-1.webp'
 description: "Saariaho's Lumière et Pesanteur, Sibelius's En Saga and Shostakovich's Fifteenth Symphony."
 ---

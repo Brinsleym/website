@@ -2,7 +2,7 @@
 date: 2024-03-16
 title: "约克大学交响乐团 - 格里格与勃拉姆斯"
 subtitle: 2024年3月16日，星期六
-blog_tags: [演出, 交响乐]
+blog_tags: [演出]
 image: '/static/images/uyso-mar-2024-1.webp'
 description: "索尔瓦尔兹多蒂尔《Metacosmos》、夏洛特·布雷特尔演奏的格里格钢琴协奏曲与勃拉姆斯第四交响曲"
 ---

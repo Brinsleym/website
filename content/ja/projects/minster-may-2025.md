@@ -2,7 +2,7 @@
 date: 2025-05-10
 title: "ブラームス《ドイツ・レクイエム》ヨーク・ミンスター"
 subtitle: 2025年5月10日（土）
-blog_tags: [演奏, オーケストラ, 合唱]
+blog_tags: [演奏]
 image: '/static/images/minster-may-2025-1.webp'
 description: "完売のヨーク・ミンスターで、ヨーク大学合唱団・交響楽団とザ・24によるブラームス《ドイツ・レクイエム》"
 ---

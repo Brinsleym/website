@@ -12,26 +12,11 @@
     {{ .Content }}
   </div>
 
-  {{ if .PrevInSection }}
-  {{ $prev := .PrevInSection }}
-  {{ $nextLabel := T "next_post" }}
-  <nav class="project__navigation" aria-label="{{ T "post_navigation" }}">
-    <a class="project__prev" href="{{ $prev.Permalink }}" aria-label="{{ $nextLabel }}: {{ $prev.Title }}">
-      <div class="project__box">
-        {{ with $prev.Params.Image }}
-        <div class="project__image">
-          {{ $size := partial "image-size.html" . }}
-          <img loading="lazy" decoding="async" src="{{ partial "jsdelivr-url.html" . }}" alt=""{{ with $size }} width="{{ .width }}" height="{{ .height }}"{{ end }}>
-        </div>
-        {{ end }}
-        <div class="project__text">
-          <span class="project__nav__info">{{ $nextLabel }}</span>
-          <h2 class="project__nav__title">{{ $prev.Title }}<ion-icon name="arrow-forward" class="arrow-right" aria-hidden="true"></ion-icon></h2>
-        </div>
-      </div>
-    </a>
-  </nav>
-  {{ end }}
+  <div class="row">
+    <div class="col col-10 col-d-12 push-d-0 push-1">
+      {{ partial "post-navigation.html" . }}
+    </div>
+  </div>
 
 </div>
 

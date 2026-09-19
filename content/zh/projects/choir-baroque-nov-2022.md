@@ -2,7 +2,7 @@
 date: 2022-11-30
 title: "约克大学合唱团与巴洛克合奏团 - 午夜弥撒"
 subtitle: 2022年11月30日，星期三
-blog_tags: [演出, 合唱]
+blog_tags: [演出]
 image: '/static/images/choir-baroque-nov-2022-1.webp'
 description: "中央大厅的夏庞蒂埃《午夜弥撒》、豪厄尔斯的圣诞颂歌与狄兰·托马斯的朗诵"
 ---

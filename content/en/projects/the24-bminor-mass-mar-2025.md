@@ -2,7 +2,7 @@
 date: 2025-03-28
 title: "Bach's Mass in B minor - The 24 and Manchester Baroque"
 subtitle: Friday 28 March 2025
-blog_tags: [performance, choral]
+blog_tags: [performance]
 image: '/static/images/the24-bminor-mass-mar-2025-1.webp'
 description: "The 24 with Manchester Baroque and soloists from I Fagiolini in Bach's Mass in B minor."
 ---

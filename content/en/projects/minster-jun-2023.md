@@ -2,7 +2,7 @@
 date: 2023-06-14
 title: "The Dream of Gerontius, York Minster"
 subtitle: Wednesday 14 June 2023
-blog_tags: [performance, orchestral, choral]
+blog_tags: [performance]
 image: '/static/images/minster-jun-2023-1.webp'
 description: "Elgar's The Dream of Gerontius with the University of York Choir and Symphony Orchestra in York Minster."
 ---

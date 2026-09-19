@@ -2,7 +2,7 @@
 date: 2025-03-28
 title: "バッハ《ロ短調ミサ》- ザ・24とマンチェスター・バロック"
 subtitle: 2025年3月28日（金）
-blog_tags: [演奏, 合唱]
+blog_tags: [演奏]
 image: '/static/images/the24-bminor-mass-mar-2025-1.webp'
 description: "ザ・24、マンチェスター・バロック、イ・ファジョリーニの独唱者によるバッハ《ロ短調ミサ》"
 ---

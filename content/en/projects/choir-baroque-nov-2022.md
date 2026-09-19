@@ -2,7 +2,7 @@
 date: 2022-11-30
 title: "University Choir and Baroque Ensemble - Messe de Minuit"
 subtitle: Wednesday 30 November 2022
-blog_tags: [performance, choral]
+blog_tags: [performance]
 image: '/static/images/choir-baroque-nov-2022-1.webp'
 description: "Charpentier's Messe de Minuit, carol anthems by Howells and readings from Dylan Thomas, in Central Hall."
 ---

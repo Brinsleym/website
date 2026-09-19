@@ -1,7 +1,7 @@
 ---
 date: 2023-06-09
 title: Chimera合奏团
-blog_tags: [演出, 室内乐团, 交响乐, 作曲]
+blog_tags: [演出, 作曲]
 subtitle: 2023年6月
 image: '/static/images/chimera-june-2023.webp'
 description: "林泽作品《未触及的风景》首演"

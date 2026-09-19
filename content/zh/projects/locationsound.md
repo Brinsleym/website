@@ -1,7 +1,7 @@
 ---
 date: 2024-01-17
 title: "实地录音项目记录"
-blog_tags: [幕后, 独奏, 纪录片, 作曲]
+blog_tags: [幕后, 作曲]
 subtitle: 录制于2024年1月17日
 image: '/static/images/locationsound1.webp'
 description: "我的实地录音模块项目幕后花絮"

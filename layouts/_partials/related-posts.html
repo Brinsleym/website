@@ -1,4 +1,13 @@
 <!-- begin related posts -->
+{{/* Related pages are matched on shared tags. A composition whose tags are
+     unique to it matches nothing, so fall back to the most recent others in
+     its section rather than printing a heading over an empty row. This is the
+     only onward navigation these pages have. */}}
+{{ $related := first 3 (site.RegularPages.Related .) }}
+{{ if not $related }}
+  {{ $related = first 3 (where (where site.RegularPages "Section" .Section) "Permalink" "!=" .Permalink) }}
+{{ end }}
+{{ with $related }}
 <div class="container">
   <section class="related-posts animate">
     <div class="row">
@@ -10,7 +19,7 @@
             </div>
           </div>
           <div class="row">
-            {{ range first 3 (site.RegularPages.Related .) }}
+            {{ range . }}
               {{ partial "article-content.html" . }}
             {{ end }}
           </div>
@@ -19,4 +28,5 @@
     </div>
   </section>
 </div>
+{{ end }}
 <!-- end related posts -->

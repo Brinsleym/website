@@ -1,7 +1,7 @@
 ---
 date: 2025-05-22
 title: "卒業論文プロジェクト"
-blog_tags: [舞台裏, 映画音楽, サウンドトラック, 作曲]
+blog_tags: [舞台裏, 作曲]
 subtitle: "2024年10月から2025年5月まで"
 image: '/static/images/suzume-project-1.webp'
 description: "様々なアニメのリスコアリングプロジェクトの詳細"

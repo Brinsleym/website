@@ -2,7 +2,7 @@
 date: 2024-06-08
 title: "莫扎特《c小调大弥撒》约克大教堂"
 subtitle: 2024年6月8日，星期六
-blog_tags: [演出, 交响乐, 合唱]
+blog_tags: [演出]
 image: '/static/images/minster-jun-2024-1.webp'
 description: "约克大教堂的莫扎特《c小调弥撒》、布鲁克纳《感恩赞》与埃尔加《挽歌》"
 ---

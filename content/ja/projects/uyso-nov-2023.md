@@ -2,7 +2,7 @@
 date: 2023-11-25
 title: "ヨーク大学交響楽団 - サーリアホ、シベリウス、ショスタコーヴィチ"
 subtitle: 2023年11月25日（土）
-blog_tags: [演奏, オーケストラ]
+blog_tags: [演奏]
 image: '/static/images/uyso-nov-2023-1.webp'
 description: "サーリアホ《Lumière et Pesanteur》、シベリウス《エン・サガ》、ショスタコーヴィチ交響曲第15番"
 ---

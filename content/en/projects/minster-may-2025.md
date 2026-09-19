@@ -2,7 +2,7 @@
 date: 2025-05-10
 title: "Brahms' A German Requiem, York Minster"
 subtitle: Saturday 10 May 2025
-blog_tags: [performance, orchestral, choral]
+blog_tags: [performance]
 image: '/static/images/minster-may-2025-1.webp'
 description: "Brahms' Ein deutsches Requiem with the University Choir, Symphony Orchestra and The 24 in a sold-out York Minster."
 ---

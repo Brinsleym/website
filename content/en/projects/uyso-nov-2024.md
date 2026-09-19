@@ -2,7 +2,7 @@
 date: 2024-11-23
 title: "University Symphony Orchestra - Bonis, Mendelssohn and Strauss"
 subtitle: Saturday 23 November 2024
-blog_tags: [performance, orchestral]
+blog_tags: [performance]
 image: '/static/images/uyso-nov-2024-1.webp'
 description: "Mel Bonis, Mendelssohn's First Piano Concerto with Alexa MacLaren, Busoni and Strauss's Death and Transfiguration."
 ---

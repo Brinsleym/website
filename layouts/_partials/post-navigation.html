@@ -1,6 +1,11 @@
 {{ if or .NextInSection .PrevInSection }}
 {{ $prevLabel := T "prev_post" }}
 {{ $nextLabel := T "next_post" }}
+<div class="section__info post__navigation-head animate">
+  <div class="section__head">
+    <h2 class="section__title">{{ T "related_posts_title" }}</h2>
+  </div>
+</div>
 <nav class="post__navigation animate" aria-label="{{ T "post_navigation" }}">
 
   {{ if .PrevInSection }}
@@ -13,7 +18,7 @@
     <div class="prev__box">
       <span class="post__nav post__nav__prev">{{ $prevLabel }}</span>
       <h2 class="post__nav__title">{{ $prev.Title }}</h2>
-      {{ with $prev.GetTerms "tags" }}
+      {{ with or ($prev.GetTerms "blog_tags") ($prev.GetTerms "tags") }}
       <div class="post__nav__tags">
         {{ range . }}<span class="post__nav__tag">{{ .LinkTitle }}</span>{{ end }}
       </div>
@@ -28,7 +33,7 @@
     <div class="next__box">
       <span class="post__nav post__nav__next">{{ $nextLabel }}</span>
       <h2 class="post__nav__title">{{ $next.Title }}</h2>
-      {{ with $next.GetTerms "tags" }}
+      {{ with or ($next.GetTerms "blog_tags") ($next.GetTerms "tags") }}
       <div class="post__nav__tags">
         {{ range . }}<span class="post__nav__tag">{{ .LinkTitle }}</span>{{ end }}
       </div>

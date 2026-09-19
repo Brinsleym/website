@@ -2,7 +2,7 @@
 date: 2023-03-11
 title: "约克大学交响乐团 - 拉赫玛尼诺夫第二交响曲"
 subtitle: 2023年3月11日，星期六
-blog_tags: [演出, 交响乐]
+blog_tags: [演出]
 image: '/static/images/uyso-mar-2023-1.webp'
 description: "西格富斯多蒂尔《Oceans》英国首演、布朗热《Fantaisie variée》与拉赫玛尼诺夫第二交响曲"
 ---

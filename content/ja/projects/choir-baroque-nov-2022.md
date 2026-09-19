@@ -2,7 +2,7 @@
 date: 2022-11-30
 title: "ヨーク大学合唱団とバロック・アンサンブル - 真夜中のミサ"
 subtitle: 2022年11月30日（水）
-blog_tags: [演奏, 合唱]
+blog_tags: [演奏]
 image: '/static/images/choir-baroque-nov-2022-1.webp'
 description: "セントラル・ホールでのシャルパンティエ《真夜中のミサ》、ハウエルズのキャロル・アンセム、ディラン・トマスの朗読"
 ---

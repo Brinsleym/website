@@ -2,7 +2,7 @@
 date: 2025-05-10
 title: "勃拉姆斯《德意志安魂曲》约克大教堂"
 subtitle: 2025年5月10日，星期六
-blog_tags: [演出, 交响乐, 合唱]
+blog_tags: [演出]
 image: '/static/images/minster-may-2025-1.webp'
 description: "约克大学合唱团、交响乐团与The 24在满座的约克大教堂演出勃拉姆斯《德意志安魂曲》"
 ---
