@@ -1,16 +1,18 @@
+{{- /* Turns a repo path ("/static/images/x.webp") into a CDN URL on site.Params.cdn_domain,
+       or into the site's own copy when there's no CDN (development) or the CDN won't serve it.
+       cdn-fallback.html retries anything that fails on the CDN from the site's own copy. */ -}}
 {{- $path := . -}}
-{{- $baseUrl := site.Params.jsdelivr_base_url -}}
-{{- if eq $baseUrl "" -}}
-  {{- /* Local development: remove /static/ prefix */ -}}
-  {{- $localPath := $path | replaceRE "^/static/" "/" -}}
-  {{- printf "%s" $localPath -}}
+{{- $domain := site.Params.cdn_domain -}}
+{{- $local := $path | replaceRE "^/static/" "/" -}}
+{{- /* cdn.jsdmirror.cn (used for zh) only mirrors some file types from GitHub; js, css, jpg and ico 404 */ -}}
+{{- $ext := path.Ext $path -}}
+{{- $mirrorRefuses := and (eq $domain "cdn.jsdmirror.cn") $ext (not (in (slice ".webp" ".mp4" ".pdf") $ext)) -}}
+{{- if or (not $domain) $mirrorRefuses -}}
+  {{- $local -}}
 {{- else -}}
-  {{- /* Production: use CDN */ -}}
-  {{- /* For CSS files, ensure they have /static/ prefix */ -}}
-  {{- if or (strings.HasPrefix $path "/css/") (strings.HasPrefix $path "/static/css/") -}}
-    {{- if not (strings.HasPrefix $path "/static/") -}}
-      {{- $path = printf "/static%s" $path -}}
-    {{- end -}}
+  {{- /* The stylesheet is published to static/css by `make deploy` */ -}}
+  {{- if strings.HasPrefix $path "/css/" -}}
+    {{- $path = printf "/static%s" $path -}}
   {{- end -}}
-  {{- printf "%s%s" $baseUrl $path -}}
+  {{- printf "https://%s/gh/Brinsleym/website@master%s" $domain $path -}}
 {{- end -}}

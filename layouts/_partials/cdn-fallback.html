@@ -1,0 +1,23 @@
+{{- with site.Params.cdn_domain }}
+  <script>
+    /* If an image, stylesheet or script fails on the CDN, load the site's own copy instead */
+    (function () {
+      var base = 'https://{{ . }}/gh/Brinsleym/website@master';
+      window.addEventListener('error', function (e) {
+        var el = e.target, attr = el.tagName === 'LINK' ? 'href' : 'src', url = el.getAttribute && el.getAttribute(attr);
+        if (!/^(IMG|LINK|SCRIPT)$/.test(el.tagName) || !url || url.indexOf(base) !== 0) return;
+        url = url.slice(base.length).replace(/^\/static\//, '/');
+        if (el.tagName === 'SCRIPT') {
+          /* A failed script can't be retried in place; add a fresh one after it */
+          var s = document.createElement('script');
+          s.src = url;
+          s.async = false;
+          el.parentNode.insertBefore(s, el.nextSibling);
+        } else {
+          el.removeAttribute('srcset');
+          el.setAttribute(attr, url);
+        }
+      }, true);
+    })();
+  </script>
+{{- end }}

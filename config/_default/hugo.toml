@@ -57,6 +57,8 @@ enableRobotsTXT = true
 
     [languages.zh.params]
       date_format = "2006年01月02日"
+      # jsDelivr's mirror, faster from mainland China
+      cdn_domain = "cdn.jsdmirror.cn"
 
 
 [module]
@@ -85,7 +87,8 @@ projects = "/blog/:title/"
   blog_tags = "/blog/tags/:slug/"
 
 [params]
-jsdelivr_base_url = "https://cdn.jsdelivr.net/gh/Brinsleym/website@master"
+# CDN for CSS, JS and images (zh overrides it below)
+cdn_domain = "cdn.jsdelivr.net"
 
 [related]
 includeNewer = true

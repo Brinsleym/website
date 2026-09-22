@@ -31,23 +31,13 @@
        rendered: the player script is only worth fetching on pages with one. */}}
   {{ $soundcloud := .Store.Get "hasSoundCloudPlayer" }}
 
-  {{ if eq site.Params.jsdelivr_base_url "" }}
-  <!-- Local development: process assets through Hugo pipeline -->
-  {{ $scripts := resources.Get "js/scripts.js" | resources.Minify }}
-  {{ $common := resources.Get "js/common.js" | resources.Minify }}
-  <script src="{{ $scripts.RelPermalink }}"></script>
-  <script src="{{ $common.RelPermalink }}"></script>
-  {{ if $soundcloud }}
-  {{ $soundcloudJs := resources.Get "js/soundcloud-player.js" | resources.Minify }}
-  <script src="{{ $soundcloudJs.RelPermalink }}"></script>
-  {{ end }}
-  {{ else }}
-  <!-- Production: use CDN -->
-  <script src="{{ site.Params.jsdelivr_base_url }}/assets/js/scripts.js"></script>
-  <script src="{{ site.Params.jsdelivr_base_url }}/assets/js/common.js"></script>
-  {{ if $soundcloud }}
-  <script src="{{ site.Params.jsdelivr_base_url }}/assets/js/soundcloud-player.js"></script>
-  {{ end }}
+  {{/* Published as /assets/js/<name>.min.js, which jsDelivr also serves (minifying the repo file),
+       so the CDN URL and the site's own copy line up */}}
+  {{ $js := slice "scripts" "common" }}
+  {{ if $soundcloud }}{{ $js = $js | append "soundcloud-player" }}{{ end }}
+  {{ range $js }}
+  {{ $res := resources.Get (printf "js/%s.js" .) | resources.Copy (printf "assets/js/%s.js" .) | resources.Minify }}
+  <script src="{{ partial "jsdelivr-url.html" $res.RelPermalink }}"></script>
   {{ end }}
 </body>
 

@@ -3,5 +3,9 @@
 baseURL = "http://localhost:1313"
 
 [params]
-# Serve CSS/JS/images locally instead of from jsDelivr
-jsdelivr_base_url = ""
+# Serve CSS/JS/images locally instead of from the CDN
+cdn_domain = ""
+
+# Language params beat [params], so zh needs its own override
+[languages.zh.params]
+cdn_domain = ""
