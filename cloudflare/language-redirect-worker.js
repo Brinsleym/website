@@ -5,6 +5,13 @@
 // page view and when a language is picked. English lives at "/", so without
 // the cookie check a visitor in China who picks English is sent to "/" and
 // immediately redirected back to "/zh/".
+//
+// It also tells the page which country the visitor is in, through a
+// `country` cookie on HTML responses. The audio players read it to skip
+// SoundCloud, which is blocked in mainland China, and play the site's own
+// copy straight away (assets/js/self-hosted-audio.js). It only reaches the
+// paths this worker's route covers; elsewhere the players fall back on the
+// browser's time zone.
 
 const COUNTRY_LANGUAGE = { CN: 'zh', JP: 'ja' };
 const SUPPORTED_LANGUAGES = new Set(['en', 'ja', 'zh']);
@@ -18,7 +25,7 @@ async function handleRequest(request) {
   const url = new URL(request.url);
 
   if (url.pathname !== '/') {
-    return fetch(request);
+    return withCountryCookie(request, await fetch(request));
   }
 
   const chosen = getCookie(request.headers.get('Cookie'), 'lang');
@@ -27,7 +34,7 @@ async function handleRequest(request) {
     : COUNTRY_LANGUAGE[request.headers.get('CF-IPCountry')] || DEFAULT_LANGUAGE;
 
   if (language === DEFAULT_LANGUAGE) {
-    return fetch(request);
+    return withCountryCookie(request, await fetch(request));
   }
 
   url.pathname = `/${language}/`;
@@ -41,6 +48,21 @@ async function handleRequest(request) {
       Vary: 'Cookie',
     },
   });
+}
+
+// Readable by the page's scripts, so not HttpOnly. A day long, so that a
+// visitor who travels is not misjudged for long.
+function withCountryCookie(request, response) {
+  const country = request.headers.get('CF-IPCountry');
+  const type = response.headers.get('Content-Type') || '';
+  if (!/^[A-Z]{2}$/.test(country || '') || !type.startsWith('text/html') ||
+      getCookie(request.headers.get('Cookie'), 'country') === country) {
+    return response;
+  }
+
+  const tagged = new Response(response.body, response);
+  tagged.headers.append('Set-Cookie', `country=${country}; Path=/; Max-Age=86400; SameSite=Lax; Secure`);
+  return tagged;
 }
 
 function getCookie(header, name) {

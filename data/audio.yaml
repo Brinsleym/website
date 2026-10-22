@@ -1,0 +1,73 @@
+#-------------------------------
+# Self-hosted audio
+#
+# Our own copies of the SoundCloud audio, played where SoundCloud cannot be
+# reached: straight away for visitors in mainland China, and anywhere else
+# once SoundCloud fails to answer (a privacy extension, an outage). A player
+# with no entry here stays SoundCloud-only.
+#
+# Files go in static/audio as AAC in an .mp4 container: jsDelivr's China
+# mirror, which the zh site uses, serves .mp4 but not .m4a or .mp3. For
+# example: ffmpeg -i master.wav -vn -c:a aac -b:a 160k -movflags +faststart x.mp4
+#
+# tracks     keyed by the soundcloud-player shortcode's `track`, exactly as
+#            written in the content
+# playlists  keyed by the soundcloud-playlist shortcode's `playlist`, each a
+#            list of tracks in playing order
+#
+# Each track takes a title and a file, and optionally an artist (defaults to
+# the one below) and a duration in seconds for the playlist's track list.
+#
+# tracks:
+#   "https://soundcloud.com/brinsleymorrison/somnolence":
+#     title: Somnolence
+#     file: /static/audio/somnolence.mp4
+# playlists:
+#   "2034380025":
+#     - title: Journey's End
+#       file: /static/audio/frieren-1.mp4
+#       duration: 214
+#-------------------------------
+artist: Brinsley Morrison
+tracks:
+  "https://soundcloud.com/brinsleymorrison/somnolence":
+    title: Somnolence
+    file: /static/audio/somnolence.mp4
+  "https://soundcloud.com/brinsleymorrison/beyond-the-shadow":
+    title: Beyond The Shadow
+    file: /static/audio/beyond-the-shadow.mp4
+playlists:
+  # Re-scoring Sousou no Frieren
+  "2034380025":
+    - title: "16M34 Frieren"
+      file: /static/audio/frieren-01.mp4
+      duration: 207
+    - title: "9M47 Frieren"
+      file: /static/audio/frieren-02.mp4
+      duration: 60
+    - title: "20M41 Frieren"
+      file: /static/audio/frieren-03.mp4
+      duration: 73
+    - title: "22M10 Frieren"
+      file: /static/audio/frieren-04.mp4
+      duration: 128
+    - title: "2M22 Frieren"
+      file: /static/audio/frieren-05.mp4
+      duration: 69
+    - title: "5M06 Frieren"
+      file: /static/audio/frieren-06.mp4
+      duration: 173
+    - title: "11M26 Frieren"
+      file: /static/audio/frieren-07.mp4
+      duration: 21
+    - title: "13M53 Frieren"
+      file: /static/audio/frieren-08.mp4
+      duration: 10
+  # Re-scoring scenes from Suzume
+  "2057796114":
+    - title: "(Preview) Re-scoring scenes from Suzume (clip 1)"
+      file: /static/audio/suzume-01.mp4
+      duration: 48
+    - title: "(Preview) Re-scoring scenes from Suzume (clip 2)"
+      file: /static/audio/suzume-02.mp4
+      duration: 50

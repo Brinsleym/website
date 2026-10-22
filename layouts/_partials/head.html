@@ -7,8 +7,6 @@
 
   <!-- Warm up the third-party origins in the critical path -->
   <link rel="preconnect" href="https://{{ $cdn }}" crossorigin>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link rel="icon" type="image/x-icon" href="{{ partial "jsdelivr-url.html" "/static/favicon.ico" }}">
 
@@ -109,29 +107,17 @@
     {{- end }}
   {{- end }}
 
-  <!-- Fonts: non-render-blocking Google Fonts (media swap); if it hasn't loaded or fails
-       within 3s (e.g. blocked networks), load the fonts.font.im mirror instead -->
-  <link rel="stylesheet" id="font-primary" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" media="print" onload="this.media='all';this.dataset.loaded='1'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"></noscript>
-  <script>
-    (function () {
-      var primary = document.getElementById('font-primary');
-      function fallback() {
-        if (primary.dataset.loaded || document.getElementById('font-fallback')) return;
-        var link = document.createElement('link');
-        link.id = 'font-fallback';
-        link.rel = 'stylesheet';
-        link.href = 'https://fonts.font.im/css2?family=Inter:wght@400;500;600;700;900&display=swap';
-        document.head.appendChild(link);
-      }
-      primary.addEventListener('error', fallback);
-      setTimeout(fallback, 3000);
-    })();
-  </script>
+  <!-- Fonts and icons are our own copies, not Google Fonts or an npm CDN, so that
+       nothing in the page's critical path depends on a host mainland China blocks.
+       The font itself is declared in shared/styles/2-base/_fonts.scss; this preload
+       must resolve to the same URL the stylesheet does, which jsdelivr-url.html
+       guarantees by sending both to the same place. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="{{ partial "jsdelivr-url.html" "/static/fonts/inter-latin-wght-normal.woff2" }}">
 
-  <!-- Ionicons (module scripts are deferred by default) -->
-  <script type="module" src="https://{{ $cdn }}/npm/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule defer src="https://{{ $cdn }}/npm/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <!-- Ionicons 7.1.0 (module scripts are deferred by default). Only the icons the
+       site uses are in static/ionicons/svg: to add one, copy its SVG from the
+       package's dist/ionicons/svg. -->
+  <script type="module" src="{{ partial "jsdelivr-url.html" "/static/ionicons/ionicons.esm.js" }}"></script>
 
   <!-- The bookshop_scss partial returns a slice of all SCSS resources from your Bookshop -->
   {{ $bookshop_scss_files := partial "bookshop_scss" . }}

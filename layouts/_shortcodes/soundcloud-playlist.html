@@ -10,4 +10,11 @@
 {{ else }}
   {{ $playlistUrl = printf "https://api.soundcloud.com/playlists/%s" $playlist }}
 {{ end }}
-{{ partial "soundcloud-playlist.html" (dict "url" $playlistUrl "background" $processedBackground "backgroundSize" (partial "image-size.html" $background)) }}
+{{/* Our own copies of the playlist's audio, if data/audio.yaml has them */}}
+{{ $audio := slice }}
+{{ range index hugo.Data.audio.playlists $playlist }}
+  {{ $audio = $audio | append (partial "self-hosted-audio.html" .) }}
+{{ end }}
+{{/* Tells baseof.html to load assets/js/self-hosted-audio.js */}}
+{{ .Page.Store.Set "hasSoundCloudPlaylist" true }}
+{{ partial "soundcloud-playlist.html" (dict "url" $playlistUrl "background" $processedBackground "backgroundSize" (partial "image-size.html" $background) "audio" $audio) }}

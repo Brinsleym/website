@@ -8,7 +8,12 @@
 
    All user-facing strings come from the markup (data attributes and the
    hidden panels), because this file sits outside Hugo's templating and so
-   cannot reach the translations itself. */
+   cannot reach the translations itself.
+
+   A player with our own copy of its audio (data-audio-src) plays that
+   instead wherever SoundCloud cannot be reached: straight away in mainland
+   China, or once SoundCloud fails to answer anywhere else. The stand-in
+   widget comes from self-hosted-audio.js. */
 (function () {
   'use strict';
 
@@ -185,6 +190,9 @@
 
     var trackUrl = player.dataset.trackUrl;
     var customBackground = player.dataset.customBackground;
+    var selfHosted = window.SelfHostedAudio;
+    var audioSources = [player.dataset.audioSrc, player.dataset.audioFallback].filter(Boolean);
+    var hasOwnCopy = !!(selfHosted && audioSources.length);
 
     var playButton = player.querySelector('.custom-soundcloud-player__play-button');
     var playIcon = playButton && playButton.querySelector('ion-icon');
@@ -328,7 +336,8 @@
 
       var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
       var isSafari = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
-      if (!isIOS || !isSafari || !widget) return Promise.resolve();
+      // Our own audio element plays from the tap itself and needs no priming.
+      if (!isIOS || !isSafari || !widget || widget.isSelfHosted) return Promise.resolve();
 
       return new Promise(function (resolve) {
         widget.play();
@@ -416,8 +425,8 @@
       if (sound.artwork_url && !customBackground && artwork) loadArtwork(sound.artwork_url);
     }
 
-    function bindWidget() {
-      widget.bind(SC.Widget.Events.PLAY, function () {
+    function bindWidget(Events) {
+      widget.bind(Events.PLAY, function () {
         /* Seeking a paused track makes the widget announce PLAY of its own
            accord, and the browser then blocks the sound, leaving the button
            showing a pause it never honoured. Scrubbing is for looking at a
@@ -427,13 +436,13 @@
         paintPlayState();
       });
 
-      widget.bind(SC.Widget.Events.PAUSE, function () {
+      widget.bind(Events.PAUSE, function () {
         isPlaying = false;
         paintPlayState();
         silenceBriefly();
       });
 
-      widget.bind(SC.Widget.Events.FINISH, function () {
+      widget.bind(Events.FINISH, function () {
         isPlaying = false;
         wantPlaying = false;
         position = 0;
@@ -442,11 +451,44 @@
         silenceBriefly();
       });
 
-      widget.bind(SC.Widget.Events.PLAY_PROGRESS, function (data) {
+      widget.bind(Events.PLAY_PROGRESS, function (data) {
         if (scrubbing) return;
         position = data.currentPosition;
         paintProgress(duration ? position / duration : 0, position);
       });
+    }
+
+    /* Whichever widget is in use answers READY the same way. */
+    function onReady() {
+      widget.setVolume(volume * 100);
+      paintVolume();
+
+      Promise.all([
+        new Promise(function (resolve) { widget.getDuration(resolve); }),
+        new Promise(function (resolve) { widget.getCurrentSound(resolve); })
+      ]).then(function (results) {
+        applyTrackData(results[0], results[1]);
+        ready();
+      })['catch'](function () { showError(); });
+    }
+
+    /* ---- our own copy ---- */
+
+    function buildSelfHosted() {
+      // In China the SoundCloud link leads nowhere, so it is hidden there.
+      var inChina = selfHosted.preferred();
+      var permalink = !inChina && trackUrl.indexOf('https://soundcloud.com/') === 0 ? trackUrl : null;
+      if (link && !permalink) link.hidden = true;
+
+      widget = new selfHosted.Widget(audioSources, {
+        title: player.dataset.audioTitle,
+        user: { username: player.dataset.audioArtist },
+        permalink_url: permalink
+      });
+
+      widget.bind(selfHosted.Events.READY, onReady);
+      widget.bind(selfHosted.Events.ERROR, function () { if (!isReady) showError(); });
+      bindWidget(selfHosted.Events);
     }
 
     /* ---- the iframe ----
@@ -454,11 +496,36 @@
        Built on demand. A player below the fold used to fetch
        w.soundcloud.com on page load whether or not anyone scrolled to it. */
 
-    function build() {
-      if (created) return;
-      created = true;
-
+    function buildSoundCloud() {
       var iframe = document.createElement('iframe');
+      var gaveUp = false;
+      var deadline = null;
+
+      /* With our own copy to fall back on, SoundCloud only gets a few
+         seconds: behind the Great Firewall it usually hangs rather than
+         failing outright. Without one, the API manager's own timeout
+         stands, and a failure shows the panels below. */
+      function giveUp(error) {
+        if (gaveUp || isReady) return;
+        gaveUp = true;
+        clearTimeout(deadline);
+        if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
+
+        if (hasOwnCopy) { buildSelfHosted(); return; }
+
+        widget = null;
+        var message = (error && error.message) || '';
+        if (message.indexOf('privacy extension') !== -1 ||
+            message.indexOf('blocked') !== -1 ||
+            message.indexOf('timeout') !== -1) {
+          showPrivacyError();
+        } else {
+          showError();
+        }
+      }
+
+      if (hasOwnCopy) deadline = setTimeout(giveUp, selfHosted.SOUNDCLOUD_TIMEOUT);
+
       iframe.src = 'https://w.soundcloud.com/player/?url=' + encodeURIComponent(trackUrl) +
         '&auto_play=false&hide_related=true&show_comments=false&show_user=false' +
         '&show_reposts=false&visual=false&buying=false&download=false&sharing=false';
@@ -469,32 +536,25 @@
       player.appendChild(iframe);
 
       window.SoundCloudAPIManager.loadAPI().then(function () {
+        if (gaveUp) return;
         widget = SC.Widget(iframe);
 
         widget.bind(SC.Widget.Events.READY, function () {
-          widget.setVolume(volume * 100);
-          paintVolume();
-
-          Promise.all([
-            new Promise(function (resolve) { widget.getDuration(resolve); }),
-            new Promise(function (resolve) { widget.getCurrentSound(resolve); })
-          ]).then(function (results) {
-            applyTrackData(results[0], results[1]);
-            ready();
-          })['catch'](function () { showError(); });
+          if (gaveUp) return;
+          clearTimeout(deadline);
+          onReady();
         });
 
-        bindWidget();
-      })['catch'](function (error) {
-        var message = (error && error.message) || '';
-        if (message.indexOf('privacy extension') !== -1 ||
-            message.indexOf('blocked') !== -1 ||
-            message.indexOf('timeout') !== -1) {
-          showPrivacyError();
-        } else {
-          showError();
-        }
-      });
+        bindWidget(SC.Widget.Events);
+      })['catch'](giveUp);
+    }
+
+    function build() {
+      if (created) return;
+      created = true;
+
+      if (hasOwnCopy && selfHosted.preferred()) buildSelfHosted();
+      else buildSoundCloud();
     }
 
     paintVolume();

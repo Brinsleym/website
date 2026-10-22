@@ -9,6 +9,12 @@
   <div class="custom-soundcloud-player custom-soundcloud-player--loading"
        data-track-url="{{ .url }}"
        {{ if .background }}data-custom-background="{{ .background }}"{{ end }}
+       {{- with .audio }}
+       data-audio-src="{{ index .sources 0 }}"
+       {{ with index .sources 1 }}data-audio-fallback="{{ . }}"{{ end }}
+       data-audio-title="{{ .title }}"
+       data-audio-artist="{{ .artist }}"
+       {{- end }}
        data-label-play="{{ T "sc_play" }}"
        data-label-pause="{{ T "sc_pause" }}"
        data-label-mute="{{ T "sc_mute" }}"

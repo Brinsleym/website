@@ -27,13 +27,17 @@
 
   {{ block "footer" . }}{{ end }}
 
-  {{/* Set by the soundcloud-player shortcode while the content above was
-       rendered: the player script is only worth fetching on pages with one. */}}
+  {{/* Set by the soundcloud-player and soundcloud-playlist shortcodes while the
+       content above was rendered: the player scripts are only worth fetching on
+       pages with one. */}}
   {{ $soundcloud := .Store.Get "hasSoundCloudPlayer" }}
+  {{ $playlist := .Store.Get "hasSoundCloudPlaylist" }}
 
   {{/* Published as /assets/js/<name>.min.js, which jsDelivr also serves (minifying the repo file),
        so the CDN URL and the site's own copy line up */}}
   {{ $js := slice "scripts" "common" }}
+  {{/* Before the players, which look for it as they start */}}
+  {{ if or $soundcloud $playlist }}{{ $js = $js | append "self-hosted-audio" }}{{ end }}
   {{ if $soundcloud }}{{ $js = $js | append "soundcloud-player" }}{{ end }}
   {{ range $js }}
   {{ $res := resources.Get (printf "js/%s.js" .) | resources.Copy (printf "assets/js/%s.js" .) | resources.Minify }}
