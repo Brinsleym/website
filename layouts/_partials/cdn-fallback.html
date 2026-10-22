@@ -10,6 +10,7 @@
         if (el.tagName === 'SCRIPT') {
           /* A failed script can't be retried in place; add a fresh one after it */
           var s = document.createElement('script');
+          if (el.type) s.type = el.type;
           s.src = url;
           s.async = false;
           el.parentNode.insertBefore(s, el.nextSibling);
