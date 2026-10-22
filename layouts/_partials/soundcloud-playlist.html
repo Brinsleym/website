@@ -1,5 +1,5 @@
 <!-- Custom SoundCloud Playlist Player -->
-<div class="custom-soundcloud-playlist" data-playlist-url="{{ .url }}" {{ if .background }}data-custom-background="{{ .background }}"{{ end }}>
+<div class="custom-soundcloud-playlist" data-playlist-url="{{ .url }}" {{ if .background }}data-custom-background="{{ .background }}"{{ end }}{{ with .audio }} data-audio-tracks="{{ jsonify . }}"{{ end }}>
   <!-- Main Player -->
   <div class="custom-soundcloud-player" data-track-url="">
     <!-- Artwork and Track Info -->
@@ -112,8 +112,14 @@ if (!window.SoundCloudAPIManager) {
   })();
 }
 
-// Start loading API immediately
-window.SoundCloudAPIManager.loadAPI();
+// Start loading the API early, unless the visitor is somewhere SoundCloud is
+// blocked (mainland China) and would only wait on a request that never ends.
+// self-hosted-audio.js loads with the footer scripts, before DOMContentLoaded.
+document.addEventListener('DOMContentLoaded', () => {
+  if (!(window.SelfHostedAudio && window.SelfHostedAudio.preferred())) {
+    window.SoundCloudAPIManager.loadAPI();
+  }
+});
 
 // Playlist cache for performance
 window.SoundCloudPlaylistCache = (function() {
@@ -182,6 +188,13 @@ window.SoundCloudPlaylistCache = (function() {
       this.mainControls = this.player.querySelector('.custom-soundcloud-player__main-controls');
       this.volumeControls = this.player.querySelector('.custom-soundcloud-player__volume-controls');
 
+      // Our own copies of the tracks, played where SoundCloud can't be
+      // reached. See data/audio.yaml and assets/js/self-hosted-audio.js.
+      this.selfHosted = window.SelfHostedAudio;
+      this.ownTracks = this.selfHosted ? this.readOwnTracks() : [];
+      this.local = false;
+      this.audio = null; // one element for the whole playlist, for iOS
+
       // State
       this.currentTrackIndex = 0;
       this.tracks = [];
@@ -247,7 +260,42 @@ window.SoundCloudPlaylistCache = (function() {
       this.eventListeners = [];
     }
 
+    readOwnTracks() {
+      try {
+        return JSON.parse(this.container.dataset.audioTracks || '[]').map(track => ({
+          title: track.title,
+          user: { username: track.artist },
+          // No SoundCloud link: the playlist is known only by its API URL.
+          permalink_url: null,
+          artwork_url: null,
+          duration: track.duration * 1000,
+          sources: track.sources
+        }));
+      } catch (e) {
+        return [];
+      }
+    }
+
+    // The events of whichever widget is playing: SoundCloud's, or the
+    // stand-in's, which carry the same names.
+    get events() {
+      return this.local ? this.selfHosted.Events : SC.Widget.Events;
+    }
+
+    useOwnTracks() {
+      this.local = true;
+      this.audio = this.audio || new Audio();
+      this.activeIframes.forEach(iframe => this.safeRemoveIframe(iframe));
+      this.tracks = this.ownTracks;
+      this.renderPlaylist();
+      return this.loadTrack(0);
+    }
+
     async loadPlaylist() {
+      if (this.ownTracks.length && this.selfHosted.preferred()) {
+        return this.useOwnTracks();
+      }
+
       try {
         this.showLoading('Loading playlist...');
         
@@ -276,6 +324,23 @@ window.SoundCloudPlaylistCache = (function() {
     }
 
     async fetchPlaylistTracksOptimized() {
+      // With our own copies to fall back on, SoundCloud only gets a few
+      // seconds: behind the Great Firewall it usually hangs rather than fails.
+      if (this.ownTracks.length) {
+        let timer;
+        const deadline = new Promise((resolve, reject) => {
+          timer = setTimeout(() => reject(new Error('SoundCloud timeout')), this.selfHosted.SOUNDCLOUD_TIMEOUT);
+        });
+        try {
+          return await Promise.race([this.fetchPlaylistTracksFromSoundCloud(), deadline]);
+        } finally {
+          clearTimeout(timer);
+        }
+      }
+      return this.fetchPlaylistTracksFromSoundCloud();
+    }
+
+    async fetchPlaylistTracksFromSoundCloud() {
       // Wait for SoundCloud API to be ready
       await window.SoundCloudAPIManager.loadAPI();
       
@@ -364,11 +429,14 @@ window.SoundCloudPlaylistCache = (function() {
       const iconName = isActive && this.isPlaying ? 'pause' : 'play';
       // Use smaller artwork for faster loading
       const artworkUrl = track.artwork_url ? track.artwork_url.replace('-large', '-t120x120') : '';
+      const artwork = artworkUrl
+        ? `<img src="${artworkUrl}" alt="${this.escapeHtml(track.title)}" onerror="this.style.display='none'" loading="lazy">`
+        : '';
       
       return `
         <div class="custom-soundcloud-playlist__track ${isActive ? 'active' : ''}" data-track-index="${index}">
           <div class="custom-soundcloud-playlist__track-artwork">
-            <img src="${artworkUrl}" alt="${this.escapeHtml(track.title)}" onerror="this.style.display='none'" loading="lazy">
+            ${artwork}
             <div class="custom-soundcloud-playlist__track-play-icon">
               <ion-icon name="${iconName}"></ion-icon>
             </div>
@@ -408,7 +476,7 @@ window.SoundCloudPlaylistCache = (function() {
       this.currentTrackIndex = index;
       const track = this.tracks[index];
       
-      if (!track.permalink_url) {
+      if (!track.permalink_url && !track.sources) {
         this.showTrackError('Track unavailable', 'Cannot load this track');
         return;
       }
@@ -430,6 +498,9 @@ window.SoundCloudPlaylistCache = (function() {
     }
 
     cleanupCurrentWidget() {
+      if (this.currentWidget && this.currentWidget.destroy) {
+        this.currentWidget.destroy();
+      }
       const existingIframe = this.player.querySelector('iframe');
       if (existingIframe) {
         this.safeRemoveIframe(existingIframe);
@@ -439,24 +510,27 @@ window.SoundCloudPlaylistCache = (function() {
 
     async initializeTrackWidget(track, autoPlay) {
       return new Promise((resolve, reject) => {
-        const iframeId = `soundcloud-widget-${this.playlistIndex}-${this.currentTrackIndex}`;
-        const iframe = this.createTrackIframeOptimized(track.permalink_url, iframeId);
-        
-        this.currentWidget = SC.Widget(iframe);
+        if (this.local) {
+          this.currentWidget = new this.selfHosted.Widget(track.sources, track, this.audio);
+        } else {
+          const iframeId = `soundcloud-widget-${this.playlistIndex}-${this.currentTrackIndex}`;
+          const iframe = this.createTrackIframeOptimized(track.permalink_url, iframeId);
+          this.currentWidget = SC.Widget(iframe);
+        }
         
         // Reduced timeout for faster response
         const timeout = setTimeout(() => {
           reject(new Error('Track loading timeout'));
         }, 12000); // Reduced from 20s to 12s
 
-        this.currentWidget.bind(SC.Widget.Events.READY, () => {
+        this.currentWidget.bind(this.events.READY, () => {
           clearTimeout(timeout);
           this.setupWidgetEventListeners();
           this.initializeTrackDataOptimized(track, autoPlay);
           resolve();
         });
 
-        this.currentWidget.bind(SC.Widget.Events.ERROR, () => {
+        this.currentWidget.bind(this.events.ERROR, () => {
           clearTimeout(timeout);
           reject(new Error('Failed to load track'));
         });
@@ -504,6 +578,7 @@ window.SoundCloudPlaylistCache = (function() {
       this.title.textContent = track.title || 'SoundCloud Track';
       this.artist.textContent = track.user ? track.user.username : 'Unknown Artist';
       this.soundcloudLink.href = track.permalink_url || '#';
+      this.soundcloudLink.hidden = !track.permalink_url;
       
       if (track.artwork_url && !this.customBackground) {
         this.loadArtworkOptimized(track.artwork_url);
@@ -531,10 +606,11 @@ window.SoundCloudPlaylistCache = (function() {
     }
 
     setupWidgetEventListeners() {
-      this.currentWidget.bind(SC.Widget.Events.PLAY, () => this.handleWidgetPlay());
-      this.currentWidget.bind(SC.Widget.Events.PAUSE, () => this.handleWidgetPause());
-      this.currentWidget.bind(SC.Widget.Events.FINISH, () => this.handleWidgetFinish());
-      this.currentWidget.bind(SC.Widget.Events.PLAY_PROGRESS, (data) => this.handleWidgetProgress(data));
+      const events = this.events;
+      this.currentWidget.bind(events.PLAY, () => this.handleWidgetPlay());
+      this.currentWidget.bind(events.PAUSE, () => this.handleWidgetPause());
+      this.currentWidget.bind(events.FINISH, () => this.handleWidgetFinish());
+      this.currentWidget.bind(events.PLAY_PROGRESS, (data) => this.handleWidgetProgress(data));
     }
 
     resetPlayerState() {
@@ -680,7 +756,8 @@ window.SoundCloudPlaylistCache = (function() {
       const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
       const isSafari = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
       
-      if (!isIOS || !isSafari) {
+      // Our own audio element plays from the tap itself and needs no priming.
+      if (!isIOS || !isSafari || this.local) {
         this.iosAudioInitialized = true;
         return;
       }
@@ -862,6 +939,12 @@ window.SoundCloudPlaylistCache = (function() {
     }
 
     handleLoadError(error) {
+      // Whatever went wrong with SoundCloud, our own copies can stand in.
+      if (this.ownTracks.length) {
+        this.useOwnTracks();
+        return;
+      }
+
       // Check if this is likely a privacy extension blocking issue
       if (error.message && (error.message.includes('privacy extension') || 
                             error.message.includes('blocked') || 
@@ -916,11 +999,9 @@ window.SoundCloudPlaylistCache = (function() {
     });
   }
 
-  // Initialize when SoundCloud API is ready
-  if (window.SC) {
-    initializePlayers();
-  } else {
-    window.addEventListener('load', initializePlayers);
-  }
+  // Start once the footer scripts (self-hosted-audio.js among them) have run.
+  // Not on window load: where SoundCloud hangs, so does the load event, and
+  // the fallback to our own copies would wait on it.
+  document.addEventListener('DOMContentLoaded', initializePlayers);
 })();
 </script>

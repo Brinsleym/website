@@ -1,0 +1,33 @@
+#-------------------------------
+# Self-hosted audio
+#
+# Our own copies of the SoundCloud audio, played where SoundCloud cannot be
+# reached: straight away for visitors in mainland China, and anywhere else
+# once SoundCloud fails to answer (a privacy extension, an outage). A player
+# with no entry here stays SoundCloud-only.
+#
+# Files go in static/audio as AAC in an .mp4 container: jsDelivr's China
+# mirror, which the zh site uses, serves .mp4 but not .m4a or .mp3. For
+# example: ffmpeg -i master.wav -vn -c:a aac -b:a 160k -movflags +faststart x.mp4
+#
+# tracks     keyed by the soundcloud-player shortcode's `track`, exactly as
+#            written in the content
+# playlists  keyed by the soundcloud-playlist shortcode's `playlist`, each a
+#            list of tracks in playing order
+#
+# Each track takes a title and a file, and optionally an artist (defaults to
+# the one below) and a duration in seconds for the playlist's track list.
+#
+# tracks:
+#   "https://soundcloud.com/brinsleymorrison/somnolence":
+#     title: Somnolence
+#     file: /static/audio/somnolence.mp4
+# playlists:
+#   "2034380025":
+#     - title: Journey's End
+#       file: /static/audio/frieren-1.mp4
+#       duration: 214
+#-------------------------------
+artist: Brinsley Morrison
+tracks: {}
+playlists: {}

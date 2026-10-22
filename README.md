@@ -45,6 +45,7 @@ This site is forked from the [Vonge Hugo Bookshop Template](https://github.com/C
   - Visual feedback for volume controls and loading states
   - Accessibility features with proper ARIA labels
   - Privacy extension detection with user-friendly error messaging
+  - **Self-hosted fallback for mainland China**, where SoundCloud is blocked: tracks listed in `data/audio.yaml` play from the site's own copy (via jsDelivr's China mirror) for visitors in China, and anywhere SoundCloud fails to answer within 5 seconds
 
 ### Content Management & Structure
 
@@ -119,7 +120,8 @@ The site uses Hugo's built-in build process:
 - **[Hugo Bookshop](https://github.com/CloudCannon/bookshop)** - Component-based content management
 
 ### Frontend Libraries
-- **[Ionicons v7](https://ionic.io/ionicons)** - Modern icon library
+- **[Ionicons v7](https://ionic.io/ionicons)** - Modern icon library, self-hosted in `static/ionicons` (only the icons in use)
+- **[Inter](https://rsms.me/inter/)** - Variable font, self-hosted in `static/fonts` rather than loaded from Google Fonts
 - **[Lightense Images](https://github.com/sparanoid/lightense-images)** - Responsive image lightbox
 - **[Tiny Slider](https://github.com/ganlanyuan/tiny-slider)** - Lightweight carousel/slider
 - **[iTyped](https://github.com/luisvinicius167/ityped)** - Typewriter effect animations

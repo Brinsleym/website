@@ -1,0 +1,17 @@
+{{- /* Turns one track of data/audio.yaml into what the players need: its
+       sources (the CDN copy, then the site's own when they differ), title,
+       artist and duration. Returns an empty dict for no track. */ -}}
+{{- $track := . -}}
+{{- $result := dict -}}
+{{- with $track -}}
+  {{- $primary := partial "jsdelivr-url.html" .file -}}
+  {{- $local := strings.TrimPrefix "/static" .file -}}
+  {{- $sources := slice $primary -}}
+  {{- if ne $primary $local }}{{ $sources = $sources | append $local }}{{ end -}}
+  {{- $result = dict
+        "sources"  $sources
+        "title"    .title
+        "artist"   (.artist | default hugo.Data.audio.artist)
+        "duration" (.duration | default 0) -}}
+{{- end -}}
+{{- return $result -}}
