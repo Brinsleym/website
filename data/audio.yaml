@@ -30,4 +30,38 @@
 #-------------------------------
 artist: Brinsley Morrison
 tracks: {}
-playlists: {}
+playlists:
+  # Re-scoring Sousou no Frieren
+  "2034380025":
+    - title: "16M34 Frieren"
+      file: /static/audio/frieren-01.mp4
+      duration: 207
+    - title: "9M47 Frieren"
+      file: /static/audio/frieren-02.mp4
+      duration: 60
+    - title: "20M41 Frieren"
+      file: /static/audio/frieren-03.mp4
+      duration: 73
+    - title: "22M10 Frieren"
+      file: /static/audio/frieren-04.mp4
+      duration: 128
+    - title: "2M22 Frieren"
+      file: /static/audio/frieren-05.mp4
+      duration: 69
+    - title: "5M06 Frieren"
+      file: /static/audio/frieren-06.mp4
+      duration: 173
+    - title: "11M26 Frieren"
+      file: /static/audio/frieren-07.mp4
+      duration: 21
+    - title: "13M53 Frieren"
+      file: /static/audio/frieren-08.mp4
+      duration: 10
+  # Re-scoring scenes from Suzume
+  "2057796114":
+    - title: "(Preview) Re-scoring scenes from Suzume (clip 1)"
+      file: /static/audio/suzume-01.mp4
+      duration: 48
+    - title: "(Preview) Re-scoring scenes from Suzume (clip 2)"
+      file: /static/audio/suzume-02.mp4
+      duration: 50
