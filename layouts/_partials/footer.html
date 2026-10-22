@@ -6,32 +6,22 @@
 
         {{ partial "social-link.html" . }}
 
+        {{- /* Each language's data/<lang>/footer.yml, else data/footer.yml */}}
+        {{ $footer := hugo.Data.footer }}
+        {{ with index hugo.Data .Site.Language.Lang }}{{ $footer = .footer }}{{ end }}
+
         <ul class="footer_nav list-reset">
-          {{ $footerData := index hugo.Data .Site.Language.Lang }}
-          {{ if $footerData }}
-            {{ range $footerData.footer.footer_menu__settings.menu__items }}
-              <li class="footer_nav__item">
-                <a href="{{ .url }}"
-                  class="footer_nav__link">{{ .title }}</a>
-              </li>
-            {{ end }}
-          {{ else }}
-            {{ range hugo.Data.footer.footer_menu__settings.menu__items }}
-              <li class="footer_nav__item">
-                <a href="{{ .url }}"
-                  class="footer_nav__link">{{ .title }}</a>
-              </li>
-            {{ end }}
+          {{ range $footer.footer_menu__settings.menu__items }}
+            <li class="footer_nav__item">
+              <a href="{{ .url }}"
+                class="footer_nav__link">{{ .title }}</a>
+            </li>
           {{ end }}
         </ul>
 
         <div class="copyright">
-          {{ $footerData := index hugo.Data .Site.Language.Lang }}
-          {{ if $footerData }}
-            {{ $footerData.footer.copyright_text_html | safeHTML }}
-          {{ else }}
-            {{ hugo.Data.footer.copyright_text_html | safeHTML }}
-          {{ end }}
+          {{- /* {year} is filled in at build time, rather than by a script in the page */}}
+          {{ replace $footer.copyright_text_html "{year}" (string now.Year) | safeHTML }}
         </div>
 
       </div>

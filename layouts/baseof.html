@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="{{ .Language.Lang }}">
+{{- /* Plain "zh" doesn't say which script, and browsers pick CJK glyphs by it */}}
+<html lang="{{ index (dict "zh" "zh-Hans") .Language.Lang | default .Language.Lang }}">
 
   {{ partial "head.html" . }}
 

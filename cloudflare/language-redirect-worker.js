@@ -69,7 +69,13 @@ function getCookie(header, name) {
   if (!header) return null;
   for (const part of header.split(';')) {
     const [key, ...value] = part.trim().split('=');
-    if (key === name) return decodeURIComponent(value.join('='));
+    if (key !== name) continue;
+    // A malformed value would otherwise throw and fail the whole request.
+    try {
+      return decodeURIComponent(value.join('='));
+    } catch (e) {
+      return null;
+    }
   }
   return null;
 }
