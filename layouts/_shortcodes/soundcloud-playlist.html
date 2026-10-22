@@ -12,8 +12,12 @@
 {{ end }}
 {{/* Our own copies of the playlist's audio, if data/audio.yaml has them */}}
 {{ $audio := slice }}
-{{ range index hugo.Data.audio.playlists $playlist }}
-  {{ $audio = $audio | append (partial "self-hosted-audio.html" .) }}
+{{ with index hugo.Data.audio.playlists $playlist }}
+  {{ $artwork := .artwork }}
+  {{ range .tracks }}
+    {{ $track := merge (dict "artwork" $artwork) . }}
+    {{ $audio = $audio | append (partial "self-hosted-audio.html" $track) }}
+  {{ end }}
 {{ end }}
 {{/* Tells baseof.html to load assets/js/self-hosted-audio.js */}}
 {{ .Page.Store.Set "hasSoundCloudPlaylist" true }}

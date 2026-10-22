@@ -14,6 +14,7 @@
        {{ with index .sources 1 }}data-audio-fallback="{{ . }}"{{ end }}
        data-audio-title="{{ .title }}"
        data-audio-artist="{{ .artist }}"
+       {{ with .artwork }}data-audio-artwork="{{ . }}"{{ end }}
        {{- end }}
        data-label-play="{{ T "sc_play" }}"
        data-label-pause="{{ T "sc_pause" }}"
