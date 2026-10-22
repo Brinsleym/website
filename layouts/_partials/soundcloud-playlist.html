@@ -267,7 +267,7 @@ window.SoundCloudPlaylistCache = (function() {
           user: { username: track.artist },
           // No SoundCloud link: the playlist is known only by its API URL.
           permalink_url: null,
-          artwork_url: null,
+          artwork_url: track.artwork || null,
           duration: track.duration * 1000,
           sources: track.sources
         }));

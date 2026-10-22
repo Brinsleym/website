@@ -483,7 +483,8 @@
       widget = new selfHosted.Widget(audioSources, {
         title: player.dataset.audioTitle,
         user: { username: player.dataset.audioArtist },
-        permalink_url: permalink
+        permalink_url: permalink,
+        artwork_url: player.dataset.audioArtwork || null
       });
 
       widget.bind(selfHosted.Events.READY, onReady);

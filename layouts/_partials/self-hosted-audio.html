@@ -1,6 +1,6 @@
 {{- /* Turns one track of data/audio.yaml into what the players need: its
        sources (the CDN copy, then the site's own when they differ), title,
-       artist and duration. Returns an empty dict for no track. */ -}}
+       artist, artwork and duration. Returns an empty dict for no track. */ -}}
 {{- $track := . -}}
 {{- $result := dict -}}
 {{- with $track -}}
@@ -12,6 +12,7 @@
         "sources"  $sources
         "title"    .title
         "artist"   (.artist | default hugo.Data.audio.artist)
+        "artwork"  (cond (isset . "artwork") (partial "jsdelivr-url.html" (.artwork | default "")) "")
         "duration" (.duration | default 0) -}}
 {{- end -}}
 {{- return $result -}}
