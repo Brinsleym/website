@@ -28,9 +28,9 @@
         <div class="copyright">
           {{ $footerData := index hugo.Data .Site.Language.Lang }}
           {{ if $footerData }}
-            {{ $footerData.footer.copyright_text_html | safeHTML }}
+            {{ replace $footerData.footer.copyright_text_html "{year}" (string now.Year) | safeHTML }}
           {{ else }}
-            {{ hugo.Data.footer.copyright_text_html | safeHTML }}
+            {{ replace hugo.Data.footer.copyright_text_html "{year}" (string now.Year) | safeHTML }}
           {{ end }}
         </div>
 

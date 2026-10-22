@@ -4,7 +4,7 @@
     <div class="col col-12">
       <div class="{{$c}} animate">
         {{ $size := partial "image-size.html" .image }}
-        <img loading="lazy" decoding="async" src="{{ partial "jsdelivr-url.html" .image }}" alt="{{ .image_alt }}"{{ with $size }} width="{{ .width }}" height="{{ .height }}"{{ end }}>
+        <img fetchpriority="high" decoding="async" src="{{ partial "jsdelivr-url.html" .image }}" alt="{{ .image_alt }}"{{ with $size }} width="{{ .width }}" height="{{ .height }}"{{ end }}>
       </div>
     </div>
   </div>

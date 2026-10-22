@@ -1,0 +1,48 @@
+{{/* Click-to-play YouTube embed, overriding Hugo's built-in shortcode.
+
+     The built-in one loads YouTube's iframe as the page loads. That costs
+     several hundred KB of script on every page with a video, and behind the
+     GFW the request never finishes, so the page never finishes loading. This
+     renders a button instead and only swaps in the player when it is clicked.
+
+     Usage: {{< youtube CF0w2wBssMU >}} or {{< youtube id="CF0w2wBssMU" title="…" >}} */}}
+{{ $id := or (.Get "id") (.Get 0) }}
+{{ $title := or (.Get "title") .Page.Title }}
+{{ $label := printf "%s: %s" (T "yt_play") $title }}
+<div class="yt-facade" data-yt-id="{{ $id }}" data-yt-title="{{ $title }}">
+  <button class="yt-facade__button" type="button" aria-label="{{ $label }}">
+    {{/* Lazy, so it never holds up the page; removed if YouTube's image host can't be reached. no-zoom keeps the image zoom off it */}}
+    <img class="yt-facade__thumb no-zoom" src="https://i.ytimg.com/vi/{{ $id }}/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async" onerror="this.remove()">
+    <span class="yt-facade__play" aria-hidden="true"></span>
+  </button>
+  <a class="yt-facade__link" href="https://www.youtube.com/watch?v={{ $id }}" target="_blank" rel="noopener">{{ T "yt_watch_on_youtube" }}</a>
+</div>
+{{ if not (.Page.Store.Get "hasYouTubeFacade") }}
+{{ .Page.Store.Set "hasYouTubeFacade" true }}
+<style>
+  .yt-facade { position: relative; aspect-ratio: 16 / 9; max-width: 100%; background: #1d1d24; border-radius: 4px; overflow: hidden; }
+  .yt-facade__button { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: pointer; }
+  .yt-facade__thumb { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .yt-facade__play { position: absolute; left: 50%; top: 50%; width: 68px; height: 48px; margin: -24px 0 0 -34px; border-radius: 12px; background: rgba(0, 0, 0, .72); transition: background .15s; }
+  .yt-facade__play::after { content: ""; position: absolute; left: 27px; top: 14px; border-style: solid; border-width: 10px 0 10px 17px; border-color: transparent transparent transparent #fff; }
+  .yt-facade__button:hover .yt-facade__play, .yt-facade__button:focus-visible .yt-facade__play { background: #f00; }
+  .yt-facade__button:focus-visible { outline: 3px solid #fff; outline-offset: -6px; }
+  .yt-facade__link { position: absolute; right: 8px; bottom: 8px; padding: 3px 8px; border-radius: 3px; background: rgba(0, 0, 0, .72); color: #fff; font-size: 12px; text-decoration: none; }
+  .yt-facade__link:hover, .yt-facade__link:focus-visible { text-decoration: underline; color: #fff; }
+  .yt-facade iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+</style>
+<script>
+  document.addEventListener('click', function (e) {
+    var button = e.target.closest && e.target.closest('.yt-facade__button');
+    if (!button) return;
+    var box = button.parentNode, frame = document.createElement('iframe');
+    frame.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(box.dataset.ytId) + '?autoplay=1&rel=0';
+    frame.title = box.dataset.ytTitle;
+    frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen';
+    frame.allowFullscreen = true;
+    frame.referrerPolicy = 'strict-origin-when-cross-origin';
+    box.replaceChildren(frame);
+    frame.focus();
+  });
+</script>
+{{ end }}

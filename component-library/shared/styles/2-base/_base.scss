@@ -306,3 +306,23 @@ table td {
 .lazy.loaded {
   opacity: 1;
 }
+// Hidden until focused, for keyboard users to jump past the header
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -100px;
+  z-index: 100;
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: $white;
+  color: $heading-font-color;
+  font-weight: 600;
+
+  &:focus {
+    top: 16px;
+  }
+}
+
+main:focus {
+  outline: none;
+}

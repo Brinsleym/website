@@ -35,8 +35,9 @@
 {{ if .show_projects }}
 <div class="container animate">
   <div class="row">
-    {{ range where site.RegularPages "Section" "projects" }}
+    {{ range $i, $p := where site.RegularPages "Section" "projects" }}
     {{ partial "bookshop" (slice "project-card" (dict
+    "eager" (lt $i 2)
     "url" .RelPermalink
     "image" .Params.image
     "title" .Params.title

@@ -6,7 +6,7 @@
     <div class="{{$c}}__image-wrap">
       <a class="{{$c}}__image" href="{{ .url }}">
         {{ $size := partial "image-size.html" .image }}
-        <img loading="lazy" decoding="async" src="{{ partial "jsdelivr-url.html" .image }}" alt="{{ .title }}"{{ with $size }} width="{{ .width }}" height="{{ .height }}"{{ end }}>
+        <img {{ if .eager }}fetchpriority="high"{{ else }}loading="lazy"{{ end }} decoding="async" src="{{ partial "jsdelivr-url.html" .image }}" alt="{{ .title }}"{{ with $size }} width="{{ .width }}" height="{{ .height }}"{{ end }}>
       </a>
     </div>
     {{ end }}
