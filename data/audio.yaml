@@ -29,7 +29,13 @@
 #       duration: 214
 #-------------------------------
 artist: Brinsley Morrison
-tracks: {}
+tracks:
+  "https://soundcloud.com/brinsleymorrison/somnolence":
+    title: Somnolence
+    file: /static/audio/somnolence.mp4
+  "https://soundcloud.com/brinsleymorrison/beyond-the-shadow":
+    title: Beyond The Shadow
+    file: /static/audio/beyond-the-shadow.mp4
 playlists:
   # Re-scoring Sousou no Frieren
   "2034380025":
