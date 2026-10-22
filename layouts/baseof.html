@@ -34,12 +34,14 @@
        pages with one. */}}
   {{ $soundcloud := .Store.Get "hasSoundCloudPlayer" }}
   {{ $playlist := .Store.Get "hasSoundCloudPlaylist" }}
+  {{ $youtube := .Store.Get "hasYouTubeFacade" }}
 
   {{/* Published as /assets/js/<name>.min.js, which jsDelivr also serves (minifying the repo file),
        so the CDN URL and the site's own copy line up */}}
   {{ $js := slice "scripts" "common" }}
   {{/* Before the players, which look for it as they start */}}
-  {{ if or $soundcloud $playlist }}{{ $js = $js | append "self-hosted-audio" }}{{ end }}
+  {{/* The YouTube embeds use it only for its mainland China check */}}
+  {{ if or $soundcloud $playlist $youtube }}{{ $js = $js | append "self-hosted-audio" }}{{ end }}
   {{ if $soundcloud }}{{ $js = $js | append "soundcloud-player" }}{{ end }}
   {{ range $js }}
   {{ $res := resources.Get (printf "js/%s.js" .) | resources.Copy (printf "assets/js/%s.js" .) | resources.Minify }}

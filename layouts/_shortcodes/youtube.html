@@ -5,11 +5,18 @@
      GFW the request never finishes, so the page never finishes loading. This
      renders a button instead and only swaps in the player when it is clicked.
 
+     In mainland China, where YouTube is blocked, a video with a Bilibili
+     mirror (data/video.yaml, or bilibili="BV…" here) plays from Bilibili
+     instead, and one without shows a note in place of the player.
+
      Usage: {{< youtube CF0w2wBssMU >}} or {{< youtube id="CF0w2wBssMU" title="…" >}} */}}
 {{ $id := or (.Get "id") (.Get 0) }}
 {{ $title := or (.Get "title") .Page.Title }}
 {{ $label := printf "%s: %s" (T "yt_play") $title }}
-<div class="yt-facade" data-yt-id="{{ $id }}" data-yt-title="{{ $title }}">
+{{ $bilibili := .Get "bilibili" }}
+{{ if not $bilibili }}{{ with hugo.Data.video.bilibili }}{{ $bilibili = index . $id }}{{ end }}{{ end }}
+<div class="yt-facade" data-yt-id="{{ $id }}" data-yt-title="{{ $title }}"{{ with $bilibili }} data-bb-id="{{ . }}"{{ end }}
+     data-bb-label="{{ T "yt_watch_on_bilibili" }}" data-unavailable="{{ T "yt_unavailable_china" }}">
   <button class="yt-facade__button" type="button" aria-label="{{ $label }}">
     {{/* Lazy, so it never holds up the page; removed if YouTube's image host can't be reached. no-zoom keeps the image zoom off it */}}
     <img class="yt-facade__thumb no-zoom" src="https://i.ytimg.com/vi/{{ $id }}/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async" onerror="this.remove()">
@@ -30,13 +37,44 @@
   .yt-facade__link { position: absolute; right: 8px; bottom: 8px; padding: 3px 8px; border-radius: 3px; background: rgba(0, 0, 0, .72); color: #fff; font-size: 12px; text-decoration: none; }
   .yt-facade__link:hover, .yt-facade__link:focus-visible { text-decoration: underline; color: #fff; }
   .yt-facade iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .yt-facade__note { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; margin: 0; padding: 24px 24px 48px; color: #fff; text-align: center; font-size: 15px; line-height: 1.5; }
 </style>
 <script>
+  /* Mainland China, judged by self-hosted-audio.js (loaded on every page with
+     a video, from the footer, so only ready from DOMContentLoaded on). */
+  function ytInChina() {
+    return !!(window.SelfHostedAudio && window.SelfHostedAudio.preferred());
+  }
+
+  /* In China, point each video at its Bilibili mirror, or say why there is
+     no player. YouTube's thumbnail goes too: its host is blocked as well. */
+  document.addEventListener('DOMContentLoaded', function () {
+    if (!ytInChina()) return;
+    document.querySelectorAll('.yt-facade').forEach(function (box) {
+      var thumb = box.querySelector('.yt-facade__thumb');
+      if (thumb) thumb.remove();
+      var bb = box.dataset.bbId;
+      if (bb) {
+        var link = box.querySelector('.yt-facade__link');
+        link.href = 'https://www.bilibili.com/video/' + encodeURIComponent(bb);
+        link.textContent = box.dataset.bbLabel;
+        return;
+      }
+      var note = document.createElement('p');
+      note.className = 'yt-facade__note';
+      note.textContent = box.dataset.unavailable;
+      box.querySelector('.yt-facade__button').replaceWith(note);
+    });
+  });
+
   document.addEventListener('click', function (e) {
     var button = e.target.closest && e.target.closest('.yt-facade__button');
     if (!button) return;
     var box = button.parentNode, frame = document.createElement('iframe');
-    frame.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(box.dataset.ytId) + '?autoplay=1&rel=0';
+    var bb = ytInChina() && box.dataset.bbId;
+    frame.src = bb
+      ? 'https://player.bilibili.com/player.html?bvid=' + encodeURIComponent(bb) + '&autoplay=1&high_quality=1&danmaku=0'
+      : 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(box.dataset.ytId) + '?autoplay=1&rel=0';
     frame.title = box.dataset.ytTitle;
     frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen';
     frame.allowFullscreen = true;
