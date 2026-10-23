@@ -1,9 +1,6 @@
-# Cache static assets
+# Cache static assets. /assets/js/*.min.js is not listed: its name stays the
+# same when its contents change, so it gets the revalidating rule below.
 /images/*
-  Cache-Control: public, max-age=31536000, immutable
-/assets/*
-  Cache-Control: public, max-age=31536000, immutable
-/js/*
   Cache-Control: public, max-age=31536000, immutable
 /css/*
   Cache-Control: public, max-age=31536000, immutable

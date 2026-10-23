@@ -61,8 +61,7 @@ This site is forked from the [Vonge Hugo Bookshop Template](https://github.com/C
 - **JavaScript Lazy Image Loading** with Lightense image viewer integration
 - **Image Optimization** with WebP format and responsive sizing
 - **Responsive Video Embeds** using reframe.js
-- **Smooth Scrolling** with polyfill for cross-browser compatibility
-- **Typewriter Effects** using iTyped library for dynamic text displays
+- **Smooth Scrolling** to in-page sections
 
 ### Server-side Features
 
@@ -124,9 +123,7 @@ The site uses Hugo's built-in build process:
 - **[Inter](https://rsms.me/inter/)** - Variable font, self-hosted in `static/fonts` rather than loaded from Google Fonts
 - **[Lightense Images](https://github.com/sparanoid/lightense-images)** - Responsive image lightbox
 - **[Tiny Slider](https://github.com/ganlanyuan/tiny-slider)** - Lightweight carousel/slider
-- **[iTyped](https://github.com/luisvinicius167/ityped)** - Typewriter effect animations
 - **[reframe.js](https://github.com/yowainwright/reframe.js)** - Responsive video embeds
-- **Smooth Scroll Polyfill** - Cross-browser smooth scrolling
 
 ### Audio Integration
 - **SoundCloud Widget API** - Custom audio player implementation

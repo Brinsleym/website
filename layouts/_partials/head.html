@@ -13,7 +13,7 @@
   {{- $seo := .Params.seo | default dict }}
 
   {{- /* Title: language-aware site title, descriptor on the homepage */}}
-  {{- $title := printf "%s | %s" .Title site.Title }}
+  {{- $title := printf "%s | %s" (partial "page-title.html" .) site.Title }}
   {{- if .IsHome }}
     {{- $title = printf "%s — %s" site.Title (T "site_tagline") }}
   {{- else if eq .Kind "404" }}
@@ -66,8 +66,6 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@BrinsleyMorrison">
-  <meta name="twitter:creator" content="@BrinsleyMorrison">
   <meta name="twitter:title" content="{{ $title }}">
   <meta name="twitter:description" content="{{ $desc }}">
   <meta name="twitter:image" content="{{ partial "jsdelivr-url.html" $twitterImage | absURL }}">
@@ -85,8 +83,10 @@
   {{- end }}
   <meta property="og:image" content="{{ partial "jsdelivr-url.html" $shareImage | absURL }}">
   <meta property="og:image:alt" content="{{ $title }}">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  {{- with partial "image-size.html" $shareImage }}
+  <meta property="og:image:width" content="{{ .width }}">
+  <meta property="og:image:height" content="{{ .height }}">
+  {{- end }}
 
   {{- if .IsPage }}
   <meta property="article:author" content="Brinsley Morrison">
