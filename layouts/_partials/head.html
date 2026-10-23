@@ -13,9 +13,10 @@
   {{- $seo := .Params.seo | default dict }}
 
   {{- /* Title: language-aware site title, descriptor on the homepage */}}
-  {{- $title := printf "%s | %s" .Title site.Title }}
+  {{- $pageTitle := partial "page-title.html" . }}
+  {{- $title := printf "%s | %s" $pageTitle site.Title }}
   {{- /* Search results cut off around 60 characters: long post titles go without the suffix */}}
-  {{- if gt (strings.RuneCount .Title) 45 }}{{ $title = .Title }}{{ end }}
+  {{- if gt (strings.RuneCount $pageTitle) 45 }}{{ $title = $pageTitle }}{{ end }}
   {{- if .IsHome }}
     {{- $title = printf "%s — %s" site.Title (T "site_tagline") }}
   {{- else if eq .Kind "404" }}
@@ -74,8 +75,6 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@BrinsleyMorrison">
-  <meta name="twitter:creator" content="@BrinsleyMorrison">
   <meta name="twitter:title" content="{{ $title }}">
   <meta name="twitter:description" content="{{ $desc }}">
   <meta name="twitter:image" content="{{ partial "jsdelivr-url.html" $twitterImage | absURL }}">

@@ -1,0 +1,7 @@
+{{- /* A page's title for <title>, breadcrumbs and headings. A taxonomy page's
+       .Title is its plural key ("Blog_tags"), so those use their translation. */ -}}
+{{- $title := .Title -}}
+{{- if eq .Kind "taxonomy" -}}
+  {{- $title = i18n (cond (eq .Data.Plural "blog_tags") "blog_tags_title" "compositions_tags_title") -}}
+{{- end -}}
+{{- return $title -}}

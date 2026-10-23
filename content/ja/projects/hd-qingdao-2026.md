@@ -2,7 +2,7 @@
 date: 2026-09-01
 title: "HD Qingdao Kindergarten - 入学式と卒園式"
 subtitle: 中国・青島、2026年
-blog_tags: [演奏]
+blog_tags: [performance]
 image: '/static/images/hd-qingdao-1.webp'
 description: "HD Qingdao Kindergartenの2026年入学式を園長とともに司会し、卒園式の司会も務めました。"
 ---

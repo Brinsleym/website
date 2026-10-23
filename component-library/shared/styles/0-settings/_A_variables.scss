@@ -19,12 +19,13 @@ $base-font-size: 18px;
 $base-font-style: normal;
 $base-font-variant: normal;
 $base-font-weight: normal;
-$base-font-family: 'Inter', Helvetica Neue, Helvetica, Arial, sans-serif;
+// --cjk-fonts is set per language in 2-base/_base.scss
+$base-font-family: 'Inter', Helvetica Neue, Helvetica, Arial, var(--cjk-fonts, sans-serif);
 $base-line-height: 1.8;
 
 // Headings
 $heading-font-weight: 900;
-$heading-font-family: 'Inter', Helvetica Neue, Helvetica, Arial, sans-serif;
+$heading-font-family: 'Inter', Helvetica Neue, Helvetica, Arial, var(--cjk-fonts, sans-serif);
 
 $font-size-h1:  36px;
 $font-size-h2:  28px;

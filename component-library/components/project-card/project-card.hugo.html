@@ -40,7 +40,7 @@
           <div class="{{$c}}__author-name">
             {{ T "t_author_name" "Author Name" }} </div>
           <span class="c-project-card__date">
-            <time datetime="{{ .date }}">{{ partial "format-date.html" (dict "date" .date) }}</time>
+            <time datetime="{{ .date.Format "2006-01-02T15:04:05Z07:00" }}">{{ partial "format-date.html" (dict "date" .date) }}</time>
           </span>
         </div>
       </div>

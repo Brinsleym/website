@@ -2,6 +2,21 @@
   box-sizing: border-box;
 }
 
+// Inter has no CJK glyphs, so Japanese and Chinese text falls through to the
+// system's fonts. Naming them per language keeps Japanese pages from picking
+// up Chinese glyph forms for shared kanji, and the other way round.
+:root {
+  --cjk-fonts: sans-serif;
+}
+
+:lang(ja) {
+  --cjk-fonts: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, 'Noto Sans JP', sans-serif;
+}
+
+:lang(zh-Hans) {
+  --cjk-fonts: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+}
+
 body {
   font-family: $base-font-family;
   font-size: $base-font-size;

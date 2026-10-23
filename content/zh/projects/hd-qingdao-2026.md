@@ -2,7 +2,7 @@
 date: 2026-09-01
 title: "青岛赫德幼儿园 - 开学典礼与毕业典礼"
 subtitle: 中国青岛，2026年
-blog_tags: [演出]
+blog_tags: [performance]
 image: '/static/images/hd-qingdao-1.webp'
 description: "林泽与幼儿园园长共同主持青岛赫德幼儿园2026年开学典礼，并主持了毕业典礼。"
 ---
