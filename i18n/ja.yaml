@@ -69,7 +69,6 @@ sc_blocked_refresh: "その後、このページを再読み込みするとSound
 # YouTube embeds (layouts/_shortcodes/youtube.html)
 yt_play: "動画を再生"
 yt_watch_on_youtube: "YouTubeで見る"
-yt_watch_on_bilibili: "Bilibiliで見る"
 yt_unavailable_china: "この動画はYouTubeにあり、中国本土からは視聴できません。"
 
 # Icon-only links and controls
