@@ -69,7 +69,7 @@ sc_blocked_refresh: "Then reload this page to load the SoundCloud player."
 # YouTube embeds (layouts/_shortcodes/youtube.html)
 yt_play: "Play video"
 yt_watch_on_youtube: "Watch on YouTube"
-yt_unavailable_china: "This video is on YouTube, which can't be reached from mainland China."
+yt_unavailable: "This video is on YouTube, which can't be reached from your network right now."
 
 # Icon-only links and controls
 icon_close_menu: "Close menu"

@@ -5,9 +5,10 @@
      GFW the request never finishes, so the page never finishes loading. This
      renders a button instead and only swaps in the player when it is clicked.
 
-     In mainland China, where YouTube is blocked, a video with our own copy
-     (static/videos/yt-<id>.mp4, H.264 under 19 MB so jsDelivr serves it)
-     plays that instead, and one without shows a note in place of the player.
+     Where YouTube can't be reached (mainland China, or any network that
+     blocks it), a video with our own copy (static/videos/yt-<id>.mp4, H.264
+     under 19 MB so jsDelivr serves it) plays that instead, and one without
+     shows a note in place of the player.
      A poster at static/images/yt-<id>-poster.webp replaces YouTube's
      thumbnail everywhere, since its image host is blocked in China too.
 
@@ -24,7 +25,7 @@
   {{ $thumb = partial "jsdelivr-url.html" $poster }}
   {{ $thumbSize = partial "image-size.html" $poster | default $thumbSize }}
 {{ end }}
-<div class="yt-facade" data-yt-id="{{ $id }}" data-yt-title="{{ $title }}" data-unavailable="{{ T "yt_unavailable_china" }}"
+<div class="yt-facade" data-yt-id="{{ $id }}" data-yt-title="{{ $title }}" data-unavailable="{{ T "yt_unavailable" }}"
      {{- if $hasVideo }} data-video-src="{{ partial "jsdelivr-url.html" $video }}" data-video-fallback="{{ strings.TrimPrefix "/static" $video }}"{{ end }}>
   <button class="yt-facade__button" type="button" aria-label="{{ $label }}">
     {{/* Lazy, so it never holds up the page; removed if its host can't be reached. no-zoom keeps the image zoom off it */}}
@@ -49,54 +50,108 @@
   .yt-facade__note { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; margin: 0; padding: 24px 24px 48px; color: #fff; text-align: center; font-size: 15px; line-height: 1.5; }
 </style>
 <script>
-  /* Mainland China, judged by self-hosted-audio.js (loaded on every page with
-     a video, from the footer, so only ready from DOMContentLoaded on). */
-  function ytInChina() {
+(function () {
+  /* Whether YouTube can be reached: null until known. Mainland China (judged
+     by self-hosted-audio.js, loaded from the footer on every page with a
+     video) is taken as no without asking. Elsewhere a tiny thumbnail from
+     YouTube's image host answers it, since a school or office network can
+     block YouTube too. */
+  var reachable = null;
+  var PROBE_TIMEOUT = 8000;
+
+  function inChina() {
     return !!(window.SelfHostedAudio && window.SelfHostedAudio.preferred());
   }
 
-  /* In China, a video without our own copy cannot play: say so rather
-     than offer a player that never loads. */
-  document.addEventListener('DOMContentLoaded', function () {
-    if (!ytInChina()) return;
-    document.querySelectorAll('.yt-facade:not([data-video-src])').forEach(function (box) {
-      var note = document.createElement('p');
-      note.className = 'yt-facade__note';
-      note.textContent = box.dataset.unavailable;
-      box.querySelector('.yt-facade__button').replaceWith(note);
+  function note(box) {
+    var p = document.createElement('p');
+    p.className = 'yt-facade__note';
+    p.textContent = box.dataset.unavailable;
+    return p;
+  }
+
+  function ourCopy(box) {
+    // The CDN first, then the site's own if that fails.
+    var player = document.createElement('video');
+    player.controls = true;
+    player.autoplay = true;
+    player.playsInline = true;
+    player.title = box.dataset.ytTitle;
+    [box.dataset.videoSrc, box.dataset.videoFallback].forEach(function (src) {
+      if (!src || player.querySelector('source[src="' + src + '"]')) return;
+      var source = document.createElement('source');
+      source.src = src;
+      source.type = 'video/mp4';
+      player.appendChild(source);
     });
+    var thumb = box.querySelector('.yt-facade__thumb');
+    if (thumb) player.poster = thumb.src;
+    return player;
+  }
+
+  function youtube(box) {
+    var player = document.createElement('iframe');
+    player.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(box.dataset.ytId) + '?autoplay=1&rel=0';
+    player.title = box.dataset.ytTitle;
+    player.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen';
+    player.allowFullscreen = true;
+    player.referrerPolicy = 'strict-origin-when-cross-origin';
+    return player;
+  }
+
+  /* Bring every player in line with what we know. A video without our own
+     copy gets a note in place of its button (kept, hidden, in case a slow
+     answer comes in late after all), and a YouTube player already opened
+     before the answer came is swapped for our copy or the note. */
+  function update() {
+    document.querySelectorAll('.yt-facade').forEach(function (box) {
+      var button = box.querySelector('.yt-facade__button');
+      var shown = box.querySelector('.yt-facade__note');
+      if (button) {
+        var blocked = reachable === false && !box.dataset.videoSrc;
+        button.hidden = blocked;
+        if (blocked && !shown) box.insertBefore(note(box), button);
+        if (!blocked && shown) shown.remove();
+      } else if (reachable === false && box.querySelector('iframe')) {
+        box.replaceChildren(box.dataset.videoSrc ? ourCopy(box) : note(box));
+      }
+    });
+  }
+
+  function probe(id) {
+    var img = new Image();
+    var timer = setTimeout(function () { answer(false); }, PROBE_TIMEOUT);
+    function answer(ok) {
+      clearTimeout(timer);
+      // A late yes still counts; a late no after a yes doesn't.
+      if (reachable === true || reachable === ok) return;
+      reachable = ok;
+      update();
+    }
+    img.onload = function () { answer(true); };
+    img.onerror = function () { answer(false); };
+    img.src = 'https://i.ytimg.com/vi/' + encodeURIComponent(id) + '/default.jpg';
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var first = document.querySelector('.yt-facade');
+    if (!first) return;
+    if (inChina()) {
+      reachable = false;
+      update();
+    } else {
+      probe(first.dataset.ytId);
+    }
   });
 
   document.addEventListener('click', function (e) {
     var button = e.target.closest && e.target.closest('.yt-facade__button');
     if (!button) return;
-    var box = button.parentNode, player;
-    if (ytInChina() && box.dataset.videoSrc) {
-      // Our own copy: the CDN first, then the site's own if that fails.
-      player = document.createElement('video');
-      player.controls = true;
-      player.autoplay = true;
-      player.playsInline = true;
-      player.title = box.dataset.ytTitle;
-      [box.dataset.videoSrc, box.dataset.videoFallback].forEach(function (src) {
-        if (!src || player.querySelector('source[src="' + src + '"]')) return;
-        var source = document.createElement('source');
-        source.src = src;
-        source.type = 'video/mp4';
-        player.appendChild(source);
-      });
-      var thumb = box.querySelector('.yt-facade__thumb');
-      if (thumb) player.poster = thumb.src;
-    } else {
-      player = document.createElement('iframe');
-      player.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(box.dataset.ytId) + '?autoplay=1&rel=0';
-      player.title = box.dataset.ytTitle;
-      player.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen';
-      player.allowFullscreen = true;
-      player.referrerPolicy = 'strict-origin-when-cross-origin';
-    }
+    var box = button.parentNode;
+    var player = reachable === false && box.dataset.videoSrc ? ourCopy(box) : youtube(box);
     box.replaceChildren(player);
     player.focus();
   });
+})();
 </script>
 {{ end }}
