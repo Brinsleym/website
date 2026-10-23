@@ -65,7 +65,7 @@ This site is forked from the [Vonge Hugo Bookshop Template](https://github.com/C
 
 ### Server-side Features
 
-- **Cloudflare DNS & Proxy** with worker support to automatically detect user language and serve the relevant page
+- **Cloudflare Pages** hosting, with middleware (`functions/_middleware.js`) that sends first-time visitors to their language version and tells the audio players which country they are in
 - **Snapshot Caching** at `archive.org`, to show a recent snapshot of the page in the event of a server failure
 
 ### Technical Improvements
@@ -110,6 +110,14 @@ The site uses Hugo's built-in build process:
 1. **Hugo Build**: Generates static site files
 2. **Asset Processing**: Optimizes CSS and JavaScript assets
 3. **Static Generation**: Creates production-ready site files
+
+### Deployment
+
+Cloudflare Pages builds and publishes every push to `master`, and gives each pull request a preview address.
+
+- Build command: `bash cloudflare/pages-build.sh` (downloads Hugo extended at a pinned version, then runs `hugo --environment production`)
+- Build output directory: `public`
+- `static/_headers` sets headers for static files, and `static/_routes.json` keeps the middleware off them. Pages get their headers from the middleware, because Pages does not apply `_headers` to responses that pass through a Function.
 
 
 ## Technical Stack

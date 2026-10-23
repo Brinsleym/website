@@ -9,3 +9,4 @@ _gen
 .vscode
 .markdownlint.json
 .claude
+.wrangler
