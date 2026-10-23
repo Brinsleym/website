@@ -65,3 +65,21 @@ sc_blocked_howto: "このトラックを聴くには："
 sc_blocked_step_disable: "このサイトでプライバシー拡張機能を一時的に無効にする、または"
 sc_blocked_step_allow: "<code>w.soundcloud.com</code> を拡張機能の許可リストに追加する。"
 sc_blocked_refresh: "その後、このページを再読み込みするとSoundCloudプレーヤーが読み込まれます。"
+
+# YouTube embeds (layouts/_shortcodes/youtube.html)
+yt_play: "動画を再生"
+yt_watch_on_youtube: "YouTubeで見る"
+
+# Icon-only links and controls
+icon_close_menu: "メニューを閉じる"
+icon_open_menu: "メニューを開く"
+icon_previous: "前へ"
+icon_next: "次へ"
+pdf_frame_title: "PDF文書"
+pagination_label: "ページ送り"
+skip_to_content: "本文へスキップ"
+
+# Meta descriptions for tag pages and the 404 page
+term_description: "「{{ .Term }}」タグの付いた{{ .Site }}の作品と記事。"
+taxonomy_description: "{{ .Site }}の作品と記事をタグ別に見る。"
+not_found_description: "ページが見つかりませんでした。作品、演奏、プロジェクトをご覧ください。"

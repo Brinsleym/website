@@ -15,7 +15,7 @@
             <div class="custom-soundcloud-player__artist">Please wait</div>
           </div>
           <a href="#" class="custom-soundcloud-player__soundcloud-link" target="_blank">
-            <ion-icon name="logo-soundcloud"></ion-icon>
+            <ion-icon name="logo-soundcloud" aria-hidden="true"></ion-icon>
             <span>Soundcloud</span>
           </a>
         </div>
@@ -26,8 +26,8 @@
     <div class="custom-soundcloud-player__controls">
       <div class="custom-soundcloud-player__main-controls">
         <!-- Play/Pause Button -->
-        <button class="custom-soundcloud-player__play-button" type="button">
-          <ion-icon name="play"></ion-icon>
+        <button class="custom-soundcloud-player__play-button" type="button" aria-label="{{ T "sc_play" }}" data-label-play="{{ T "sc_play" }}" data-label-pause="{{ T "sc_pause" }}">
+          <ion-icon name="play" aria-hidden="true"></ion-icon>
         </button>
 
         <!-- Time and Progress -->
@@ -44,7 +44,7 @@
 
         <!-- Volume Controls (hidden on mobile) -->
         <div class="custom-soundcloud-player__volume-controls">
-          <ion-icon class="custom-soundcloud-player__volume-icon" name="volume-high"></ion-icon>
+          <ion-icon class="custom-soundcloud-player__volume-icon" name="volume-high" aria-hidden="true"></ion-icon>
           <div class="custom-soundcloud-player__volume-slider">
             <div class="volume-handle"></div>
           </div>
@@ -54,7 +54,7 @@
   </div>
 
   <!-- Playlist -->
-  <div class="custom-soundcloud-playlist__tracks">
+  <div class="custom-soundcloud-playlist__tracks" tabindex="0">
     <div class="custom-soundcloud-playlist__loading">
       Loading playlist...
     </div>
@@ -438,7 +438,7 @@ window.SoundCloudPlaylistCache = (function() {
           <div class="custom-soundcloud-playlist__track-artwork">
             ${artwork}
             <div class="custom-soundcloud-playlist__track-play-icon">
-              <ion-icon name="${iconName}"></ion-icon>
+              <ion-icon name="${iconName}" aria-hidden="true"></ion-icon>
             </div>
           </div>
           <div class="custom-soundcloud-playlist__track-info">
@@ -675,6 +675,7 @@ window.SoundCloudPlaylistCache = (function() {
       const playIcon = this.playButton.querySelector('ion-icon');
       playIcon.name = this.isPlaying ? 'pause' : 'play';
       this.playButton.classList.toggle('playing', this.isPlaying);
+      this.playButton.setAttribute('aria-label', this.playButton.dataset[this.isPlaying ? 'labelPause' : 'labelPlay']);
     }
 
     updatePlaylistTrackIcons() {
@@ -905,7 +906,7 @@ window.SoundCloudPlaylistCache = (function() {
     showError(message) {
       this.loadingElement.innerHTML = `
         <div class="custom-soundcloud-player__error">
-          <ion-icon name="warning"></ion-icon>
+          <ion-icon name="warning" aria-hidden="true"></ion-icon>
           ${message}
         </div>
       `;
@@ -917,10 +918,10 @@ window.SoundCloudPlaylistCache = (function() {
       this.container.innerHTML = `
         <div class="soundcloud-privacy-error">
           <div class="soundcloud-privacy-error__icon">
-            <ion-icon name="shield-outline"></ion-icon>
+            <ion-icon name="shield-outline" aria-hidden="true"></ion-icon>
           </div>
           <div class="soundcloud-privacy-error__content">
-            <h4>SoundCloud Blocked by Privacy Extension</h4>
+            <h2>SoundCloud Blocked by Privacy Extension</h2>
             <p>Your browser extension (such as Privacy Badger, uBlock Origin, or similar) is blocking access to <code>w.soundcloud.com</code>.</p>
             <p><strong>To listen to this playlist:</strong></p>
             <ol>

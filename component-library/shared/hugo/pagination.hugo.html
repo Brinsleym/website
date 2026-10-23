@@ -1,11 +1,11 @@
 <!-- begin pagination -->
-<nav class="pagination">
+<nav class="pagination" aria-label="{{ T "pagination_label" }}">
   <div class="container">
     <div class="pagination__inner">
 
       <div class="pagination__list">
         
-        <a data-pagebreak-control="prev" href="." class="pagination__prev"><ion-icon name="arrow-back"></ion-icon> {{ T "prev_key" "Prev" }}</a>
+        <a data-pagebreak-control="prev" href="." class="pagination__prev"><ion-icon name="arrow-back" aria-hidden="true"></ion-icon> {{ T "prev_key" "Prev" }}</a>
         <span data-pagebreak-control="!prev" class="pagination__prev disabled">{{ T "prev_key" "Prev" }}</span>
 
         <div class="pagination__count">

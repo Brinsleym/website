@@ -19,7 +19,7 @@
             <div class="section__head">
               <h2 class="section__title">{{ T "not_found_recent" }}</h2>
               {{ with site.GetPage "/posts" }}
-              <a class="section__link" href="{{ .RelPermalink }}">{{ T "view_all" "View all" }} <ion-icon name="arrow-forward"></ion-icon></a>
+              <a class="section__link" href="{{ .RelPermalink }}">{{ T "view_all" "View all" }} <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon></a>
               {{ end }}
             </div>
           </div>

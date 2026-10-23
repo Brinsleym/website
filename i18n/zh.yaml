@@ -65,3 +65,21 @@ sc_blocked_howto: "若要收听这首曲目："
 sc_blocked_step_disable: "暂时为本站停用隐私扩展程序，或"
 sc_blocked_step_allow: "将 <code>w.soundcloud.com</code> 添加到扩展程序的允许列表。"
 sc_blocked_refresh: "然后重新载入本页，即可载入 SoundCloud 播放器。"
+
+# YouTube embeds (layouts/_shortcodes/youtube.html)
+yt_play: "播放视频"
+yt_watch_on_youtube: "在 YouTube 上观看"
+
+# Icon-only links and controls
+icon_close_menu: "关闭菜单"
+icon_open_menu: "打开菜单"
+icon_previous: "上一个"
+icon_next: "下一个"
+pdf_frame_title: "PDF 文档"
+pagination_label: "分页"
+skip_to_content: "跳到正文"
+
+# Meta descriptions for tag pages and the 404 page
+term_description: "{{ .Site }}标记为“{{ .Term }}”的作品与文章。"
+taxonomy_description: "按标签浏览{{ .Site }}的作品与文章。"
+not_found_description: "找不到此页面。欢迎浏览作品、演出和项目。"

@@ -14,3 +14,6 @@
   Cache-Control: public, max-age=0, s-maxage=3600, stale-while-revalidate=86400
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
+  Strict-Transport-Security: max-age=31536000
+  X-Frame-Options: SAMEORIGIN
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()

@@ -1,7 +1,7 @@
 <div class="disclaimer-box">
   <div class="disclaimer-header">
-    <ion-icon name="warning" class="disclaimer-icon"></ion-icon>
-    <h4 class="disclaimer-title">{{ i18n "disclaimer_title" }}</h4>
+    <ion-icon name="warning" class="disclaimer-icon" aria-hidden="true"></ion-icon>
+    <h2 class="disclaimer-title">{{ i18n "disclaimer_title" }}</h2>
   </div>
   <div class="disclaimer-content">
     <p>{{ replace (i18n "disclaimer_content") "PLACEHOLDER" (.Get 0) | safeHTML }}</p>

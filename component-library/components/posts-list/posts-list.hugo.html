@@ -52,8 +52,8 @@
 {{ if .show_posts }}
 <div class="container animate">
   <div class="row" data-pagebreak="6">
-    {{ range where site.RegularPages "Section" "posts" }}
-      {{ partial "bookshop" (slice "compositions-card" (dict "url" .RelPermalink "image" .Params.image "title" .Params.title
+    {{ range $i, $p := where site.RegularPages "Section" "posts" }}
+      {{ partial "bookshop" (slice "compositions-card" (dict "eager" (lt $i 2) "url" .RelPermalink "image" .Params.image "title" .Params.title
       "description" .Params.description "Summary" .Summary "date" .Date "tags" (.GetTerms "tags"))) }}
     {{ end }}
   </div>

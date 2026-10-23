@@ -49,7 +49,7 @@ enableRobotsTXT = true
 
   [languages.zh]
     label = "中文"
-    locale = 'zh'
+    locale = 'zh-CN'
 
     weight = 3
     title = "林泽"
@@ -113,3 +113,13 @@ blog_tag = "blog_tags"
     list = "always"
   [cascade.target]
     path = "{/testimonials,/testimonials/**}"
+
+# The Bookshop component browser is for local editing only: it loads its
+# script from a localhost dev server, so production doesn't publish it.
+[[cascade]]
+  [cascade.build]
+    render = "never"
+    list = "never"
+  [cascade.target]
+    path = "{/components,/components/**}"
+    environment = "production"
