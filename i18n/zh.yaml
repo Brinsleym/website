@@ -69,6 +69,7 @@ sc_blocked_refresh: "然后重新载入本页，即可载入 SoundCloud 播放�
 # YouTube embeds (layouts/_shortcodes/youtube.html)
 yt_play: "播放视频"
 yt_watch_on_youtube: "在 YouTube 上观看"
+yt_unavailable: "此视频发布在 YouTube 上，您当前的网络无法访问 YouTube。"
 
 # Icon-only links and controls
 icon_close_menu: "关闭菜单"
