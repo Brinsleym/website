@@ -3,5 +3,9 @@
 {{- $title := .Title -}}
 {{- if eq .Kind "taxonomy" -}}
   {{- $title = i18n (cond (eq .Data.Plural "blog_tags") "blog_tags_title" "compositions_tags_title") -}}
+{{- else if eq .Kind "term" -}}
+  {{- /* The same heading the term page shows, so a blog tag and a composition
+         tag with the same name ("作曲") don't share a <title> */ -}}
+  {{- $title = printf (T (cond (eq .Data.Plural "blog_tags") "tag_page_title_blog" "tag_page_title_compositions")) .Title -}}
 {{- end -}}
 {{- return $title -}}

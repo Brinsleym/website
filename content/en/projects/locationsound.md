@@ -5,6 +5,8 @@ blog_tags: [behind the scenes, composition]
 subtitle: Recorded on 17th Jan 2024
 image: '/static/images/locationsound1.webp'
 description: "A behind-the-scenes look at my Location Sound module project."
+seo:
+  page_description: "Brinsley Morrison's Location Sound project: a lakeside recording of his clarinet piece The Echoes of a Forgotten Breeze, on a SoundField ST450 and Neumann KM184s."
 ---
 
 As part of the Location Sound module for my undergraduate degree, I organized a field recording performance of one of my original compositions. The piece, titled *The Echoes of a Forgotten Breeze*, explores the relationship between a solo clarinet and the natural environment.

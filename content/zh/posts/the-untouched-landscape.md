@@ -6,6 +6,8 @@ description: >-
   一部为室内乐团创作的作品，探索自然界错综复杂的美丽。
 tags: [chamber orchestra, orchestral]
 image: /static/images/the-untouched-landscape-1.jpg
+seo:
+  page_description: "布林斯利（Brinsley Morrison）为室内乐团创作的作品《未被触碰的景观》，探索自然界错综复杂的美，由Chimera合奏团首演。"
 ---
 
 我为独奏钢琴和弦乐六重奏创作了《未被触碰的景观》，并且非常感兴趣如何在室内乐的背景下创造出钢琴与弦乐之间的对话，类似于钢琴协奏曲的构思。

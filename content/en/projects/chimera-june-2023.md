@@ -5,6 +5,8 @@ blog_tags: [performance, composition]
 subtitle: June 2023
 image: '/static/images/chimera-june-2023.webp'
 description: "The premiere performance of Brinsley's The Untouched Landscape."
+seo:
+  page_description: "The Chimera Ensemble premieres Brinsley Morrison's The Untouched Landscape in York, June 2023, with Brinsley directing and playing violin."
 ---
 
 In June 2023 at the Sir Jack Lyons Concert Hall, The Chimera Ensemble premiered Brinsley's [_The Untouched Landscape_](/compositions/the-untouched-landscape/). Brinsley directed the performance and performed the Violin I part.

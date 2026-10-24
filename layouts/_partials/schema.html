@@ -1,7 +1,7 @@
 {{- /*
   JSON-LD structured data.
   Every page: the Person entity (the anchor that ties the site to its profiles).
-  Homepage: WebSite. Compositions: MusicComposition. Blog: BlogPosting.
+  Homepage: WebSite. About: ProfilePage. Compositions: MusicComposition. Blog: BlogPosting.
   Non-home pages: BreadcrumbList.
 */ -}}
 {{- $page := .page -}}
@@ -17,11 +17,13 @@
   "@type" "Person"
   "@id" $personID
   "name" "Brinsley Morrison"
-  "alternateName" (slice "森沢淋" "布林斯利·莫里森")
+  "givenName" "Brinsley"
+  "familyName" "Morrison"
+  "alternateName" (slice "Brinsley" "森沢淋" "モリザワ・リン" "ブリンズリー・モリソン" "布林斯利·莫里森" "布林斯利")
   "url" $root
   "image" ("/images/001.webp" | absURL)
   "description" (T "site_description")
-  "jobTitle" "Composer"
+  "jobTitle" (slice "Composer" "Singer" "Multi-instrumentalist")
   "alumniOf" (slice
     (dict "@type" "CollegeOrUniversity" "name" "University of York")
     (dict "@type" "EducationalOrganization" "name" "Chetham's School of Music")
@@ -37,10 +39,25 @@
     "@id" (printf "%s#website" $page.Permalink)
     "url" $page.Permalink
     "name" site.Title
+    "alternateName" (slice "Brinsley Morrison" "Brinsley" "森沢淋" "布林斯利·莫里森")
     "description" .description
     "inLanguage" site.Language.Locale
     "publisher" (dict "@id" $personID)
   ) -}}
+{{- end -}}
+
+{{- /* The about page is the profile Google's knowledge panel can draw on */ -}}
+{{- if and $page.File (eq $page.File.ContentBaseName "about") -}}
+  {{- $profile := dict
+    "@type" "ProfilePage"
+    "@id" (printf "%s#profile" $page.Permalink)
+    "url" $page.Permalink
+    "name" (partial "page-title.html" $page)
+    "inLanguage" site.Language.Locale
+    "mainEntity" (dict "@id" $personID)
+  -}}
+  {{- if not $page.Lastmod.IsZero }}{{ $profile = merge $profile (dict "dateModified" ($page.Lastmod.Format "2006-01-02")) }}{{ end -}}
+  {{- $graph = $graph | append $profile -}}
 {{- end -}}
 
 {{- if $page.IsPage -}}

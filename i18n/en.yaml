@@ -28,7 +28,9 @@ disclaimer_title: Important Disclaimer
 disclaimer_content: "This project is a non-commercial, fan-made endeavor and is not affiliated with or endorsed by the creators, producers, or distributors of PLACEHOLDER. The music I've composed is intended solely for creative exploration and does not infringe upon the original series' copyright or intellectual property. I do not claim ownership of PLACEHOLDER or its content, and this project is unlicensed by any official entity. Cover image used under fair use for commentary. All rights to the original series, its soundtrack and images belong to their respective copyright holders."
 change_language: Change Language
 site_tagline: "Composer, Singer & Multi-Instrumentalist"
-site_description: "Brinsley Morrison is a composer, singer and multi-instrumentalist. Explore his compositions, performances and projects."
+# The name as the homepage <title> gives it, in every script people search for it in
+site_home_name: "Brinsley Morrison"
+site_description: "Brinsley Morrison is a composer, singer and multi-instrumentalist with a First in Music from the University of York. Explore his compositions and performances."
 not_found_title: "Page not found"
 not_found_text: "Sorry, the page you were looking for doesn't exist or has moved."
 not_found_home: "Back to the homepage"
@@ -80,6 +82,8 @@ pagination_label: "Pagination"
 skip_to_content: "Skip to content"
 
 # Meta descriptions for tag pages and the 404 page
-term_description: "Work by {{ .Site }} tagged “{{ .Term }}”."
-taxonomy_description: "Browse {{ .Site }}’s work by tag."
+term_description: "Compositions by {{ .Site }}, composer, singer and multi-instrumentalist, tagged “{{ .Term }}”, with recordings and notes on each piece."
+term_description_blog: "Concerts, recordings and projects {{ .Site }} has taken part in, tagged “{{ .Term }}”: programmes, videos and behind-the-scenes notes."
+taxonomy_description: "Browse the compositions of {{ .Site }}, composer, singer and multi-instrumentalist, by instrumentation and genre."
+taxonomy_description_blog: "Browse the blog of {{ .Site }}, composer, singer and multi-instrumentalist, by topic: performances, composition and behind the scenes."
 not_found_description: "This page could not be found. Browse compositions, performances and projects instead."

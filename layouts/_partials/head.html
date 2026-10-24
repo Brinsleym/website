@@ -20,7 +20,7 @@
   {{- /* Search results cut off around 60 characters: long post titles go without the suffix */}}
   {{- if gt (strings.RuneCount $pageTitle) 45 }}{{ $title = $pageTitle }}{{ end }}
   {{- if .IsHome }}
-    {{- $title = printf "%s — %s" site.Title (T "site_tagline") }}
+    {{- $title = printf "%s — %s" (T "site_home_name") (T "site_tagline") }}
   {{- else if eq .Kind "404" }}
     {{- $title = printf "%s | %s" (T "not_found_title") site.Title }}
   {{- end }}
@@ -38,8 +38,9 @@
     {{- end }}
   {{- end }}
   {{- /* Tag pages would otherwise all share the site description */}}
-  {{- if and (not $desc) (eq .Kind "term") }}{{ $desc = T "term_description" (dict "Term" .Title "Site" site.Title) }}{{ end }}
-  {{- if and (not $desc) (eq .Kind "taxonomy") }}{{ $desc = T "taxonomy_description" (dict "Site" site.Title) }}{{ end }}
+  {{- $isBlogTags := eq .Data.Plural "blog_tags" }}
+  {{- if and (not $desc) (eq .Kind "term") }}{{ $desc = T (cond $isBlogTags "term_description_blog" "term_description") (dict "Term" .Title "Site" (T "site_home_name")) }}{{ end }}
+  {{- if and (not $desc) (eq .Kind "taxonomy") }}{{ $desc = T (cond $isBlogTags "taxonomy_description_blog" "taxonomy_description") (dict "Site" (T "site_home_name")) }}{{ end }}
   {{- if and (not $desc) (eq .Kind "404") }}{{ $desc = T "not_found_description" }}{{ end }}
   {{- if not $desc }}{{ $desc = T "site_description" }}{{ end }}
   <meta name="description" content="{{ $desc }}">
