@@ -7,7 +7,7 @@ image: '/static/images/choir-the24-dec-2024-1.webp'
 description: "埃蒙·杜根指挥的芬齐《In Terra Pax》、沃恩·威廉姆斯，以及三首《O magnum mysterium》"
 ---
 
-林泽作为The 24合唱团的成员，参加了这场在中央大厅举行的圣诞音乐会。The 24与约克大学合唱团同台，由The Sixteen副指挥埃蒙·杜根客席执棒。音乐会以芬齐的《In Terra Pax》与沃恩·威廉姆斯的《Fantasia on Christmas Carols》为骨架，把维多利亚、劳里森与乔安娜·马什的三首《O magnum mysterium》并置对照，另有埃尔加的合唱小品与斯特夫·康纳的新作颂歌。[^1]
+布林斯利作为The 24合唱团的成员，参加了这场在中央大厅举行的圣诞音乐会。The 24与约克大学合唱团同台，由The Sixteen副指挥埃蒙·杜根客席执棒。音乐会以芬齐的《In Terra Pax》与沃恩·威廉姆斯的《Fantasia on Christmas Carols》为骨架，把维多利亚、劳里森与乔安娜·马什的三首《O magnum mysterium》并置对照，另有埃尔加的合唱小品与斯特夫·康纳的新作颂歌。[^1]
 
 ## 曲目
 
