@@ -9,4 +9,4 @@ tags: [piano, solo]
 
 {{< soundcloud-player track="https://soundcloud.com/brinsleymorrison/somnolence" background="/static/images/somnolence-1.webp">}}
 
-[![《嗜睡》 由 林泽 作曲，伊丽莎白·伯利 演奏](/static/images/somnolence-2.webp)](https://www.bbc.co.uk/programmes/p08tvn9h)
+[![《嗜睡》 由 布林斯利 作曲，伊丽莎白·伯利 演奏](/static/images/somnolence-2.webp)](https://www.bbc.co.uk/programmes/p08tvn9h)

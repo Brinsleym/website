@@ -4,14 +4,14 @@ title: Chimera合奏团
 blog_tags: [performance, composition]
 subtitle: 2023年6月
 image: '/static/images/chimera-june-2023.webp'
-description: "林泽作品《未触及的风景》首演"
+description: "布林斯利作品《未触及的风景》首演"
 ---
 
-在2023年6月的音乐会中，Chimera合奏团在杰克·莱昂斯音乐厅上演了林泽（Brinsley Morrison）的作品[《未被触碰的景观》](/compositions/the-untouched-landscape/)的首演。林泽指挥了该作品并参与了合奏，演奏了第一小提琴部分。
+在2023年6月的音乐会中，Chimera合奏团在杰克·莱昂斯音乐厅上演了布林斯利（Brinsley Morrison）的作品[《未被触碰的景观》](/compositions/the-untouched-landscape/)的首演。布林斯利指挥了该作品并参与了合奏，演奏了第一小提琴部分。
 
 ## 曲目
 
-**林泽** 《未被触碰的景观》
+**布林斯利** 《未被触碰的景观》
 
 **海伦·格赖姆 (Helen Grime)** 《三幅惠斯勒小品》  
 **安娜·索尔瓦尔斯多蒂尔 (Anna Thorvaldsdottir)** 《气场》  
