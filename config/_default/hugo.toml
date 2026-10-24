@@ -57,8 +57,6 @@ enableRobotsTXT = true
 
     [languages.zh.params]
       date_format = "2006年01月02日"
-      # jsDelivr's mirror, faster from mainland China
-      cdn_domain = "cdn.jsdmirror.cn"
 
 
 [module]
@@ -89,8 +87,9 @@ projects = "/blog/:title/"
 [params]
 # Only ever written into pages encoded (see _partials/email-encoded.html)
 contact_email = "contact@brinsleymorrison.com"
-# CDN for CSS, JS and images (zh overrides it below)
-cdn_domain = "cdn.jsdelivr.net"
+# CDN for CSS, JS and images (_partials/jsdelivr-url.html). Unset: Cloudflare
+# Pages serves them with the pages, which is faster than a second host.
+# cdn_domain = "cdn.jsdelivr.net"
 
 [related]
 includeNewer = true

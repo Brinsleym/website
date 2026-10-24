@@ -19,10 +19,7 @@ This repository contains the source code for my portfolio website.
  </a>&nbsp;&nbsp;&nbsp;
   <a href="https://gohugo.io">
   <img src="https://img.shields.io/badge/hugo-v0.158.0%2B-blue?logo=hugo&style=flat-square" alt="Hugo v0.158.0+">
-  </a>&nbsp;&nbsp;&nbsp;
- <a href="https://www.jsdelivr.com/package/gh/Brinsleym/website">
-  <img src="https://data.jsdelivr.com/v1/package/gh/Brinsleym/website/badge" alt="JSDelivr">
- </a>
+  </a>
  
 </p>
 
@@ -45,7 +42,7 @@ This site is forked from the [Vonge Hugo Bookshop Template](https://github.com/C
   - Visual feedback for volume controls and loading states
   - Accessibility features with proper ARIA labels
   - Privacy extension detection with user-friendly error messaging
-  - **Self-hosted fallback for mainland China**, where SoundCloud is blocked: tracks listed in `data/audio.yaml` play from the site's own copy (via jsDelivr's China mirror) for visitors in China, and anywhere SoundCloud fails to answer within 5 seconds
+  - **Self-hosted fallback for mainland China**, where SoundCloud is blocked: tracks listed in `data/audio.yaml` play from the site's own copy for visitors in China, and anywhere SoundCloud fails to answer within 5 seconds
 
 ### Content Management & Structure
 
@@ -57,7 +54,6 @@ This site is forked from the [Vonge Hugo Bookshop Template](https://github.com/C
 
 ### Performance & User Experience
 
-- **Asset Provisioning** through JSDelivr's CDN for optimized global delivery
 - **JavaScript Lazy Image Loading** with Lightense image viewer integration
 - **Image Optimization** with WebP format and responsive sizing
 - **Responsive Video Embeds** using reframe.js
@@ -113,10 +109,7 @@ The site uses Hugo's built-in build process:
 
 ### Deployment
 
-Every push to `master` is built once by `.github/workflows/deploy.yml` and published to both hosts:
-
-- **Cloudflare Pages** (`www.brinsleymorrison.com` outside mainland China), with `functions/_middleware.js` doing the language redirect and country cookie
-- **The Hong Kong VPS** (mainland China, chosen by AliDNS), with nginx doing the same: see `deploy/hk/README.md`
+Every push to `master` is built by `.github/workflows/deploy.yml` and published to **Cloudflare Pages**, which serves `www.brinsleymorrison.com` to everyone, mainland China included. `functions/_middleware.js` does the language redirect and country cookie, and sends the bare domain on to `www`. Images, scripts and the stylesheet are served by Pages alongside the pages.
 
 The build is `bash cloudflare/pages-build.sh`, which downloads Hugo extended at a pinned version and runs `hugo --environment production`. `static/_headers` sets headers for static files on Pages, and `static/_routes.json` keeps the middleware off them. Pages get their headers from the middleware, because Pages does not apply `_headers` to responses that pass through a Function.
 
@@ -139,7 +132,6 @@ The build is `bash cloudflare/pages-build.sh`, which downloads Hugo extended at 
 - **Advanced Error Handling** - Privacy extension detection and iOS compatibility
 
 ### Performance & Optimization
-- **[JSDelivr CDN](https://www.jsdelivr.com/)** - Global asset delivery
 - **WebP Image Format** - Modern image optimization
 - **Lazy Loading** - Progressive image loading
 - **CSS/SCSS Modules** - Component-based styling
