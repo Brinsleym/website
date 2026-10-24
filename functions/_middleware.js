@@ -15,6 +15,12 @@
 //
 // static/_headers is not applied to responses that pass through a Function,
 // so the page headers are set here instead.
+//
+// Mainland China is served by the Hong Kong VPS instead (AliDNS gives China a
+// different answer for www), and the bare domain points at that VPS for
+// everyone. Let's Encrypt checks the VPS's certificate from outside China,
+// where www leads here, so its challenge requests are sent on to the bare
+// domain. See deploy/hk/README.md.
 
 const COUNTRY_LANGUAGE = { CN: 'zh', JP: 'ja' };
 const SUPPORTED_LANGUAGES = new Set(['en', 'ja', 'zh']);
@@ -34,6 +40,10 @@ export async function onRequest(context) {
   const { request } = context;
   const url = new URL(request.url);
   const country = (request.cf && request.cf.country) || request.headers.get('CF-IPCountry');
+
+  if (url.pathname.startsWith('/.well-known/acme-challenge/')) {
+    return Response.redirect(`http://brinsleymorrison.com${url.pathname}`, 302);
+  }
 
   if (url.pathname === '/') {
     const chosen = getCookie(request.headers.get('Cookie'), 'lang');

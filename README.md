@@ -1,9 +1,9 @@
-# Portfolio Site: [brinsleymorrison.com](https://brinsleymorrison.com)
+# Portfolio Site: [brinsleymorrison.com](https://www.brinsleymorrison.com)
 
 
 This repository contains the source code for my portfolio website.
 <p align="center">
-  <a href="https://brinsleymorrison.com" target="_blank">
+  <a href="https://www.brinsleymorrison.com" target="_blank">
     <img 
       src="https://github.com/user-attachments/assets/87353ec0-6aaf-4726-b929-b3256d5122c3"
       alt="website preview"
@@ -150,7 +150,7 @@ Cloudflare Pages builds and publishes every push to `master`, and gives each pul
 
 ## Site Metrics
 
-  <a href="https://brinsleymorrison.com">
+  <a href="https://www.brinsleymorrison.com">
     <img src="https://cdn.jsdelivr.net/gh/Brinsleym/brinsleym@master/metrics.plugin.pagespeed.screenshot.svg" alt="Site Metrics" style="display:inline-block; width:50%;">
   </a>
  

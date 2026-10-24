@@ -3,7 +3,7 @@ title: Compositions
 url: /compositions/
 seo:
   page_description: A non-exhaustive list of compositions Brinsley's written, ordered from most recent to oldest.
-  canonical_url: https://brinsleymorrison.com/compositions/
+  canonical_url: https://www.brinsleymorrison.com/compositions/
   featured_image: 
   author_twitter_handle: 
   open_graph_type:
