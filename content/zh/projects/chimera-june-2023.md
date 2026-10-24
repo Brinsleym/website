@@ -5,6 +5,8 @@ blog_tags: [performance, composition]
 subtitle: 2023年6月
 image: '/static/images/chimera-june-2023.webp'
 description: "布林斯利作品《未触及的风景》首演"
+seo:
+  page_description: "2023年6月，Chimera合奏团在约克大学Sir Jack Lyons音乐厅首演布林斯利（Brinsley Morrison）的作品《未触及的风景》，由他本人指挥并担任第一小提琴。"
 ---
 
 在2023年6月的音乐会中，Chimera合奏团在杰克·莱昂斯音乐厅上演了布林斯利（Brinsley Morrison）的作品[《未被触碰的景观》](/compositions/the-untouched-landscape/)的首演。布林斯利指挥了该作品并参与了合奏，演奏了第一小提琴部分。

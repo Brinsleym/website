@@ -81,6 +81,8 @@ pagination_label: "分页"
 skip_to_content: "跳到正文"
 
 # Meta descriptions for tag pages and the 404 page
-term_description: "{{ .Site }}标记为“{{ .Term }}”的作品与文章。"
-taxonomy_description: "按标签浏览{{ .Site }}的作品与文章。"
+term_description: "作曲家、歌手和多乐器演奏家{{ .Site }}标记为“{{ .Term }}”的作品，包括录音和作品介绍。"
+term_description_blog: "{{ .Site }}参与的音乐会与项目中标记为“{{ .Term }}”的文章，包括节目单、视频和幕后花絮。"
+taxonomy_description: "按编制和体裁标签浏览作曲家、歌手和多乐器演奏家{{ .Site }}的作品。"
+taxonomy_description_blog: "按演出、作曲、幕后等标签浏览作曲家、歌手和多乐器演奏家{{ .Site }}的博客文章。"
 not_found_description: "找不到此页面。欢迎浏览作品、演出和项目。"

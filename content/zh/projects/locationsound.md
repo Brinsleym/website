@@ -5,6 +5,8 @@ blog_tags: [behind the scenes, composition]
 subtitle: 录制于2024年1月17日
 image: '/static/images/locationsound1.webp'
 description: "我的实地录音模块项目幕后花絮"
+seo:
+  page_description: "布林斯利（Brinsley Morrison）实地录音项目的幕后记录：在湖畔录制他的单簧管作品，并介绍所用的话筒、录音设备和后期混音。"
 ---
 
 作为本科学位课程中实地录音模块的一部分，我组织了自己原创作品《被遗忘的微风回声》的户外录音演奏。这部作品探索了单簧管独奏与自然环境之间的关系。

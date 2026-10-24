@@ -5,6 +5,8 @@ blog_tags: [performance, composition]
 subtitle: 2023年6月
 image: '/static/images/chimera-june-2023.webp'
 description: "森沢淋の作品『未踏の風景』の初演"
+seo:
+  page_description: "2023年6月、キメラ・アンサンブルがヨークのサー・ジャック・ライオンズ・コンサートホールで森沢淋（Brinsley Morrison）の作品『未踏の風景』を初演。森沢自身が指揮とヴァイオリンを担当しました。"
 ---
 
 2023年6月、サー・ジャック・ライオンズ・コンサートホールで開催されたコンサートで、キメラアンサンブルは森沢淋の[*The Untouched Landscape*](/compositions/the-untouched-landscape/)の初演を行いました。森沢はこの作品を指揮し、アンサンブルにも参加し、ヴァイオリン1のパートを演奏しました。

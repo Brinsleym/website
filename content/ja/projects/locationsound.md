@@ -5,6 +5,8 @@ blog_tags: [behind the scenes, composition]
 subtitle: 2024年1月17日録音
 image: '/static/images/locationsound1.webp'
 description: "ロケーションサウンド・プロジェクトの舞台裏"
+seo:
+  page_description: "森沢淋（Brinsley Morrison）によるロケーションサウンド・プロジェクトの舞台裏。湖畔でクラリネット作品『忘れられたそよ風の残響』を収録し、使用機材や録音方法を紹介します。"
 ---
 
 大学のロケーションサウンドモジュールの一環として、オリジナル作品『忘れられたそよ風の残響』の野外録音演奏を企画しました。この作品はクラリネット独奏と自然環境の関係性を探求しています。

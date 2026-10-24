@@ -7,6 +7,8 @@ description: >-
 tags: [soundtrack, film score, orchestral]
 image: '/static/images/frieren-1.webp'
 draft: false
+seo:
+  page_description: "布林斯利（Brinsley Morrison）为电视动画《葬送的芙莉莲》第二集重新创作的完整配乐，包括片头曲、片尾曲和多段配乐。"
 ---
 {{< disclaimer "葬送的芙莉莲" >}}
 

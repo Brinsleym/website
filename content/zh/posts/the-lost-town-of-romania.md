@@ -4,6 +4,8 @@ title:  罗马尼亚失落的小镇
 description: 关于罗马尼亚西北部名为Geamăna的村庄的短纪录片
 tags: [documentary, film score, orchestral]
 image:  '/static/images/the-lost-town-of-romania-1.webp'
+seo:
+  page_description: "布林斯利（Brinsley Morrison）为一部短纪录片创作的配乐，影片讲述罗马尼亚西北部名为Geamăna的村庄。"
 ---
 {{< youtube 8ylEKtyMeP8 >}}
 

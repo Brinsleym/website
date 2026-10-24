@@ -81,6 +81,8 @@ pagination_label: "ページ送り"
 skip_to_content: "本文へスキップ"
 
 # Meta descriptions for tag pages and the 404 page
-term_description: "「{{ .Term }}」タグの付いた{{ .Site }}の作品と記事。"
-taxonomy_description: "{{ .Site }}の作品と記事をタグ別に見る。"
+term_description: "作曲家・歌手・マルチ奏者、{{ .Site }}の「{{ .Term }}」タグの付いた作品。録音や作品解説をご覧いただけます。"
+term_description_blog: "{{ .Site }}が参加したコンサートやプロジェクトのうち「{{ .Term }}」タグの付いた記事。プログラム、動画、舞台裏をご紹介します。"
+taxonomy_description: "作曲家・歌手・マルチ奏者、{{ .Site }}の作品を編成やジャンルのタグ別に見る。"
+taxonomy_description_blog: "作曲家・歌手・マルチ奏者、{{ .Site }}のブログ記事を演奏、作曲、舞台裏などのタグ別に見る。"
 not_found_description: "ページが見つかりませんでした。作品、演奏、プロジェクトをご覧ください。"

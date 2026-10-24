@@ -82,6 +82,8 @@ pagination_label: "Pagination"
 skip_to_content: "Skip to content"
 
 # Meta descriptions for tag pages and the 404 page
-term_description: "Work by {{ .Site }} tagged “{{ .Term }}”."
-taxonomy_description: "Browse {{ .Site }}’s work by tag."
+term_description: "Compositions by {{ .Site }}, composer, singer and multi-instrumentalist, tagged “{{ .Term }}”, with recordings and notes on each piece."
+term_description_blog: "Concerts, recordings and projects {{ .Site }} has taken part in, tagged “{{ .Term }}”: programmes, videos and behind-the-scenes notes."
+taxonomy_description: "Browse the compositions of {{ .Site }}, composer, singer and multi-instrumentalist, by instrumentation and genre."
+taxonomy_description_blog: "Browse the blog of {{ .Site }}, composer, singer and multi-instrumentalist, by topic: performances, composition and behind the scenes."
 not_found_description: "This page could not be found. Browse compositions, performances and projects instead."

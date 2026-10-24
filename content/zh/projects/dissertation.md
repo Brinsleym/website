@@ -5,6 +5,8 @@ blog_tags: [behind the scenes, composition]
 subtitle: "2024年10月至2025年5月"
 image: '/static/images/suzume-project-1.webp'
 description: "对多部动画音乐重新配乐项目的详细解析" 
+seo:
+  page_description: "布林斯利（Brinsley Morrison）在约克大学的毕业设计：为动画《葬送的芙莉莲》一整集和电影《铃芽之旅》的场景重新创作配乐，附论文与导师评语。"
 ---
 ## 引言
 

@@ -6,6 +6,8 @@ description: >-
   眠りに落ちるときの心の意識状態を描いた実験的な作品です。
 tags: [string quartet]
 image: /static/images/dormire-1.webp
+seo:
+  page_description: "森沢淋（Brinsley Morrison）作曲の弦楽四重奏曲『ドミレー』。眠りに落ちていくときの意識の移ろいを描いた実験的な作品です。"
 ---
 
 {{< youtube 7wTFGWczEwo >}}

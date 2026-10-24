@@ -6,6 +6,8 @@ description: >-
   为电影《铃芽之旅》精选场景重新配乐
 tags: [soundtrack, film score, orchestral]
 image: '/static/images/suzume_cover_1.webp'
+seo:
+  page_description: "布林斯利（Brinsley Morrison）为新海诚电影《铃芽之旅》精选场景重新创作的管弦乐配乐，并制作了5.1声道混音。"
 ---
 {{< disclaimer "铃芽之旅" >}}
 

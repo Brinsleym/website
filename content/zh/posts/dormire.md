@@ -6,6 +6,8 @@ description: >-
   一首实验性作品，描绘了意识进入睡眠时的状态。
 tags: [string quartet]
 image: /static/images/dormire-1.webp
+seo:
+  page_description: "布林斯利（Brinsley Morrison）创作的弦乐四重奏《Dormire》，一首实验性作品，描绘意识逐渐进入睡眠时的状态。"
 ---
 
 {{< youtube 7wTFGWczEwo >}}

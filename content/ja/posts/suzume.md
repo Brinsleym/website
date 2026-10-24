@@ -6,6 +6,8 @@ description: >-
   映画『すずめの戸締まり』のシーンリスコアリング
 tags: [soundtrack, film score, orchestral]
 image: '/static/images/suzume_cover_1.webp'
+seo:
+  page_description: "森沢淋（Brinsley Morrison）による映画『すずめの戸締まり』のシーン・リスコアリング。オーケストラによる新たな映画音楽を書き下ろし、5.1chでミックスしました。"
 ---
 {{< disclaimer "Suzume no Tojimari" >}}
 
