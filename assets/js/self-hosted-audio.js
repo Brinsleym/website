@@ -19,12 +19,13 @@
 
   /* Whether to skip SoundCloud and go straight to our copy.
 
-     The Cloudflare worker sets a `country` cookie from the visitor's IP,
-     which is the best signal, so it wins when present. Without it (the
-     worker only runs on some paths) the browser's time zone stands in. A
-     wrong guess is cheap either way: a visitor wrongly sent to our copy
-     still hears the track, and one wrongly sent to SoundCloud falls back
-     to our copy when SoundCloud does not answer.
+     The Cloudflare Pages middleware (functions/_middleware.js) sets a
+     `country` cookie from the visitor's IP, which is the best signal, so it
+     wins when present. Without it (a local build, or another host) the
+     browser's time zone stands in. A wrong guess is cheap either way: a
+     visitor wrongly sent to our copy still hears the track, and one wrongly
+     sent to SoundCloud falls back to our copy when SoundCloud does not
+     answer.
 
      ?audio=local or ?audio=soundcloud forces either, for testing. */
   function preferred() {

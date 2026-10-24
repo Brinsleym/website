@@ -3,7 +3,7 @@ title: 作曲
 url: /ja/compositions/
 seo:
   page_description: 森沢淋が作曲した作品の一部のリスト（最新から最古へ順番に並んでいます）
-  canonical_url: https://brinsleymorrison.com/ja/compositions/
+  canonical_url: https://www.brinsleymorrison.com/ja/compositions/
   featured_image: 
   author_twitter_handle: 
   open_graph_type:

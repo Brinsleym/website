@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "include": ["/*"],
+  "exclude": [
+    "/assets/*",
+    "/audio/*",
+    "/css/*",
+    "/doc/*",
+    "/fonts/*",
+    "/images/*",
+    "/ionicons/*",
+    "/videos/*",
+    "/favicon.ico",
+    "/*.xml",
+    "/*.txt",
+    "/ja/*.xml",
+    "/ja/*.txt",
+    "/zh/*.xml",
+    "/zh/*.txt"
+  ]
+}

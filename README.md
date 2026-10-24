@@ -1,9 +1,9 @@
-# Portfolio Site: [brinsleymorrison.com](https://brinsleymorrison.com)
+# Portfolio Site: [brinsleymorrison.com](https://www.brinsleymorrison.com)
 
 
 This repository contains the source code for my portfolio website.
 <p align="center">
-  <a href="https://brinsleymorrison.com" target="_blank">
+  <a href="https://www.brinsleymorrison.com" target="_blank">
     <img 
       src="https://github.com/user-attachments/assets/87353ec0-6aaf-4726-b929-b3256d5122c3"
       alt="website preview"
@@ -65,7 +65,7 @@ This site is forked from the [Vonge Hugo Bookshop Template](https://github.com/C
 
 ### Server-side Features
 
-- **Cloudflare DNS & Proxy** with worker support to automatically detect user language and serve the relevant page
+- **Cloudflare Pages** hosting, with middleware (`functions/_middleware.js`) that sends first-time visitors to their language version and tells the audio players which country they are in
 - **Snapshot Caching** at `archive.org`, to show a recent snapshot of the page in the event of a server failure
 
 ### Technical Improvements
@@ -111,6 +111,15 @@ The site uses Hugo's built-in build process:
 2. **Asset Processing**: Optimizes CSS and JavaScript assets
 3. **Static Generation**: Creates production-ready site files
 
+### Deployment
+
+Every push to `master` is built once by `.github/workflows/deploy.yml` and published to both hosts:
+
+- **Cloudflare Pages** (`www.brinsleymorrison.com` outside mainland China), with `functions/_middleware.js` doing the language redirect and country cookie
+- **The Hong Kong VPS** (mainland China, chosen by AliDNS), with nginx doing the same: see `deploy/hk/README.md`
+
+The build is `bash cloudflare/pages-build.sh`, which downloads Hugo extended at a pinned version and runs `hugo --environment production`. `static/_headers` sets headers for static files on Pages, and `static/_routes.json` keeps the middleware off them. Pages get their headers from the middleware, because Pages does not apply `_headers` to responses that pass through a Function.
+
 
 ## Technical Stack
 
@@ -142,7 +151,7 @@ The site uses Hugo's built-in build process:
 
 ## Site Metrics
 
-  <a href="https://brinsleymorrison.com">
+  <a href="https://www.brinsleymorrison.com">
     <img src="https://cdn.jsdelivr.net/gh/Brinsleym/brinsleym@master/metrics.plugin.pagespeed.screenshot.svg" alt="Site Metrics" style="display:inline-block; width:50%;">
   </a>
  

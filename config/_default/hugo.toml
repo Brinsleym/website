@@ -1,4 +1,4 @@
-baseURL = "https://brinsleymorrison.com"
+baseURL = "https://www.brinsleymorrison.com"
 locale = "en"
 title = "Brinsley Morrison"
 _enabled_editors = ["visual", "content"]
