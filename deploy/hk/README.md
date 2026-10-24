@@ -20,14 +20,18 @@ answers depending on where the visitor's DNS resolver is:
 
 ## Setting up the VPS
 
+The VPS is Debian with Apache serving the old setup (behind Cloudflare, with
+a Cloudflare Origin CA certificate that browsers don't trust). nginx is
+prepared next to it and switched in once everything is ready.
+
 1. Make a deploy key: `ssh-keygen -t ed25519 -N "" -f hk_deploy -C github-deploy`.
-2. On the VPS, from a checkout of this repo, as root:
-   `bash deploy/hk/setup.sh hk_deploy.pub webroot`
-   (or `cloudflare` with `CF_Token` exported, while Cloudflare still runs
-   the domain's DNS).
+2. On the VPS, as root, with `setup.sh` and `hk_deploy.pub` copied over:
+   `bash setup.sh hk_deploy.pub cloudflare` (with `CF_Token` exported, while
+   Cloudflare still runs the domain's DNS), or `webroot` once AliDNS does.
 3. Add the repository secrets listed at the top of
    `.github/workflows/deploy-hk.yml`, then run the workflow by hand once
    (Actions -> Deploy to Hong Kong -> Run workflow).
+4. `bash switch-to-nginx.sh` (`bash switch-to-nginx.sh back` undoes it).
 
 ## Checking
 
