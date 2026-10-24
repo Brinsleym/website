@@ -4,10 +4,11 @@
   <meta name="baidu-site-verification" content="codeva-46LfPjMADd">
 
   {{- partial "cdn-fallback.html" . }}
-  {{- $cdn := site.Params.cdn_domain | default "cdn.jsdelivr.net" }}
+  {{- with site.Params.cdn_domain }}
 
   <!-- Warm up the third-party origins in the critical path -->
-  <link rel="preconnect" href="https://{{ $cdn }}" crossorigin>
+  <link rel="preconnect" href="https://{{ . }}" crossorigin>
+  {{- end }}
 
   <link rel="icon" type="image/x-icon" href="{{ partial "jsdelivr-url.html" "/static/favicon.ico" }}">
 

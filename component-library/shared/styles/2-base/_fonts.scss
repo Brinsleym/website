@@ -3,8 +3,7 @@
 // @fontsource-variable/inter package, latin and latin-ext subsets only:
 // Japanese and Chinese text uses the system fonts either way.
 //
-// The URLs are relative to the stylesheet, so they follow it to whichever
-// copy is in use: jsDelivr's /static/css/ or the site's own /css/.
+// The URLs are relative to the stylesheet, so they follow it wherever it's served.
 
 @font-face {
   font-family: 'Inter';
