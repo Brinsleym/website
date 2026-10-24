@@ -53,8 +53,15 @@ curl -fsSL "$raw/tls.conf" -o /etc/nginx/snippets/brinsleymorrison-tls.conf
 curl -fsSL "$raw/nginx.conf" -o /etc/nginx/sites-available/brinsleymorrison.conf
 ln -sfn /etc/nginx/sites-available/brinsleymorrison.conf /etc/nginx/sites-enabled/brinsleymorrison.conf
 
+# get.acme.sh refuses requests it places in China, which includes this
+# server, so install from the GitHub tarball instead.
 acme=~/.acme.sh/acme.sh
-[ -x "$acme" ] || curl -fsSL https://get.acme.sh | sh -s email="$email"
+if [ ! -x "$acme" ]; then
+  src="$(mktemp -d)"
+  curl -fsSL https://github.com/acmesh-official/acme.sh/archive/refs/heads/master.tar.gz | tar -xz -C "$src"
+  (cd "$src"/acme.sh-master && ./acme.sh --install -m "$email")
+  rm -rf "$src"
+fi
 
 case "$method" in
   none)       exit 0 ;;
