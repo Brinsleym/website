@@ -3,7 +3,7 @@ content_blocks:
   - _bookshop_name: hero
     title: 布林斯利·莫里森
     description_html: >-
-      <p>布林斯利是<b>作曲家</b>、<b>歌手</b>、<b>钢琴家</b>兼<b>小提琴手</b>。<br>
+      <p>布林斯利·莫里森（Brinsley Morrison）是<b>作曲家</b>、<b>歌手</b>、<b>钢琴家</b>兼<b>小提琴手</b>。<br>
       毕业于<b>约克大学</b>，获得音乐学<b>一等荣誉学士学位</b>，<b>切塔姆音乐学校</b>校友。
       </p>
     image: /static/images/001.webp

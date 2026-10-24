@@ -1,12 +1,12 @@
 ---
 title: 关于布林斯利
-description: "布林斯利是一位作曲家、歌手和多乐器演奏家，以一等荣誉学位毕业于约克大学音乐专业，并曾就读于切塔姆音乐学校。"
+description: "布林斯利·莫里森（Brinsley Morrison）是一位作曲家、歌手和多乐器演奏家，以一等荣誉学位毕业于约克大学音乐专业，并曾就读于切塔姆音乐学校。"
 content_blocks:
   - _bookshop_name: page-heading
     title: 关于布林斯利
     about_description_html:
           <p>
-            布林斯利是一位<b>多乐器演奏家</b>和<b>作曲家</b>。他曾作为独唱歌手与<b>BBC爱乐乐团</b>合作演出，并在多个管弦乐团担任<b>首席小提琴</b>。<br><br>布林斯利是<b>切塔姆音乐学校</b>的校友，并且以<b>一等荣誉</b>毕业于<b>约克大学</b>音乐系。
+            布林斯利·莫里森（Brinsley Morrison）是一位<b>多乐器演奏家</b>和<b>作曲家</b>。他曾作为独唱歌手与<b>BBC爱乐乐团</b>合作演出，并在多个管弦乐团担任<b>首席小提琴</b>。<br><br>布林斯利是<b>切塔姆音乐学校</b>的校友，并且以<b>一等荣誉</b>毕业于<b>约克大学</b>音乐系。
           </p>
   - _bookshop_name: page-image
     image: /static/images/thebrinkofthevalley-2.webp

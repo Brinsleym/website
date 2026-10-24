@@ -1,9 +1,9 @@
 ---
 content_blocks:
   - _bookshop_name: hero
-    title: "<p style=font-size:2rem;font-weight:500;line-height:0;>モリザワ&nbsp;&nbsp;&nbsp;リン</p>森沢&nbsp;&nbsp;&nbsp;淋"
+    title: "<span style=display:block;margin-bottom:30px;font-size:2rem;font-weight:500;line-height:0;>モリザワ&nbsp;&nbsp;&nbsp;リン</span>森沢&nbsp;&nbsp;&nbsp;淋"
     description_html: >-
-      <p><b>作曲家</b>、<b>歌手</b>、<b>ピアニスト</b>、<b>ヴァイオリニスト</b>。<br>
+      <p>森沢淋（Brinsley Morrison）は<b>作曲家</b>、<b>歌手</b>、<b>ピアニスト</b>、<b>ヴァイオリニスト</b>。<br>
       <b>ヨーク大学</b>音楽学部を<b>最優等</b>で卒業、<b>チェタムズ音楽院</b>の卒業生。
       </p>
     image: /static/images/001.webp

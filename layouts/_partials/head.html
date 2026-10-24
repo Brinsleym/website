@@ -20,7 +20,7 @@
   {{- /* Search results cut off around 60 characters: long post titles go without the suffix */}}
   {{- if gt (strings.RuneCount $pageTitle) 45 }}{{ $title = $pageTitle }}{{ end }}
   {{- if .IsHome }}
-    {{- $title = printf "%s — %s" site.Title (T "site_tagline") }}
+    {{- $title = printf "%s — %s" (T "site_home_name") (T "site_tagline") }}
   {{- else if eq .Kind "404" }}
     {{- $title = printf "%s | %s" (T "not_found_title") site.Title }}
   {{- end }}

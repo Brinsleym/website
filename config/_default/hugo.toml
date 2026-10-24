@@ -52,7 +52,7 @@ enableRobotsTXT = true
     locale = 'zh-CN'
 
     weight = 3
-    title = "布林斯利"
+    title = "布林斯利·莫里森"
     contentDir = "content/zh"
 
     [languages.zh.params]
