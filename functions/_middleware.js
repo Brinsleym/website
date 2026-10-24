@@ -51,7 +51,8 @@ export async function onRequest(context) {
       ? chosen
       : COUNTRY_LANGUAGE[country] || DEFAULT_LANGUAGE;
 
-    if (language !== DEFAULT_LANGUAGE) {
+    // Baidu's site verification needs a 200 at "/", not a redirect to /zh/.
+    if (language !== DEFAULT_LANGUAGE && !/baidu/i.test(request.headers.get('User-Agent') || '')) {
       url.pathname = `/${language}/`;
       // 302 + no-store: the right destination depends on the visitor's cookie
       // and country, so browsers and caches must not remember this redirect.
@@ -73,6 +74,15 @@ export async function onRequest(context) {
   const page = new Response(response.body, response);
   for (const [name, value] of Object.entries(PAGE_HEADERS)) {
     page.headers.set(name, value);
+  }
+  // Agent discovery (RFC 8288): point each homepage at the site's
+  // machine-readable guides. The site has no API, so there is no api-catalog
+  // or service-desc to list. /sitemap.xml is the index covering every language.
+  const home = /^\/(?:(ja|zh)\/)?$/.exec(url.pathname);
+  if (home) {
+    const prefix = home[1] ? `/${home[1]}` : '';
+    page.headers.append('Link', `<${prefix}/llms.txt>; rel="describedby"; type="text/markdown", ` +
+      '</sitemap.xml>; rel="sitemap"; type="application/xml"');
   }
   // The pages.dev address is for previews only: keep it out of search results.
   if (url.hostname.endsWith('.pages.dev')) {
