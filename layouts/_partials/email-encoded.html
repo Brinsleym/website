@@ -1,0 +1,3 @@
+{{- /* site.Params.contact_email as base64, reversed, so the address never appears in the HTML.
+       The script in baseof.html decodes every [data-eml] element. */ -}}
+{{- delimit (collections.Reverse (split (base64Encode site.Params.contact_email) "")) "" -}}

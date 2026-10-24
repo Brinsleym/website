@@ -14,7 +14,7 @@
           <div class="{{$c}}__email-container">
             <div class="{{$c}}__email-box">
               <div class="{{$c}}__email-label">Email</div>
-              <div class="{{$c}}__email-address" id="email-address">{{ T "contact_email_address" }}</div>
+              <div class="{{$c}}__email-address" id="email-address" data-eml="{{ partial "email-encoded.html" }}">{{ partial "email-fallback.html" }}</div>
               <div class="{{$c}}__button-container">
                 <button class="{{$c}}__copy-button" id="copy-button" aria-label="{{ T "contact_copy_button" }}">
                   <ion-icon name="copy-outline" class="{{$c}}__copy-icon" aria-hidden="true"></ion-icon>

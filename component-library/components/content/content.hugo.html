@@ -3,6 +3,11 @@
     {{- /* Raw HTML can't call partials, so route src="/static/..." through jsdelivr-url:
            jsDelivr in production, local files in development. */}}
     {{- $staticBase := partial "jsdelivr-url.html" "/static/" }}
-    {{ replace .content_html `src="/static/` (printf `src="%s` $staticBase) | safeHTML }}
+    {{- $html := replace .content_html `src="/static/` (printf `src="%s` $staticBase) }}
+    {{- /* Keep the contact address out of the page source: mailto links to it become encoded links */}}
+    {{- $email := site.Params.contact_email }}
+    {{- $link := printf `<a href="mailto:%s">%s</a>` $email $email }}
+    {{- $html = replace $html $link (partial "email-link.html") }}
+    {{ $html | safeHTML }}
   </div>
 </div>

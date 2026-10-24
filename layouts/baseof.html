@@ -36,6 +36,18 @@
   {{ $playlist := .Store.Get "hasSoundCloudPlaylist" }}
   {{ $youtube := .Store.Get "hasYouTubeFacade" }}
 
+  {{/* Decodes the contact address (see _partials/email-encoded.html). Inline rather than in
+       common.js so it never waits on, or goes stale with, the CDN copy, and runs before
+       common.js reads the address for its copy buttons. */}}
+  <script>
+    document.querySelectorAll('[data-eml]').forEach(function (el) {
+      var email = atob(el.getAttribute('data-eml').split('').reverse().join(''));
+      if (el.tagName === 'A') el.href = 'mailto:' + email;
+      el.setAttribute('data-email', email);
+      if (!el.children.length) el.textContent = email;
+    });
+  </script>
+
   {{/* Published as /assets/js/<name>.min.js, which jsDelivr also serves (minifying the repo file),
        so the CDN URL and the site's own copy line up */}}
   {{ $js := slice "scripts" "common" }}
