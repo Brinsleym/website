@@ -87,6 +87,8 @@ projects = "/blog/:title/"
   blog_tags = "/blog/tags/:slug/"
 
 [params]
+# Only ever written into pages encoded (see _partials/email-encoded.html)
+contact_email = "contact@brinsleymorrison.com"
 # CDN for CSS, JS and images (zh overrides it below)
 cdn_domain = "cdn.jsdelivr.net"
 

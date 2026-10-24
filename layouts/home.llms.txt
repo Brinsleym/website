@@ -16,7 +16,7 @@ Other languages: {{ range $i, $t := . }}{{ if $i }}, {{ end }}[{{ .Language.Labe
 {{ with $about }}
 - [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
 {{- end }}
-- Email: contact@brinsleymorrison.com
+- Email: {{ partial "email-fallback.html" }}
 {{- range hugo.Data.social_links.social }}{{ if ne .icon "mail" }}
 - [{{ index $profileNames .icon | default .icon }}]({{ .link }})
 {{- end }}{{ end }}

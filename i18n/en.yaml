@@ -17,7 +17,6 @@ share_this_post: Share this Post
 view_all: View All
 contact_email_title: "Get in touch"
 contact_email_description: "Send me an email at:"
-contact_email_address: "contact@brinsleymorrison.com"
 contact_copy_button: "Copy Email"
 contact_copy_success: "Copied to clipboard!"
 contact_copy_fallback: "Click to select and copy"

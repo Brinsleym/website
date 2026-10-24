@@ -1,0 +1,2 @@
+{{- /* What people without JavaScript see in place of the address: "contact [at] example [dot] com" */ -}}
+{{- replace (replace site.Params.contact_email "@" " [at] ") "." " [dot] " -}}

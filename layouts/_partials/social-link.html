@@ -4,7 +4,7 @@
       {{ range hugo.Data.social_links.social }}
       <li class="social__item{{ if eq .icon "mail" }} social__item--mail{{ end }}">
         {{ if eq .icon "mail" }}
-          <a class="social__link social__link--mail" href="{{ .link }}" data-email="contact@brinsleymorrison.com" target="_blank" rel="noopener"
+          <a class="social__link social__link--mail" data-eml="{{ partial "email-encoded.html" }}" target="_blank" rel="noopener"
             aria-label="{{ or .label .icon }}"><ion-icon name="{{ lower .icon }}" aria-hidden="true"></ion-icon></a>
           <div class="social__copy-feedback">
             {{ T "social_email_copied" }}
