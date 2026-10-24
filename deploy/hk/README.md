@@ -9,9 +9,9 @@ answers depending on where the visitor's DNS resolver is:
 | `@` (bare domain) | Hong Kong VPS | Hong Kong VPS |
 | `cn` | Hong Kong VPS (`A`) | Hong Kong VPS (`A`) |
 
-- **Cloudflare Pages** builds `master` by itself (`cloudflare/pages-build.sh`).
+- **Cloudflare Pages** gets `master` from `.github/workflows/deploy.yml` too.
   `functions/_middleware.js` does the language redirect and country cookie.
-- **Hong Kong VPS** gets `master` from `.github/workflows/deploy-hk.yml`.
+- **Hong Kong VPS** gets `master` from `.github/workflows/deploy.yml`.
   nginx (`deploy/hk/nginx.conf`) does what the middleware does, fixed to China.
   The bare domain only redirects to `www`, for everyone.
 - **TLS on the VPS** comes from Let's Encrypt through acme.sh. Let's Encrypt
@@ -29,8 +29,8 @@ prepared next to it and switched in once everything is ready.
    `bash setup.sh hk_deploy.pub cloudflare` (with `CF_Token` exported, while
    Cloudflare still runs the domain's DNS), or `webroot` once AliDNS does.
 3. Add the repository secrets listed at the top of
-   `.github/workflows/deploy-hk.yml`, then run the workflow by hand once
-   (Actions -> Deploy to Hong Kong -> Run workflow).
+   `.github/workflows/deploy.yml`, then run the workflow by hand once
+   (Actions -> Deploy -> Run workflow).
 4. `bash switch-to-nginx.sh` (`bash switch-to-nginx.sh back` undoes it).
 
 ## Checking

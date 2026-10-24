@@ -113,11 +113,12 @@ The site uses Hugo's built-in build process:
 
 ### Deployment
 
-Cloudflare Pages builds and publishes every push to `master`, and gives each pull request a preview address.
+Every push to `master` is built once by `.github/workflows/deploy.yml` and published to both hosts:
 
-- Build command: `bash cloudflare/pages-build.sh` (downloads Hugo extended at a pinned version, then runs `hugo --environment production`)
-- Build output directory: `public`
-- `static/_headers` sets headers for static files, and `static/_routes.json` keeps the middleware off them. Pages get their headers from the middleware, because Pages does not apply `_headers` to responses that pass through a Function.
+- **Cloudflare Pages** (`www.brinsleymorrison.com` outside mainland China), with `functions/_middleware.js` doing the language redirect and country cookie
+- **The Hong Kong VPS** (mainland China, chosen by AliDNS), with nginx doing the same: see `deploy/hk/README.md`
+
+The build is `bash cloudflare/pages-build.sh`, which downloads Hugo extended at a pinned version and runs `hugo --environment production`. `static/_headers` sets headers for static files on Pages, and `static/_routes.json` keeps the middleware off them. Pages get their headers from the middleware, because Pages does not apply `_headers` to responses that pass through a Function.
 
 
 ## Technical Stack
